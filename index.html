@@ -157,13 +157,15 @@
 
     .project-row:hover .project-cta-arrow { transform: translateX(4px); }
 
-    .coming-badge {
-      margin-top: 1.25rem;
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-subtle);
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.75rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--blue);
+      text-decoration: none;
     }
 
     /* Right: image / placeholder */
@@ -268,7 +270,7 @@
       </a>
 
       <!-- 02 Wonderbudi -->
-      <a href="/projects/wonderbudi" class="project-row coming-soon" tabindex="-1" aria-hidden="true">
+      <a href="/projects/wonderbudi/" class="project-row">
         <div class="project-row-inner">
           <div class="project-info">
             <p class="project-num">02</p>
@@ -279,7 +281,7 @@
               <span class="project-tag">Wellness</span>
               <span class="project-tag">Interaction Design</span>
             </div>
-            <p class="coming-badge">Case Study Coming Soon</p>
+            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
           </div>
           <div class="project-thumb thumb-wonderbudi">
             <img src="/Wonderbudibox.png"
@@ -290,7 +292,7 @@
       </a>
 
       <!-- 03 Explorius -->
-      <div class="project-row coming-soon">
+      <a href="/projects/explorius/" class="project-row">
         <div class="project-row-inner">
           <div class="project-info">
             <p class="project-num">03</p>
@@ -301,7 +303,7 @@
               <span class="project-tag">Discovery</span>
               <span class="project-tag">Web App</span>
             </div>
-            <p class="coming-badge">Case Study Coming Soon</p>
+            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
           </div>
           <div class="project-thumb thumb-explorius">
             <img src="/Exploriusbox.png"
@@ -309,10 +311,10 @@
                  loading="lazy">
           </div>
         </div>
-      </div>
+      </a>
 
       <!-- 04 Baloo -->
-      <div class="project-row coming-soon">
+      <a href="/projects/baloo/" class="project-row">
         <div class="project-row-inner">
           <div class="project-info">
             <p class="project-num">04</p>
@@ -323,7 +325,7 @@
               <span class="project-tag">Product Design</span>
               <span class="project-tag">Visual Design</span>
             </div>
-            <p class="coming-badge">Case Study Coming Soon</p>
+            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
           </div>
           <div class="project-thumb thumb-baloo">
             <img src="/Baloobox.png"
@@ -331,7 +333,7 @@
                  loading="lazy">
           </div>
         </div>
-      </div>
+      </a>
 
       <!-- 05 Legaleey -->
       <a href="/projects/legaleey" class="project-row">
