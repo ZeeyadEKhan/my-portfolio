@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zeeyad Khan — Visual Designer. Portfolio of UX, product, and visual design work.">
+  <title>Zeeyad Khan — Visual Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    /* ── HOME-SPECIFIC ── */
+    .home-body { padding-top: var(--topbar-h); }
+
+    /* Hero intro */
+    .home-hero {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 7rem 2.5rem 6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .home-hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      margin-bottom: 1.5rem;
+    }
+
+    .home-hero-title {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+      color: var(--ink);
+      max-width: 14ch;
+      margin-bottom: 2rem;
+    }
+
+    .home-hero-desc {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--ink-muted);
+      max-width: 48ch;
+      line-height: 1.7;
+    }
+
+    /* Work section */
+    .work-section {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    .work-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Project row */
+    .project-row {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+    }
+
+    .project-row-inner {
+      padding: 3.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      transition: opacity 0.2s ease;
+    }
+
+    .project-row:hover .project-row-inner { opacity: 0.72; }
+
+    /* Disabled rows (no case study yet) */
+    .project-row.coming-soon {
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .project-row.coming-soon .project-row-inner { opacity: 0.42; }
+
+    /* Left: text info */
+    .project-info {}
+
+    .project-num {
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      margin-bottom: 1rem;
+    }
+
+    .project-name {
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+      color: var(--ink);
+      margin-bottom: 0.85rem;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      max-width: 44ch;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .project-tag {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      color: var(--ink-subtle);
+    }
+
+    .project-cta {
+      margin-top: 1.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--blue);
+    }
+
+    .project-cta-arrow {
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .project-row:hover .project-cta-arrow { transform: translateX(4px); }
+
+    .coming-badge {
+      margin-top: 1.25rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+    }
+
+    /* Right: image / placeholder */
+    .project-thumb {
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-thumb-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Per-project thumb colors */
+    .thumb-lumi      { background: #1e2c3a; }
+    .thumb-wonderbudi { background: #f0ece6; }
+    .thumb-explorius { background: #e8f0ff; }
+    .thumb-baloo     { background: #fff8e8; }
+    .thumb-legaleey  { background: #eef3ff; }
+
+    /* Home footer */
+    .home-footer {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .work-section, .home-hero, .home-footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .project-row-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .project-thumb { aspect-ratio: 16 / 9; }
+    }
+
+    @media (max-width: 540px) {
+      .home-hero { padding: 4rem 1.5rem 3.5rem; }
+    }
+  </style>
+</head>
+<body class="home-body">
+
+  <header class="topbar">
+    <a href="/" class="topbar-brand">Zeeyad Khan</a>
+    <nav class="topbar-nav" aria-label="Site navigation">
+      <a href="/#work" class="active">Work</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="home-hero" aria-label="Introduction">
+    <p class="home-hero-eyebrow">Visual Designer · SCAD Graduate · San Francisco</p>
+    <h1 class="home-hero-title">Design that earns attention.</h1>
+    <p class="home-hero-desc">I design experiences for products people actually want to use. From physical AI robots to legal tech platforms to luxury hospitality apps.</p>
+  </section>
+
+  <!-- Work -->
+  <section id="work" aria-label="Selected work">
+    <div class="work-section">
+      <p class="work-label">Selected Work</p>
+
+      <!-- 01 Lumi -->
+      <a href="/projects/lumi" class="project-row">
+        <div class="project-row-inner">
+          <div class="project-info">
+            <p class="project-num">01</p>
+            <h2 class="project-name">Lumi</h2>
+            <p class="project-desc">An AI social robot that monitors anger patterns, de-escalates arguments in real time, and builds empathy through light, sound, and voice.</p>
+            <div class="project-tags">
+              <span class="project-tag">AI Product</span>
+              <span class="project-tag">Physical Design</span>
+              <span class="project-tag">UX Research</span>
+              <span class="project-tag">SCAD</span>
+            </div>
+            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
+          </div>
+          <div class="project-thumb thumb-lumi">
+            <img src="/Lumibox.png"
+                 alt="Lumi robot showing three LED states"
+                 loading="lazy">
+          </div>
+        </div>
+      </a>
+
+      <!-- 02 Wonderbudi -->
+      <a href="/projects/wonderbudi" class="project-row coming-soon" tabindex="-1" aria-hidden="true">
+        <div class="project-row-inner">
+          <div class="project-info">
+            <p class="project-num">02</p>
+            <h2 class="project-name">Wonderbudi</h2>
+            <p class="project-desc">A thoughtfully designed wellness companion experience built around ritual, habit formation, and mindful daily routines.</p>
+            <div class="project-tags">
+              <span class="project-tag">Mobile App</span>
+              <span class="project-tag">Wellness</span>
+              <span class="project-tag">Interaction Design</span>
+            </div>
+            <p class="coming-badge">Case Study Coming Soon</p>
+          </div>
+          <div class="project-thumb thumb-wonderbudi">
+            <img src="/Wonderbudibox.png"
+                 alt="Wonderbudi project banner"
+                 loading="lazy">
+          </div>
+        </div>
+      </a>
+
+      <!-- 03 Explorius -->
+      <div class="project-row coming-soon">
+        <div class="project-row-inner">
+          <div class="project-info">
+            <p class="project-num">03</p>
+            <h2 class="project-name">Explorius</h2>
+            <p class="project-desc">A travel discovery platform designed to surface meaningful, curated experiences for curious explorers seeking depth over convenience.</p>
+            <div class="project-tags">
+              <span class="project-tag">Travel</span>
+              <span class="project-tag">Discovery</span>
+              <span class="project-tag">Web App</span>
+            </div>
+            <p class="coming-badge">Case Study Coming Soon</p>
+          </div>
+          <div class="project-thumb thumb-explorius">
+            <img src="/Exploriusbox.png"
+                 alt="Explorius project"
+                 loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 Baloo -->
+      <div class="project-row coming-soon">
+        <div class="project-row-inner">
+          <div class="project-info">
+            <p class="project-num">04</p>
+            <h2 class="project-name">Baloo</h2>
+            <p class="project-desc">A brand identity and product design project centered on warmth, play, and approachable everyday design for a consumer goods brand.</p>
+            <div class="project-tags">
+              <span class="project-tag">Brand Identity</span>
+              <span class="project-tag">Product Design</span>
+              <span class="project-tag">Visual Design</span>
+            </div>
+            <p class="coming-badge">Case Study Coming Soon</p>
+          </div>
+          <div class="project-thumb thumb-baloo">
+            <img src="/Baloobox.png"
+                 alt="Baloo project"
+                 loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 Legaleey -->
+      <a href="/projects/legaleey" class="project-row">
+        <div class="project-row-inner">
+          <div class="project-info">
+            <p class="project-num">05</p>
+            <h2 class="project-name">Legaleey</h2>
+            <p class="project-desc">An AI powered legal document search platform for law firms. Reduces the hours lawyers spend finding and locating items within contracts.</p>
+            <div class="project-tags">
+              <span class="project-tag">B2B SaaS</span>
+              <span class="project-tag">Legal Tech</span>
+              <span class="project-tag">Desktop</span>
+              <span class="project-tag">UX Design</span>
+            </div>
+            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
+          </div>
+          <div class="project-thumb thumb-legaleey">
+            <img src="/Legaleeybox.png"
+                 alt="Legaleey project"
+                 loading="lazy">
+          </div>
+        </div>
+      </a>
+
+
+    </div>
+  </section>
+
+  <div class="home-footer">
+    <footer class="site-footer">
+      <div class="footer-left">
+        <span class="footer-name">Zeeyad Khan</span>
+        <span class="footer-role">Visual Designer · zeeyadkhan.com</span>
+      </div>
+      <span class="footer-right">San Francisco · 2026</span>
+    </footer>
+  </div>
+
+  <script>
+    // Fade up on scroll
+    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!noMotion) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    }
+  </script>
+</body>
+</html>

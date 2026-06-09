@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Zeeyad Khan — Visual Designer, SCAD graduate, focused on product, UX, and interaction design.">
+  <title>About — Zeeyad Khan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    .page-body { padding-top: var(--topbar-h); }
+
+    .about-wrap {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    .about-hero {
+      padding: 7rem 0 5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-title {
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+      color: var(--ink);
+      margin-bottom: 2.5rem;
+    }
+
+    .about-body {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 6rem;
+      padding: 5rem 0;
+    }
+
+    .about-bio p {
+      font-size: 1.05rem;
+      line-height: 1.78;
+      color: var(--ink-muted);
+      max-width: 60ch;
+      margin-bottom: 1.4rem;
+    }
+
+    .about-bio p:last-child { margin-bottom: 0; }
+
+    .about-bio strong { font-weight: 600; color: var(--ink); }
+
+    /* Sidebar info */
+    .about-sidebar {}
+
+    .about-sidebar-section {
+      margin-bottom: 3rem;
+    }
+
+    .about-sidebar-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .about-skill-list li {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--ink-muted);
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--surface-mid);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .about-skill-list li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+
+    .about-tool-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .about-tool {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--ink-muted);
+      padding: 0.6rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .about-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--blue);
+      text-decoration: none;
+      transition: opacity 0.18s;
+    }
+
+    .about-link:hover { opacity: 0.7; }
+
+    /* Photo */
+    .about-photo {
+      margin-bottom: 2.5rem;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    /* Footer wrapper */
+    .about-footer { border-top: 1px solid var(--border); }
+
+    @media (max-width: 860px) {
+      .about-wrap { padding: 0 1.5rem; }
+      .about-body { grid-template-columns: 1fr; gap: 3rem; }
+      .about-hero { padding: 4.5rem 0 3rem; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <header class="topbar">
+    <a href="/" class="topbar-brand">Zeeyad Khan</a>
+    <nav class="topbar-nav" aria-label="Site navigation">
+      <a href="/#work">Work</a>
+      <a href="/about" class="active">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="about-wrap">
+
+    <div class="about-hero">
+      <p class="about-eyebrow">Visual Designer</p>
+      <h1 class="about-title">Designing things<br>worth using.</h1>
+    </div>
+
+    <div class="about-body">
+      <div class="about-bio">
+        <p>I am a <strong>Visual Designer and UX researcher</strong> based in San Francisco, with a BFA in User Experience Design from the Savannah College of Art and Design (SCAD). My work sits at the intersection of product thinking, visual craft, and human behavior.</p>
+
+        <p>Over the course of my training and professional practice, I have designed across a wide range of contexts: a <strong>physical AI robot</strong> for conflict de-escalation, a <strong>B2B legal tech platform</strong> helping lawyers search contracts faster, a <strong>hospitality web app</strong> replacing printed menus at Waldorf Astoria and Hilton properties, and a series of <strong>consumer and wellness products</strong> built around ritual and habit formation.</p>
+
+        <p>I am drawn to problems where the hardest design challenge is knowing what to leave out. Whether the medium is a mobile screen, a voice interface, or a physical object in a room, I believe good design earns trust by being <strong>useful before it is beautiful</strong> and durable enough to go unnoticed.</p>
+
+        <p>At SCAD I completed UXDG 415, a graduate level studio focused on the complexity of simplicity, which shaped how I approach ambiguous briefs: start with the smallest possible unit of user value, then build outward from there.</p>
+
+        <p>My most recent work sits at the intersection of AI systems and human-centered design. Across Lumi, WonderBudi, and Legaleey, I have designed the interfaces, interactions, and information architecture that make AI behavior legible and trustworthy to the people using it. That is the kind of problem I want to keep working on.</p>
+
+        <p>I am available for full time roles and select freelance collaborations. If you are building something that needs to be both rigorously designed and genuinely human, I would love to talk.</p>
+
+        <br>
+        <a href="/contact" class="about-link">Get in touch →</a>
+      </div>
+
+      <aside class="about-sidebar" aria-label="Skills and tools">
+
+        <div class="about-photo">
+          <img src="/ZeeyadKhanaboutme.png" alt="Zeeyad Khan, Visual Designer">
+        </div>
+
+        <div class="about-sidebar-section">
+          <p class="about-sidebar-label">Disciplines</p>
+          <ul class="about-skill-list">
+            <li>UX and Product Design</li>
+            <li>Interaction Design</li>
+            <li>Visual and Brand Identity</li>
+            <li>AI Product Design</li>
+            <li>User Research and Testing</li>
+            <li>Information Architecture</li>
+            <li>Prototyping and Wireframing</li>
+          </ul>
+        </div>
+
+        <div class="about-sidebar-section">
+          <p class="about-sidebar-label">Tools</p>
+          <div class="about-tool-grid">
+            <span class="about-tool">Figma</span>
+            <span class="about-tool">Adobe XD</span>
+            <span class="about-tool">Illustrator</span>
+            <span class="about-tool">Photoshop</span>
+            <span class="about-tool">InDesign</span>
+            <span class="about-tool">Principle</span>
+            <span class="about-tool">HTML / CSS</span>
+            <span class="about-tool">Miro</span>
+          </div>
+        </div>
+
+        <div class="about-sidebar-section">
+          <p class="about-sidebar-label">Education</p>
+          <ul class="about-skill-list">
+            <li>BFA User Experience Design, SCAD</li>
+            <li>Minor, Graphic Design</li>
+          </ul>
+        </div>
+
+        <div class="about-sidebar-section">
+          <p class="about-sidebar-label">Connect</p>
+          <ul class="about-skill-list" style="gap: 0.75rem;">
+            <li style="border: none; padding: 0;">
+              <a href="/contact" class="about-link" style="font-size:0.82rem;">zeeyadenkhan@gmail.com →</a>
+            </li>
+            <li style="border: none; padding: 0;">
+              <a href="https://www.linkedin.com/in/zeeyadkhan" target="_blank" rel="noopener" class="about-link" style="font-size:0.82rem;">LinkedIn →</a>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+    </div>
+
+  </div>
+
+  <div style="max-width: var(--page-max); margin: 0 auto; padding: 0 2.5rem;" class="about-footer">
+    <footer class="site-footer" style="padding-left:0; padding-right:0;">
+      <div class="footer-left">
+        <span class="footer-name">Zeeyad Khan</span>
+        <span class="footer-role">Visual Designer · zeeyadkhan.com</span>
+      </div>
+      <span class="footer-right">San Francisco · 2026</span>
+    </footer>
+  </div>
+
+</body>
+</html>

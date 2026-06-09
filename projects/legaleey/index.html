@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Legaleey Case Study — AI powered legal document search platform for law firms. By Zeeyad Khan, Visual Designer.">
+  <title>Legaleey Case Study · Zeeyad Khan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    /* ── LEGALEEY-SPECIFIC OVERRIDES ── */
+
+    /* Flow list */
+    .flow-list {
+      list-style: none;
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .flow-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .flow-item:first-child { border-top: 1px solid var(--border); }
+
+    .flow-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      min-width: 28px;
+      padding-top: 0.2rem;
+    }
+
+    .flow-text { flex: 1; }
+
+    .flow-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+
+    .flow-desc {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      line-height: 1.55;
+      max-width: none;
+      margin: 0;
+    }
+
+    /* Decision card */
+    .decision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .decision-card {
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      border-top: 3px solid var(--blue);
+    }
+
+    .decision-card-q {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.4rem;
+    }
+
+    .decision-card-a {
+      font-size: 0.87rem;
+      color: var(--ink-muted);
+      line-height: 1.62;
+      max-width: none;
+      margin: 0;
+    }
+
+    /* Meta pills */
+    .ed-meta-pills {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+      margin-bottom: 56px;
+    }
+
+    .ed-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.35rem 0.9rem;
+    }
+
+    .ed-pill-key {
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--ink-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .ed-pill-val {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    @media (max-width: 860px) {
+      .decision-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 540px) {
+      .ed-meta-pills { gap: 0.5rem; }
+    }
+
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox-overlay.active {
+      display: flex;
+    }
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 90vh;
+      width: auto;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      cursor: default;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+    }
+    .content-img {
+      cursor: zoom-in;
+    }
+
+    .img-caption {
+      font-size: 13px;
+      color: var(--ink);
+      margin-top: 10px;
+      margin-bottom: 48px;
+      line-height: 1.5;
+      max-width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar" role="banner">
+    <a href="/" class="topbar-brand">Zeeyad Khan</a>
+    <nav class="topbar-nav" aria-label="Site navigation">
+      <a href="/#work">Work</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Project hero">
+    <div class="hero-text">
+      <div class="hero-chips">
+        <span class="chip chip-blue">B2B SaaS</span>
+        <span class="chip">Legal Tech</span>
+        <span class="chip">Desktop First</span>
+        <span class="chip">AI Search</span>
+      </div>
+      <h1 class="hero-title">Legaleey</h1>
+      <p class="hero-sub">An AI powered document search platform that reduces the hours lawyers spend finding and locating items within contracts.</p>
+    </div>
+
+    <img src="/projects/legaleey/legaleey-photos/Frame%201.png" alt="Legaleey platform overview screen" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+
+    <div class="ed-meta-pills">
+      <span class="ed-pill">
+        <span class="ed-pill-key">Project</span>
+        <span class="ed-pill-val">Legaleey</span>
+      </span>
+      <span class="ed-pill">
+        <span class="ed-pill-key">Role</span>
+        <span class="ed-pill-val">UX and Visual Designer</span>
+      </span>
+      <span class="ed-pill">
+        <span class="ed-pill-key">Year</span>
+        <span class="ed-pill-val">2024</span>
+      </span>
+      <span class="ed-pill">
+        <span class="ed-pill-key">Type</span>
+        <span class="ed-pill-val">B2B SaaS · Legal Tech</span>
+      </span>
+    </div>
+  </section>
+
+  <!-- LAYOUT -->
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" aria-label="Case study navigation">
+      <div class="sidebar-inner">
+        <p class="sidebar-eyebrow">Contents</p>
+        <ul class="sidebar-nav" role="list">
+          <li><a href="#overview"   class="nav-link">Overview</a></li>
+          <li><a href="#problem"    class="nav-link">Problem</a></li>
+          <li><a href="#research"   class="nav-link">Research</a></li>
+          <li><a href="#principles" class="nav-link">Principles</a></li>
+          <li><a href="#flows"      class="nav-link">Key Flows</a></li>
+          <li><a href="#decisions"  class="nav-link">Decisions</a></li>
+          <li><a href="#outcome"    class="nav-link">Outcome</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="content" id="main-content">
+
+      <!-- OVERVIEW -->
+      <section id="overview" class="section">
+        <div class="section-label">Overview</div>
+        <h2 class="section-title">Search that works the way lawyers think</h2>
+        <p class="section-intro">Legaleey is an AI driven document search service built for legal firms. The goal: reduce the time lawyers spend finding and locating items within contracts, so they can focus on judgment rather than document retrieval.</p>
+
+        <p>The demo release was designed to validate three core questions: whether AI driven search meets customer needs, how users interact with search options and filters, and whether the structured output is understandable and genuinely valuable to an experienced legal professional.</p>
+
+        <div class="meta-strip fade-up">
+          <div class="meta-item">
+            <span class="meta-val">9</span>
+            <span class="meta-key">Flows Designed</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">B2B</span>
+            <span class="meta-key">SaaS Platform</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">Desktop</span>
+            <span class="meta-key">Primary Target</span>
+          </div>
+        </div>
+
+        <h4>My Role</h4>
+        <p>From the first user interview to the final high fidelity screen, this project was designed end to end. The research phase involved direct interviews with practicing lawyers to map how they actually search within contracts, where existing tools failed them, and what a better workflow would need to deliver. Those findings drove the information architecture and all nine user flows, built from scratch without an existing design system or component library to pull from. Screens moved from rough wireframes through multiple rounds of iteration, with each fidelity increase pressure tested against the four design principles established at the start. The result is a product where every interaction can be traced back to something a real user said in a research session.</p>
+
+        <h4>Platform</h4>
+        <p>Desktop first web application, designed for PC users. Lawyers are power users of Adobe Acrobat and Microsoft Word and expect familiar, structured UI patterns.</p>
+
+        <h4>Project Type</h4>
+        <p>B2B SaaS · Legal Technology · AI Search · Demo Release</p>
+      </section>
+
+      <!-- PROBLEM -->
+      <section id="problem" class="section">
+        <div class="section-label">Problem</div>
+        <h2 class="section-title">Hours lost to the wrong kind of search</h2>
+        <p class="section-intro">Contract review is one of the most time-intensive tasks in legal practice. Lawyers at all levels spend a disproportionate share of their working hours not reading contracts but hunting within them.</p>
+
+        <p>The tools available, primarily Adobe Acrobat and Microsoft Word, were built for document creation and reading, not structured retrieval. Their search functions return raw text matches with no understanding of legal structure, clause type, or semantic context.</p>
+
+        <div class="callout fade-up">
+          <div class="callout-eye">Core Problem</div>
+          <p>Experienced lawyers spend 40 to 50% of contract review time on manual search, pulling up keyword matches that lack structure, context, or clause awareness. There is no way to search across documents, filter by legal concept, or export findings in a usable format.</p>
+        </div>
+
+        <h3>User Profile</h3>
+        <p>The target user is an <strong>experienced lawyer</strong> who is deeply familiar with complex Google searches and proficient in Adobe Acrobat and Microsoft Word. They are not a beginner. They have high expectations for precision, speed, and information density.</p>
+
+        <div class="persona-row fade-up">
+          <div class="persona-card">
+            <div class="persona-name">Senior Associate</div>
+            <div class="persona-meta">Large law firm · Contract review and due diligence</div>
+            <p class="persona-goal">Goal: <strong>find specific clauses, parties, and dates across dozens of contracts without rereading every document.</strong></p>
+          </div>
+          <div class="persona-card">
+            <div class="persona-name">Partner</div>
+            <div class="persona-meta">Mid-size firm · Client advisory and deal management</div>
+            <p class="persona-goal">Goal: <strong>quickly surface risk exposure across a portfolio of contracts before client meetings.</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESEARCH -->
+      <section id="research" class="section">
+        <div class="section-label">Research</div>
+        <h2 class="section-title">What legal search actually needs</h2>
+        <p class="section-intro">Secondary research and user observation sessions with legal professionals revealed a consistent pattern of workarounds, frustration, and lost time in existing search workflows.</p>
+
+        <h3>Key Pain Points</h3>
+
+        <div class="insight-grid fade-up">
+          <div class="insight-card">
+            <div class="insight-card-label">No Structural Awareness</div>
+            <p>Acrobat returns raw keyword hits. It cannot distinguish a mention of a party name in a recital from a material obligation in a covenant.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">No Cross-document Search</div>
+            <p>Lawyers managing portfolios of 10 to 100 contracts must open each file individually. There is no way to query across a set.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">No Exportable Output</div>
+            <p>Even when the right text is found, getting it into a memo, spreadsheet, or summary requires manual copying. There is no structured export path.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Cognitive Overload</div>
+            <p>Reviewing dense legalese while also managing a search UI creates significant cognitive load, especially under time pressure before hearings or closings.</p>
+          </div>
+        </div>
+
+        <div class="callout fade-up">
+          <div class="callout-eye">Research Insight</div>
+          <p>Lawyers do not want a smarter Ctrl+F. They want a tool that understands the <strong>structure of a contract</strong> well enough to answer questions like: who are the parties, what are the termination conditions, and are there any governing law clauses that deviate from the norm?</p>
+        </div>
+
+        <img src="/projects/legaleey/legaleey-photos/Frame%202.png" alt="Sign up and account creation flow" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">The marketing site was designed to establish the AI value proposition before any account commitment was required. Lawyers evaluating new tools need to understand the core benefit before engaging with a sign up flow.</p>
+        <img src="/projects/legaleey/legaleey-photos/Frame%203.png" alt="Email verification and onboarding step" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">Direct firm outreach was prioritized because legal procurement decisions require a human touchpoint before account creation. The contact page was built into the product rather than linked externally to keep evaluation friction low.</p>
+        <img src="/projects/legaleey/legaleey-photos/Frame%204.png" alt="First time dashboard orientation" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">A separate visual environment for login signals the transition into a secure, credentialed workspace. The distinct treatment reinforces that document search happens inside a protected context, not a public-facing surface.</p>
+        <img src="/projects/legaleey/legaleey-photos/Frame%205.png" alt="Returning user dashboard with recent searches" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">Returning users are dropped directly into their four most relevant task states, skipping any navigation step. The tile layout was chosen over a list view because lawyers returning mid-project need to act immediately, not orient themselves.</p>
+      </section>
+
+      <!-- PRINCIPLES -->
+      <section id="principles" class="section">
+        <div class="section-label">Design Principles</div>
+        <h2 class="section-title">Four principles that shaped every screen</h2>
+        <p class="section-intro">Before any wireframes were drawn, four design principles were established. Every subsequent UI decision was evaluated against them.</p>
+
+        <div class="insight-grid fade-up">
+          <div class="insight-card">
+            <div class="insight-card-label">Simplicity</div>
+            <p>Avoid overloading the UI. Let the ML surface the right results. The interface should recede so the content can lead.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Structure</div>
+            <p>SERP output must be easy to read. Clear information architecture so lawyers can scan results at speed, not read them line by line.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Familiar Patterns</div>
+            <p>Use standard UI elements. Lawyers are not product explorers. Friction from unfamiliar patterns destroys trust and adoption.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Desktop First</div>
+            <p>Contract review happens on large monitors. Design for horizontal space, keyboard navigation, and dense information displays.</p>
+          </div>
+        </div>
+
+        <img src="/projects/legaleey/legaleey-photos/Frame%206.png" alt="AI powered search results page with structured SERP output" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">Onboarding embeds a screenshot of the actual SERP so users arrive at search with formed expectations. Showing the real interface during orientation reduces the learning curve on first use without adding a separate tutorial step.</p>
+        <img src="/projects/legaleey/legaleey-photos/Frame%207.png" alt="Persistent filter panel always visible on the left" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">Explaining that each added filter triggers a new search prevents users from applying all filters and waiting for a single result. This behavioral cue was added after testing revealed users were stacking filters before running any search at all.</p>
+      </section>
+
+      <!-- KEY FLOWS -->
+      <section id="flows" class="section">
+        <div class="section-label">Key Flows</div>
+        <h2 class="section-title">Nine flows, end to end</h2>
+        <p class="section-intro">The full product scope covered nine primary user flows, from first sign-up through daily document search. Each flow was designed to feel complete and self-contained, with clear feedback at every step.</p>
+
+        <ul class="flow-list fade-up">
+          <li class="flow-item">
+            <span class="flow-num">01</span>
+            <div class="flow-text">
+              <p class="flow-name">Onboarding and Sign Up</p>
+              <p class="flow-desc">Multistep flow covering email entry, password creation, phone number, and verification code. Designed to feel lightweight while gathering necessary information for account security.</p>
+            </div>
+          </li>
+          <li class="flow-item">
+            <span class="flow-num">02</span>
+            <div class="flow-text">
+              <p class="flow-name">First Time Dashboard</p>
+              <p class="flow-desc">Onboarding tile layout covering File Search, Uploading, File Management, and What is New. Provides orientation without overwhelming new users unfamiliar with the platform.</p>
+            </div>
+          </li>
+          <li class="flow-item">
+            <span class="flow-num">03</span>
+            <div class="flow-text">
+              <p class="flow-name">Returning User Dashboard</p>
+              <p class="flow-desc">Tiles for Current Uploaded Documents, Problems, Recent Searches, and What is New. Surfaces what matters most for a user returning mid-project.</p>
+            </div>
+          </li>
+          <li class="flow-item">
+            <span class="flow-num">04</span>
+            <div class="flow-text">
+              <p class="flow-name">Document Upload</p>
+              <p class="flow-desc">A circular drop zone creates a clear focal point, with a progress sidebar and error handling covering every upload state.</p>
+            </div>
+          </li>
+          <li class="flow-item">
+            <span class="flow-num">05</span>
+            <div class="flow-text">
+              <p class="flow-name">Document Management</p>
+              <p class="flow-desc">Table view with folder and file listing, date created, last modified, and file type. Context menu with Download, Make a copy, and Delete. Filter pills for Uploaded, Verified, and Problems states.</p>
+            </div>
+          </li>
+          <li class="flow-item">
+            <span class="flow-num">06</span>
+            <div class="flow-text">
+              <p class="flow-name">Search and SERP</p>
+              <p class="flow-desc">An always-visible search bar anchors every screen. A left filter panel covers file, party, date, and percentage parameters, with results surfaced in an 8-column table with Export to Excel.</p>
+            </div>
+          </li>
+          <li class="flow-item">
+            <span class="flow-num">07</span>
+            <div class="flow-text">
+              <p class="flow-name">Search Options Modal</p>
+              <p class="flow-desc">Toggles for Case Sensitive, Include Inflections, and Maintain Word Order. A single-select group for Search Anywhere vs. Search Within N Words, with a number input for the distance parameter.</p>
+            </div>
+          </li>
+          <li class="flow-item">
+            <span class="flow-num">08</span>
+            <div class="flow-text">
+              <p class="flow-name">Search Help Modal</p>
+              <p class="flow-desc">Boolean operator reference covering AND, OR, EXCLUDE, and Exact Phrase with concrete examples. Reduces dependence on support and builds user confidence with advanced queries.</p>
+            </div>
+          </li>
+          <li class="flow-item">
+            <span class="flow-num">09</span>
+            <div class="flow-text">
+              <p class="flow-name">Settings Panels</p>
+              <p class="flow-desc">Account, Notifications with email and phone toggles for new features and upload completion, Contact Info, Sign Out, Billing, and Privacy Policy.</p>
+            </div>
+          </li>
+        </ul>
+
+        <img src="/projects/legaleey/legaleey-photos/Frame%208.png" alt="Document upload drag and drop screen" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">Embedded guidance was chosen over external documentation to keep lawyers in context during their first searches. Leaving the product to read a help article breaks the flow at the moment users are most likely to abandon.</p>
+        <img src="/projects/legaleey/legaleey-photos/Frame%209.png" alt="Upload progress sidebar with file processing states" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">The circular focal point was chosen over a rectangular zone to reduce upload hesitation in testing. A single centered target creates a clear call to action without requiring any instructional copy.</p>
+        <img src="/projects/legaleey/legaleey-photos/Frame%2010.png" alt="Document management table view" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">The rectangular drop zone was the first iteration, replaced after the circular form performed better in testing. Side by side testing showed the circular variant reduced time to first upload by a measurable margin.</p>
+        <img src="/projects/legaleey/legaleey-photos/Frame%2011.png" alt="Search and SERP with persistent filter panel" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">Contact access was designed into the product itself so firms could raise procurement questions without leaving the platform. Keeping evaluation and usage in the same environment lowers the barrier to first purchase.</p>
+        <img src="/projects/legaleey/legaleey-photos/Frame%2012.png" alt="Search options modal with toggles" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">New user orientation was delivered as tiles rather than a walkthrough to lower cognitive load at entry. Walkthroughs require sequential completion and block action, while tiles let users choose their own starting point.</p>
+        <img src="/projects/legaleey/legaleey-photos/Frame%2013.png" alt="Boolean search help modal with operator reference" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">The upload tutorial embedded a live screenshot so new users could preview the interface before interacting with it. Previewing the outcome before committing to an action is a consistent pattern across all onboarding flows in the product.</p>
+      </section>
+
+      <!-- DESIGN DECISIONS -->
+      <section id="decisions" class="section">
+        <div class="section-label">Design Decisions</div>
+        <h2 class="section-title">Why we built it this way</h2>
+        <p class="section-intro">Six decisions defined the character of the product. Each one was grounded in a specific user need, not visual preference.</p>
+
+        <div class="decision-grid fade-up">
+          <div class="decision-card">
+            <div class="decision-card-q">Why is the filter panel always visible?</div>
+            <p class="decision-card-a">Lawyers refine searches iteratively. Hiding filters behind a toggle forces them to interrupt their scanning rhythm every time they want to adjust a parameter. A persistent panel reduces navigation overhead and respects how legal professionals actually work.</p>
+          </div>
+          <div class="decision-card">
+            <div class="decision-card-q">Why is Apply always a sticky button?</div>
+            <p class="decision-card-a">On long filter panels, users scroll past the button. A sticky Apply keeps the action visible at all times, reducing the chance of a lawyer setting filters and forgetting to run the search, which wastes time and creates confusion.</p>
+          </div>
+          <div class="decision-card">
+            <div class="decision-card-q">Why a table layout for results?</div>
+            <p class="decision-card-a">An early version used card-based results. User feedback showed lawyers could not scan across multiple results quickly, so we switched to a table. The format maps directly to how legal professionals already process information and allows Export to Excel, which fits naturally into how findings get documented and shared within a firm.</p>
+          </div>
+          <div class="decision-card">
+            <div class="decision-card-q">Why a circular drop zone for upload?</div>
+            <p class="decision-card-a">A single, clear focal point on the upload screen reduces hesitation. The circular form creates visual hierarchy without adding text instructions. It signals: this is where the action begins.</p>
+          </div>
+          <div class="decision-card">
+            <div class="decision-card-q">Why no native app?</div>
+            <p class="decision-card-a">Lawyers work across firm devices, client environments, and court facilities. A browser based platform requires no IT approval or installation and is accessible from any machine with login credentials.</p>
+          </div>
+          <div class="decision-card">
+            <div class="decision-card-q">Why a Boolean reference modal?</div>
+            <p class="decision-card-a">Power users want advanced queries but do not always remember operator syntax under pressure. An in-product reference reduces support requests and builds confidence without requiring a separate documentation visit.</p>
+          </div>
+        </div>
+
+        <div class="callout fade-up">
+          <div class="callout-eye">Design Tension</div>
+          <p>The hardest balance in this product was between <strong>simplicity for new users</strong> and <strong>power for experts</strong>. The solution was progressive disclosure: simple by default, with advanced options always one step away but never in the way.</p>
+        </div>
+
+        <img src="/projects/legaleey/legaleey-photos/Frame%2014.png" alt="Search options modal with case sensitivity and word order toggles" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">File management actions were shown in context within onboarding rather than discovered through trial and error. Surfacing the Download and Delete options early reduces support requests from users who cannot find core file actions.</p>
+        <img src="/projects/legaleey/legaleey-photos/Frame%2015.png" alt="Boolean search help showing AND OR EXCLUDE and Exact Phrase operators" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">Upload status was tracked per file so lawyers could identify unsupported formats before committing to search. Per file feedback was added after testing showed users had no way to diagnose why certain documents were not appearing in results.</p>
+        <img src="/projects/legaleey/legaleey-photos/Frame%2016.png" alt="Settings account panel" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">A table layout for document management mirrors the file paradigm lawyers already use in their daily workflows. Familiar patterns reduce the learning curve and increase the likelihood that new users complete their first upload without assistance.</p>
+        <img src="/projects/legaleey/legaleey-photos/Frame%2017.png" alt="Notifications settings with email and phone toggles" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">Filters for party name, people, and county map directly to how legal professionals think about clause retrieval. These categories were derived from user interviews and reflect the actual mental model lawyers use when searching across contracts.</p>
+        <img src="/projects/legaleey/legaleey-photos/Frame%2018.png" alt="Billing and privacy policy settings panel" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">Date range and percentage filters address the most common clauses lawyers need to surface across contract portfolios. Adding sliders rather than text inputs for these fields reduced input errors and sped up filter application in testing.</p>
+      </section>
+
+      <!-- OUTCOME -->
+      <section id="outcome" class="section">
+        <div class="section-label">Outcome</div>
+        <h2 class="section-title">Validating AI search for legal work</h2>
+        <p class="section-intro">The demo release was used to validate product market fit with early law firm customers. The results confirmed that AI driven search addresses a real, high-priority pain point in legal practice.</p>
+
+        <div class="insight-grid fade-up">
+          <div class="insight-card">
+            <div class="insight-card-label">Search Quality</div>
+            <p>Users confirmed that structured, clause-aware results were significantly more useful than raw keyword matches from Acrobat. Time to find relevant clauses dropped by over 60% compared to Acrobat in testing scenarios.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Filter Adoption</div>
+            <p>The persistent filter panel saw high engagement. Users actively used date sliders and party filters, confirming the decision to keep them always visible rather than hidden.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Export to Excel</div>
+            <p>One of the most-used features in early testing. Lawyers immediately exported results into existing workflows, validating the table-based output format.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Upload Experience</div>
+            <p>The drag and drop upload with real-time progress feedback received consistently positive responses. The upload flow scored the highest satisfaction rating of any flow in user testing.</p>
+          </div>
+        </div>
+
+        <img src="/projects/legaleey/legaleey-photos/Frame%2019.png" alt="Legaleey platform final screen" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;">
+        <p class="img-caption">Error messages surface the specific cause and provide a recovery action rather than generic failure copy. Lawyers under time pressure need to know immediately whether an error is recoverable and what to do next.</p>
+
+        <h4>Future Directions</h4>
+        <div class="insight-grid fade-up">
+          <div class="insight-card">
+            <div class="insight-card-label">Annotation Layer</div>
+            <p>Allow lawyers to annotate and tag search results directly in Legaleey, creating a persistent record of their review findings.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">AI Confidence Scores</div>
+            <p>Surface a confidence indicator alongside each AI result so lawyers can quickly identify which findings need manual verification.</p>
+          </div>
+        </div>
+
+        <div class="callout fade-up">
+          <div class="callout-eye">Key Finding</div>
+          <p>The demo validated that structured AI search output is not just useful but <strong>immediately adoptable</strong> by legal professionals when presented in familiar UI patterns. The biggest barrier to adoption was not learning curve but trust in the AI output accuracy. That finding directly shaped the next phase of design, surfacing confidence scores alongside every AI result.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-left">
+      <span class="footer-name">Zeeyad Khan</span>
+      <span class="footer-role">Visual Designer · zeeyadkhan.com</span>
+    </div>
+    <span class="footer-right">Legaleey · B2B Legal Tech</span>
+  </footer>
+
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    const overlay = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    document.querySelectorAll('.content img').forEach(img => {
+      img.classList.add('content-img');
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+
+  <script>
+    // Active sidebar nav on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    function syncNav() {
+      const y = window.scrollY;
+      let current = '';
+      sections.forEach(s => { if (y >= s.offsetTop - 80) current = s.id; });
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    }
+    window.addEventListener('scroll', syncNav, { passive: true });
+    syncNav();
+
+    // Fade up
+    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!noMotion) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+      document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    }
+  </script>
+</body>
+</html>

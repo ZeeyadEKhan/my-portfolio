@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Zeeyad Khan — Visual Designer based in San Francisco.">
+  <title>Contact — Zeeyad Khan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    .page-body { padding-top: var(--topbar-h); }
+
+    .contact-wrap {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    .contact-main {
+      min-height: calc(100vh - var(--topbar-h) - 100px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 0 5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-title {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+      color: var(--ink);
+      margin-bottom: 2rem;
+      max-width: 12ch;
+    }
+
+    .contact-line {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--ink-muted);
+      max-width: 50ch;
+      line-height: 1.65;
+      margin-bottom: 3.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-link-row {
+      display: flex;
+      align-items: baseline;
+      gap: 1.25rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-link-row:last-child { border-bottom: 1px solid var(--border); }
+
+    .contact-link-type {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      min-width: 80px;
+    }
+
+    .contact-link-value {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+
+    .contact-link-value:hover { color: var(--blue); }
+
+    @media (max-width: 540px) {
+      .contact-wrap { padding: 0 1.5rem; }
+      .contact-link-row { flex-direction: column; gap: 0.35rem; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <header class="topbar">
+    <a href="/" class="topbar-brand">Zeeyad Khan</a>
+    <nav class="topbar-nav" aria-label="Site navigation">
+      <a href="/#work">Work</a>
+      <a href="/about">About</a>
+      <a href="/contact" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <div class="contact-wrap">
+
+    <div class="contact-main">
+      <p class="contact-eyebrow">Get in touch</p>
+      <h1 class="contact-title">Say hello.</h1>
+      <p class="contact-line">I am open to full time roles, freelance collaborations, and good conversations about design. Drop me a line and I will get back to you promptly.</p>
+
+      <div class="contact-links">
+        <div class="contact-link-row">
+          <span class="contact-link-type">Email</span>
+          <a href="mailto:zeeyadenkhan@gmail.com" class="contact-link-value">zeeyadenkhan@gmail.com</a>
+        </div>
+        <div class="contact-link-row">
+          <span class="contact-link-type">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/zeeyadkhan" target="_blank" rel="noopener" class="contact-link-value">linkedin.com/in/zeeyadkhan</a>
+        </div>
+        <div class="contact-link-row">
+          <span class="contact-link-type">Location</span>
+          <span class="contact-link-value" style="cursor: default;">San Francisco, CA</span>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer" style="padding-left:0; padding-right:0;">
+      <div class="footer-left">
+        <span class="footer-name">Zeeyad Khan</span>
+        <span class="footer-role">Visual Designer · zeeyadkhan.com</span>
+      </div>
+      <span class="footer-right">San Francisco · 2026</span>
+    </footer>
+
+  </div>
+
+</body>
+</html>

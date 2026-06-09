@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explorius, Mobile App for Digital Nomads. A case study by Zeeyad Khan, Visual Designer.">
+  <meta name="author" content="Zeeyad Khan">
+  <title>Explorius, Case Study &middot; Zeeyad Khan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    /* ── Lightbox ── */
+    .img-wrap img,
+    .img-cell img,
+    .hero-img {
+      cursor: zoom-in;
+    }
+
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    #lightbox.open {
+      display: flex;
+    }
+
+    #lightbox-img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+      object-fit: contain;
+      user-select: none;
+    }
+
+    #lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+
+    #lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    #lightbox-caption {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 13px;
+      text-align: center;
+      max-width: 640px;
+      padding: 0 16px;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════ TOPBAR ═══════════════════════ -->
+  <header class="topbar" role="banner">
+    <a href="/" class="topbar-brand">Zeeyad Khan</a>
+    <nav class="topbar-nav" aria-label="Site navigation">
+      <a href="/#work">Work</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <a href="/#work" class="topbar-back" aria-label="Back to work">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M8.5 2.5L4 7l4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back
+    </a>
+  </header>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="hero" aria-label="Project hero">
+    <div class="hero-text">
+      <div class="hero-chips">
+        <span class="chip chip-blue">Mobile Application</span>
+        <span class="chip">Digital Nomads</span>
+        <span class="chip">Travel &middot; Connection</span>
+        <span class="chip">Prototype Lead</span>
+      </div>
+      <h1 class="hero-title">Explorius</h1>
+      <p class="hero-sub">A mobile platform that helps digital nomads plan trips, fight social isolation, and connect with other nomads wherever they are in the world.</p>
+    </div>
+    <img
+      class="hero-img"
+      src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.13.15%20AM.png"
+      alt="Explorius brand mark over a volcanic crater lake with the tagline: Let's get away"
+      loading="eager"
+    >
+  </section>
+
+  <!-- ═══════════════════════ LAYOUT ═══════════════════════ -->
+  <div class="layout">
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" aria-label="Case study navigation">
+      <div class="sidebar-inner">
+        <p class="sidebar-eyebrow">Contents</p>
+        <ul class="sidebar-nav" role="list">
+          <li><a href="#overview"   class="nav-link">Overview</a></li>
+          <li><a href="#problem"    class="nav-link">Problem</a></li>
+          <li><a href="#research"   class="nav-link">Research</a></li>
+          <li><a href="#concept"    class="nav-link">Concept</a></li>
+          <li><a href="#design"     class="nav-link">Design</a></li>
+          <li><a href="#decisions" class="nav-link">Decisions</a></li>
+          <li><a href="#testing"    class="nav-link">User Testing</a></li>
+          <li><a href="#outcome"    class="nav-link">Outcome</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="content" id="main-content">
+
+      <!-- ═══════ OVERVIEW ═══════ -->
+      <section id="overview" class="section">
+        <div class="section-label">Overview</div>
+        <h2 class="section-title">A platform built for a new way of working</h2>
+        <p class="section-intro">Explorius is a mobile application for digital nomads that unifies trip planning, local discovery, and social connection in one place, addressing the isolation and planning overwhelm that hold people back from the nomadic lifestyle.</p>
+
+        <p>As digital nomadism surged during 2021, a clear gap in the market emerged. Existing apps handled either planning or connecting, but never both. Explorius bridges that gap, helping nomads find where to work, what to do, and who to do it with, all from their phones.</p>
+
+        <div class="meta-strip">
+          <div class="meta-item">
+            <span class="meta-val">14</span>
+            <span class="meta-key">Month Project</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">73</span>
+            <span class="meta-key">Survey Responses</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">15</span>
+            <span class="meta-key">Interviews</span>
+          </div>
+        </div>
+
+        <h4>My Role</h4>
+        <p>Prototype Lead &middot; Created the mobile application platform based on secondary research and user feedback</p>
+
+        <h4>Timeframe</h4>
+        <p>September 2021 to November 2022</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.39.01%20AM.png"
+            alt="Process Book cover slide with a glowing lightbulb"
+            loading="lazy"
+          >
+          <p class="img-caption">Explorius Process Book, documenting the full journey from research to prototype</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.39.12%20AM.png"
+            alt="Topic of Interest: Fixing pain points digital nomads face during their day-to-day lives"
+            loading="lazy"
+          >
+          <p class="img-caption">Topic of interest established early: fixing daily pain points for digital nomads</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.46.47%20AM.png"
+            alt="Research Executive Summary: 2 surveys, 73 responses, 15 interviews, 4 sensory cues, 10 articles"
+            loading="lazy"
+          >
+          <p class="img-caption">Research scope: 2 surveys, 73 responses, 15 interviews, 4 sensory cues, and 10 articles</p>
+        </div>
+      </section>
+
+      <!-- ═══════ PROBLEM ═══════ -->
+      <section id="problem" class="section">
+        <div class="section-label">Problem</div>
+        <h2 class="section-title">Planning a nomadic life is overwhelming by design</h2>
+        <p class="section-intro">Digital nomads face a compound problem. Planning successful trips tailored to their lifestyle is overwhelming and stressful, and once they arrive, social isolation chips away at the freedom they came for.</p>
+
+        <p>A 49% increase in people identifying as digital nomads in 2020 meant a fast-growing population with unmet needs. The existing toolkit, a patchwork of travel apps, Facebook groups, and co-working finder tools, left nomads scattered across a dozen platforms with no unified solution.</p>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.23.46%20AM.png"
+                alt="Secondary Research section title over a dense jungle landscape"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.39.26%20AM.png"
+                alt="Secondary Research section title over a lush jungle"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Secondary research grounded the problem in real data before any primary fieldwork began</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.24.24%20AM.png"
+            alt="49% increase in the amount of people identifying as digital nomads in 2020"
+            loading="lazy"
+          >
+          <p class="img-caption">49% growth in self-identified digital nomads during 2020 alone</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.24.36%20AM.png"
+            alt="How long do they travel for? 65% travel 1 to 3 months, 14%, 10%, and 11% for longer stretches up to 1 year or more"
+            loading="lazy"
+          >
+          <p class="img-caption">65% of nomads travel in 1 to 3 month windows, requiring repeated planning cycles</p>
+        </div>
+
+        <div class="callout">
+          <div class="callout-eye">How Might We</div>
+          <p>Help digital nomads be <strong>less overwhelmed and stressed</strong> when it comes to moving, working, and pre-planning, while also helping them <strong>build real connections</strong> wherever they land?</p>
+        </div>
+
+        <p>Secondary research crystallized the core finding: digital nomads find it overwhelming and stressful to plan successful trips tailored to their lifestyles while preventing social isolation. These two problems, logistical and social, are deeply linked and need to be solved together.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.40.52%20AM.png"
+            alt="Primary Research section title over a lush mountain vista"
+            loading="lazy"
+          >
+          <p class="img-caption">Primary research moved the project from secondary data into direct user insight</p>
+        </div>
+      </section>
+
+      <!-- ═══════ RESEARCH ═══════ -->
+      <section id="research" class="section">
+        <div class="section-label">Research</div>
+        <h2 class="section-title">Listening to nomads and those who want to be</h2>
+        <p class="section-intro">Two surveys, 15 interviews, 4 sensory cue sessions, and 10 articles built a layered picture of what nomads feel, fear, and need. The research spoke to both active nomads and people who wanted the lifestyle but had not yet taken the leap.</p>
+
+        <h3>Research Goals</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.41.11%20AM.png"
+            alt="Research Goals: understand nomad trip planning, work styles, inhibitors to becoming a digital nomad, and downsides of being a digital nomad"
+            loading="lazy"
+          >
+          <p class="img-caption">Four research goals shaped every survey question and interview protocol</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.41.33%20AM.png"
+            alt="Primary research methods: 2 surveys with 73 responses, 15 interviews, and 4 sensory cues"
+            loading="lazy"
+          >
+          <p class="img-caption">2 surveys across 73 respondents, 15 in-depth interviews, and 4 sensory cue sessions</p>
+        </div>
+
+        <h3>Survey Data</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.41.47%20AM.png"
+            alt="Survey Data section title over a poolside backdrop"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.42.49%20AM.png"
+            alt="How do you feel while working as a digital nomad? Chart showing 30% socially isolated on one end and 20% socially adequate on the other"
+            loading="lazy"
+          >
+          <p class="img-caption">30% of surveyed nomads reported feeling socially isolated, with only 20% feeling socially adequate</p>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.42.59%20AM.png"
+                alt="Nomad quote: I feel more isolated and independent with my workflow. It's harder to bounce ideas off of peers when alone with a laptop and zoom teams."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.43.06%20AM.png"
+                alt="Non-nomad quote: I like having things in one place and being able to consistently see other people in-person."
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Nomads reported isolation; non-nomads confirmed that in-person community is what keeps them stationary</p>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.43.35%20AM.png"
+                alt="60% of non-nomads said they would become a digital nomad if they had people to join them"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.43.42%20AM.png"
+                alt="88% of non-nomads like to travel"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">60% of non-nomads would go nomadic if they had people to join them; 88% already love to travel</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.43.23%20AM.png"
+            alt="Non-nomad quote: I like having things in one place and being able to consistently see other people in-person."
+            loading="lazy"
+          >
+          <p class="img-caption">Consistent demand from non-nomads: everything in one place, and real social connection</p>
+        </div>
+
+        <h3>Interview Data</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.43.53%20AM.png"
+            alt="Interview Data section title over a busy airport terminal"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.44.19%20AM.png"
+            alt="Interview quotes from nomads: feeling less involved with coworkers, always being online to compensate for remote work, and there are so many choices to make"
+            loading="lazy"
+          >
+          <p class="img-caption">Three recurring themes from nomad interviews: social disconnection, overcompensation at work, and decision fatigue</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.44.56%20AM.png"
+            alt="Non-nomad interview quotes: would like a personal assistant to handle everything regarding booking a trip; also turned away because it may be stressful planning a whole vacation to go to work"
+            loading="lazy"
+          >
+          <p class="img-caption">Non-nomads want a personal assistant for booking and fear that planning would make the whole thing feel like work</p>
+        </div>
+
+        <h3>Affinity Mapping</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.46.01%20AM.png"
+            alt="Affintization section title over a joyful couple at the Colosseum in Rome"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.46.14%20AM.png"
+            alt="Affinity diagram with 416 yellow notes, 46 green, 20 pink, and 6 blue, revealing the insight: there are many barriers that prevent someone from being a nomad such as career, health, budgeting, and a lack of helpful information"
+            loading="lazy"
+          >
+          <p class="img-caption">416 yellow, 46 green, 20 pink, and 6 blue notes synthesized into four major theme clusters</p>
+        </div>
+
+        <div class="img-wrap borderless">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.46.22%20AM.png"
+            alt="Main Insights: Nomads love the freedoms and experiences. Being a digital nomad is overwhelming and stressful when it comes to moving, planning, and working. There are many barriers (career, health, budgeting, lack of helpful information). Companies are suffering from disintegration of company culture and disagreements over return to office."
+            loading="lazy"
+          >
+          <p class="img-caption">Four main insights from primary research synthesis</p>
+        </div>
+
+        <h3>Target Audience and Archetypes</h3>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.47.01%20AM.png"
+                alt="Target Audience: 25 to 55 year olds, domestic and international Digital Nomads"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.47.15%20AM.png"
+                alt="Archetypes: Wants to be a Digital Nomad, Has barriers from becoming a Digital Nomad, Has never heard of a Digital Nomad, Homebody with no desire, Domestic Digital Nomad, International Digital Nomad"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Target audience: 25 to 55 year old domestic and international digital nomads, mapped across six behavioral archetypes</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.47.27%20AM.png"
+            alt="Extreme Cases diagram: two axes showing Remote vs Works In Person and Resides Stationary vs Digital Nomad, with all six archetypes plotted across quadrants"
+            loading="lazy"
+          >
+          <p class="img-caption">Extreme cases mapped across two behavioral axes to stress-test the design space</p>
+        </div>
+      </section>
+
+      <!-- ═══════ CONCEPT ═══════ -->
+      <section id="concept" class="section">
+        <div class="section-label">Concept</div>
+        <h2 class="section-title">From insight to idea</h2>
+        <p class="section-intro">Two personas anchored the ideation phase, turning abstract insights into specific, human problems. From there, ideation, competitive analysis, and two distinct concepts were tested against those needs before converging on a final direction.</p>
+
+        <h3>Personas</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.48.50%20AM.png"
+            alt="Persona: Ryan Byrne, 22 years old, Houston Texas, Computer Science. Pain points: worried about social isolation, how to begin planning process, not sure where he would go to work. Wants and needs: a way to compare locations, budgeting tools, a way to make friends with nomads."
+            loading="lazy"
+          >
+          <p class="img-caption">Ryan Byrne, 22, Houston: wants to take the leap but needs structure, budget tools, and community</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.49.02%20AM.png"
+            alt="Persona: Marley Lim, 24 years old, Auckland NZ, Digital Marketing. Pain points: feels isolated from coworkers, finding time to plan new trips, hard to find reliable sources while finding places to work. Wants: better methods for time management, easier way to plan trips, improved communication with people in her company."
+            loading="lazy"
+          >
+          <p class="img-caption">Marley Lim, 24, Auckland: active nomad fighting isolation, overwhelmed by planning each new move</p>
+        </div>
+
+        <h3>Marley's Experience</h3>
+        <p>A scenario walkthrough with Marley revealed exactly how the pain points stack in real life.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.49.10%20AM.png"
+            alt="Marley's Experience section title over colorful papel picado flags in Mexico"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.49.21%20AM.png"
+                alt="Marley is currently coming to the end of her 6 month stay in Mexico. She has 1 month left and is trying to plan her next moves."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.49.27%20AM.png"
+                alt="She has been a little depressed lately since she has been traveling all alone and is looking for people to travel and work with."
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.49.32%20AM.png"
+                alt="She has attempted using apps like Nomad 10 to find people to hang out with but it is all about dating and she really wants people to travel with."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.49.39%20AM.png"
+                alt="Marley procrastinates planning her trips because it is so overwhelming and stressful. She wants to get the best deals with reasonable amenities to ensure she is happy."
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.49.47%20AM.png"
+                alt="Marley also has a goldendoodle Murphy and wants to make sure he always is welcome when she plans her stays and excursions."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.49.54%20AM.png"
+                alt="Marley wants to be able to find all her travel documents and plans in one location because sifting through emails and texts is always such a hassle."
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Marley's scenario: isolation, planning paralysis, bad existing tools, and a desire for everything in one place</p>
+        </div>
+
+        <h3>How Might We</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.50.04%20AM.png"
+            alt="How Might We statements: improve travel conditions, help nomads meet others and decrease isolation, help people find careers suited for nomad life, help nomads create custom plans that fit their lifestyle. Core HMW highlighted: Help digital nomads be less overwhelmed and stressed when it comes to moving, working, and pre-planning."
+            loading="lazy"
+          >
+          <p class="img-caption">Six HMW statements narrowed to one core opportunity: reducing overwhelm and stress across moving, working, and planning</p>
+        </div>
+
+        <h3>Competitive Landscape</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.50.23%20AM.png"
+            alt="Competitive analysis matrix: Budgeting vs Workspace on horizontal and Connecting vs Planning on vertical. Explorius plotted in the high connecting and high planning quadrant, with no existing competitors in that space."
+            loading="lazy"
+          >
+          <p class="img-caption">No existing product combined high planning and high social connection. That gap became Explorius</p>
+        </div>
+
+        <h3>Ideation</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.50.32%20AM.png"
+            alt="Ideating wall of sticky notes exploring ideas from the four research insights: nomad freedoms, planning overwhelm, lifestyle barriers, company culture disruption"
+            loading="lazy"
+          >
+          <p class="img-caption">Ideation drew from all four research insights, generating a wide solution space before narrowing</p>
+        </div>
+
+        <h3>Two Concepts</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.50.43%20AM.png"
+            alt="Concept 1 section title over a woman sitting near the Eiffel Tower"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.50.56%20AM.png"
+            alt="Find your Plan: Pick all aspects of your travel plans from hotel, dining, and excursion. Have the opportunity to connect with other nomads in order to work, play, and travel with them. All plans are stored in the mechanism so no issues arise."
+            loading="lazy"
+          >
+          <p class="img-caption">Concept 1: a planning-forward app focused on building and storing complete trip plans</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.51.04%20AM.png"
+            alt="Features diagram centered on ease of mind and increased social interactions, with four radiating features: pre-made personalized packages based on lifestyles, travel and connect with other nomads, travel documents storage and applications, premium partners for enhanced experiences"
+            loading="lazy"
+          >
+          <p class="img-caption">Concept 1 features: personalized packages, social connection, document storage, and premium partner access</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.51.17%20AM.png"
+            alt="Concept 2 section title over a group of people celebrating in front of baobab trees"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.51.27%20AM.png"
+            alt="Community App: centered on increasing social interaction and community. Q/A forum to ask and comment on different workspaces. Booking services to find excursions and people to do them with. Map that allows you to go public and see where other nomads are."
+            loading="lazy"
+          >
+          <p class="img-caption">Concept 2: a community-first app centered on reducing isolation through shared maps, forums, and booking</p>
+        </div>
+
+        <h3>Convergence</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.51.36%20AM.png"
+            alt="Insights from comparing both concepts: Being a digital nomad is overwhelming and stressful when it comes to moving, planning, and working. Being a digital nomad can feel socially isolating, it is hard to meet new people and find people to interact with."
+            loading="lazy"
+          >
+          <p class="img-caption">Both concepts pointed to the same underlying problems: overwhelming logistics and social isolation</p>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.51.41%20AM.png"
+                alt="Combined concepts visual: train icon and ghost icon, with the note: Combined to make less travel agency and more focus on connection and local planning"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.51.46%20AM.png"
+                alt="Planning or Connection decision diagram"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">The two concepts merged: less travel agency, more connection and local planning</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.51.54%20AM.png"
+            alt="Competitive position chart showing Explorius in the high connecting and high planning quadrant, differentiated from LinkedIn, Snapchat, Airbnb, Wallet, and Tripadvisor"
+            loading="lazy"
+          >
+          <p class="img-caption">Explorius occupies a unique position: the only app combining both deep planning and active social connection</p>
+        </div>
+
+        <h3>Feature Definition</h3>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.52.04%20AM.png"
+                alt="Map that shows location of nomads who are public. How might we help nomads feel less socially isolated?"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.52.11%20AM.png"
+                alt="Map that shows close by places to work and things to do. How might we help nomads feel less socially isolated?"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.52.26%20AM.png"
+                alt="Easily find free events that other nomads will be attending. How might we help nomads plan while being cost effective and social?"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.42.28%20PM.png"
+                alt="Book nearby excursions knowing other nomads will be attending. How might we help nomads plan while being cost effective and social?"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.42.50%20PM.png"
+            alt="Let nomads connect on this app to see where and what they are doing. How might we lessen social isolation while being a nomad?"
+            loading="lazy"
+          >
+          <p class="img-caption">Five core HMW features: public nomad map, local work spots, free events, group excursions, and in-app connection</p>
+        </div>
+      </section>
+
+      <!-- ═══════ DESIGN ═══════ -->
+      <section id="design" class="section">
+        <div class="section-label">Design</div>
+        <h2 class="section-title">Building the platform</h2>
+        <p class="section-intro">With the concept defined, the team moved into branding, information architecture, and high-fidelity screens. A user scenario with Rory validated the experience end-to-end before prototype testing began.</p>
+
+        <h3>Rory's Story</h3>
+        <p>Before any high-fidelity screens were built, a narrative scenario was used to pressure-test the concept against real human behavior. Rory, a new user landing in an unfamiliar city, was walked through the full Explorius experience from discovery to booking to connection. The scenario was designed to expose gaps in the architecture before any visual work was at risk.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.43.10%20PM.png"
+            alt="Rory's Story section title over two people driving with the windows down"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.43.22%20PM.png"
+                alt="A couple weeks ago, Rory downloaded Explorius because he read in a nomad Facebook group it is great to make connections with local nomads, as well as find things to do."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.43.29%20PM.png"
+                alt="Rory was very sad since he had no one to hang out with. But now after downloading the app Rory made connections in the map. He was able to walk his dog and go to the mall with other nomads."
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.43.39%20PM.png"
+                alt="Rory likes how he has the ability to make himself public when he wants other nomads to message him and come hang out with him."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.43.58%20PM.png"
+                alt="Rory made many connections after just one week, so when he went to book some excursions he could sign up for things his connections were also doing."
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.46.26%20PM.png"
+                alt="When Rory is bored he also loves that he can go into the events tab in explore and find free things to do."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.46.33%20PM.png"
+                alt="Overall Rory is very happy. He has all of his connections, travel info, and things to do in one location."
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Rory's story validated the core thesis: connection, discovery, and planning unified in one place makes nomads genuinely happy</p>
+        </div>
+
+        <h3>Branding</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.47.56%20PM.png"
+            alt="Branding section title over a woman reading a map on a mountain trail"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.48.48%20PM.png"
+            alt="Explorius brand identity: Poppins typeface in Bold, Semi, Regular, and Thin weights. Color palette: lavender purple, teal green, sky blue, and light gray."
+            loading="lazy"
+          >
+          <p class="img-caption">Poppins typeface paired with a warm, approachable palette of purple, teal, blue, and gray</p>
+        </div>
+
+        <h3>Concept Validation</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.49.04%20PM.png"
+            alt="Concept Validation section title over two people watching a sunset on a beach"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.49.16%20PM.png"
+            alt="Card sorting: 20 open card sort, 10 closed card sort"
+            loading="lazy"
+          >
+          <p class="img-caption">Card sorting with 20 open and 10 closed cards validated the mental model for navigation and content grouping</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.49.26%20PM.png"
+            alt="People Want: a dashboard to see possible trips, easy access to itinerary, a place to see past and future excursions, see partnered excursions and recommendations, to have a friends list and be able to message in app, map or explore page with stealth mode, a profile page with settings"
+            loading="lazy"
+          >
+          <p class="img-caption">Seven clear wants emerged from card sort sessions, directly shaping the information architecture</p>
+        </div>
+
+        <h3>Site Map</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.49.57%20PM.png"
+            alt="Site Map section title over travelers on a boat through a dramatic karst landscape in Vietnam"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.50.18%20PM.png"
+            alt="Site map showing five top-level sections: Onboarding, Dashboard (Messages, Close by nomads, Recommended excursions, Upcoming trips and events), Itinerary (Saved trips, Upcoming trips, Upcoming events, Past trips), Map (Messages, See connections and non-connections), Explore (Events and Excursions, See local events, Book Excursions), Profile (Edit settings, View connections, About me)"
+            loading="lazy"
+          >
+          <p class="img-caption">Five-section architecture: Dashboard, Itinerary, Map, Explore, and Profile, anchored by Onboarding</p>
+        </div>
+
+        <h3>High-Fidelity Screens</h3>
+        <p>With the architecture validated, high-fidelity screens were built across all five sections of the app.</p>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.13.15%20AM.png"
+                alt="Explorius onboarding welcome screen"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.13.34%20AM.png"
+                alt="Explorius onboarding profile setup"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.13.46%20AM.png"
+                alt="Dashboard showing close by nomads and recommended excursions"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.14.52%20AM.png"
+                alt="Dashboard notifications and upcoming events modules"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.15.02%20AM.png"
+                alt="Map view with public nomads visible nearby"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.15.31%20AM.png"
+                alt="Map view in stealth mode with connection filter"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.15.41%20AM.png"
+                alt="Explore tab showing Events near current location"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.15.48%20AM.png"
+                alt="Explore tab showing bookable Excursions"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.15.53%20AM.png"
+                alt="Excursion detail screen with cost, attendees, and Book Now"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.16.59%20AM.png"
+                alt="Events detail screen with Going, Interested, and Not Going actions"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.17.08%20AM.png"
+                alt="Itinerary showing upcoming trips and saved destinations"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.17.33%20AM.png"
+                alt="Itinerary past trips view"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.17.45%20AM.png"
+                alt="Itinerary active trip with stored travel documents"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.18.07%20AM.png"
+                alt="Profile page with connections list and about me section"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.18.17%20AM.png"
+                alt="Profile settings and visibility controls"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.18.26%20AM.png"
+                alt="Messaging thread between two connected nomads"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.18.35%20AM.png"
+                alt="Connection request screen with nomad profile preview"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.18.43%20AM.png"
+                alt="Explore Destinations tab with curated city cards"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.18.56%20AM.png"
+                alt="Explore Partnerships tab with premium experience listings"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.19.08%20AM.png"
+                alt="Dashboard with all four utility modules populated"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.19.20%20AM.png"
+                alt="Onboarding travel style and preference selection"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.20.18%20AM.png"
+                alt="Map view showing nomad cluster in a city center"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.21.41%20AM.png"
+                alt="Excursion booking confirmation screen"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.22.50%20AM.png"
+                alt="Itinerary event added confirmation"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%209.22.58%20AM.png"
+            alt="Explorius home screen after full onboarding completion"
+            loading="lazy"
+          >
+          <p class="img-caption">High-fidelity screens across Dashboard, Itinerary, Map, Explore, and Profile</p>
+        </div>
+      </section>
+
+      <section id="decisions" class="section">
+  <div class="section-label">Design Decisions</div>
+  <h2 class="section-title">Why Explorius works the way it does</h2>
+  <p class="section-intro">Four decisions defined the character of the product. Each one came directly from something a real user said or did during research or testing.</p>
+  <div class="insight-grid fade-up">
+    <div class="insight-card">
+      <div class="insight-card-label">Why does the map have a stealth mode?</div>
+      <p>Research showed that nomads wanted control over when they were discoverable. Making yourself public needed to feel like a conscious choice, not a default. Stealth mode was not a privacy feature added at the end. It was a trust mechanism built into the product from the first wireframe, because users would not engage with the social layer unless they felt safe doing so on their own terms.</p>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-label">Why did the Dashboard become utility-first?</div>
+      <p>The first Dashboard iteration used recommendation carousels. User testing showed carousels felt passive and unhelpful. Nomads in a new city do not want to browse, they want to act. Replacing carousels with four utility modules, Close by Nomads, Recommended Excursions, Upcoming Events, and Notifications, turned the Dashboard from a suggestion surface into a tool users opened with purpose.</p>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-label">Why were Events and Excursions separated?</div>
+      <p>The original Explore tab combined Near You and Destinations in a single view. Users in testing could not articulate the difference between them, which meant neither was useful. Separating Events (free, spontaneous, social) from Excursions (bookable, structured, cost-based) gave each category a clear identity and made the path to action obvious for both types of user intent.</p>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-label">Why were the navigation icons replaced entirely?</div>
+      <p>The original navigation used abstract icons, a pentagon, a telescope, a social graph, that tested poorly because users could not predict what they would find behind each one. Unpredictable navigation creates anxiety in an app built for people already managing high logistical stress. Switching to universally recognizable symbols, home, globe, map, luggage, profile, removed that friction entirely and reduced the learning curve to zero.</p>
+    </div>
+  </div>
+</section>
+
+      <!-- ═══════ USER TESTING ═══════ -->
+      <section id="testing" class="section">
+        <div class="section-label">User Testing</div>
+        <h2 class="section-title">Testing what we built</h2>
+        <p class="section-intro">Lo-fi prototypes were tested with users across the core screens, generating direct feedback on navigation clarity, information hierarchy, and feature usefulness. Each round produced targeted changes before the next iteration.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.50.35%20PM.png"
+            alt="Lo-Fi and User Testing section title over a woman in a mountain valley"
+            loading="lazy"
+          >
+        </div>
+
+        <h3>Explore</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.50.49%20PM.png"
+            alt="Lo-fi Explore screens: Near You, Destinations, and Partnerships tabs showing event cards with images, ratings, and Going/Interested/Not Going actions"
+            loading="lazy"
+          >
+          <p class="img-caption">Initial lo-fi Explore screens tested the Near You, Destinations, and Partnerships tab structure</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.51.01%20PM.png"
+            alt="Explore: Users Said — we needed a difference between near you and destinations, what is the difference?"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="callout">
+          <div class="callout-eye">Users Said</div>
+          <p>We needed a difference between Near You and Destinations. What is the difference?</p>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.51.23%20PM.png"
+                alt="Updated Explore screens showing separated Events and Excursions, explore dashboard to remove confusion, swiping function for events, and expanded info cards"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.51.39%20PM.png"
+                alt="Updated Excursions screens showing Marriot Pool Party with cost, attendees, time slots, and a Book Now button"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Explore update: Events and Excursions separated, swiping added, booking made more accessible</p>
+        </div>
+
+        <h3>Dashboard</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.51.56%20PM.png"
+            alt="Lo-fi Dashboard screen showing Recommended Near You, Recommended Destinations, and Partnerships carousels"
+            loading="lazy"
+          >
+          <p class="img-caption">Initial lo-fi Dashboard tested carousel-based content recommendations</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.52.07%20PM.png"
+            alt="Dashboard: Users Said — the dashboard was not so useful, and they want more utilities."
+            loading="lazy"
+          >
+        </div>
+
+        <div class="callout">
+          <div class="callout-eye">Users Said</div>
+          <p>The dashboard was not so useful, and they want more utilities.</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.52.17%20PM.png"
+            alt="Dashboard Changes: updated screen showing notifications, close by nomads, recommended excursions, and upcoming events as the four core modules"
+            loading="lazy"
+          >
+          <p class="img-caption">Dashboard redesigned around four utility-first modules: Notifications, Close by Nomads, Recommended Excursions, Upcoming Events</p>
+        </div>
+
+        <h3>Navigation</h3>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.52.34%20PM.png"
+                alt="Old Navigation: abstract icons including a pentagon, notepad, telescope, social graph, and profile circle"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.52.45%20PM.png"
+                alt="Navigation feedback: Users said navigation was tricky"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.53.49%20PM.png"
+            alt="New Navigation: icons more straightforward, replaced with home, globe, map, luggage, and profile icons"
+            loading="lazy"
+          >
+          <p class="img-caption">Navigation icons replaced with universally recognizable symbols, resolving the learnability issue</p>
+        </div>
+
+        <h3>Key Testing Insights</h3>
+
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-card-label">Explore Clarity</div>
+            <p>Users could not distinguish Near You from Destinations. Separating Events and Excursions into distinct tabs resolved the confusion immediately.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Dashboard Utility</div>
+            <p>A recommendation carousel felt passive. Users wanted actionable widgets: nomads nearby, upcoming events, and real-time notifications.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Navigation Icons</div>
+            <p>Abstract icons created unnecessary cognitive load. Switching to universally recognizable symbols removed the friction entirely.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Booking Access</div>
+            <p>Book Now needed to be more prominent and accessible. Reorganizing excursion detail pages made the path to booking faster and clearer.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ OUTCOME ═══════ -->
+      <section id="outcome" class="section">
+        <div class="section-label">Outcome</div>
+        <h2 class="section-title">A platform ready to launch</h2>
+        <p class="section-intro">Over 14 months, Explorius moved from a research question about nomad pain points to a tested, high-fidelity mobile platform with a validated information architecture. In user testing, every navigation change reduced task completion time. The Dashboard redesign produced the strongest positive response of any single change across all testing rounds, with users describing it as the first time a travel app felt like it was actually built for how they work. The competitive gap identified in research, no product combining deep planning with active social connection, remained unoccupied by any existing app at project close.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.54.04%20PM.png"
+            alt="Travel photo collage showing diverse groups of people enjoying experiences together: hiking, poolside, beach, landmarks, sunset silhouettes"
+            loading="lazy"
+          >
+          <p class="img-caption">The experiences Explorius was built to make possible</p>
+        </div>
+
+        <div class="callout">
+          <div class="callout-eye">Key Finding</div>
+          <p>60% of non-nomads said they would become digital nomads if they had people to join them. <strong>Social connection was never a secondary feature</strong> of Explorius. It was always the product.</p>
+        </div>
+
+        <h4>Business Model</h4>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.54.15%20PM.png"
+            alt="Business Model Canvas: Key Partners include businesses hosting public and private events and local businesses. Key Activities include developing the app and picking cities for soft launch. Value Propositions include facilitating friendships between nomads and shared experiences for various budgets. Customer Relationships via 5% cut and processing fee plus monthly subscription for premium access. Customer Segments: digital nomads and frequent travelers, 25 to 55 year olds, those who struggle with social isolation while traveling. Channels through influencer marketing and word of mouth. Revenue Streams: attract new users through excursions, 3 to 5% processing fee on paid excursions, monthly subscription for Explorius Premium."
+            loading="lazy"
+          >
+          <p class="img-caption">Business Model Canvas: a freemium model anchored by excursion fees and a premium subscription tier</p>
+        </div>
+
+        <h4>What I Learned</h4>
+        <p>Building Explorius as Prototype Lead taught me that the most impactful design decisions often happen before any screens are drawn. The research phase, specifically recognizing that social isolation and planning overwhelm were the same problem in two different forms, was what made the concept coherent. Every subsequent decision flowed from that insight.</p>
+
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-card-label">Research Scope</div>
+            <p>Talking to both active nomads and aspiring nomads revealed that the biggest barrier to adoption was social, not logistical. That finding shaped the entire product.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Concept Merging</div>
+            <p>Two competing concepts, one planning-focused and one community-focused, were stronger combined. Resisting the urge to pick one and instead finding the synthesis was the pivotal decision of the project.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Testing Fast</div>
+            <p>Lo-fi testing exposed navigation and hierarchy issues before any high-fidelity work was at risk. Getting feedback on paper before pixels saved significant iteration time.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Prototype Craft</div>
+            <p>As Prototype Lead, translating research into a navigable product experience required constant alignment between what users said they wanted and what the architecture could actually support.</p>
+          </div>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/Screenshot%202026-04-14%20at%201.54.26%20PM.png"
+            alt="Explorius logo over a volcanic crater lake: Let's get away"
+            loading="lazy"
+          >
+          <p class="img-caption">Explorius. Let's get away.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-left">
+      <span class="footer-name">Zeeyad Khan</span>
+      <span class="footer-role">Visual Designer &middot; zeeyadkhan.com</span>
+    </div>
+    <span class="footer-right">Explorius &middot; Prototype Lead</span>
+  </footer>
+
+  <!-- ═══════════════════════ LIGHTBOX ═══════════════════════ -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+    <button id="lightbox-close" aria-label="Close lightbox">&#x2715;</button>
+    <img id="lightbox-img" src="" alt="">
+    <p id="lightbox-caption"></p>
+  </div>
+
+  <!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+  <script>
+    // ── Lightbox ──
+    const lightbox     = document.getElementById('lightbox');
+    const lbImg        = document.getElementById('lightbox-img');
+    const lbCaption    = document.getElementById('lightbox-caption');
+    const lbClose      = document.getElementById('lightbox-close');
+
+    function openLightbox(img) {
+      lbImg.src     = img.src;
+      lbImg.alt     = img.alt;
+      // Look for the nearest caption sibling
+      const wrap    = img.closest('.img-wrap, .img-cell, .hero');
+      const caption = wrap ? wrap.querySelector('.img-caption') : null;
+      lbCaption.textContent = caption ? caption.textContent : img.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.img-wrap img, .img-cell img, .hero-img').forEach(img => {
+      img.addEventListener('click', () => openLightbox(img));
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+
+    // ── Active sidebar navigation on scroll ──
+    const sections  = document.querySelectorAll('section[id]');
+    const navLinks  = document.querySelectorAll('.nav-link');
+    const TOPBAR_H  = 58;
+
+    function syncNav() {
+      const y = window.scrollY;
+      let current = '';
+
+      sections.forEach(sec => {
+        if (y >= sec.offsetTop - TOPBAR_H - 100) {
+          current = sec.id;
+        }
+      });
+
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
+      });
+    }
+
+    window.addEventListener('scroll', syncNav, { passive: true });
+    syncNav();
+
+    // ── Fade-up on scroll (respects prefers-reduced-motion) ──
+    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!noMotion) {
+      const fadeEls = document.querySelectorAll('.fade-up');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+      fadeEls.forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    }
+  </script>
+
+</body>
+</html>

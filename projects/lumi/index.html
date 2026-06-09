@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lumi, AI Social Robot for Anger De-escalation. A case study by Zeeyad Khan, Visual Designer.">
+  <meta name="author" content="Zeeyad Khan">
+  <title>Lumi, Case Study · Zeeyad Khan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      cursor: zoom-out;
+    }
+    .lightbox-overlay.open { opacity: 1; }
+    .lightbox-overlay img {
+      max-width: min(90vw, 1200px);
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+      cursor: default;
+      transform: scale(0.95);
+      transition: transform 0.2s ease;
+    }
+    .lightbox-overlay.open img { transform: scale(1); }
+    .lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 20px;
+      line-height: 36px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.3); }
+    .img-wrap img, .img-cell img, .hero-img {
+      cursor: zoom-in;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════ TOPBAR ═══════════════════════ -->
+  <header class="topbar" role="banner">
+    <a href="/" class="topbar-brand">Zeeyad Khan</a>
+    <nav class="topbar-nav" aria-label="Site navigation">
+      <a href="/#work">Work</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="hero" aria-label="Project hero">
+    <div class="hero-text">
+      <div class="hero-chips">
+        <span class="chip chip-blue">AI Social Robot</span>
+        <span class="chip">SCAD &middot; UXDG 415</span>
+        <span class="chip">Anger De-escalation</span>
+        <span class="chip">Physical Product</span>
+      </div>
+      <h1 class="hero-title">Lumi</h1>
+      <p class="hero-sub">An AI robot that monitors anger patterns, interrupts escalation in real time, and builds empathy through light, sound, and voice.</p>
+    </div>
+    <img
+      class="hero-img"
+      src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.42.51%E2%80%AFPM.png"
+      alt="Lumi robot, three views showing green default state, blue LED band while listening, and yellow/red LED band during anger detection"
+      loading="eager"
+    >
+  </section>
+
+  <!-- ═══════════════════════ LAYOUT ═══════════════════════ -->
+  <div class="layout">
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" aria-label="Case study navigation">
+      <div class="sidebar-inner">
+        <p class="sidebar-eyebrow">Contents</p>
+        <ul class="sidebar-nav" role="list">
+          <li><a href="#overview"    class="nav-link">Overview</a></li>
+          <li><a href="#problem"     class="nav-link">Problem</a></li>
+          <li><a href="#research"    class="nav-link">Research</a></li>
+          <li><a href="#concept"     class="nav-link">Concept</a></li>
+          <li><a href="#voice"       class="nav-link">Voice Design</a></li>
+          <li><a href="#storyboards" class="nav-link">Storyboards</a></li>
+          <li><a href="#testing"     class="nav-link">User Testing</a></li>
+          <li><a href="#outcome"     class="nav-link">Outcome</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="content" id="main-content">
+
+      <!-- ═══════ OVERVIEW ═══════ -->
+      <section id="overview" class="section">
+        <div class="section-label">Overview</div>
+        <h2 class="section-title">A robot that turns down the heat</h2>
+        <p class="section-intro">Lumi is a social robot that helps users visually monitor their pattern of anger, cool them down during ongoing arguments, and facilitate greater self-awareness in their personal relationships.</p>
+
+        <p>Using NLP, facial expression recognition, and SLAM technology, Lumi detects arousal levels and emotion changes during arguments, responding with a precise, two stage intervention designed to stop escalation and open the door to reflection.</p>
+
+        <div class="meta-strip fade-up">
+          <div class="meta-item">
+            <span class="meta-val">10</span>
+            <span class="meta-key">Week Project</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">15</span>
+            <span class="meta-key">Users Tested</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">2</span>
+            <span class="meta-key">Test Sprints</span>
+          </div>
+        </div>
+
+        <h4>My Role</h4>
+        <p>Prototype Lead &middot; Content Writer &middot; Visual Designer for slide decks &middot; Lead User Testing Researcher</p>
+
+        <h4>Technologies</h4>
+        <p>NLP (Natural Language Processing) &middot; Facial Expression Recognition &middot; SLAM (Simultaneous Localization and Mapping) &middot; Amazon Alexa Voice SDK</p>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.43.41%E2%80%AFPM.png"
+            alt="Roles and Responsibilities: Prototype Lead and Content Writer, visual designer for slide decks, lead user testing researcher"
+            loading="lazy"
+          >
+          <p class="img-caption">Roles and responsibilities across the project team</p>
+        </div>
+      </section>
+
+      <!-- ═══════ PROBLEM ═══════ -->
+      <section id="problem" class="section">
+        <div class="section-label">Problem</div>
+        <h2 class="section-title">Anger without a way out</h2>
+        <p class="section-intro">Anger is a core human emotion that people constantly struggle to keep at bay. Younger adults, ages 16 to 24 are especially prone to losing control, with less impulse regulation and fewer emotional tools.</p>
+
+        <p>Problems with anger lead to overly aggressive behavior that negatively affects lives and the people around them. Users are unable to express feelings without getting emotional, struggle to recognize their own triggers, and lack specific methods to stop escalating anger before it causes damage.</p>
+
+        <div class="callout fade-up">
+          <div class="callout-eye">How Might We</div>
+          <p>Help users manage and <strong>de­escalate anger in real time</strong>, improve their interactions with the people they live with, and support reflection on their <strong>emotional patterns</strong> using an AI-powered robot?</p>
+        </div>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.08.00%E2%80%AFPM.png"
+            alt="HMW breakdown: support users to improve their relationship with people living together using an AI robot — sub-questions covering stopping escalation, monitoring anger patterns, cooling down in the moment, and designing coping methods"
+            loading="lazy"
+          >
+          <p class="img-caption">How Might We breakdown — four design sub-questions shaping the brief</p>
+        </div>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.43.22%E2%80%AFPM.png"
+            alt="The Problem Space: low task completion, long sessions, high error rate, low user satisfaction, low engagement, accessibility challenges, inconsistent visuals"
+            loading="lazy"
+          >
+          <p class="img-caption">Identified challenges in the problem space. Early usability research uncovered a 60% task completion rate</p>
+        </div>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.43.35%E2%80%AFPM.png"
+            alt="The Solution: task completion rose from 60% to 90%, session time dropped 40% (5 to 3 min), error rate reduced 50%, user satisfaction scores rose from 3.2 to 4.3 out of 5"
+            loading="lazy"
+          >
+          <p class="img-caption">Redesign outcomes. Task completion rose from 60% to 90% and session time dropped by 40%</p>
+        </div>
+
+        <h4>Target Audience</h4>
+        <p>Ages 16 to 24. Younger adults have a harder time managing anger and impulse control, making them the population that could benefit most from Lumi's presence in their homes.</p>
+
+        <h3>Proto Personas</h3>
+
+        <div class="persona-row fade-up">
+          <div class="persona-card">
+            <div class="persona-name">Megan</div>
+            <div class="persona-meta">19 &middot; Atlanta, GA &middot; College student, lives with boyfriend</div>
+            <p class="persona-goal">Goal: <strong>have conversations without them turning into arguments.</strong></p>
+            <p class="persona-goal">Frustration: arguments escalate before she realizes they have started, leaving her feeling guilty and misunderstood. She wants a way to catch the moment before things go too far.</p>
+          </div>
+          <div class="persona-card">
+            <div class="persona-name">Max</div>
+            <div class="persona-meta">22 &middot; Los Angeles, CA &middot; Lives with family</div>
+            <p class="persona-goal">Goal: <strong>be more understanding and not get angry so easily.</strong></p>
+            <p class="persona-goal">Frustration: he knows his triggers but cannot stop himself in the moment. Family arguments leave him feeling ashamed after the fact, and he has no way to track whether he is actually improving over time.</p>
+          </div>
+        </div>
+
+        <div class="img-group fade-up">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.06.41%E2%80%AFPM.png"
+                alt="Proto Persona 1 — Megan, 19, Atlanta GA. Behaviors: long-winded rants, hard time admitting fault. Pain points: frequent fighting strains relationship, can't communicate frustration without getting emotional. Goals: find middle ground during arguments, stop the building anger."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.07.05%E2%80%AFPM.png"
+                alt="Proto Persona 2 — Max, 22, Los Angeles CA. Behaviors: gets very angry with close people, short fuse, uncontrollable rage. Pain points: harbors resentment toward brother, unsure how to control anger. Goals: better control anger around family, seek outlet for redirecting rage."
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Megan and Max — detailed proto persona profiles grounding the target audience</p>
+        </div>
+      </section>
+
+      <!-- ═══════ RESEARCH ═══════ -->
+      <section id="research" class="section">
+        <div class="section-label">Research</div>
+        <h2 class="section-title">Defining the direction</h2>
+        <p class="section-intro">Extensive secondary research shaped the target range, product type, and AI integration approach, narrowing a broad emotional problem into a feasible, testable design direction.</p>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.43.48%E2%80%AFPM.png"
+            alt="Project approach: 10-week Gantt chart spanning project proposal, midterm, two user testing sprints, project closeout, and final delivery"
+            loading="lazy"
+          >
+          <p class="img-caption">10-week project timeline, two user testing sprints anchored the process</p>
+        </div>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.44.09%E2%80%AFPM.png"
+            alt="Narrowing Down the Concept: target audience identified, product type and situations defined, general AI integration approach determined"
+            loading="lazy"
+          >
+          <p class="img-caption">Secondary research narrowed the concept toward a home-based AI social robot</p>
+        </div>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.08.12%E2%80%AFPM.png"
+            alt="Role of AI Technology: analyzing emotional value via auditory sensors, camera, NLP, SLAM, and facial expression recognition to define anger level and intervene through sound and voice assistance"
+            loading="lazy"
+          >
+          <p class="img-caption">Role of AI technology — NLP, SLAM, and facial expression recognition working in concert</p>
+        </div>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.44.17%E2%80%AFPM.png"
+            alt="Hypothesis: anger control problems can be minimized in ages 16 to 24 through conflict resolution methods; AI robot prevents further escalation and provides coping methods; we will know it worked when arguments are successfully resolved"
+            loading="lazy"
+          >
+          <p class="img-caption">Design hypothesis, the foundation for both user testing sprints</p>
+        </div>
+
+        <div class="img-group fade-up">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.07.31%E2%80%AFPM.png"
+                alt="Assumption: a social robot will provide enough presence to successfully derail an argument from escalating"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.07.39%E2%80%AFPM.png"
+                alt="Risk: AI technology might not be sophisticated enough to solve all levels of conflict"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Core assumption and primary risk entering the design phase</p>
+        </div>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.07.49%E2%80%AFPM.png"
+            alt="Limitations: not knowing when an argument is resolved; users may not be distracted by stimuli; methods could exacerbate someone already angry"
+            loading="lazy"
+          >
+          <p class="img-caption">Known limitations acknowledged before concept development began</p>
+        </div>
+
+        <h3>Goals</h3>
+        <p>Three design goals emerged from the research phase and guided every subsequent decision.</p>
+
+        <div class="img-wrap borderless fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.44.02%E2%80%AFPM.png"
+            alt="Our Goals: Stop the escalation of the anger, Build an empathetic relationship with the robot, Understand the patterns of anger within themselves and others"
+            loading="lazy"
+          >
+          <p class="img-caption">Stop · Build · Understand, in sequence</p>
+        </div>
+      </section>
+
+      <!-- ═══════ CONCEPT ═══════ -->
+      <section id="concept" class="section">
+        <div class="section-label">Concept</div>
+        <h2 class="section-title">Designing the system</h2>
+        <p class="section-intro">Lumi's concept is a two stage system: first interrupt the escalation, then facilitate emotional reflection through Cognitive Reframing.</p>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.44.27%E2%80%AFPM.png"
+            alt="Proposed Solution: Lumi is a social robot detecting anger level and responding via color-changing LED lights, unexpected sounds, and CBT-based AI voice assistant"
+            loading="lazy"
+          >
+          <p class="img-caption">Proposed solution, a two stage physical robot using sound, light, and voice</p>
+        </div>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.44.37%E2%80%AFPM.png"
+            alt="Lumi Interaction Model: triangle diagram showing Lumi at the top, mediating between User and Partner during an argument at the base"
+            loading="lazy"
+          >
+          <p class="img-caption">Interaction model. Lumi positions itself as a neutral mediator between both parties</p>
+        </div>
+
+        <h3>How Lumi works</h3>
+        <p>Research into existing products and future trends in AI led the team toward three core technologies: NLP for semantic and tonal cues, facial expression recognition for visual emotion signals, and SLAM technology (inspired by Roomba) to navigate the home and approach users quickly.</p>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.44.47%E2%80%AFPM.png"
+            alt="How Would Lumi Work: NLP for semantic cues, SLAM technology for navigation, and facial expression changes to detect anger"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="img-wrap borderless fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.44.54%E2%80%AFPM.png"
+            alt="AI Input/Output diagram: Input (arousal level, facial expression, non-verbal cues, semantic verbal, location) processed by AI (NLP, SLAM, facial expression recognition), Output (stop further escalating the anger)"
+            loading="lazy"
+          >
+          <p class="img-caption">Sensor inputs flow through the AI layer to produce targeted responses</p>
+        </div>
+
+        <h3>Low-Fi Prototype</h3>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.08.34%E2%80%AFPM.png"
+            alt="Low-fi prototype sketch: annotated diagram showing camera on spinning head, speaker, LED light strip, and wheels for mobility in all directions"
+            loading="lazy"
+          >
+          <p class="img-caption">Low-fidelity prototype — core hardware components annotated on an early sketch</p>
+        </div>
+
+        <h3>Use Cases</h3>
+        <p>Two use cases were designed to address the full range of anger intensities. At low anger, subtlety is paramount, an unobtrusive cue that doesn't break the conversation. At high anger, the intervention must be immediate and impossible to ignore.</p>
+
+        <div class="img-group fade-up">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.45.01%E2%80%AFPM.png"
+                alt="Use Cases: low anger, subtle sound to unobtrusively alert. High anger, unexpected response for immediate halt in escalation."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.45.08%E2%80%AFPM.png"
+                alt="Use Case 1: Low Level of Anger, low anger detected, subtle sound, unobtrusively alert the person without stopping the conversation. Use Case 2: High Level of Anger, high anger detected, unexpected response, immediate halt in escalation."
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Use Case 1 (low anger) and Use Case 2 (high anger), matched responses by intensity</p>
+        </div>
+
+        <h3>Core Features</h3>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.45.16%E2%80%AFPM.png"
+            alt="Core Features: Speaker (source of calming sound), SLAM (maps the house), Camera (360° head spin, detects facial expressions), Microphone (detects and locates users), LED Light (warns with colors by anger level), Mobility (quickly approaches users)"
+            loading="lazy"
+          >
+          <p class="img-caption">Six integrated hardware and software capabilities</p>
+        </div>
+
+        <h3>Physical Design</h3>
+        <p>Lumi's form is futuristic yet friendly, inspired by BB8 and designed to be simple and non-threatening. Brand values: <strong>Friendly, Warm, Empathy</strong>. The LED light band is the primary emotional display, changing color in real time to signal the current anger level.</p>
+
+        <div class="led-legend">
+          <div class="led-row">
+            <div class="led-dot" style="background:var(--green); box-shadow: 0 0 7px var(--green);"></div>
+            <span><strong>Green</strong>, Default state, no anger detected</span>
+          </div>
+          <div class="led-row">
+            <div class="led-dot" style="background:var(--blue); box-shadow: 0 0 7px var(--blue);"></div>
+            <span><strong>Blue</strong>, Detecting voice</span>
+          </div>
+          <div class="led-row">
+            <div class="led-dot" style="background:var(--yellow); box-shadow: 0 0 7px var(--yellow);"></div>
+            <span><strong>Yellow</strong>, Low anger detected</span>
+          </div>
+          <div class="led-row">
+            <div class="led-dot" style="background:var(--red); box-shadow: 0 0 7px var(--red);"></div>
+            <span><strong>Red</strong>, High anger detected</span>
+          </div>
+        </div>
+
+        <h3>Lumi's Persona</h3>
+        <p>To ensure consistent character across all interactions, the team built a brand persona for Lumi: approachable, empathetic, and friendly, with a calm and warm tone of voice.</p>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.08.47%E2%80%AFPM.png"
+            alt="Lumi's Persona: age 25, female AI assistant. Brand identity: Approachable, Empathy, Friendly. Personality: calm, kind, welcoming, empathetic, trustworthy, warm, cheerful, understanding. Tone of voice: friendly, casual, calm and warm."
+            loading="lazy"
+          >
+          <p class="img-caption">Lumi's brand persona — the character behind the product</p>
+        </div>
+
+        <h3>Two-Stage Concept Direction</h3>
+
+        <div class="img-wrap borderless fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.45.44%E2%80%AFPM.png"
+            alt="Stage 1: Stop escalating the anger, alert using jingle sound and light at low anger; unexpected sound sources at high anger. Stage 2: Coping Method via Cognitive Reframing, alternative cognitive thinking to restructure perception positively; three response methods: mirroring, restatement, and effective response."
+            loading="lazy"
+          >
+          <p class="img-caption">Stage 1 interrupts; Stage 2 reframes</p>
+        </div>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.45.25%E2%80%AFPM.png"
+            alt="Lumi's Journey with the User: sound, lights, and motion mitigate building anger; cognitive reframing techniques practiced in therapy; the longer Lumi spends with a person, the better the pattern recognition"
+            loading="lazy"
+          >
+          <p class="img-caption">Long-term relationship, Lumi's pattern recognition improves the more time it spends with a user</p>
+        </div>
+      </section>
+
+      <!-- ═══════ VOICE DESIGN ═══════ -->
+      <section id="voice" class="section">
+        <div class="section-label">Voice Design</div>
+        <h2 class="section-title">Scripting empathy</h2>
+        <p class="section-intro">After mapping common argument scenarios, three voice scripts were created to cover the emotional states a user might be in when approaching Lumi, and to train Amazon Alexa's intent recognition on realistic conversation data.</p>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.46.01%E2%80%AFPM.png"
+            alt="Lumi Voice Flow diagram: full branching conversation map showing paths for users with negative feelings wanting to talk, users who are unsure, and users who don't want to talk right now"
+            loading="lazy"
+          >
+          <p class="img-caption">Full voice flow, branching paths cover all three emotional entry states</p>
+        </div>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.46.08%E2%80%AFPM.png"
+            alt="Voice Script 1: User has a negative feeling and wants to talk to Lumi. Lumi guides Jack through Cognitive Reframing after a fight with his brother about a gaming console."
+            loading="lazy"
+          >
+          <p class="img-caption">Script 1, User has a negative feeling and wants to talk</p>
+        </div>
+
+        <div class="img-group fade-up">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.46.14%E2%80%AFPM.png"
+                alt="Voice Script 2: User is confused about their feelings. Lumi gently walks Susan through exploring why she feels unsure after her friend was an hour late."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.46.20%E2%80%AFPM.png"
+                alt="Voice Script 3: User has a negative feeling but doesn't want to talk. Lumi respects the boundary: 'No problem, take your time. Let me know when you are ready to talk.'"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Script 2 (confused feelings) and Script 3 (not ready to talk), boundary respect built into the design</p>
+        </div>
+      </section>
+
+      <!-- ═══════ STORYBOARDS ═══════ -->
+      <section id="storyboards" class="section">
+        <div class="section-label">Storyboards</div>
+        <h2 class="section-title">Lumi in action</h2>
+        <p class="section-intro">Two storyboards place Lumi in realistic domestic scenarios, grounding the concept in the daily lives of the proto personas and communicating the two stage response model.</p>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.46.36%E2%80%AFPM.png"
+            alt="Storyboard 1: Response to Low Anger, Megan comes home and her boyfriend starts arguing with her. Lumi listens from the living room, moves to the kitchen, and emits a jingle sound and LED light. Both parties become conscious of their anger and calm down."
+            loading="lazy"
+          >
+          <p class="img-caption">Storyboard 1, Lumi's low anger intervention: subtle jingle and LED signal</p>
+        </div>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.46.45%E2%80%AFPM.png"
+            alt="Storyboard 2: Response to High Anger, Max and his brother are yelling about a gaming console. Lumi rushes over and plays an unexpected humorous audio clip, a funny voice filter or a nostalgic sound, chosen to break the emotional spiral through surprise rather than confrontation. Sean hands over the console and apologizes."
+            loading="lazy"
+          >
+          <p class="img-caption">Storyboard 2, Lumi's high anger intervention: unexpected humor breaks the tension immediately</p>
+        </div>
+      </section>
+
+      <!-- ═══════ USER TESTING ═══════ -->
+      <section id="testing" class="section">
+        <div class="section-label">User Testing</div>
+        <h2 class="section-title">Two sprints, real insight</h2>
+        <p class="section-intro">Two rounds of user testing across 15 participants validated sound effectiveness and refined the voice design. Each sprint combined quantitative surveys with contextual inquiry sessions.</p>
+
+        <h3>Evaluation Questions</h3>
+
+        <div class="img-group fade-up">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.09.05%E2%80%AFPM.png"
+                alt="Sprint 1 Evaluation Questions — Concept Based: does the unexpected sound cool users down, what kind of sound gets attention, how users perceive the sound during an argument, different responses for different anger stages, consistency vs. variety"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.09.11%E2%80%AFPM.png"
+                alt="Sprint 1 Evaluation Questions — Design Based: does the size and design of the robot effectively calm users, is the robot's movement and speed enough to catch attention during a heated argument"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Sprint 1 evaluation questions — concept-based and design-based tracks</p>
+        </div>
+
+        <h3>MVP Testing Plan</h3>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.09.26%E2%80%AFPM.png"
+            alt="MVP Testing Plan: 6-step process — recall the angry moment, write about the past conflict, Wizard of Oz simulation (understand sound effect and movement), quantitative survey, explore shape and size of the robot, contextual inquiry and evaluate"
+            loading="lazy"
+          >
+          <p class="img-caption">MVP testing plan — six-step Wizard of Oz simulation run across 8 participants</p>
+        </div>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.09.39%E2%80%AFPM.png"
+            alt="User Testing Task Flow: Task A (Low Anger) — listen to alarm sounds, animal, jingle, nature sounds, watch robot movement and speed, evaluate each stimulus. Task B (High Anger) — unexpected shocking sounds, user's own voice, funny voice filter, nostalgic music, watch movement, evaluate."
+            loading="lazy"
+          >
+          <p class="img-caption">Task flow — two tracks evaluating low-anger and high-anger stimuli independently</p>
+        </div>
+
+        <h4>Sprint 1, Sound Effectiveness</h4>
+        <p><strong>8 participants</strong> · Quantitative survey (20 min) + Contextual inquiry (30 min)</p>
+        <p>Results: animal sounds were most effective for low anger situations; playing back the user's own voice was most effective at high anger, both surprising and disarming.</p>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.09.54%E2%80%AFPM.png"
+            alt="User Testing Results: Sprint 1, 8 participants — five dimensions evaluated: Sound, Speed, Lights, Size, Movement"
+            loading="lazy"
+          >
+          <p class="img-caption">Sprint 1 — five dimensions evaluated across 8 participants</p>
+        </div>
+
+        <div class="img-group fade-up">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.10.00%E2%80%AFPM.png"
+                alt="Sound results: Low — animal sounds, nature sounds, short jingle. High — Trump funny speech, record of user's voice, nostalgic music"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.10.07%E2%80%AFPM.png"
+                alt="Sound results bar charts: Low Anger — animal sounds rated highest (3.8/5); High Anger — user's own voice rated highest (4.5/5)"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Sound results — animal sounds top for low anger; user's own voice most effective at high anger</p>
+        </div>
+
+        <div class="img-group fade-up">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.10.19%E2%80%AFPM.png"
+                alt="LED Light results: Low — stable light preferred; High — rapid flash more eye-catching and effectively distracting"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.10.28%E2%80%AFPM.png"
+                alt="Speed results: Low — standard robot vacuum speed expected; High — users want Lumi to approach them faster"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">LED and speed findings — rapid flash and faster approach validated for high anger states</p>
+        </div>
+
+        <div class="img-group fade-up">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.10.59%E2%80%AFPM.png"
+                alt="Movement results: Low — no movement preferred; High — users want active movement like dancing or head spinning"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-06-07 at 9.11.16%E2%80%AFPM.png"
+                alt="Size results: half preferred smaller 7-inch size (fits small room, cuter); half preferred bigger 11-inch (more presence, reminds them of a pet)"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Movement and size — active motion preferred at high anger; size split evenly between 7″ and 11″</p>
+        </div>
+
+        <h4>Sprint 2, Voice Design Naturalness</h4>
+        <p><strong>7 participants</strong> · Contextual inquiry (30 min)</p>
+        <p>Lumi's voice scripts were tested via a foam physical prototype and the Amazon Alexa developer environment, simulating realistic interaction scenarios.</p>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.46.51%E2%80%AFPM.png"
+            alt="Building Out Sample Code: leveraged Amazon Alexa developer tools to integrate voice scripts; conducted user tests with a physical foam prototype of Lumi"
+            loading="lazy"
+          >
+          <p class="img-caption">Voice interactions built in Amazon's developer environment, tested with a foam prototype</p>
+        </div>
+
+        <div class="img-group fade-up">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.46.59%E2%80%AFPM.png"
+                alt="Coding: Amazon Alexa Intents editor and JavaScript code for FeelBadIntent and DisruptiveListenerHandler"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.47.05%E2%80%AFPM.png"
+                alt="Alexa Developer Console: skill testing interface showing live voice simulation with JSON response output"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Amazon Alexa Developer Console, voice intents coded and tested in real time</p>
+        </div>
+
+        <h3>Key Insights</h3>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.47.15%E2%80%AFPM.png"
+            alt="Key Insights: Formalness, users wanted less formal dialog, felt too much like therapy. Reframing, users wanted Lumi to mirror more of their words. Root, more focus on anger triggers. Empathy, needs kinder, more considerate responses."
+            loading="lazy"
+          >
+          <p class="img-caption">Four dimensions of voice design feedback from Sprint 2</p>
+        </div>
+
+        <div class="insight-grid fade-up">
+          <div class="insight-card">
+            <div class="insight-card-label">Formalness</div>
+            <p>Users wanted a less formal dialog, it felt too clinical, like therapy. Lumi needed a warmer, more casual tone.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Reframing</div>
+            <p>Users wanted Lumi to mirror more of their words back to them, creating a more personal and connected feel.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Root Cause</div>
+            <p>More focus on identifying the underlying triggers of anger, rather than addressing only the surface-level response.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Empathy</div>
+            <p>Responses needed more consideration for what users were actually expressing, kinder, gentler language throughout.</p>
+          </div>
+        </div>
+
+        <h3>Design Changes</h3>
+
+        <div class="img-wrap fade-up">
+          <img
+            src="/projects/lumi/lumi-photos/Screenshot 2026-04-05 at 10.47.23%E2%80%AFPM.png"
+            alt="Changes: expanded sound options (low anger: animal sounds and subtle jingle; high anger: copy-cat with funny voice filter, funny celebrity speech, nostalgic music). Size reduced from 10 inches to 8 inches. LED: subtle flash for low anger, rapid flash for high anger, green as default."
+            loading="lazy"
+          >
+          <p class="img-caption">Post-testing changes: expanded sound library, refined LED flash behavior, size reduced from 10″ to 8″</p>
+        </div>
+      </section>
+
+      <!-- ═══════ OUTCOME ═══════ -->
+      <section id="outcome" class="section">
+        <div class="section-label">Outcome</div>
+        <h2 class="section-title">Validating a new category of emotional intervention</h2>
+        <p class="section-intro">This semester-long project was completed for UXDG 415, UX Studio 2 at SCAD. It demonstrated that a physical AI robot using sound, light, and voice could effectively interrupt and de­escalate arguments, with strong, positive user response across both testing sprints.</p>
+
+        <div class="callout fade-up">
+          <div class="callout-eye">Key Finding</div>
+          <p>Unexpected audio stimuli outperformed every other interrupt method tested, and users who engaged with the Cognitive Reframing scripts reported feeling genuinely heard rather than managed. The long term pattern recognition model was the feature users most wanted to see built, validating the core premise that emotional support tools need to improve the more they know you.</p>
+        </div>
+
+        <h4>Key Takeaways</h4>
+        <p>Two sprints of testing across 15 users confirmed that unexpected audio stimuli and Cognitive Behavioral Therapy methods are not just accepted by younger adults but actively preferred over conventional calm-down prompts. The pattern recognition model proved compelling to users who had never considered that a device could learn their specific triggers over time. The biggest design lesson was that emotional tools need to feel like a relationship, not a feature. Users responded to Lumi not as a product interrupting an argument but as a presence that understood them.</p>
+
+        <h4>Future Directions</h4>
+
+        <div class="insight-grid fade-up">
+          <div class="insight-card">
+            <div class="insight-card-label">Onboarding</div>
+            <p>A personalized onboarding experience to build a custom relationship between Lumi and each individual user from day one.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Companion App</div>
+            <p>A mobile app that lets users review anger patterns over time, track emotional growth, and manage Lumi's settings.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-left">
+      <span class="footer-name">Zeeyad Khan</span>
+      <span class="footer-role">Visual Designer &middot; zeeyadkhan.com</span>
+    </div>
+    <span class="footer-right">Lumi &middot; SCAD UXDG 415</span>
+  </footer>
+
+  <!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+  <script>
+    // ── Lightbox ──
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox-overlay';
+    overlay.innerHTML = '<button class="lightbox-close" aria-label="Close">&#x2715;</button><img>';
+    overlay.style.display = 'none';
+    document.body.appendChild(overlay);
+
+    const lbImg = overlay.querySelector('img');
+
+    function openLightbox(src, alt) {
+      lbImg.src = src;
+      lbImg.alt = alt || '';
+      overlay.style.display = 'flex';
+      requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('open')));
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        overlay.style.display = 'none';
+        lbImg.src = '';
+      }, 200);
+    }
+
+    document.querySelectorAll('.img-wrap img, .img-cell img, .hero-img').forEach(img => {
+      img.addEventListener('click', () => openLightbox(img.src, img.alt));
+    });
+
+    overlay.addEventListener('click', e => { if (e.target !== lbImg) closeLightbox(); });
+    overlay.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    // ── Active sidebar navigation on scroll ──
+    const sections  = document.querySelectorAll('section[id]');
+    const navLinks  = document.querySelectorAll('.nav-link');
+    const TOPBAR_H  = 58;
+
+    function syncNav() {
+      const y = window.scrollY;
+      let current = '';
+
+      sections.forEach(sec => {
+        if (y >= sec.offsetTop - TOPBAR_H - 100) {
+          current = sec.id;
+        }
+      });
+
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
+      });
+    }
+
+    window.addEventListener('scroll', syncNav, { passive: true });
+    syncNav();
+
+    // ── Fade-up on scroll (respects prefers-reduced-motion) ──
+    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!noMotion) {
+      const fadeEls = document.querySelectorAll('.fade-up');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+      fadeEls.forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    }
+  </script>
+
+</body>
+</html>

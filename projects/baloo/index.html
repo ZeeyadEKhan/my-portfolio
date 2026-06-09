@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Baloo, Screenless Interactive Storytelling Toy for Children. A case study by Zeeyad Khan, UX Researcher.">
+  <meta name="author" content="Zeeyad Khan">
+  <title>Baloo, Case Study &middot; Zeeyad Khan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    .lb-trigger { cursor: zoom-in; }
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,.88);
+      align-items: center;
+      justify-content: center;
+    }
+    #lightbox.open { display: flex; }
+    #lb-img {
+      max-width: min(90vw, 1200px);
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(0,0,0,.6);
+      user-select: none;
+    }
+    #lb-close {
+      position: fixed;
+      top: 20px; right: 24px;
+      background: none; border: none;
+      color: #fff; font-size: 32px;
+      line-height: 1; cursor: pointer;
+      opacity: .75; transition: opacity .15s;
+    }
+    #lb-close:hover { opacity: 1; }
+    .lb-nav {
+      position: fixed;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,.12);
+      border: none; color: #fff;
+      font-size: 28px; line-height: 1;
+      padding: 12px 16px; cursor: pointer;
+      border-radius: 4px; transition: background .15s;
+    }
+    .lb-nav:hover { background: rgba(255,255,255,.25); }
+    #lb-prev { left: 16px; }
+    #lb-next { right: 16px; }
+    #lb-caption {
+      position: fixed;
+      bottom: 20px; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,.7);
+      font-size: 13px; text-align: center;
+      max-width: 640px; padding: 0 16px;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════ TOPBAR ═══════════════════════ -->
+  <header class="topbar" role="banner">
+    <a href="/" class="topbar-brand">Zeeyad Khan</a>
+    <nav class="topbar-nav" aria-label="Site navigation">
+      <a href="/#work">Work</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <a href="/#work" class="topbar-back" aria-label="Back to work">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M8.5 2.5L4 7l4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back
+    </a>
+  </header>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="hero" aria-label="Project hero">
+    <div class="hero-text">
+      <div class="hero-chips">
+        <span class="chip chip-blue">Screenless Toy</span>
+        <span class="chip">Children Ages 1 to 5</span>
+        <span class="chip">Interactive Storytelling</span>
+        <span class="chip">UX Researcher</span>
+      </div>
+      <h1 class="hero-title">Baloo</h1>
+      <p class="hero-sub">A screenless interactive storytelling stuffed animal that makes children part of the narrative, giving parents a safe alternative to screens while they take care of their own tasks.</p>
+    </div>
+    <img
+      class="hero-img"
+      src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.30.16 PM.png"
+      alt="Baloo bear alongside parent app screens showing story library, settings, and age range controls"
+      loading="eager"
+    >
+  </section>
+
+  <!-- ═══════════════════════ LAYOUT ═══════════════════════ -->
+  <div class="layout">
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" aria-label="Case study navigation">
+      <div class="sidebar-inner">
+        <p class="sidebar-eyebrow">Contents</p>
+        <ul class="sidebar-nav" role="list">
+          <li><a href="#overview"  class="nav-link">Overview</a></li>
+          <li><a href="#problem"   class="nav-link">Problem</a></li>
+          <li><a href="#research"  class="nav-link">Research</a></li>
+          <li><a href="#concept"   class="nav-link">Concept</a></li>
+          <li><a href="#design"    class="nav-link">Design</a></li>
+          <li><a href="#decisions" class="nav-link">Decisions</a></li>
+          <li><a href="#testing"   class="nav-link">User Testing</a></li>
+          <li><a href="#outcome"   class="nav-link">Outcome</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="content" id="main-content">
+
+      <!-- ═══════ OVERVIEW ═══════ -->
+      <section id="overview" class="section">
+        <div class="section-label">Overview</div>
+        <h2 class="section-title">A storytelling toy that replaces the screen</h2>
+        <p class="section-intro">Baloo is a screenless interactive stuffed animal that tells children branching stories, involves them as characters in the narrative, and lets parents queue content through a companion app, all without a screen in sight.</p>
+
+        <p>Built for an interaction design course, Baloo emerged from half a semester of research before a single screen was designed. The team explored four problem areas and converged on childhood screen time, a problem with fast growing consequences and no satisfying solution on the market.</p>
+
+        <div class="meta-strip">
+          <div class="meta-item">
+            <span class="meta-val">10</span>
+            <span class="meta-key">Week Project</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">3</span>
+            <span class="meta-key">Research Methods</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">2</span>
+            <span class="meta-key">Prototype Rounds</span>
+          </div>
+        </div>
+
+        <h4>My Role</h4>
+        <p>UX Researcher &middot; Led the primary and secondary research, generated questions for user testing, and analyzed and sorted the bulk of the data</p>
+
+        <h4>Timeframe</h4>
+        <p>September 2020 to November 2020</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 2.57.59 PM.png"
+            alt="Baloo product poster: Interactive Storytelling, Ability to add own toys as secondary characters, Parent Facilitated App, Ability to queue stories and activities. Shows the Baloo bear alongside three parent app screens."
+            loading="lazy"
+          >
+          <p class="img-caption">Baloo at a glance: the physical toy and parent companion app, together</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 2.59.12 PM.png"
+            alt="Chosen Topic: This project was for an interaction design course. We were tasked with focusing on finding opportunity areas around newly discovered problems with tech. After exploring 4 different topics we decided to focus on building out a product that helps children limit their screen time usage. Unlike many other UX classes where the product is defined early on, we spent half the course duration focusing on getting meaningful research for the problem space."
+            loading="lazy"
+          >
+          <p class="img-caption">Chosen topic: half the course duration was spent on meaningful research before any product was defined</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 2.59.20 PM.png"
+            alt="Project Approach: 10-week Gantt chart covering Discover, Define, Data Collection, Concept Ideation, First Round of Prototype, Evaluate, User Testing, Second Round of Prototype, Vision Video, and Process Book"
+            loading="lazy"
+          >
+          <p class="img-caption">10-week project approach: research and evaluation anchored the entire timeline</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 2.59.50 PM.png"
+            alt="Introduction: As technology grows at an alarming rate, our capabilities as humans expand to achieve things we never thought possible. However, it would be foolish to be naively optimistic, without addressing the problems that arise out of unchecked technological innovation. As new doors open to greater technological opportunities, problems tag along concerning privacy, health, crime, and mental well being. The opportunities to address these problems gave Team 2 the perfect starting point."
+            loading="lazy"
+          >
+          <p class="img-caption">Starting point: technology's rapid growth creates opportunity areas alongside new problems</p>
+        </div>
+      </section>
+
+      <!-- ═══════ PROBLEM ═══════ -->
+      <section id="problem" class="section">
+        <div class="section-label">Problem</div>
+        <h2 class="section-title">Screens are the easiest babysitter</h2>
+        <p class="section-intro">Children under 5 are spending more time on screens than ever, often because parents hand over a device out of necessity. The problem is not that parents are negligent. The problem is there is no good alternative.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 3.00.08 PM.png"
+            alt="Initial Topics: Farming of personal information to send physical junk mail. Virtual shopping accessibility for small businesses during COVID-19. Technology's negative effects on health."
+            loading="lazy"
+          >
+          <p class="img-caption">Three initial topics explored before narrowing to technology and health</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 3.00.54 PM.png"
+            alt="Technology's negative effects on health chosen as the focus area. We decided to proceed with this topic, focusing on how the use of technology during the average 40 hour work week affects the health of office workers."
+            loading="lazy"
+          >
+          <p class="img-caption">Technology's negative effects on health chosen as the focus area</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 3.01.32 PM.png"
+            alt="User Group: Our target group started out as office workers when we were trying to inform and promote healthy screen usage. Since this group already has a highly saturated market, we shifted our focus to a younger generation in hopes to prevent these issues, before they arise. While looking at the age range of 5 and under, we came across a more complex problem that became the basis of where are project is now."
+            loading="lazy"
+          >
+          <p class="img-caption">User group pivoted from office workers to children under 5: a more complex and urgent problem with no existing solution</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 3.02.17 PM.png"
+            alt="Topic of Interest: Our focus on children 5 and under revealed the increasing amount of screen usage at younger and younger ages. At first we considered how we could promote/inform this generation about the health risks of technology. Despite their opposition, parents give their children a screen out of necessity and convenience. We aimed to provide an easy non-screen based technological solution that reassures parents of the safety of the content their child is consuming while also giving the parents time to take care of their own tasks."
+            loading="lazy"
+          >
+          <p class="img-caption">Topic of interest: a non-screen solution that keeps the child safe and gives parents the space to take care of their own tasks</p>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 3.03.13 PM.png"
+                alt="Opinion of parents on the effects of phones on their child in the United States 2019: In 2019 study, only 32% of parents said mobile devices had negative impact on their child's development. Via Statista."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 3.03.29 PM.png"
+                alt="Amount of time spent on screen under 5 years old and the effect: 63% of kids in the US spend over two hours a day on recreational screen time. This is in spite of official guidelines from the American Academy of Pediatrics, which recommends less than one hour per day for children between the ages of 2 and 5, and consistent limits on screen time for older children."
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Only 32% of parents see screens as harmful, yet 63% of children exceed the AAP recommended daily screen time limit</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 3.03.51 PM.png"
+            alt="Area of Opportunity: While there are other toys that could entertain an unsupervised child besides screens, they often can enhance sporadic behavior in a moment when parents need them to be still. We needed to create something that would create an engaging but calm experience for the child in order to provide a calm environment for the parent to be productive."
+            loading="lazy"
+          >
+          <p class="img-caption">Area of opportunity: an engaging and calm non-screen experience that keeps children still and parents productive</p>
+        </div>
+
+        <div class="callout">
+          <div class="callout-eye">How Might We</div>
+          <p>Reduce excessive screen time while keeping children <strong>engaged without supervision</strong>, giving parents the peace of mind that their child is safe and the freedom to focus on their own tasks?</p>
+        </div>
+      </section>
+
+      <!-- ═══════ RESEARCH ═══════ -->
+      <section id="research" class="section">
+        <div class="section-label">Research</div>
+        <h2 class="section-title">Three methods, one picture</h2>
+        <p class="section-intro">Online surveys, user interviews, user observations, and cultural probes built a layered picture of how parents actually use screens with their children, and what they feel about it. The research spoke to both the logistics and the guilt.</p>
+
+        <h3>Online Surveys</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 3.04.46 PM.png"
+            alt="Online Survey: We curated 2 sets of surveys sent out to different groups of people. The first set was for people we were acquainted with and the second set was sent out to Facebook and Reddit groups. We gathered a lot of quantitative data that help steer our project, and we also received some interesting qualitative data. The American Academy of Pediatrics recommends 2 hours or less of screen time daily. While we were happy to see that most of our users fell under the category of less than an hour, there was still a chunk of people that were spending more than the recommended amount of time looking at screens."
+            loading="lazy"
+          >
+          <p class="img-caption">Two survey sets: one to known contacts, one distributed to Facebook and Reddit parenting groups</p>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 3.05.49 PM.png"
+                alt="Results: Children's Screen Time: less than 1 hour 36%, 1 hour 29%, 2 hours or more 21%, Other 14%"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 3.06.34 PM.png"
+                alt="Results: When and Why Children Use Technology: Distraction 33%, Entertainment 28%, Education 22%, Other 17%"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">21% of children exceed the two-hour daily limit; 33% of screen time is given purely as a distraction tool</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 3.07.03 PM.png"
+            alt="Online Survey Insights: The average American kid of this age group is spending more time than recommended (2 hours or less). Parents utilize screens as a tool to distract their child. Parents utilize screens as a tool to distract their child."
+            loading="lazy"
+          >
+          <p class="img-caption">Key survey insight: screens are used as a distraction tool, not as enrichment</p>
+        </div>
+
+        <h3>User Interviews</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 3.07.23 PM.png"
+            alt="User Interviews: To get a better understanding of how children are learning and playing, we interviewed parents, while also gathering the parents emotions towards their screen usage."
+            loading="lazy"
+          >
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 3.07.51 PM.png"
+            alt="User Interviews: Questions: In what situations, do you give your child a screen? How do they react when you give them a device? How do you feel about your child's interaction with screens?"
+            loading="lazy"
+          >
+          <p class="img-caption">Three interview questions to surface situations, emotional reactions, and parental feelings about screen time</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.06.40 PM.png"
+            alt="User Interviews: Insights wall with dozens of yellow sticky notes, color coded and grouped by theme across all participants"
+            loading="lazy"
+          >
+          <p class="img-caption">Affinity wall of interview insights, color coded by theme across all participants</p>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.06.57 PM.png"
+                alt="Parent 1, children ages 2 and 5: Gives kids a device because he needs to keep them busy to have time for himself. A digital device really messes up their posture, but it gives him a lot of control to keep them calm."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.07.04 PM.png"
+                alt="Parent 2, child age 5: No tech in the morning and no tech allowed during dinner. TV is nice when I need to do my own thing."
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.07.12 PM.png"
+                alt="Parent 3, children ages 8 months and 2 years: Child uses mobile phone to learn language. Mom only gives iPad when she is traveling alone with kids."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.07.19 PM.png"
+                alt="Parent 4, twins age 3: Her child loves screens. However, she is trying to moderate the screen usage. Children are still able to enjoy playing with their toys and going outside."
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Four parent interviews surfaced a consistent pattern: screens are given out of necessity, not preference</p>
+        </div>
+
+        <h3>User Observations</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.10.19 PM.png"
+            alt="User Observations: During her live Zoom lesson call, she was sitting really closely to screen when the teacher was showing something on a whiteboard. Occasionally she would yell to get the teacher's attention and she didn't get it, she would get visibly upset. She was excited to color when her break ended. She was reluctantly going back to her table and going back to her next Zoom lesson. She was upset at someone during recess where she was mad at another student who threw her sister's toy and broke it."
+            loading="lazy"
+          >
+          <p class="img-caption">Direct observation of a child across a full school day: emotional volatility tied directly to screen transitions</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.10.47 PM.png"
+            alt="Emotion timeline: 8:45 to 9:00 Zoom Math Lesson (upset face), 9:00 to 9:45 Brain Break (happy face), 11:00 to 12:00 Recess (upset face), 12:45 to 1:00 Brain Break (neutral/skeptical face)"
+            loading="lazy"
+          >
+          <p class="img-caption">Emotion timeline across the school day: the child was most upset during structured screen time and most content during free breaks</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.11.01 PM.png"
+            alt="Participants: four photographs of real children participating in the observation study, in home environments"
+            loading="lazy"
+          >
+          <p class="img-caption">Observation participants: four children across different home environments</p>
+        </div>
+
+        <h3>Cultural Probes</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.11.15 PM.png"
+            alt="Cultural Probes: Activities were given out to parents that asked them to observe their children as they interacted with screens in order to get a better understanding of their behavior in that moment. We put together a three panel package that contained five questions for the participant to fill out when giving their child a device. These were about the emotions and actions of the parent and child during the exchange. One thing that we validated through this is that parents don't necessarily want to give them a screen, but it seems like the best option because children love it and it is convenient."
+            loading="lazy"
+          >
+          <p class="img-caption">Cultural probes: in the moment data on the parent and child during the screen exchange, captured in real time by parents themselves</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.11.38 PM.png"
+            alt="Cultural Probe kit: three panel package showing Hello introduction panel, Here's Your Task For The Day panel, and five questions asking: what was your child doing right before you gave them a device? What your child is doing on the device and how they are interacting with it? What emotions are you feeling? What emotions is your child displaying? Note your child's response when you take the device away."
+            loading="lazy"
+          >
+          <p class="img-caption">The three panel cultural probe kit distributed to participating parents</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.12.01 PM.png"
+            alt="Korean version of the cultural probe kit. We made a Korean version because many of our participants' first language was Korean."
+            loading="lazy"
+          >
+          <p class="img-caption">A Korean version was created because many participants had Korean as their first language</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.13.33 PM.png"
+            alt="Cultural Probe Insights: It's a struggle as her child loves screens. However, she's trying to moderate the screen usage. Willing submission from child after telling him that he will have to stop soon. He asked for it once but knew it was time to go home so he didn't ask again."
+            loading="lazy"
+          >
+          <p class="img-caption">Cultural probe insights: children are more self-regulating than parents assume when given clear expectations upfront</p>
+        </div>
+
+        <h3>Affinity Mapping</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.14.00 PM.png"
+            alt="Affinity Mapping: After gathering primary research we were able to affinitize our data points into various themes, and gather insights from the reoccurring patterns. We discovered a lot of interesting qualities about parents, kids and their relationships with technology."
+            loading="lazy"
+          >
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.14.12 PM.png"
+            alt="Full affinity map showing multiple clusters of yellow data notes, pink theme labels, and blue insight notes organized into thematic groups, with an Outliers cluster"
+            loading="lazy"
+          >
+          <p class="img-caption">Full affinity map: data points clustered into themes, themes synthesized into actionable insights</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.14.22 PM.png"
+            alt="Affinity Mapping: Key Insights: Parents are using screens to keep their child still. Parents need time for themselves and other tasks. Children have an appreciation for other activities outside of their screen time."
+            loading="lazy"
+          >
+          <p class="img-caption">Three key insights: screens keep children still, parents need independence, and children genuinely want to do other things</p>
+        </div>
+
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-card-label">Screen as Control</div>
+            <p>Parents consistently used screens to keep children still when they needed to focus elsewhere. It was not neglect. It was the only tool that reliably worked.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Parental Guilt</div>
+            <p>Parents knew screens were not ideal but felt they had no viable alternative. The guilt was real, but the convenience always won.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Children Want More</div>
+            <p>Children had a genuine appreciation for activities beyond screens. They loved going outside, playing with toys, and being read to. The screen was not the preference, just the path of least resistance.</p>
+          </div>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.14.43 PM.png"
+            alt="How might we reduce excessive screen time while keeping children engaged without supervision?"
+            loading="lazy"
+          >
+          <p class="img-caption">The HMW statement that focused the entire concept phase</p>
+        </div>
+      </section>
+
+      <!-- ═══════ CONCEPT ═══════ -->
+      <section id="concept" class="section">
+        <div class="section-label">Concept</div>
+        <h2 class="section-title">Three solutions, one winner</h2>
+        <p class="section-intro">Personas grounded the problem in human terms. Competitive research revealed what the market was missing. Ideation produced three distinct directions, and Baloo emerged as the one that could genuinely eliminate the screen rather than just reduce or replace it.</p>
+
+        <h3>User Archetypes and Personas</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.14.53 PM.png"
+            alt="User Archetypes: From all of our insights we then created a user archetype that best represented our target audience, their attitudes towards technology, their goals, needs, struggles and motivations."
+            loading="lazy"
+          >
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.15.01 PM.png"
+            alt="Archetype table: Tech Attitudes (understands the advantages and disadvantages of screen time for their children), Key Behaviors (occupied at most times, even at home), Struggles (knows it could be harmful, but it's convenient), Motivations (want the best for their children), Goals Related to Product (to develop a system/routine that ensures less screen time usage), Needs (a replacement for the existing easy solution)"
+            loading="lazy"
+          >
+          <p class="img-caption">Archetype: the parent who knows screens are harmful but has no replacement for the easy solution they provide</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.15.35 PM.png"
+            alt="Personas and Journey Map: Since our topic revolves around more than one target audience we created personas that represent a working mother, a couple, and a child. We highlighted many of the aspirations and potential concerns that were addressed in our User Archetypes, and generated storylines to provide some context."
+            loading="lazy"
+          >
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.16.06 PM.png"
+            alt="Cindy persona: 5th grade teacher, married, child is 5. Quote: I want my children to learn and explore their creative side without too much technology. Frustrations: child gets too much screen time, child zoned out using screens, not knowing what her children are doing on the device. Views on Screen Time: sees benefits that tech brings to learning, aware of dangers through access to a screen, aware of health risks of exposure to screens. Motivations: hopes child never loses excitement towards the things they are learning, encourages learning by encouraging creativity and curiosity."
+            loading="lazy"
+          >
+          <p class="img-caption">Cindy: a 5th grade teacher who understands both the educational value and the health danger of screens for her child</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.16.16 PM.png"
+            alt="Cindy's journey map: Doing (unaware of what child is watching, child acts out when TV time is over, learns language on Duo Lingo, child watches educational show on YouTube, child listens to audio book in the car), Thinking (what if they stumble upon something inappropriate, how can I ease this transition, I like when my child practices their language skills, is there another medium they could use to learn, my child is very intrigued with this story), Feeling (upset, upset, happy, neutral, love)"
+            loading="lazy"
+          >
+          <p class="img-caption">Cindy's journey map: tension between educational value and anxiety about unmonitored content</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.16.30 PM.png"
+            alt="Andrew and Lucia persona: Andrew is 33, a Software Engineer. Lucia is 34, a Lawyer. Children ages 3 and 5. Quote: We want our children to not be heavily reliant on screens when they are bored. Frustrations: both feel guilty when kids watch too much TV, Lucia feels disconnected from her job, Andrew wants to do more outdoor activities with family. Views: Lucia thinks screen time is ok in moderation, Andrew is more concerned about average overuse. Both want their children playing outside more."
+            loading="lazy"
+          >
+          <p class="img-caption">Andrew and Lucia: two working parents who feel guilty about evening TV but have no better alternative ready</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.16.40 PM.png"
+            alt="Andrew and Lucia's journey map: children play games on devices in the car, TV is put on in the mornings, music plays on the car ride home, children watch TV while they work after hours, nanny takes the children to the park. Feelings range from neutral to upset to happy."
+            loading="lazy"
+          >
+          <p class="img-caption">Andrew and Lucia's journey: a full day of screen moments driven by schedule, not intention</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.16.50 PM.png"
+            alt="Bethany persona: 5 years old, highly sociable and talkative, has a short attention span. She is highly sociable. Loves My Little Pony and Peppa Pig on TV. She is developing new language skills from Duolingo. Watches occasional content on YouTube. Activities: she plays different games at the playground, likes being read to before bed, helps mom clean around the house. Needs: engaging recreational activities when she comes home from school, a constant flow of creative outlet and varied activities, more socialization with children on the weekend."
+            loading="lazy"
+          >
+          <p class="img-caption">Bethany: 5 years old, social, curious, with a short attention span and a genuine love for varied activities beyond screens</p>
+        </div>
+
+        <h3>Competitive Research</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.17.07 PM.png"
+            alt="Competitive Research: After identifying the core pain points, four competitors were analyzed to understand where the market was falling short. Three patterns emerged: products that required wifi failed on reliability, products without real child interaction failed on engagement, and products with screens undermined the core goal entirely. Baloo was designed to close all three gaps. Offline download addressed the reliability failure. Branching narrative with physical interaction addressed the engagement failure. The screenless form addressed the third gap by definition."
+            loading="lazy"
+          >
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.17.17 PM.png"
+                alt="Codi: an AI learning system by Pillar Learning, a storytelling robot that children can enjoy without a screen. The content is fully controllable by the parent and could be downloaded to be played offline. Many users complained it wasn't what they expected because there was a lot of wifi connection problems and there wasn't an actual interaction with the child."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.21.24 PM.png"
+                alt="Codi capabilities: Best: ability to create and edit content for child, can work offline after content download, option to buy outfits and dress the product. Poor: frequent wifi problems within the app, no real interaction between child and AI, no option to pause once turned on."
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Codi: closest to the vision but failed on connectivity and real child interaction</p>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.21.37 PM.png"
+                alt="YouTube: used for a vast variety of purposes. Super easy to access and works as a fun stimulator for the child's senses. Because of YouTube's premium subscription system, if it isn't upgraded, children are exposed to inappropriate content. As a parent, YouTube can be a good educational service but dangerous at the same time concerning health."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.22.13 PM.png"
+                alt="YouTube capabilities: Best: wide variety of cultural content, easy go-to for educational videos, multi-stimulus with child's senses. Poor: inappropriate advertisement without upgrade, can lead to possible screen addiction, longer watch times can damage eyes."
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">YouTube: high accessibility and educational value undercut by inappropriate content risks and screen addiction potential</p>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.22.36 PM.png"
+                alt="Woobo: has a concept similar to Codi, but it is more interactive. It involves a screen which features touch and voice recognition for games and stories. Woobo can emotionally connect with the child by helping them learn emotional vocabulary. The downside is that users complained about some privacy issues with the microphone and it was the most expensive out of all our competitors at $249."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.22.49 PM.png"
+                alt="Meet Woobo! Best Capabilities: Interactive role-play with games and stories, Collaboration with top kids brands, Emotionally intimate interactions. Poor Capabilities: Privacy issues with voice identification, Too expensive, Additional payment for certain features."
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Woobo: strong emotional intimacy but expensive and undermined by voice identification privacy concerns</p>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.23.00 PM.png"
+                alt="Snappy: Transition Screen Time into the Physical World. An AR camera that would transition screen time into the physical world by putting children behind the lens. It would require them to look for something to capture in the physical world. The camera would include object recognition. It would also send parents photos that their child has captured allowing them to print photo books or outlines to use as coloring book pages."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.23.11 PM.png"
+                alt="Snappy diagram: AR Point and shoot camera, photos made into coloring book, speaks the name of object, displayed on a companion phone app"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Snappy concept: transition screen time into the physical world through an AR camera that turns captures into coloring pages</p>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.23.17 PM.png"
+                alt="Tori: Reduce Screen Time. An AR enabled coloring book that allows children to interact with their coloring pages to explore new words and concepts. It would require the child to color in the pages of the coloring book in order to activate its digital component: when they would scan a page, the image would come to life in the form of a short animation and educational video."
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.23.24 PM.png"
+                alt="Tori diagram: AR coloring book where image comes to life, teaches the child colors, shapes and words, AR only works when page is colored in"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Tori concept: reduce screen time through an AR coloring book that rewards completion with animation</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.23.31 PM.png"
+            alt="3 ways to solve the problem: Eliminate Screen Time (Baloo), Transition Screen Time into the Physical World (Snappy), Reduce Screen Time (Tori)"
+            loading="lazy"
+          >
+          <p class="img-caption">Three directions: eliminate the screen entirely, transition it to the physical world, or reduce it. The team chose elimination.</p>
+        </div>
+
+        <h3>The Baloo Concept</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.23.39 PM.png"
+            alt="Baloo: Eliminate Screen Time. Baloo is a storytelling stuffed animal that not only tells a story, but holds children's engagement by involving them in the story. It would use voice input or multiple choice decision making to diverge the narrative in a unique direction with every play session. You would get to play out a story that you and Baloo are characters in and you would also be able to add your existing toys as secondary characters in the story. One of the big things for us to remember is that the parent must understand and trust the product in order to submit the child to the product. Similar to Codi, a management app would accompany the toy, giving curation control to the parent to tailor content and learning goals to their child."
+            loading="lazy"
+          >
+          <p class="img-caption">Baloo: a storytelling stuffed animal that eliminates the screen by putting the child inside the narrative</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.23.49 PM.png"
+            alt="Storyboard comic: Panel 1: Parent says Tommy, play with Baloo while I make dinner for us. Panel 2: Baloo and Tommy are walking down the road. Baloo asks: What do we find at the end of the road? The ocean or the forest? Panel 3: Tommy answers: The ocean!"
+            loading="lazy"
+          >
+          <p class="img-caption">Storyboard: Tommy makes a choice and the narrative adapts around his answer</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.24.30 PM.png"
+            alt="Why Baloo: Parents often need to take time out for their own tasks. Baloo was created in order to provide a safe and unique experience for both the parent and the child in such situations. Baloo is an interactive storytelling platform that makes your child a part of the narrative. Baloo gives children a role in the story by engaging them in key decisions for the progression of the stories. Decisions can be made via multiple choices from Baloo's buttons or through voice input. The immersion continues with the ability to place their own toys within the story as characters."
+            loading="lazy"
+          >
+          <p class="img-caption">Why Baloo works: it solves the real problem, giving parents time while genuinely engaging children in something beyond a screen</p>
+        </div>
+      </section>
+
+      <!-- ═══════ DESIGN ═══════ -->
+      <section id="design" class="section">
+        <div class="section-label">Design</div>
+        <h2 class="section-title">Building the bear and the app</h2>
+        <p class="section-intro">Baloo required two parallel design tracks: the physical form of the toy itself, and the parent companion app that gives caregivers full control over what their child experiences. Both had to feel trustworthy, simple, and calm.</p>
+
+        <h3>Core Features</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.24.42 PM.png"
+            alt="Main Features: Compared to other podcast or storytelling toys, the main feature that makes Baloo unique is the interactability of the child within the stories to keep them engaged through the end. It uses an artificial intelligence for voice recognition to understand the child's answer choices throughout the prompt of the stories. For the younger end of our user group, the children who are unable to provide clear voice input, Baloo's limbs function as buttons, thus providing fool proof interactivity."
+            loading="lazy"
+          >
+          <p class="img-caption">What makes Baloo unique: AI voice recognition for older children, physical limb buttons for toddlers</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.24.53 PM.png"
+            alt="Questions to Answer: How long is a child's attention span? How do children interact with choice based story telling? How do children like to tell their own Story?"
+            loading="lazy"
+          >
+          <p class="img-caption">Three design questions that drove both prototype rounds</p>
+        </div>
+
+        <h3>Physical Design</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.26.51 PM.png"
+            alt="Initial Concept Sketches: two hand-drawn sketches showing the bear form with colored limbs bearing shape symbols (triangle, circle, square, star, diamond) and technical detail sketches of ear loop for attaching to toys, boop nose for voice recognition, and reinforced ear loop"
+            loading="lazy"
+          >
+          <p class="img-caption">Initial concept sketches: shape symbols on each limb as decision buttons, ear loop for accessory attachment</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.27.29 PM.png"
+            alt="Charging Capabilities: three illustrations showing Baloo charging wirelessly via a rocking chair, charging via USB-C through a zip in the back, and a close-up of the charging port concealed under the back zipper"
+            loading="lazy"
+          >
+          <p class="img-caption">Charging via wireless rocking chair or USB-C through a concealed zip in the back</p>
+        </div>
+
+        <h3>Parent App</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.23.57 PM.png"
+            alt="Parent App: Initial Wireframes showing Stories/Characters/Songs tabs, Add Characters screen with illustrated animals, and an educational content grid view"
+            loading="lazy"
+          >
+          <p class="img-caption">Initial parent app wireframes: story library, character management, and content categories</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.27.42 PM.png"
+            alt="Parent App: Parents get to control what content they want to expose their child to by setting up a profile on Baloo's parent app. The platform showcases various interactive storylines some of which are educational, and others that are purely for entertainment purposes. Shows Bethany's Stories screen with Entertain, Educate, and Explore tabs and story cards for Timmy the Tiger, Cristie the Crab, and Denny the Dog, alongside a Bethany's Adventures screen with a recommended section."
+            loading="lazy"
+          >
+          <p class="img-caption">Parent app story library: Entertain, Educate, and Explore tabs with curated content for each child profile</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.27.55 PM.png"
+            alt="Parent App: Stories can be queued up to play for hours, and can be downloaded offline so that you use Baloo anywhere. The platform also allows you to incorporate your child's own toys as secondary characters into Baloo's storylines. Parents simply add the name of the toy, a photo, and what type of character they are. Shows Denny the Dog story screen with play controls and a description screen with Play, Add Characters, and Download buttons."
+            loading="lazy"
+          >
+          <p class="img-caption">Stories queue for hours and download for offline use; parents can add their child's own toys as characters</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.28.16 PM.png"
+            alt="Parent App Settings: On the settings page, you can edit the characters, add more profiles, customize the age range, and filter out the many topics shown to your child. Settings screen shows Profiles, Age Range, Edit Characters, Notifications, Help, About, Account. Age Range screen shows a 2 to 3 slider and Edit Topics with Colors, Shapes, Animal Stories, Fruits and Vegetables, Disney, Weather, and Dances."
+            loading="lazy"
+          >
+          <p class="img-caption">Settings: per-child profiles, age range controls, topic filters, and character customization</p>
+        </div>
+      </section>
+
+      <section id="decisions" class="section">
+  <div class="section-label">Design Decisions</div>
+  <h2 class="section-title">Why Baloo works the way it does</h2>
+  <p class="section-intro">Four decisions defined the character of the product. Each one came directly from something a real user said or did during research or testing.</p>
+  <div class="insight-grid fade-up">
+    <div class="insight-card">
+      <div class="insight-card-label">Why limb buttons instead of a chest panel?</div>
+      <p>Early sketches placed all decision buttons on the bear's chest for simplicity. Testing showed children reached for and squeezed the bear's arms and legs naturally during interaction. Distributing one decision per limb matched that behavior and made the interaction feel physical and full-body rather than transactional.</p>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-label">Why a parent app instead of a simpler setup?</div>
+      <p>Research found that parents would not hand a connected device to a child without understanding and controlling what it could say. Codi failed partly because parents felt locked out of the content. The companion app was not a feature addition. It was the primary trust mechanism that made parental adoption possible.</p>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-label">Why age range controls instead of one story format?</div>
+      <p>The assumption going into testing was that a single story structure could span ages 1 to 5. Two rounds of user testing proved this wrong immediately. A 5 year old needed complexity and length. A 2 year old needed simplicity and repetition. The age range filter in the parent app exists because there is no single right answer for this age group.</p>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-label">Why background music and sound effects?</div>
+      <p>Sound was added in the high fidelity round as an enhancement, not a core feature. Testing showed it became the most reliable engagement tool across all age groups. Children who lost interest in the narrative stayed focused when ambient audio was layered in. What started as polish became structural.</p>
+    </div>
+  </div>
+</section>
+
+      <!-- ═══════ USER TESTING ═══════ -->
+      <section id="testing" class="section">
+        <div class="section-label">User Testing</div>
+        <h2 class="section-title">Two rounds, one refined form</h2>
+        <p class="section-intro">Two rounds of prototype testing across different age groups revealed a fundamental challenge: the same product could not serve a 2 year old and a 5 year old equally well. Each round forced a targeted response and ultimately shaped both the physical form and the story architecture.</p>
+
+        <h3>Low Fidelity Testing</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.25.11 PM.png"
+            alt="Lo-Fi User Testing: Tested all our users with an interactive PDF for feedback with components such as storyline, flow, complexity, and child's attention span. Also received feedback from parents to see if it seemed interesting enough for their child. Shows a branching interactive PDF flowchart of the story decision tree."
+            loading="lazy"
+          >
+          <p class="img-caption">Low fidelity testing with an interactive PDF: storyline flow, complexity, and attention span assessed across all age groups</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.25.28 PM.png"
+            alt="Feedback: Our first prototyping sessions yielded mixed results. While a few of the older children (5 year old) grasped the story well and answered the questions quickly, the younger children despite their interest and engagement, struggled to answer the storyline prompts due to complexity. Words and storyline was harder for younger children while the complexity of the story seemed appropriate for the older children. However, neither lost focus because of the characters' voices and storyline kept them engaged. For the appropriate age group, the child wanted the story to be longer. The parents suggested breaking up the story into sections so there aren't too long of breaks with the child's interaction."
+            loading="lazy"
+          >
+          <p class="img-caption">Round 1 feedback: 5 year olds engaged strongly; younger children found the complexity too high; character voices kept everyone focused regardless of age</p>
+        </div>
+
+        <div class="callout">
+          <div class="callout-eye">Key Insight</div>
+          <p>The character voices and narrative kept all children focused regardless of age. <strong>Voice was the most powerful engagement tool</strong> in the experience, more powerful than story complexity.</p>
+        </div>
+
+        <h3>Low Fidelity Round 2: Ages 2 to 4</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.25.51 PM.png"
+            alt="Lofi User Testing: 2 to 4 year olds. Our 2nd round of user testing focused on complexity level for 2 to 4 year olds. This was because in the 1st round, we received feedback from parents with children below 4 that the story was too complex for children to follow and answer prompts. Shows a simplified branching story flowchart for the younger range."
+            loading="lazy"
+          >
+          <p class="img-caption">Round 2 focused exclusively on 2 to 4 year olds with a simplified branching structure</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.25.57 PM.png"
+            alt="Feedback: Parents suggested the storyline to find a balance between ease of the story and the complexity of the child's engagement with each prompt. Activities seemed to be somewhat too easy for the child compared to the first story for testing. We then created different type of storylines for kids from the range of 2 to 4 years old."
+            loading="lazy"
+          >
+          <p class="img-caption">Simplified too far: activities were too easy for older children in the range, creating the inverse calibration problem</p>
+        </div>
+
+        <h3>Potential Storylines</h3>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.26.16 PM.png"
+                alt="Potential Storylines: three branching flowcharts exploring different story types for the 2 to 4 age range, with color coded paths for different choice outcomes"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.26.30 PM.png"
+                alt="Potential Storylines: four detailed story branches including Leo the orange cat color choice story, Hide and Seek with branching paths, Sound Identification, and a counting game with Baloo"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Multiple branching storylines designed to span the 2 to 4 year old range with appropriate complexity at each level</p>
+        </div>
+
+        <h3>Mid Fidelity and Physical Form</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.28.47 PM.png"
+            alt="Mid-Fi: With our insights from our first round, we crafted a new story interaction for the younger children in our age range from 1 to 4. The interaction was a sequenced audio matching game that went through farm animal sounds in order to find the correct cow sound. After our testing with 3 to 4 year olds we experienced similar problems as the first but on the opposite end of the age ranges. The children had moved beyond the learning concepts creating the same boredom as we saw when the concepts weren't able to be understood in the first round. Shows two versions of the Baloo physical prototype."
+            loading="lazy"
+          >
+          <p class="img-caption">Mid fidelity: farm animal sound matching for younger children; 3 to 4 year olds found it too easy, creating the inverse problem at the other end of the range</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.29.02 PM.png"
+            alt="Narrowed Down Form: From the feedback we gathered from participants, we were able to finalize a form that most clearly communicated the decision making aspect on each limb of the teddy bear. By putting each option on a separate limb, the child would be engaging with Baloo more naturally, then if the choices were simply placed on the chest or on only one limb."
+            loading="lazy"
+          >
+          <p class="img-caption">Finalized physical form: one decision per limb distributes the interaction naturally across the entire bear body</p>
+        </div>
+
+        <h3>High Fidelity</h3>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.29.20 PM.png"
+            alt="Hi-Fi: Sound effects and background music was added for an additional stimulus for storytelling. It kept children more engaged and held their focus better than stories without a separate music component. Shows six variations of the Baloo bear with different colored limb combinations across cream, brown, and tan body options."
+            loading="lazy"
+          >
+          <p class="img-caption">High fidelity: sound effects and background music significantly improved engagement and attention span across all age groups</p>
+        </div>
+
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-card-label">Age Calibration</div>
+            <p>A single story complexity cannot span ages 1 to 5. The parent app's age range filter and topic controls became essential features as a direct result of testing across all rounds.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Voice Is the Hook</div>
+            <p>Across every round, character voices kept children focused even when the content was too hard or too easy. Audio engagement was more powerful than story complexity in holding attention.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Physical Interaction</div>
+            <p>Placing decision buttons on separate limbs rather than the chest or a single limb made the interaction feel natural and full-body. Children reached for the bear instead of just touching a screen.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Sound Effects</div>
+            <p>Adding background music and ambient sounds to the high fidelity prototype held attention longer and more reliably than narrative alone. Audio layering became a core design feature.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ OUTCOME ═══════ -->
+      <section id="outcome" class="section">
+        <div class="section-label">Outcome</div>
+        <h2 class="section-title">A bear that earns the parent's trust</h2>
+        <p class="section-intro">Baloo launched as a fully tested concept across two prototype rounds and multiple age groups. In final testing sessions, children maintained focus for the full story duration without requesting a screen. Parents who reviewed the companion app reported feeling in control of the content for the first time across any storytelling product they had evaluated. The physical form, the parent app, and the story architecture all changed shape at least once as a direct result of something a real user said.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.29.33 PM.png"
+            alt="Finalized Form: Defined colored limbs for children's perspective. Additional sound effects such as birds chirping, ocean waves and various sounds were added into the audio component. Shows the final Baloo bear with pastel colored limbs: purple arm, yellow arm, blue leg, pink leg, with shape symbols embedded in each limb."
+            loading="lazy"
+          >
+          <p class="img-caption">Finalized form: distinct pastel colored limbs with shape symbols make each decision button visually clear for young children</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.29.49 PM.png"
+            alt="The finalized Baloo bear photographed against a dark background, showing the complete physical product with the four colored limbs and shape symbols fully realized"
+            loading="lazy"
+          >
+          <p class="img-caption">The final Baloo bear, fully realized</p>
+        </div>
+
+        <div class="callout">
+          <div class="callout-eye">Key Finding</div>
+          <p>Parents do not want to give children screens. They do it because <strong>there is nothing better available</strong>. Baloo resolves that by providing something genuinely better: a self-directed, safe, and engaging experience that keeps children still without a screen in sight.</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.30.16 PM.png"
+            alt="Baloo bear alongside the parent app on three phone screens: Bethany's Stories library, Settings page, and Age Range controls with topic filters"
+            loading="lazy"
+          >
+          <p class="img-caption">Baloo and its companion app together: the physical toy paired with full parental control</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/baloo/baloo-photos/Screenshot 2026-04-27 at 5.30.48 PM.png"
+            alt="Baloo product poster: The Problem: Children have excessive usage of screens because parents make it an easy solution to buy time for themselves. Our Solution: A screenless interactive toy that children can enjoy while keeping the parents' supervision to a minimum. Step 1: Choose a story to begin the interactive process. Step 2: Add your child's favorite toys as additional characters. Step 3: Feel safe about your child and enjoy your personal time."
+            loading="lazy"
+          >
+          <p class="img-caption">Final product poster: the problem, the solution, and three steps to getting started</p>
+        </div>
+
+        <h4>What I Learned as a UX Researcher</h4>
+        <p>Leading the research on Baloo reinforced that the most important design decisions happen before any sketch is drawn. The pivot from office workers to children under 5, the discovery that parents use screens out of necessity rather than preference, and the affinity map finding that children genuinely want alternatives to screens: each of these came from rigorous primary research, not assumptions. The product would not have been Baloo without those findings driving every concept decision.</p>
+
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-card-label">Research Before Concept</div>
+            <p>Half the course was spent in research before the concept was defined. That investment paid off: the product was grounded in real human behavior, not assumptions about what parents or children want.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Mixed Methods</div>
+            <p>Surveys, interviews, observations, and cultural probes each revealed something the others missed. No single method would have been sufficient. The full picture only emerged when all four were synthesized together.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Designing for Two Users</div>
+            <p>Baloo has two users: the child who plays and the parent who controls. Every feature had to satisfy both simultaneously. The parent app was not an afterthought; it was half the product.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Age Is Not One Thing</div>
+            <p>Designing for ages 1 to 5 means designing for five completely different cognitive stages. Testing exposed this immediately and reshaped the entire product architecture around age range controls and tiered story complexity.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-left">
+      <span class="footer-name">Zeeyad Khan</span>
+      <span class="footer-role">Visual Designer &middot; zeeyadkhan.com</span>
+    </div>
+    <span class="footer-right">Baloo &middot; UX Researcher</span>
+  </footer>
+
+  <!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+  <!-- LIGHTBOX -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button id="lb-close" aria-label="Close">&times;</button>
+    <button id="lb-prev" class="lb-nav" aria-label="Previous">&#8249;</button>
+    <img id="lb-img" src="" alt="">
+    <button id="lb-next" class="lb-nav" aria-label="Next">&#8250;</button>
+    <div id="lb-caption"></div>
+  </div>
+
+  <script>
+    // Lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbCap = document.getElementById('lb-caption');
+    let lbImages = [];
+    let lbIndex = 0;
+
+    function lbOpen(index) {
+      lbIndex = index;
+      const item = lbImages[lbIndex];
+      lbImg.src = item.src;
+      lbImg.alt = item.alt;
+      lbCap.textContent = item.caption;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function lbClose() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function lbStep(dir) {
+      lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+      const item = lbImages[lbIndex];
+      lbImg.src = item.src;
+      lbImg.alt = item.alt;
+      lbCap.textContent = item.caption;
+    }
+
+    document.getElementById('lb-close').addEventListener('click', lbClose);
+    document.getElementById('lb-prev').addEventListener('click', () => lbStep(-1));
+    document.getElementById('lb-next').addEventListener('click', () => lbStep(1));
+    lb.addEventListener('click', e => { if (e.target === lb) lbClose(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') lbClose();
+      if (e.key === 'ArrowLeft') lbStep(-1);
+      if (e.key === 'ArrowRight') lbStep(1);
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const allImgs = document.querySelectorAll('.img-wrap img, .img-cell img, .hero-img');
+      allImgs.forEach((img) => {
+        const wrap = img.closest('.img-wrap') || img.closest('.img-cell') || img.closest('.hero');
+        const capEl = wrap ? wrap.querySelector('.img-caption') : null;
+        lbImages.push({ src: img.src, alt: img.alt, caption: capEl ? capEl.textContent : '' });
+        const idx = lbImages.length - 1;
+        img.classList.add('lb-trigger');
+        img.addEventListener('click', () => lbOpen(idx));
+      });
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const TOPBAR_H = 58;
+
+    function syncNav() {
+      const y = window.scrollY;
+      let current = '';
+      sections.forEach(sec => {
+        if (y >= sec.offsetTop - TOPBAR_H - 100) current = sec.id;
+      });
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+    }
+
+    window.addEventListener('scroll', syncNav, { passive: true });
+    syncNav();
+
+    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!noMotion) {
+      const fadeEls = document.querySelectorAll('.fade-up');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+      fadeEls.forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    }
+  </script>
+
+</body>
+</html>
