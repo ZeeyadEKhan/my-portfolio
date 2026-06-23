@@ -52,14 +52,6 @@
     .lb-nav:hover { background: rgba(255,255,255,.25); }
     #lb-prev { left: 16px; }
     #lb-next { right: 16px; }
-    #lb-caption {
-      position: fixed;
-      bottom: 20px; left: 50%; transform: translateX(-50%);
-      color: rgba(255,255,255,.7);
-      font-size: 13px; text-align: center;
-      max-width: 640px; padding: 0 16px;
-      pointer-events: none;
-    }
   </style>
 </head>
 
@@ -1047,14 +1039,12 @@
     <button id="lb-prev" class="lb-nav" aria-label="Previous">&#8249;</button>
     <button id="lb-next" class="lb-nav" aria-label="Next">&#8250;</button>
     <img id="lb-img" src="" alt="">
-    <div id="lb-caption"></div>
   </div>
 
   <script>
     // Lightbox
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lb-img');
-    const lbCap = document.getElementById('lb-caption');
     let lbImages = [];
     let lbIndex = 0;
 
@@ -1063,7 +1053,6 @@
       const item = lbImages[lbIndex];
       lbImg.src = item.src;
       lbImg.alt = item.alt;
-      lbCap.textContent = item.caption;
       lb.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
@@ -1078,7 +1067,6 @@
       const item = lbImages[lbIndex];
       lbImg.src = item.src;
       lbImg.alt = item.alt;
-      lbCap.textContent = item.caption;
     }
 
     document.getElementById('lb-close').addEventListener('click', lbClose);
@@ -1095,9 +1083,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       const allImgs = document.querySelectorAll('.img-wrap img, .img-cell img, .hero-img');
       allImgs.forEach((img) => {
-        const wrap = img.closest('.img-wrap') || img.closest('.img-cell') || img.closest('.hero');
-        const capEl = wrap ? wrap.querySelector('.img-caption') : null;
-        lbImages.push({ src: img.src, alt: img.alt, caption: capEl ? capEl.textContent : '' });
+        lbImages.push({ src: img.src, alt: img.alt });
         const idx = lbImages.length - 1;
         img.classList.add('lb-trigger');
         img.addEventListener('click', () => lbOpen(idx));

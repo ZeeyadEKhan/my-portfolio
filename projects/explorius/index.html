@@ -68,18 +68,6 @@
       background: rgba(255, 255, 255, 0.24);
     }
 
-    #lightbox-caption {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 13px;
-      text-align: center;
-      max-width: 640px;
-      padding: 0 16px;
-      pointer-events: none;
-    }
   </style>
 </head>
 
@@ -1335,7 +1323,6 @@
   <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
     <button id="lightbox-close" aria-label="Close lightbox">&#x2715;</button>
     <img id="lightbox-img" src="" alt="">
-    <p id="lightbox-caption"></p>
   </div>
 
   <!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
@@ -1343,16 +1330,11 @@
     // ── Lightbox ──
     const lightbox     = document.getElementById('lightbox');
     const lbImg        = document.getElementById('lightbox-img');
-    const lbCaption    = document.getElementById('lightbox-caption');
     const lbClose      = document.getElementById('lightbox-close');
 
     function openLightbox(img) {
       lbImg.src     = img.src;
       lbImg.alt     = img.alt;
-      // Look for the nearest caption sibling
-      const wrap    = img.closest('.img-wrap, .img-cell, .hero');
-      const caption = wrap ? wrap.querySelector('.img-caption') : null;
-      lbCaption.textContent = caption ? caption.textContent : img.alt;
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
       lbClose.focus();
