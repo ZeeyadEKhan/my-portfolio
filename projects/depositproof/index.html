@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DepositProof, a tenant side security deposit evidence tool built as one HTML file. A case study by Zeeyad Khan, AI Product Designer.">
+  <meta name="author" content="Zeeyad Khan">
+  <title>DepositProof, Case Study &middot; Zeeyad Khan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    /* ── Lightbox ── */
+    .img-wrap img,
+    .img-cell img,
+    .hero-img {
+      cursor: zoom-in;
+    }
+
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    #lightbox.open {
+      display: flex;
+    }
+
+    #lightbox-img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+      object-fit: contain;
+      user-select: none;
+    }
+
+    #lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+
+    #lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    /* ── Video embed ── */
+    .video-wrap { margin: 2.5rem 0; }
+
+    .video-wrap video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #111;
+    }
+
+    /* ── Code blocks ── */
+    .code-wrap { margin: 2.5rem 0; }
+
+    .code-wrap pre {
+      background: #1c1c1b;
+      border: 1px solid #2c2c2a;
+      border-radius: 8px;
+      padding: 1.35rem 1.5rem;
+      overflow-x: auto;
+      line-height: 1.68;
+    }
+
+    .code-wrap code {
+      font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.76rem;
+      color: #e6e4e0;
+      white-space: pre;
+    }
+
+    .code-wrap .cm  { color: #8f8d88; }   /* comments */
+    .code-wrap .st  { color: #b8c78f; }   /* strings */
+    .code-wrap .kw  { color: #9db8e0; }   /* keywords */
+
+    .code-file {
+      font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.02em;
+      color: var(--ink-subtle);
+      margin-bottom: 0.5rem;
+    }
+
+    code.inline {
+      font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.82em;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 0.08em 0.4em;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════ TOPBAR ═══════════════════════ -->
+  <header class="topbar" role="banner">
+    <a href="/" class="topbar-brand">Zeeyad Khan</a>
+    <nav class="topbar-nav" aria-label="Site navigation">
+      <a href="/#work">Work</a>
+      <a href="/explorations" class="active"><span class="nav-full">Current Explorations</span><span class="nav-short">Explorations</span></a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <a href="/explorations" class="topbar-back" aria-label="Back to Current Explorations">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M8.5 2.5L4 7l4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back
+    </a>
+  </header>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="hero" aria-label="Project hero">
+    <div class="hero-text">
+      <div class="hero-chips">
+        <span class="chip chip-blue">Legal Tech</span>
+        <span class="chip">Evidence UX</span>
+        <span class="chip">Vanilla JavaScript</span>
+        <span class="chip">Single File</span>
+        <span class="chip">Solo Build</span>
+      </div>
+      <h1 class="hero-title">DepositProof</h1>
+      <p class="hero-sub">A tenant side tool for security deposit disputes that turns a move out into a case file: a timestamped photo protocol, a wear versus damage check grounded in state law, and a dispute letter built from your own facts. One HTML file, no framework, no server, and no photo ever uploads anywhere.</p>
+    </div>
+    <img
+      class="hero-img"
+      src="/projects/depositproof/depositproof-photos/hero.png"
+      alt="DepositProof hero reading Your deposit is a claim, document it like one, beside an evidence tag specimen with a live timestamp"
+      loading="eager"
+    >
+  </section>
+
+  <!-- ═══════════════════════ LAYOUT ═══════════════════════ -->
+  <div class="layout">
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" aria-label="Case study navigation">
+      <div class="sidebar-inner">
+        <p class="sidebar-eyebrow">Contents</p>
+        <ul class="sidebar-nav" role="list">
+          <li><a href="#overview"     class="nav-link">Overview</a></li>
+          <li><a href="#demo"         class="nav-link">Demo</a></li>
+          <li><a href="#problem"      class="nav-link">Problem</a></li>
+          <li><a href="#product"      class="nav-link">The Product</a></li>
+          <li><a href="#architecture" class="nav-link">Architecture</a></li>
+          <li><a href="#decisions"    class="nav-link">Engineering Decisions</a></li>
+          <li><a href="#testing"      class="nav-link">Testing</a></li>
+          <li><a href="#outcome"      class="nav-link">Outcome</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="content" id="main-content">
+
+      <!-- ═══════ OVERVIEW ═══════ -->
+      <section id="overview" class="section">
+        <div class="section-label">Overview</div>
+        <h2 class="section-title">Evidence tooling for the worst week of renting</h2>
+        <p class="section-intro">DepositProof is a tool for tenants fighting to get a security deposit back. It gives a move out the structure of a legal filing: every photo is logged with a timestamp, a location tag, and a fingerprint; every deduction the landlord claims can be checked against how courts in that state usually treat it; and the dispute letter assembles itself from the evidence as you go.</p>
+
+        <p>The entire product is one HTML file. No framework, no build step, no backend, no account, and no photo ever leaves the browser. That constraint is not minimalism for its own sake. It is the privacy posture of a tool whose input is photographs of the inside of your home, and it shaped every engineering decision that follows, including the biggest one: <strong>this tool deliberately does not use AI</strong>.</p>
+
+        <div class="meta-strip">
+          <div class="meta-item">
+            <span class="meta-val">1</span>
+            <span class="meta-key">HTML File</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">50</span>
+            <span class="meta-key">State Statutes</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">0</span>
+            <span class="meta-key">Servers</span>
+          </div>
+        </div>
+
+        <h4>My Role</h4>
+        <p>Design Engineer &middot; Designed and built the entire product solo: research, interface, evidence pipeline, legal content, and test harnesses</p>
+
+        <h4>Stack</h4>
+        <p>Plain HTML, CSS, and JavaScript &middot; exifr for EXIF parsing &middot; Web Crypto for hashing &middot; Puppeteer harnesses for testing</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/depositproof/depositproof-photos/desktop-full.png"
+            alt="Full DepositProof page with the hero, the photo protocol holding two logged entries, the wear or damage checker, and the dispute letter"
+            loading="lazy"
+          >
+          <p class="img-caption">The whole product on one page: protocol, classifier, and letter, connected as a single case file</p>
+        </div>
+      </section>
+
+      <!-- ═══════ DEMO ═══════ -->
+      <section id="demo" class="section">
+        <div class="section-label">Demo</div>
+        <h2 class="section-title">See it work</h2>
+        <p class="section-intro">A walkthrough of the full flow: logging photos with verified timestamps, checking a deduction against state law, and watching the dispute letter build itself from the evidence.</p>
+
+        <div class="video-wrap">
+          <video controls playsinline preload="metadata">
+            <source src="/projects/depositproof/Deposit-Proof-Demo.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+            <a href="/projects/depositproof/Deposit-Proof-Demo.mp4">Download the walkthrough instead.</a>
+          </video>
+          <p class="img-caption">DepositProof walkthrough: photo protocol, wear versus damage verdicts, and the dispute letter</p>
+        </div>
+      </section>
+
+      <!-- ═══════ PROBLEM ═══════ -->
+      <section id="problem" class="section">
+        <div class="section-label">Problem</div>
+        <h2 class="section-title">People search for this exactly once, at maximum stress</h2>
+        <p class="section-intro">Security deposit disputes are one of the most common landlord and tenant conflicts, and the line that decides most of them is blurry by design: what counts as normal wear, and what counts as chargeable damage. Tenants lose winnable disputes because their evidence is scattered, undated, and incomplete.</p>
+
+        <p>The product insight is in that first sentence. Nobody browses deposit tools. A tenant finds this once, in the week they are moving out, often the night before a walkthrough, already stressed. That rules out onboarding, accounts, and anything that asks for trust before delivering value. It also raises the stakes on privacy: the input to this tool is photographs of the inside of someone's home, taken during a conflict with the person who owns it.</p>
+
+        <div class="callout">
+          <div class="callout-eye">How Might We</div>
+          <p>Give a tenant the <strong>evidence discipline of a legal filing</strong> in a single sitting, with zero learning curve, without a single photo leaving their device?</p>
+        </div>
+
+        <p>Most tools in this space serve the landlord. DepositProof flips to the tenant side deliberately, which is sharper positioning than another inspection app, and it borrows its interface language from the courtroom rather than the camera roll: exhibits, case numbers, evidence tags, and a letter you could hand to a small claims clerk.</p>
+      </section>
+
+      <!-- ═══════ THE PRODUCT ═══════ -->
+      <section id="product" class="section">
+        <div class="section-label">The Product</div>
+        <h2 class="section-title">Three modules, one case file</h2>
+        <p class="section-intro">The page is organized as three modules that feed each other. Photos logged in module one become the evidence count in the letter. Deductions flagged in module two become dispute paragraphs. Everything the tenant does accumulates into one printable document.</p>
+
+        <h3>Module 01 &middot; Timestamped photo protocol</h3>
+        <p>Each photo is logged with a location, a subject, and a condition note. The browser reads the EXIF capture time and GPS coordinates from the file itself and computes a SHA 256 fingerprint, all locally. Every entry renders as an evidence tag with a sequential exhibit number and a badge that says exactly how trustworthy its timestamp is.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/depositproof/depositproof-photos/protocol-logged.png"
+            alt="Photo protocol module with two logged evidence entries showing thumbnails, timestamps, SHA fingerprints, and device time badges"
+            loading="lazy"
+          >
+          <p class="img-caption">Two logged entries with thumbnails, exhibit numbers, timestamps, and SHA fingerprints, ready to export as a packet</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/depositproof/depositproof-photos/lightbox.png"
+            alt="Lightbox view of a logged evidence photo with its caption and metadata over a dimmed page"
+            loading="lazy"
+          >
+          <p class="img-caption">The evidence lightbox: arrow keys move between photos, and focus returns to the exact thumbnail on close</p>
+        </div>
+
+        <h3>Module 02 &middot; Wear or damage</h3>
+        <p>The tenant picks what the landlord charged for and their state, and gets a verdict card: green for what courts usually treat as normal wear, red for what usually reads as chargeable damage, and amber for the cases that genuinely depend on cause. Every verdict carries the state statute citation and the same warning: this tool describes general patterns, not your outcome.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/depositproof/depositproof-photos/verdict-wear.png"
+            alt="Wear verdict in green for small nail holes in walls, citing the Alabama statute and noting charges to patch them are usually not deductible"
+            loading="lazy"
+          >
+          <p class="img-caption">A wear verdict: green, hedged, and anchored to the state statute rather than a promise</p>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/depositproof/depositproof-photos/verdict-damage.png"
+                alt="Damage verdict in red for large carpet stains or burns"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/depositproof/depositproof-photos/verdict-judgment.png"
+                alt="Judgment call verdict in amber for a broken door or hinge, explaining that the cause decides it"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Damage in red, judgment calls in amber. Color is never the only signal: the icon, the border, and the label all change together</p>
+        </div>
+
+        <h3>Module 03 &middot; Dispute letter</h3>
+        <p>The letter is the payoff. It pulls in the state deadline and statute, counts the logged evidence, and lists every flagged deduction. Anything the tenant has not filled in yet stays visible as an amber placeholder, so the letter is always complete and always honest about what is missing. Copy it, or print it straight to PDF.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/depositproof/depositproof-photos/letter.png"
+            alt="Dispute letter module with a facts form beside a letter preview where unfilled placeholders are highlighted in amber"
+            loading="lazy"
+          >
+          <p class="img-caption">The letter builds itself as facts arrive. Amber highlights mark exactly what still needs the tenant before it goes in the mail</p>
+        </div>
+
+        <div class="img-wrap borderless">
+          <img
+            src="/projects/depositproof/depositproof-photos/mobile-hero.png"
+            alt="DepositProof hero on a phone screen with the evidence tag specimen below the headline"
+            loading="lazy"
+          >
+          <p class="img-caption">The same file serves phones through four surgical breakpoints, because most move out photos start on a phone</p>
+        </div>
+      </section>
+
+      <!-- ═══════ ARCHITECTURE ═══════ -->
+      <section id="architecture" class="section">
+        <div class="section-label">Architecture</div>
+        <h2 class="section-title">One file, three render functions, one sink</h2>
+        <p class="section-intro">There is no router, no store, no component tree, and no dependency the browser has to download before the page works. The architecture is 970 lines in one file: design tokens, section commented CSS, markup, a data layer of two hand authored tables, and about thirty functions.</p>
+
+        <p>State is two arrays: <code class="inline">photos</code> and <code class="inline">flagged</code>. Each module has a render function, and the call graph has a single deliberate terminal: everything that changes evidence ends by calling <code class="inline">buildLetter()</code>. Log a photo and the letter's evidence sentence rewrites itself. Flag a deduction and a dispute paragraph appears. Change your state and the statute citation updates in three places at once. That one call is what makes three modules feel like one case file, with no framework in sight.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">index.html · the data flow in miniature</div>
+          <pre><code>file input → logPhoto() → processFile(file)
+   ├ file.arrayBuffer() → crypto.subtle.digest('SHA-256')
+   ├ FileReader          → base64 thumbnail
+   └ exifr.parse(file)   → capture time, GPS
+        ↓
+  photos.push(entry) → renderPhotos() → buildLetter()
+
+state / item change → classify() → verdict card
+   └ addToLetter() → flagged.push() → buildLetter()
+
+every letter field → oninput → buildLetter()</code></pre>
+        </div>
+
+        <p>The privacy promise is structural, not aspirational. There is no <code class="inline">fetch()</code> anywhere in the file, no analytics, no storage of any kind. Photos live in memory and die on refresh. The export is a fully self contained JSON packet with the images embedded as data URLs, so one file carries the photos, timestamps, coordinates, fingerprints, and flagged deductions together.</p>
+
+        <div class="callout">
+          <div class="callout-eye">Design Constraint</div>
+          <p>No persistence is a tradeoff, not a free win. A tenant who refreshes mid session loses their log, and the tool does not warn them. I chose the privacy posture anyway: <strong>for this audience, a tool that cannot leak is worth more than a tool that cannot forget</strong>, and the export packet is the intended save mechanism.</p>
+        </div>
+      </section>
+
+      <!-- ═══════ ENGINEERING DECISIONS ═══════ -->
+      <section id="decisions" class="section">
+        <div class="section-label">Engineering Decisions</div>
+        <h2 class="section-title">Restraint as an engineering discipline</h2>
+        <p class="section-intro">DepositProof is defined less by what it uses than by what it refuses: no AI where a wrong answer could cost someone real money, no invented precision in the legal content, no fake completeness in the letter. Each refusal took more engineering than the obvious alternative.</p>
+
+        <h3>1 &middot; The decision not to use an LLM</h3>
+        <p>The obvious build in 2026 is a chat box: describe the deduction, let a model tell you if it is wear or damage. I built the opposite. Classification runs on a nine row, hand authored rules table whose language is deliberately hedged, and the project rules make that a hard constraint: the tool never evaluates case strength, never predicts outcomes, and keeps every claim at the level of what courts usually do.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">index.html · the RULES table speaks in patterns, not promises</div>
+          <pre><code><span class="kw">const</span> RULES = {
+  nailholes:{v:<span class="st">'wear'</span>, label:<span class="st">'Usually normal wear'</span>,
+    body:<span class="st">'Courts in most states treat a reasonable number of small nail holes as ordinary use of the home. A charge to patch them is usually not deductible.'</span>},
+  brokendoor:{v:<span class="st">'judgment'</span>, label:<span class="st">'Depends on the cause'</span>,
+    body:<span class="st">'A hinge that failed from age is wear. A door broken by impact is damage. The cause decides it, which is exactly why your photo protocol matters.'</span>},
+  ...
+};</code></pre>
+        </div>
+
+        <p>The proof that this is a code path and not just a copy style is the escape hatch. When a tenant types a charge that is not in the table, the tool explicitly declines to guess:</p>
+
+        <div class="code-wrap">
+          <div class="code-file">index.html · classify() refuses to improvise</div>
+          <pre><code><span class="kw">if</span>(key === <span class="st">'__other__'</span>){
+  document.getElementById(<span class="st">'vLabel'</span>).textContent = <span class="st">'Depends on your facts'</span>;
+  document.getElementById(<span class="st">'vBody'</span>).textContent =
+    <span class="st">'This item is not in the built in list, so DepositProof does not '</span> +
+    <span class="st">'suggest whether it usually reads as wear or damage. Describe exactly '</span> +
+    <span class="st">'what happened, then let your photo evidence and your state statute '</span> +
+    <span class="st">'carry the argument.'</span>;</code></pre>
+        </div>
+
+        <p>A language model would have answered that question confidently. For a user at maximum stress making a financial decision, a confident wrong answer is the worst possible output. Nine defensible rows beat infinite undependable ones, and every verdict is stamped with the same footer: a statute citation plus the words <em>this tool describes general patterns, not your outcome</em>.</p>
+
+        <h3>2 &middot; The tool ranks its own evidence</h3>
+        <p>Not all timestamps are equal, and an evidence tool should say so. When a photo carries EXIF metadata, the camera's capture time beats the browser clock and the entry earns a blue <strong>EXIF verified</strong> badge. When it does not, the entry gets a grey <strong>device time</strong> badge instead. The interface visibly grades the quality of its own evidence rather than flattening everything into one look.</p>
+
+        <p>The EXIF parser itself is loaded with a pattern that packs four decisions into five lines: lazy, so fifty kilobytes of parsing code never blocks first paint; memoized on the promise, so concurrent uploads share one load; normalized across module formats; and failure tolerant, so a missing parser degrades to device time instead of breaking the log button.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">index.html · getExifr(), lazy and unbreakable</div>
+          <pre><code><span class="kw">let</span> exifrModule = <span class="kw">null</span>;
+<span class="kw">function</span> getExifr(){
+  exifrModule = exifrModule || <span class="kw">import</span>(<span class="st">'./node_modules/exifr/dist/full.esm.mjs'</span>)
+    .then(m =&gt; m.default || m)
+    .catch(() =&gt; <span class="kw">null</span>);   <span class="cm">// EXIF is optional: a failed load degrades to device time</span>
+  <span class="kw">return</span> exifrModule;
+}</code></pre>
+        </div>
+
+        <h3>3 &middot; The hash is an affordance, and I know it is not a chain of custody</h3>
+        <p>Every file gets a SHA 256 digest from the Web Crypto API, displayed as a twelve character prefix so the evidence tag stays readable. Here is the honest part: the export stores only that prefix, which means the packet cannot yet be used to verify a file's full digest. And on a file origin the crypto API is unavailable entirely, so the tag falls back to hash pending. Today the fingerprint tells a tenant the tool takes integrity seriously. Making it a real chain of custody is a two line change, store the full digest and display the first twelve characters, and it is first on the list for the full build.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">index.html · hashFile(), truncated on purpose</div>
+          <pre><code><span class="kw">async function</span> hashFile(buf){
+  <span class="kw">try</span>{
+    <span class="kw">const</span> digest = <span class="kw">await</span> crypto.subtle.digest(<span class="st">'SHA-256'</span>, buf);
+    <span class="kw">return</span> Array.from(<span class="kw">new</span> Uint8Array(digest))
+      .map(b =&gt; b.toString(16).padStart(2,<span class="st">'0'</span>)).join(<span class="st">''</span>).slice(0,12);
+  }<span class="kw">catch</span>(e){ <span class="kw">return</span> <span class="st">''</span>; }   <span class="cm">// no secure context, no hash: tag shows "hash pending"</span>
+}</code></pre>
+        </div>
+
+        <h3>4 &middot; The obvious optimization is a correctness bug</h3>
+        <p>Uploaded files are processed one at a time with a sequential await, and that is load bearing. Each entry's exhibit number is derived from the length of the photos array at push time. Parallelize the loop with <code class="inline">Promise.all</code>, the obvious performance move, and every photo in a batch computes its number before any of them push: an entire batch of exhibits named IMG 0001. In an evidence tool, the slow loop is the correct loop.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">index.html · logPhoto(), where slower is correct</div>
+          <pre><code><span class="kw">for</span>(<span class="kw">const</span> f <span class="kw">of</span> files){
+  <span class="kw">const</span> entry = <span class="kw">await</span> processFile(f, location, surface, subject, cond);
+  photos.push(entry);   <span class="cm">// id depends on photos.length, so order matters</span>
+}</code></pre>
+        </div>
+
+        <h3>5 &middot; The letter is never blank</h3>
+        <p>There is no letter not ready state and no locked form. The letter renders complete from the first second, with every missing fact shown as an amber placeholder like [LANDLORD NAME]. The mechanism is one regex that doubles as a contract: any bracketed uppercase token in the letter is, by definition, a fact the tenant has not supplied yet. The user copy explains the rest: anything still highlighted in amber needs your facts before it goes in the mail.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">index.html · escape first, then highlight</div>
+          <pre><code>document.getElementById(<span class="st">'letterBody'</span>).innerHTML =
+  escapeHtml(raw).replace(/\[[A-Z][A-Z0-9 ]*\]/g,
+    m =&gt; <span class="st">'&lt;mark class="ph"&gt;'</span> + m + <span class="st">'&lt;/mark&gt;'</span>);</code></pre>
+        </div>
+
+        <p>The ordering matters: user text is escaped before the markup is injected, so a tenant can type anything into the form without touching the DOM. And the placeholder shape is reused as a design tool elsewhere. When someone flags an unnamed Other deduction, it enters the letter as [DESCRIBE THE ITEM], deliberately shaped to match the regex so it arrives already highlighted. A document with visible holes is more useful than a locked form, especially for someone doing this once, in a hurry, at two in the morning.</p>
+
+        <h3>6 &middot; The PDF export is twelve lines of CSS</h3>
+        <p>No PDF library, no canvas rendering, no server. Printing the letter is a print stylesheet that hides the entire application except the letter itself, strips the amber highlights to plain black text so unfilled slots print as ordinary brackets, removes the decorative margin rule, and unsets the preview's scroll constraints so the letter paginates properly. The browser's own print to PDF does the rest.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">index.html · the whole export pipeline</div>
+          <pre><code>@media print{
+  header,footer,.hero,#protocol,#classify,.toast,.lightbox,
+  #letter .step,#letter h2,#letter .lede,#letter .disclaimer,
+  #letter .panel,#letter .letteractions{display:none !important}
+  .letter{border:none;box-shadow:none;padding:0;max-height:none;
+    overflow:visible;color:#000;font-size:11pt;line-height:1.7}
+  .ph{background:none;color:#000;font-weight:400}
+  @page{margin:2cm}
+}</code></pre>
+        </div>
+
+        <p>One judgment call hides in that hide list: the disclaimer prints nowhere, even though the project rules say every disclaimer stays visible. I decided that is correct. The disclaimer protects the tenant while they build the letter. The printed artifact is addressed to the landlord, and a letter that arrives stamped this is not legal advice argues against itself.</p>
+
+        <h3>The smaller calls that add up</h3>
+
+        <div class="insight-grid fade-up">
+          <div class="insight-card">
+            <div class="insight-card-label">Why is there no focus trap on the lightbox?</div>
+            <p>The one prose comment in the app documents a decision not to build something: focus moves to the close control on open and is restored on close, and Tab is left to the browser so focus is never trapped on a single control. A dialog with exactly one focusable element does not need trap machinery. The close handler even checks that the original thumbnail still exists before returning focus to it, because a re render may have removed it while the lightbox was open.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Why does the hero clock tick once a minute for some users?</div>
+            <p>The evidence tag specimen in the hero carries a live timestamp that updates every second. The CSS kill switch for reduced motion cannot stop a JavaScript timer, so the code checks the same preference and throttles the interval from one second to sixty. Respecting a motion preference in two languages, because one of them cannot see the other's animations.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Why was a pluralize helper worth it?</div>
+            <p>An early build rendered 1 rooms covered, preserved in an old screenshot. In a tool that impersonates a legal document, grammar is correctness, so the fix was structural rather than a ternary at one call site: a pluralize helper threaded through five surfaces, from the header chip to the letter's evidence sentence, so the mistake became impossible everywhere at once.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Why do verdicts animate on every change?</div>
+            <p>Switching between two wear items changes text inside an already green card, which users miss. The code forces a synchronous reflow between removing and re adding the animation class, restarting the fade so every verdict change is visible motion. A small detail that requires knowing how the browser batches style changes.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ TESTING ═══════ -->
+      <section id="testing" class="section">
+        <div class="section-label">Testing</div>
+        <h2 class="section-title">To test EXIF, write an EXIF encoder</h2>
+        <p class="section-intro">A single file app with no framework still deserves real verification. Two Puppeteer harnesses drive the actual app in a real browser: one exercises the full evidence pipeline, the other captures screenshots while asserting on cross module behavior. The most interesting engineering in the repo lives here.</p>
+
+        <p>The upload harness needed a photo with trustworthy EXIF metadata and a photo without it, in the same batch, to prove that mixed provenance evidence renders correctly. Rather than mock the parser, the harness builds a valid EXIF segment byte by byte, TIFF header, IFD pointers, capture time, GPS rationals, and splices it into a generated JPEG right after the start of image marker:</p>
+
+        <div class="code-wrap">
+          <div class="code-file">test-upload.js · forging EXIF from raw bytes</div>
+          <pre><code><span class="cm">// Build an EXIF APP1 segment: DateTimeOriginal 2026:07:01 14:30:22,</span>
+<span class="cm">// GPS 33 44 56.40 N, 84 23 16.80 W (little endian TIFF)</span>
+tiff.write(<span class="st">'II'</span>, 0, <span class="st">'ascii'</span>);        <span class="cm">// little endian marker</span>
+tiff.writeUInt16LE(0x2A, 2);         <span class="cm">// TIFF magic 42</span>
+entry(10, 0x8769, 4, 1, 0x26);       <span class="cm">// pointer to the Exif IFD</span>
+entry(22, 0x8825, 4, 1, 0x38);       <span class="cm">// pointer to the GPS IFD</span>
+tiff.write(<span class="st">'2026:07:01 14:30:22\0'</span>, 110, <span class="st">'ascii'</span>);
+...
+<span class="kw">const</span> jpgExif = Buffer.concat([jpgPlain.slice(0, 2), buildApp1(), jpgPlain.slice(2)]);</code></pre>
+        </div>
+
+        <p>From there the harness gets serious about what it checks. It opens the lightbox and walks it with arrow keys, asserting not just visibility but focus behavior: that focus lands on the close control on open, and that it returns to the exact thumbnail on close. It enables browser downloads through the DevTools protocol so it can capture the exported evidence packet off disk, parse it, and verify the EXIF flag, the GPS string, and the hash survived the round trip. And it pulls the generated sentence out of the letter with a regex to prove the cross module wiring: logging photos in module one really did rewrite module three.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">shots.js · the integration assertions</div>
+          <pre><code>letterHasName: ...includes(<span class="st">'Zeeyad Khan'</span>),
+letterHasFlag: ...includes(<span class="st">'Broken door or hinge'</span>),
+letterHasCA:   ...includes(<span class="st">'California'</span>),   <span class="cm">// module 2 state rewrites module 3 statute</span>
+phCount: document.querySelectorAll(<span class="st">'#letterBody .ph'</span>).length,
+overflowX: document.documentElement.scrollWidth &gt; document.documentElement.clientWidth</code></pre>
+        </div>
+
+        <p>The screenshot harness reloads the page at phone size and measures horizontal overflow in pixels, a numeric responsive regression check with no framework. Both harnesses install error listeners before doing anything else, which pairs deliberately with the app's decision to swallow EXIF loader failures: the app is designed to degrade silently, so the harness is designed to catch what the app hides. Even the demo photo is engineered: a fixture script paints a photoreal wall in canvas, complete with texture noise and a nail hole shadow, then splices in the same forged EXIF, because the demo needed evidence that looks real without shipping a photo of anyone's actual apartment.</p>
+
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-card-label">Real Browser, Real Bytes</div>
+            <p>Nothing is mocked. The harness uploads real files into the real file input, and the EXIF fixture is a byte level forgery that any parser would accept as genuine.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Focus Is Tested</div>
+            <p>The lightbox assertions check focus restoration, keyboard navigation, and escape behavior, treating accessibility as functionality rather than decoration.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">The Export Round Trip</div>
+            <p>The harness downloads the actual evidence packet and parses it, verifying the packet a tenant would hand to a clerk rather than the state that produced it.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Honest Gaps</div>
+            <p>The harnesses print state for a human to read rather than failing a build, and there is no CI. For a single file prototype I judged observation harnesses the right cost. The pure functions are the obvious next candidates for real unit tests.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ OUTCOME ═══════ -->
+      <section id="outcome" class="section">
+        <div class="section-label">Outcome</div>
+        <h2 class="section-title">A shipped tool, and three bugs I will name myself</h2>
+        <p class="section-intro">DepositProof shipped as a complete working product: a three module case file with EXIF verification, local hashing, a fifty state statute table, a self assembling dispute letter, print to PDF export, and two browser harnesses proving the pipeline end to end. It runs from a single file on any static host, or from a double click.</p>
+
+        <div class="callout">
+          <div class="callout-eye">Key Finding</div>
+          <p>In a product that touches legal outcomes, <strong>restraint is a feature users can feel</strong>. Hedged verdicts, visible placeholders, refusing to classify unknown items, and grading the tool's own evidence quality all say the same thing: this tool will not pretend to know more than it does. That is what makes the parts it does claim believable.</p>
+        </div>
+
+        <h4>What I Would Fix First</h4>
+        <p>The strongest engineering habit I took from this build is auditing my own shipped work, so here are the three real defects I found, ranked by product consequence. First, exhibit numbers can collide: remove an entry and the next photo logged can reuse an existing number, which is fatal in a tool whose pitch is an indexed evidence packet, and renumbering is also wrong because a printed tag already carries its number. Second, the tenancy length field is decorative: it re runs the classifier and re fires the animation, but nothing reads its value, while the copy promises that tenancy length matters. Third, there is no loading state while a large batch hashes, so ten phone photos mean seconds of a silent, clickable button. None of these are cosmetic, and all three are on the list for the full build.</p>
+
+        <h4>What I Learned</h4>
+        <p>Building DepositProof taught me that the hardest engineering decisions in a consumer legal tool are refusals. Refusing an LLM meant hand authoring rules I could defend line by line. Refusing persistence meant the privacy claim is structural rather than a policy promise. Refusing a PDF library meant the export is twelve lines of CSS that will still work in ten years. Every refusal was more work than the default, and every one made the product more trustworthy.</p>
+
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-card-label">Constraint as Craft</div>
+            <p>One file with no framework forced every feature to justify its weight, and made the whole product auditable by anyone who can read a page source.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Epistemics in the UI</div>
+            <p>EXIF verified versus device time badges taught me that interfaces can and should communicate how much to trust their own data, not just display it.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Grammar Is Correctness</div>
+            <p>In a tool that imitates a legal document, 1 rooms covered is a bug, not a typo. Copy discipline and code discipline turned out to be the same discipline.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Audit Your Own Work</div>
+            <p>The most valuable outcome section I can write is the one that names my own bugs, ranked by consequence. Finding them required the same rigor as building the features.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-left">
+      <span class="footer-name">Zeeyad Khan</span>
+      <span class="footer-role">AI Product Designer &middot; zeeyadkhan.com</span>
+    </div>
+    <span class="footer-right">DepositProof &middot; Design Engineer</span>
+  </footer>
+
+  <!-- ═══════════════════════ LIGHTBOX ═══════════════════════ -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+    <button id="lightbox-close" aria-label="Close lightbox">&#x2715;</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+  <script>
+    // ── Lightbox ──
+    const lightbox     = document.getElementById('lightbox');
+    const lbImg        = document.getElementById('lightbox-img');
+    const lbClose      = document.getElementById('lightbox-close');
+
+    function openLightbox(img) {
+      lbImg.src     = img.src;
+      lbImg.alt     = img.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.img-wrap img, .img-cell img, .hero-img').forEach(img => {
+      img.addEventListener('click', () => openLightbox(img));
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+
+    // ── Active sidebar navigation on scroll ──
+    const sections  = document.querySelectorAll('section[id]');
+    const navLinks  = document.querySelectorAll('.nav-link');
+    const TOPBAR_H  = 58;
+
+    function syncNav() {
+      const y = window.scrollY;
+      let current = '';
+
+      sections.forEach(sec => {
+        if (y >= sec.offsetTop - TOPBAR_H - 100) {
+          current = sec.id;
+        }
+      });
+
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
+      });
+    }
+
+    window.addEventListener('scroll', syncNav, { passive: true });
+    syncNav();
+
+    // ── Fade-up on scroll (respects prefers-reduced-motion) ──
+    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!noMotion) {
+      const fadeEls = document.querySelectorAll('.fade-up');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+      fadeEls.forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    }
+  </script>
+
+</body>
+</html>

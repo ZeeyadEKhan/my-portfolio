@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Zeeyad Khan — Visual Designer. Portfolio of UX, product, and visual design work.">
-  <title>Zeeyad Khan — Visual Designer</title>
+  <meta name="description" content="Current Explorations by Zeeyad Khan — self-directed AI product experiments, designed and built end to end.">
+  <title>Current Explorations · Zeeyad Khan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/main.css">
   <style>
-    /* ── HOME-SPECIFIC ── */
+    /* ── EXPLORATIONS (mirrors home) ── */
     .home-body { padding-top: var(--topbar-h); }
 
     /* Hero intro */
@@ -85,14 +85,6 @@
 
     .project-row:hover .project-row-inner { opacity: 0.72; }
 
-    /* Disabled rows (no case study yet) */
-    .project-row.coming-soon {
-      cursor: default;
-      pointer-events: none;
-    }
-
-    .project-row.coming-soon .project-row-inner { opacity: 0.42; }
-
     /* Left: text info */
     .project-info {}
 
@@ -157,18 +149,7 @@
 
     .project-row:hover .project-cta-arrow { transform: translateX(4px); }
 
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 1.75rem;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--blue);
-      text-decoration: none;
-    }
-
-    /* Right: image / placeholder */
+    /* Right: image */
     .project-thumb {
       border-radius: 10px;
       overflow: hidden;
@@ -185,24 +166,9 @@
       display: block;
     }
 
-    .project-thumb-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
     /* Per-project thumb colors */
-    .thumb-lumi      { background: #1e2c3a; }
-    .thumb-wonderbudi { background: #f0ece6; }
-    .thumb-explorius { background: #e8f0ff; }
-    .thumb-baloo     { background: #fff8e8; }
-    .thumb-legaleey  { background: #eef3ff; }
+    .thumb-persona      { background: #f4f2ef; }
+    .thumb-depositproof { background: #f4f6fa; }
 
     /* Home footer */
     .home-footer {
@@ -228,8 +194,8 @@
   <header class="topbar">
     <a href="/" class="topbar-brand">Zeeyad Khan</a>
     <nav class="topbar-nav" aria-label="Site navigation">
-      <a href="/#work" class="active">Work</a>
-      <a href="/explorations"><span class="nav-full">Current Explorations</span><span class="nav-short">Explorations</span></a>
+      <a href="/#work">Work</a>
+      <a href="/explorations" class="active"><span class="nav-full">Current Explorations</span><span class="nav-short">Explorations</span></a>
       <a href="/about">About</a>
       <a href="/contact">Contact</a>
     </nav>
@@ -237,128 +203,61 @@
 
   <!-- Hero -->
   <section class="home-hero" aria-label="Introduction">
-    <p class="home-hero-eyebrow">AI Product Designer · San Francisco</p>
-    <h1 class="home-hero-title">Design that earns attention.</h1>
-    <p class="home-hero-desc">I design experiences for products people actually want to use. From physical AI robots to legal tech platforms to luxury hospitality apps.</p>
+    <p class="home-hero-eyebrow">Current Explorations · San Francisco</p>
+    <h1 class="home-hero-title">Built, not just designed.</h1>
+    <p class="home-hero-desc">Self-directed AI product experiments where I own every layer, from the research question to the shipped code. This page changes as often as the work does.</p>
   </section>
 
-  <!-- Work -->
-  <section id="work" aria-label="Selected work">
+  <!-- Explorations -->
+  <section id="explorations" aria-label="Current explorations">
     <div class="work-section">
-      <p class="work-label">Selected Work</p>
+      <p class="work-label">Current Explorations</p>
 
-      <!-- 01 Lumi -->
-      <a href="/projects/lumi" class="project-row">
+      <!-- 01 Persona -->
+      <a href="/projects/persona-generator" class="project-row">
         <div class="project-row-inner">
           <div class="project-info">
             <p class="project-num">01</p>
-            <h2 class="project-name">Lumi</h2>
-            <p class="project-desc">An AI social robot that monitors anger patterns, de-escalates arguments in real time, and builds empathy through light, sound, and voice.</p>
+            <h2 class="project-name">Persona</h2>
+            <p class="project-desc">An AI-powered UX research tool that turns a product idea into personas, journeys, and interview kits, generated entirely on a local model so ideas never leave your machine.</p>
             <div class="project-tags">
               <span class="project-tag">AI Product</span>
-              <span class="project-tag">Physical Design</span>
-              <span class="project-tag">UX Research</span>
-              <span class="project-tag">SCAD</span>
+              <span class="project-tag">Design Engineering</span>
+              <span class="project-tag">Next.js</span>
+              <span class="project-tag">Local LLM</span>
             </div>
             <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
           </div>
-          <div class="project-thumb thumb-lumi">
-            <img src="/Lumibox.png"
-                 alt="Lumi robot showing three LED states"
+          <div class="project-thumb thumb-persona">
+            <img src="/Personabox.png"
+                 alt="Persona landing page: turn product ideas into research backed user personas"
                  loading="lazy">
           </div>
         </div>
       </a>
 
-      <!-- 02 Wonderbudi -->
-      <a href="/projects/wonderbudi/" class="project-row">
+      <!-- 02 DepositProof -->
+      <a href="/projects/depositproof" class="project-row">
         <div class="project-row-inner">
           <div class="project-info">
             <p class="project-num">02</p>
-            <h2 class="project-name">Wonderbudi</h2>
-            <p class="project-desc">A screenless AI companion for children that routes emotional outbursts into guided breathing and play, tested across 16 users and 3 prototype rounds.</p>
+            <h2 class="project-name">DepositProof</h2>
+            <p class="project-desc">A tenant side tool for security deposit disputes: a timestamped photo protocol, a wear versus damage check grounded in state law, and a dispute letter that builds itself, all in one HTML file that never uploads a photo.</p>
             <div class="project-tags">
-              <span class="project-tag">Mobile App</span>
-              <span class="project-tag">Wellness</span>
-              <span class="project-tag">Interaction Design</span>
-            </div>
-            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
-          </div>
-          <div class="project-thumb thumb-wonderbudi">
-            <img src="/Wonderbudibox.png"
-                 alt="Wonderbudi project banner"
-                 loading="lazy">
-          </div>
-        </div>
-      </a>
-
-      <!-- 03 Explorius -->
-      <a href="/projects/explorius/" class="project-row">
-        <div class="project-row-inner">
-          <div class="project-info">
-            <p class="project-num">03</p>
-            <h2 class="project-name">Explorius</h2>
-            <p class="project-desc">A travel discovery platform designed to surface meaningful, curated experiences for curious explorers seeking depth over convenience.</p>
-            <div class="project-tags">
-              <span class="project-tag">Travel</span>
-              <span class="project-tag">Discovery</span>
-              <span class="project-tag">Web App</span>
-            </div>
-            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
-          </div>
-          <div class="project-thumb thumb-explorius">
-            <img src="/Exploriusbox.png"
-                 alt="Explorius project"
-                 loading="lazy">
-          </div>
-        </div>
-      </a>
-
-      <!-- 04 Baloo -->
-      <a href="/projects/baloo/" class="project-row">
-        <div class="project-row-inner">
-          <div class="project-info">
-            <p class="project-num">04</p>
-            <h2 class="project-name">Baloo</h2>
-            <p class="project-desc">A screenless AI storytelling toy for children that sustains full engagement without a display, validated through two prototype rounds with real families.</p>
-            <div class="project-tags">
-              <span class="project-tag">Brand Identity</span>
-              <span class="project-tag">Product Design</span>
-              <span class="project-tag">Visual Design</span>
-            </div>
-            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
-          </div>
-          <div class="project-thumb thumb-baloo">
-            <img src="/Baloobox.png"
-                 alt="Baloo project"
-                 loading="lazy">
-          </div>
-        </div>
-      </a>
-
-      <!-- 05 Legaleey -->
-      <a href="/projects/legaleey" class="project-row">
-        <div class="project-row-inner">
-          <div class="project-info">
-            <p class="project-num">05</p>
-            <h2 class="project-name">Legaleey</h2>
-            <p class="project-desc">An AI powered legal document search platform for law firms. Reduces the hours lawyers spend finding and locating items within contracts.</p>
-            <div class="project-tags">
-              <span class="project-tag">B2B SaaS</span>
               <span class="project-tag">Legal Tech</span>
-              <span class="project-tag">Desktop</span>
-              <span class="project-tag">UX Design</span>
+              <span class="project-tag">Evidence UX</span>
+              <span class="project-tag">Vanilla JS</span>
+              <span class="project-tag">Single File</span>
             </div>
             <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
           </div>
-          <div class="project-thumb thumb-legaleey">
-            <img src="/Legaleeybox.png"
-                 alt="Legaleey project"
+          <div class="project-thumb thumb-depositproof">
+            <img src="/DepositProofbox.png"
+                 alt="DepositProof hero reading Your deposit is a claim, document it like one"
                  loading="lazy">
           </div>
         </div>
       </a>
-
 
     </div>
   </section>
