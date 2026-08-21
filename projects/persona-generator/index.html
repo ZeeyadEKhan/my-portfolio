@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Persona, an AI-powered UX research tool that runs entirely on a local model. A case study by Zeeyad Khan, AI Product Designer.">
+  <meta name="description" content="Persona, an AI powered UX research tool that runs entirely on a local model. A case study by Zeeyad Khan, AI Product Designer.">
   <meta name="author" content="Zeeyad Khan">
   <title>Persona, Case Study &middot; Zeeyad Khan</title>
 
@@ -151,7 +151,7 @@
         <span class="chip">Solo Build</span>
       </div>
       <h1 class="hero-title">Persona</h1>
-      <p class="hero-sub">An AI-powered UX research tool that turns one product description into a full discovery package: three grounded personas, user journeys, jobs-to-be-done, interview questions, and product insights. Generated entirely on your own machine.</p>
+      <p class="hero-sub">An AI powered UX research tool that turns one product description into a full discovery package: three grounded personas, user journeys, jobs to be done, interview questions, and product insights. Generated entirely on your own machine.</p>
     </div>
     <img
       class="hero-img"
@@ -188,9 +188,9 @@
       <section id="overview" class="section">
         <div class="section-label">Overview</div>
         <h2 class="section-title">Research kickoff, compressed to a minute</h2>
-        <p class="section-intro">Persona is a web tool for product teams who skip early discovery because it feels expensive. You describe what you're building, and in about a minute you have three specific personas, a five-stage user journey, jobs-to-be-done, ten interview questions, and a set of product insights. Every field is editable, exportable, and grounded in real user complaints scraped from Reddit and the App Store.</p>
+        <p class="section-intro">Persona is a web tool for product teams who skip early discovery because it feels expensive. You describe what you're building, and in about a minute you have three specific personas, a five stage user journey, jobs to be done, ten interview questions, and a set of product insights. Every field is editable, exportable, and grounded in real user complaints scraped from Reddit and the App Store.</p>
 
-        <p>What makes it different from pasting a prompt into a chatbot is the engineering around the model. Persona runs its inference on a small local model through Ollama, which means product ideas never leave the machine. It also means the entire codebase is shaped around one constraint: <strong>a 3B-parameter model cannot be trusted to follow instructions</strong>. Most of this case study is about the decisions that constraint forced.</p>
+        <p>What makes it different from pasting a prompt into a chatbot is the engineering around the model. Persona runs its inference on a small local model through Ollama, which means product ideas never leave the machine. It also means the entire codebase is shaped around one constraint: <strong>a 3B parameter model cannot be trusted to follow instructions</strong>. Most of this case study is about the decisions that constraint forced.</p>
 
         <div class="meta-strip">
           <div class="meta-item">
@@ -243,7 +243,7 @@
       <section id="problem" class="section">
         <div class="section-label">Problem</div>
         <h2 class="section-title">Persona work gets skipped, and AI personas are generic</h2>
-        <p class="section-intro">Early-stage teams know they should start with users, but real discovery takes weeks they don't have, so they either skip it entirely or ask a chatbot, which returns the same interchangeable "Sarah, a busy professional who values convenience" for every product in every industry.</p>
+        <p class="section-intro">Early stage teams know they should start with users, but real discovery takes weeks they don't have, so they either skip it entirely or ask a chatbot, which returns the same interchangeable "Sarah, a busy professional who values convenience" for every product in every industry.</p>
 
         <p>There's a second problem underneath the first: the teams most likely to want AI help with discovery are working on <strong>unreleased product ideas</strong>. Pasting those ideas into a hosted AI service means shipping your most sensitive thinking to someone else's servers. For a tool whose entire input is "describe the thing you haven't launched yet," that's not a footnote. It's a dealbreaker.</p>
 
@@ -257,10 +257,10 @@
         <div class="img-wrap">
           <img
             src="/projects/persona-generator/persona-photos/create-form.png"
-            alt="Step one of the creation wizard asking What are you building, with a three-step progress indicator and a note that generation happens locally via Ollama"
+            alt="Step one of the creation wizard asking What are you building, with a three step progress indicator and a note that generation happens locally via Ollama"
             loading="lazy"
           >
-          <p class="img-caption">The three-step wizard opens with one question and a promise: generated locally, no data leaves your machine</p>
+          <p class="img-caption">The three step wizard opens with one question and a promise: generated locally, no data leaves your machine</p>
         </div>
       </section>
 
@@ -271,7 +271,7 @@
         <p class="section-intro">The output isn't a wall of text. It's a structured workspace with five research artifacts, each one editable field by field, regenerable section by section, and exportable as Markdown, JSON, or a designed PDF.</p>
 
         <h3>Personas</h3>
-        <p>Three distinct personas, each with a profile summary, goals, pain points, motivations, and a first-person quote. The system prompt bans genericism explicitly: every persona must be specific enough that two different products in the same industry would produce different people.</p>
+        <p>Three distinct personas, each with a profile summary, goals, pain points, motivations, and a first person quote. The system prompt bans genericism explicitly: every persona must be specific enough that two different products in the same industry would produce different people.</p>
 
         <div class="img-wrap">
           <img
@@ -279,11 +279,11 @@
             alt="Three persona cards: Aisha Okafor a fintech product manager, Marcus Webb a corporate law partner, and Jordan Kim a freelance UX designer, each with goals, pain points, motivations, and a quote"
             loading="lazy"
           >
-          <p class="img-caption">Three personas for a habit-tracking app: a PM, a law partner, and a freelancer, each with different reasons to care</p>
+          <p class="img-caption">Three personas for a habit tracking app: a PM, a law partner, and a freelancer, each with different reasons to care</p>
         </div>
 
         <h3>User Journey and Jobs To Be Done</h3>
-        <p>The journey maps five stages from Awareness to Long Term Usage, each with user actions, thoughts, emotions, pain points, and opportunities. Jobs-to-be-done frames each persona's motivation as a when / I want to / so I can story.</p>
+        <p>The journey maps five stages from Awareness to Long Term Usage, each with user actions, thoughts, emotions, pain points, and opportunities. Jobs to be done frames each persona's motivation as a when / I want to / so I can story.</p>
 
         <div class="img-wrap">
           <img
@@ -325,7 +325,7 @@
         </div>
 
         <h3>Interview a Persona</h3>
-        <p>Any persona can be interviewed in a chat interface. The model role-plays the persona from their generated profile, and after the conversation it proposes updates to the persona's fields based on what was said, which the user reviews as a per-field diff and applies selectively. The AI suggests; the human decides.</p>
+        <p>Any persona can be interviewed in a chat interface. The model role plays the persona from their generated profile, and after the conversation it proposes updates to the persona's fields based on what was said, which the user reviews as a per field diff and applies selectively. The AI suggests; the human decides.</p>
 
         <div class="img-wrap">
           <img
@@ -333,7 +333,7 @@
             alt="Interview simulation chat with persona Aisha Okafor, who introduces herself and invites questions about her work and frustrations"
             loading="lazy"
           >
-          <p class="img-caption">Interview simulation: pressure-test your questions against the persona before spending real participants on them</p>
+          <p class="img-caption">Interview simulation: pressure test your questions against the persona before spending real participants on them</p>
         </div>
 
         <h3>Projects, Comparison, and Dark Mode</h3>
@@ -356,7 +356,7 @@
               >
             </div>
           </div>
-          <p class="img-caption">Saved projects with side-by-side comparison, and the workspace in dark mode</p>
+          <p class="img-caption">Saved projects with side by side comparison, and the workspace in dark mode</p>
         </div>
       </section>
 
@@ -364,9 +364,9 @@
       <section id="architecture" class="section">
         <div class="section-label">Architecture</div>
         <h2 class="section-title">A thin app around a careful pipeline</h2>
-        <p class="section-intro">Persona is a Next.js 16 app with seven API routes, localStorage as the only database, and one heavily-defended path from user input to validated output. There is no backend state, no auth, and no vector database. Every piece of infrastructure had to earn its place.</p>
+        <p class="section-intro">Persona is a Next.js 16 app with seven API routes, localStorage as the only database, and one heavily defended path from user input to validated output. There is no backend state, no auth, and no vector database. Every piece of infrastructure had to earn its place.</p>
 
-        <p>The flow end to end: a three-step wizard (React Hook Form, with each step validated against a slice of a single Zod schema) collects the product description and context. An optional research phase scrapes Reddit and App Store reviews for real user language. The generate route sends everything to the local model, runs the output through a three-tier recovery pipeline, and the result lands in localStorage. The results workspace then merges the generated data with any hand-edits at render time.</p>
+        <p>The flow end to end: a three step wizard (React Hook Form, with each step validated against a slice of a single Zod schema) collects the product description and context. An optional research phase scrapes Reddit and App Store reviews for real user language. The generate route sends everything to the local model, runs the output through a three tier recovery pipeline, and the result lands in localStorage. The results workspace then merges the generated data with any hand edits at render time.</p>
 
         <div class="code-wrap">
           <div class="code-file">app/ · route structure</div>
@@ -386,7 +386,7 @@ api/flag-assumptions          →  grounded-vs-assumption audit
 api/models        →  lists installed Ollama models</code></pre>
         </div>
 
-        <p>One route deserves a special mention: <code class="inline">/demo</code> seeds a complete pre-generated project into localStorage and opens the workspace. Anyone reviewing the tool, including you watching the video above, can explore every feature without installing a model. The demo isn't a mock; it's the real workspace running on canned data.</p>
+        <p>One route deserves a special mention: <code class="inline">/demo</code> seeds a complete pre generated project into localStorage and opens the workspace. Anyone reviewing the tool, including you watching the video above, can explore every feature without installing a model. The demo isn't a mock; it's the real workspace running on canned data.</p>
 
         <div class="callout">
           <div class="callout-eye">Design Constraint</div>
@@ -401,7 +401,7 @@ api/models        →  lists installed Ollama models</code></pre>
         <p class="section-intro">Persona began on a hosted frontier model and was deliberately moved to a small local one. Every decision below is a consequence of that move, and together they're the real product: the difference between "a prompt wrapper" and a tool that produces trustworthy output from an untrustworthy narrator.</p>
 
         <h3>1 &middot; Run local, trust nothing</h3>
-        <p>The entire provider layer is eight lines. Ollama exposes an OpenAI-compatible endpoint, so the official SDK points at localhost and the default model is a 3B-parameter Llama: small enough to run on a laptop, private by construction, free per token.</p>
+        <p>The entire provider layer is eight lines. Ollama exposes an OpenAI compatible endpoint, so the official SDK points at localhost and the default model is a 3B parameter Llama: small enough to run on a laptop, private by construction, free per token.</p>
 
         <div class="code-wrap">
           <div class="code-file">lib/ai/client.ts · the whole provider layer</div>
@@ -415,7 +415,7 @@ api/models        →  lists installed Ollama models</code></pre>
 <span class="kw">export const</span> MODEL = process.env.OLLAMA_MODEL || <span class="st">"llama3.2:latest"</span>;</code></pre>
         </div>
 
-        <p>The cost of that choice is capability. A frontier model follows a JSON schema on the first try; a 3B model returns markdown fences, invents Unicode decorations, forgets fields, and under-fills lists. The original build constrained output with forced tool-use and strict schemas. The small model simply couldn't comply, so that entire approach was abandoned for a prose "output contract" in the prompt plus defensive validation on the way out. The old tool-schema file still sits in the repo as dead code: a fossil of the architecture the constraint killed.</p>
+        <p>The cost of that choice is capability. A frontier model follows a JSON schema on the first try; a 3B model returns markdown fences, invents Unicode decorations, forgets fields, and under fills lists. The original build constrained output with forced tool use and strict schemas. The small model simply couldn't comply, so that entire approach was abandoned for a prose "output contract" in the prompt plus defensive validation on the way out. The old tool schema file still sits in the repo as dead code: a fossil of the architecture the constraint killed.</p>
 
         <h3>2 &middot; Two schemas: lenient in, strict out</h3>
         <p>The core validation idea is an asymmetry. There are two parallel Zod schemas: a <strong>lenient one for whatever the model produces</strong> (every field defaulted, enums with fallbacks, array minimums of one) and a <strong>strict one for what the app is allowed to render</strong>. A mapper is the only bridge between them.</p>
@@ -427,9 +427,9 @@ api/models        →  lists installed Ollama models</code></pre>
 gender: z.enum([<span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"neutral"</span>]).catch(<span class="st">"neutral"</span>),</code></pre>
         </div>
 
-        <p>If the strict schema had been applied to the model directly, most generations would fail outright. If the lenient schema had been used everywhere, garbage would reach the UI. Splitting them means the model gets grace and the interface gets guarantees, and every quirk-fix lives in exactly one place, the mapper, where it can be unit tested.</p>
+        <p>If the strict schema had been applied to the model directly, most generations would fail outright. If the lenient schema had been used everywhere, garbage would reach the UI. Splitting them means the model gets grace and the interface gets guarantees, and every quirk fix lives in exactly one place, the mapper, where it can be unit tested.</p>
 
-        <p>Some of those quirk-fixes are wonderfully specific. The model uses stray Unicode modifier letters as decoration; it wraps persona names in angle brackets, which would corrupt the avatar initials; it sometimes returns a comma-separated string where a list belongs. Each observed failure got a named, tested function:</p>
+        <p>Some of those quirk fixes are wonderfully specific. The model uses stray Unicode modifier letters as decoration; it wraps persona names in angle brackets, which would corrupt the avatar initials; it sometimes returns a comma separated string where a list belongs. Each observed failure got a named, tested function:</p>
 
         <div class="code-wrap">
           <div class="code-file">lib/ai/generate.ts · cleaning up after llama3.2</div>
@@ -463,10 +463,10 @@ gender: z.enum([<span class="st">"male"</span>, <span class="st">"female"</span>
 ];</code></pre>
         </div>
 
-        <p><strong>Tier three</strong> handles the failure nobody plans for: output that is <em>valid but under-filled</em>. Small models routinely return two personas instead of three, or one interview question per category instead of two. That's not a schema error, so it gets its own round: a top-up request whose result is merged <strong>gap by gap, never wholesale</strong>, guarded by a rule that the retry is only accepted if it strictly improved things:</p>
+        <p><strong>Tier three</strong> handles the failure nobody plans for: output that is <em>valid but under filled</em>. Small models routinely return two personas instead of three, or one interview question per category instead of two. That's not a schema error, so it gets its own round: a top up request whose result is merged <strong>gap by gap, never wholesale</strong>, guarded by a rule that the retry is only accepted if it strictly improved things:</p>
 
         <div class="code-wrap">
-          <div class="code-file">lib/ai/generate.ts · the shortfall top-up</div>
+          <div class="code-file">lib/ai/generate.ts · the shortfall top up</div>
           <pre><code><span class="kw">const</span> remaining = [...personaShortfall(candidate.personas),
                    ...interviewShortfall(candidate.interviewQuestions)];
 <span class="kw">if</span> (remaining.length &lt; shortfall.length) {
@@ -474,7 +474,7 @@ gender: z.enum([<span class="st">"male"</span>, <span class="st">"female"</span>
 }</code></pre>
         </div>
 
-        <p>The merge functions carry the same care: new personas fill gaps <em>in position</em> so the jobs-to-be-done indices still line up, and a retry that fixes one category can't silently drop another. And if the repair call itself throws, the original validation error is preserved for the log rather than being masked by the newer, less informative one.</p>
+        <p>The merge functions carry the same care: new personas fill gaps <em>in position</em> so the jobs to be done indices still line up, and a retry that fixes one category can't silently drop another. And if the repair call itself throws, the original validation error is preserved for the log rather than being masked by the newer, less informative one.</p>
 
         <h3>4 &middot; The decision I reversed: no fake data</h3>
         <p>The most instructive decision in the codebase is one I got wrong first. Early versions padded output to exact counts, always three personas and always ten questions, to keep the schema simple. The result was a card literally named "Unknown" with a dash in every field. Structurally valid, honestly a lie.</p>
@@ -490,7 +490,7 @@ gender: z.enum([<span class="st">"male"</span>, <span class="st">"female"</span>
 <span class="kw">export const</span> personasArraySchema = z.array(personaSchema).min(1).max(3);</code></pre>
         </div>
 
-        <p>The same doctrine shows up where jobs-to-be-done reference personas by index: the index is clamped to the personas that actually exist, because as the comment puts it, padding would leave "a card pointing at no persona at all, which renders as 'Unknown persona': <strong>the same defect wearing a different hat</strong>." And when regenerating a single persona, the pipeline now fails loudly rather than degrading silently:</p>
+        <p>The same doctrine shows up where jobs to be done reference personas by index: the index is clamped to the personas that actually exist, because as the comment puts it, padding would leave "a card pointing at no persona at all, which renders as 'Unknown persona': <strong>the same defect wearing a different hat</strong>." And when regenerating a single persona, the pipeline now fails loudly rather than degrading silently:</p>
 
         <div class="code-wrap">
           <div class="code-file">lib/ai/regenerate.ts · failing is the honest outcome</div>
@@ -509,7 +509,7 @@ gender: z.enum([<span class="st">"male"</span>, <span class="st">"female"</span>
         </div>
 
         <h3>5 &middot; Grounding without a vector database</h3>
-        <p>The anti-genericism promise needs real user language, but a vector database would be infrastructure overkill for a local-first tool. The research route is a deliberately simple alternative: scrape Reddit search and App Store reviews in parallel, filter for quality, and inject the survivors directly into the prompt as quoted evidence. Each source fails silently; research is an enhancement, never a dependency:</p>
+        <p>The anti genericism promise needs real user language, but a vector database would be infrastructure overkill for a local first tool. The research route is a deliberately simple alternative: scrape Reddit search and App Store reviews in parallel, filter for quality, and inject the survivors directly into the prompt as quoted evidence. Each source fails silently; research is an enhancement, never a dependency:</p>
 
         <div class="code-wrap">
           <div class="code-file">app/api/research/route.ts · degrade, don't block</div>
@@ -521,10 +521,10 @@ gender: z.enum([<span class="st">"male"</span>, <span class="st">"female"</span>
 ]);</code></pre>
         </div>
 
-        <p>Queries are built by a hand-rolled keyword extractor (stop-word list, length filter, top five terms) plus a map from the selected audience to search vocabulary. Reddit results are filtered by score, truncated to 260 characters, and annotated with upvotes only when they're high enough to mean something. The App Store fetch is a two-hop dance through the iTunes Search API to the review RSS feed, skipping the first entry because it's app metadata, not a review. The assembled block then instructs the model to anchor its personas in that language, using the users' specific words, frustrations, and emotional tone.</p>
+        <p>Queries are built by a hand rolled keyword extractor (stop word list, length filter, top five terms) plus a map from the selected audience to search vocabulary. Reddit results are filtered by score, truncated to 260 characters, and annotated with upvotes only when they're high enough to mean something. The App Store fetch is a two hop dance through the iTunes Search API to the review RSS feed, skipping the first entry because it's app metadata, not a review. The assembled block then instructs the model to anchor its personas in that language, using the users' specific words, frustrations, and emotional tone.</p>
 
         <h3>6 &middot; State without a store: edits that survive regeneration</h3>
-        <p>Every project stores the generated result and the user's hand-edits <strong>separately</strong>, merged only at render time. This looks like extra bookkeeping until you hit the interaction that motivates it: a user edits a field, then regenerates that section. If edits were written into the data, the stale hand-edit would either overwrite the fresh AI answer or resurrect after it.</p>
+        <p>Every project stores the generated result and the user's hand edits <strong>separately</strong>, merged only at render time. This looks like extra bookkeeping until you hit the interaction that motivates it: a user edits a field, then regenerates that section. If edits were written into the data, the stale hand edit would either overwrite the fresh AI answer or resurrect after it.</p>
 
         <div class="code-wrap">
           <div class="code-file">lib/storage.ts · generation and edits, kept apart</div>
@@ -533,10 +533,10 @@ gender: z.enum([<span class="st">"male"</span>, <span class="st">"female"</span>
 <span class="cm">// without accidentally reviving them.</span></code></pre>
         </div>
 
-        <p>Reads are schema-validated per project, so one corrupt entry can't nuke the rest of the workspace. That policy has consequences that are documented where they bite: a later-added field must stay optional in the schema, because requiring it would silently discard every project saved before the field existed. Backward compatibility as a comment you can't miss, exactly where a future change would break it.</p>
+        <p>Reads are schema validated per project, so one corrupt entry can't nuke the rest of the workspace. That policy has consequences that are documented where they bite: a later added field must stay optional in the schema, because requiring it would silently discard every project saved before the field existed. Backward compatibility as a comment you can't miss, exactly where a future change would break it.</p>
 
         <h3>7 &middot; One drawing, three renderers</h3>
-        <p>Personas need faces. Persona ships sixteen hand-drawn SVG avatars, and the engineering problem is that three different renderers consume them: the DOM, the Markdown export (which must inline the SVG so the file stands alone), and the PDF, whose renderer doesn't accept SVG markup at all, only element props. A build script parses each SVG once and code-generates a catalog carrying both the raw markup and a parsed shape tree, so the three renderers can never drift apart. The build fails loudly if an artist uses an SVG feature the PDF renderer can't draw.</p>
+        <p>Personas need faces. Persona ships sixteen hand drawn SVG avatars, and the engineering problem is that three different renderers consume them: the DOM, the Markdown export (which must inline the SVG so the file stands alone), and the PDF, whose renderer doesn't accept SVG markup at all, only element props. A build script parses each SVG once and code generates a catalog carrying both the raw markup and a parsed shape tree, so the three renderers can never drift apart. The build fails loudly if an artist uses an SVG feature the PDF renderer can't draw.</p>
 
         <p>Assignment is deterministic: a persona's face is chosen by hashing its <em>id</em>, never its content, so renaming a persona or rewording a goal can't shuffle the face out from under the user:</p>
 
@@ -565,8 +565,8 @@ gender: z.enum([<span class="st">"male"</span>, <span class="st">"female"</span>
             <p>The wizard enforces an artificial floor on the loading phase, 5.2 seconds for generation, racing the fetch against a timer. A fast model that returns in one second makes a staged progress narrative look broken and the output feel cheap. The rotating status messages exist to teach what's being built; the floor guarantees they're actually seen. A deliberate trade of raw speed for comprehension.</p>
           </div>
           <div class="insight-card">
-            <div class="insight-card-label">Why doesn't the interview auto-apply its findings?</div>
-            <p>After interviewing a persona, the model proposes profile updates from the transcript, but the API whitelists which fields it may touch (never the name or identity), and the user reviews every change as a per-field diff before applying it. In a research tool, the moment the AI silently rewrites your persona is the moment you stop trusting the persona. Human-in-the-loop wasn't a feature; it was the trust model.</p>
+            <div class="insight-card-label">Why doesn't the interview auto apply its findings?</div>
+            <p>After interviewing a persona, the model proposes profile updates from the transcript, but the API whitelists which fields it may touch (never the name or identity), and the user reviews every change as a per field diff before applying it. In a research tool, the moment the AI silently rewrites your persona is the moment you stop trusting the persona. Human in the loop wasn't a feature; it was the trust model.</p>
           </div>
           <div class="insight-card">
             <div class="insight-card-label">Why is there a "-" sentinel everywhere?</div>
@@ -574,7 +574,7 @@ gender: z.enum([<span class="st">"male"</span>, <span class="st">"female"</span>
           </div>
           <div class="insight-card">
             <div class="insight-card-label">Why does the app check what models you have?</div>
-            <p>A local-first tool can't assume its runtime exists. An API route asks Ollama what's actually installed; if it's unreachable, the wizard shows an amber banner with install instructions instead of failing at generation time, and the model picker only renders when there's genuinely a choice to make. Detect the environment, then design for its absence.</p>
+            <p>A local first tool can't assume its runtime exists. An API route asks Ollama what's actually installed; if it's unreachable, the wizard shows an amber banner with install instructions instead of failing at generation time, and the model picker only renders when there's genuinely a choice to make. Detect the environment, then design for its absence.</p>
           </div>
         </div>
       </section>
@@ -583,7 +583,7 @@ gender: z.enum([<span class="st">"male"</span>, <span class="st">"female"</span>
       <section id="testing" class="section">
         <div class="section-label">Testing</div>
         <h2 class="section-title">Tests named after real bugs</h2>
-        <p class="section-intro">The test suite isn't coverage theater. Unit tests target the AI pipeline's pure functions, several named after the exact production bug they lock down; end-to-end tests read state off the rendered DOM; and CI runs unit, build, and e2e jobs in parallel with no model required.</p>
+        <p class="section-intro">The test suite isn't coverage theater. Unit tests target the AI pipeline's pure functions, several named after the exact production bug they lock down; end to end tests read state off the rendered DOM; and CI runs unit, build, and e2e jobs in parallel with no model required.</p>
 
         <p>The pipeline's cleanup functions are exported with an <code class="inline">@internal</code> marker specifically for testability, and the regression suite asserts the <em>absence</em> of old behavior: the "Unknown" padding bug can't return without a test failing.</p>
 
@@ -599,12 +599,12 @@ it(<span class="st">"throws rather than returning a workspace with no personas"<
 });</code></pre>
         </div>
 
-        <p>The avatar hash gets property-style tests: 400 generated ids must hit all sixteen faces, no avatar may reference a remote resource, and the PDF pipeline is proven by rendering a real PDF to a buffer in Node with all sixteen faces on one page.</p>
+        <p>The avatar hash gets property style tests: 400 generated ids must hit all sixteen faces, no avatar may reference a remote resource, and the PDF pipeline is proven by rendering a real PDF to a buffer in Node with all sixteen faces on one page.</p>
 
-        <p>The Playwright suite contains my favorite fix in the project. Avatar picker tests were flaky because Radix popovers are "visible" a frame before their outside-click listener attaches, so a click fired immediately after opening could be missed. The fix waits for the popover's animations to actually finish:</p>
+        <p>The Playwright suite contains my favorite fix in the project. Avatar picker tests were flaky because Radix popovers are "visible" a frame before their outside click listener attaches, so a click fired immediately after opening could be missed. The fix waits for the popover's animations to actually finish:</p>
 
         <div class="code-wrap">
-          <div class="code-file">e2e/avatars.spec.ts · an animation-aware wait</div>
+          <div class="code-file">e2e/avatars.spec.ts · an animation aware wait</div>
           <pre><code><span class="cm">/**
  * Waits for the popover's open animation to finish. It is in the DOM and
  * "visible" a frame before Radix attaches its outside-pointerdown listener,
@@ -616,24 +616,24 @@ it(<span class="st">"throws rather than returning a workspace with no personas"<
 });</code></pre>
         </div>
 
-        <p>The same suite verifies persistence through reload, keyboard grid navigation with focus returning to the trigger, and a mobile viewport test with a real horizontal-overflow assertion and a 44px touch-target check. In CI, the generate endpoint is intercepted with a fixture so the full wizard flow runs without any model installed.</p>
+        <p>The same suite verifies persistence through reload, keyboard grid navigation with focus returning to the trigger, and a mobile viewport test with a real horizontal overflow assertion and a 44px touch target check. In CI, the generate endpoint is intercepted with a fixture so the full wizard flow runs without any model installed.</p>
 
         <div class="insight-grid">
           <div class="insight-card">
-            <div class="insight-card-label">Regression-first</div>
+            <div class="insight-card-label">Regression first</div>
             <p>Tests are named after shipped bugs, like the "&gt;Alex, Clinic Manager" name that reached the UI and the blank "Unknown" card, so the suite documents the project's history of failure and guards against its return.</p>
           </div>
           <div class="insight-card">
             <div class="insight-card-label">DOM as truth</div>
-            <p>E2e helpers read the currently-rendered SVG off the page rather than trusting internal state, so tests verify what the user actually sees.</p>
+            <p>E2e helpers read the currently rendered SVG off the page rather than trusting internal state, so tests verify what the user actually sees.</p>
           </div>
           <div class="insight-card">
-            <div class="insight-card-label">Model-free CI</div>
+            <div class="insight-card-label">Model free CI</div>
             <p>Every AI call is mocked or intercepted in tests. The suite proves the engineering around the model without needing the model, which is the point.</p>
           </div>
           <div class="insight-card">
             <div class="insight-card-label">Accessibility asserted</div>
-            <p>Keyboard navigation through the wizard is a dedicated test asserting aria-current moves correctly. Accessibility as a tested behavior, not an aspiration.</p>
+            <p>Keyboard navigation through the wizard is a dedicated test asserting <code class="inline">aria-current</code> moves correctly. Accessibility as a tested behavior, not an aspiration.</p>
           </div>
         </div>
       </section>
@@ -642,15 +642,15 @@ it(<span class="st">"throws rather than returning a workspace with no personas"<
       <section id="outcome" class="section">
         <div class="section-label">Outcome</div>
         <h2 class="section-title">A working tool, and a repeatable playbook</h2>
-        <p class="section-intro">Persona shipped as a complete, tested product: five research artifacts, inline editing everywhere, persona interviews with human-reviewed updates, project comparison, three export formats, a no-install demo mode, and a CI pipeline that proves all of it without a model in the loop. But the more durable outcome is the playbook: a set of patterns for building trustworthy products on top of unreliable models.</p>
+        <p class="section-intro">Persona shipped as a complete, tested product: five research artifacts, inline editing everywhere, persona interviews with human reviewed updates, project comparison, three export formats, a no install demo mode, and a CI pipeline that proves all of it without a model in the loop. But the more durable outcome is the playbook: a set of patterns for building trustworthy products on top of unreliable models.</p>
 
         <div class="callout">
           <div class="callout-eye">Key Finding</div>
-          <p>The quality of an AI product is decided less by the model than by <strong>what the product does when the model fails</strong>. Repair before retry, top-up before discard, honest gaps before fake completeness. Those policies, not the weights, are what users experience as reliability.</p>
+          <p>The quality of an AI product is decided less by the model than by <strong>what the product does when the model fails</strong>. Repair before retry, top up before discard, honest gaps before fake completeness. Those policies, not the weights, are what users experience as reliability.</p>
         </div>
 
         <h4>Known Tradeoffs</h4>
-        <p>Some gaps are deliberate and worth naming. There's no response streaming; the staged loader is the mitigation, and for a package that must be validated as a whole before display, partial output has limited value. There's no rate limiting, which is defensible for a localhost tool with no per-token cost but would be the first addition if it ever fronted a hosted model. And the repo still carries fossils of the hosted-model era (a dead tool-schema file, unreachable error branches), honest evidence of an architecture that was tried, measured, and replaced.</p>
+        <p>Some gaps are deliberate and worth naming. There's no response streaming; the staged loader is the mitigation, and for a package that must be validated as a whole before display, partial output has limited value. There's no rate limiting, which is defensible for a localhost tool with no per token cost but would be the first addition if it ever fronted a hosted model. And the repo still carries fossils of the hosted model era (a dead tool schema file, unreachable error branches), honest evidence of an architecture that was tried, measured, and replaced.</p>
 
         <h4>What I Learned</h4>
         <p>Building Persona solo meant owning every layer, and the layers taught different lessons. The design lesson: an AI tool earns trust through its edges: diffs before applying changes, real counts instead of padded cards, warnings when generation degrades. The engineering lesson: constraints are generative. Choosing a weak model forced better validation, better recovery, better tests, and better honesty than a frontier model ever would have.</p>
@@ -658,7 +658,7 @@ it(<span class="st">"throws rather than returning a workspace with no personas"<
         <div class="insight-grid">
           <div class="insight-card">
             <div class="insight-card-label">Constraint as Design Tool</div>
-            <p>The 3B local model was the project's best design decision. It made every weakness visible early and forced the systems, two-schema validation and tiered recovery, that would make any model more reliable.</p>
+            <p>The 3B local model was the project's best design decision. It made every weakness visible early and forced the systems, two schema validation and tiered recovery, that would make any model more reliable.</p>
           </div>
           <div class="insight-card">
             <div class="insight-card-label">Write the Why Down</div>
@@ -670,7 +670,7 @@ it(<span class="st">"throws rather than returning a workspace with no personas"<
           </div>
           <div class="insight-card">
             <div class="insight-card-label">Test the Failure Story</div>
-            <p>The most valuable tests re-create the ways the model actually failed. A test suite that mocks perfect AI output tests a product that doesn't exist.</p>
+            <p>The most valuable tests recreate the ways the model actually failed. A test suite that mocks perfect AI output tests a product that doesn't exist.</p>
           </div>
         </div>
       </section>
