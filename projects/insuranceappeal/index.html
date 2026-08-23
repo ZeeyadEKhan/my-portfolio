@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Appeal Kit, a browser only tool that turns a health insurance denial letter into a filed appeal. A case study by Zeeyad Khan, AI Product Designer.">
+  <meta name="author" content="Zeeyad Khan">
+  <title>Appeal Kit, Case Study &middot; Zeeyad Khan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    /* ── Lightbox ── */
+    .img-wrap img,
+    .img-cell img,
+    .hero-img {
+      cursor: zoom-in;
+    }
+
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    #lightbox.open {
+      display: flex;
+    }
+
+    #lightbox-img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+      object-fit: contain;
+      user-select: none;
+    }
+
+    #lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+
+    #lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    /* ── Video embed ── */
+    .video-wrap { margin: 2.5rem 0; }
+
+    .video-wrap video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #111;
+    }
+
+    /* ── Code blocks ── */
+    .code-wrap { margin: 2.5rem 0; }
+
+    .code-wrap pre {
+      background: #1c1c1b;
+      border: 1px solid #2c2c2a;
+      border-radius: 8px;
+      padding: 1.35rem 1.5rem;
+      overflow-x: auto;
+      line-height: 1.68;
+    }
+
+    .code-wrap code {
+      font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.76rem;
+      color: #e6e4e0;
+      white-space: pre;
+    }
+
+    .code-wrap .cm  { color: #8f8d88; }   /* comments */
+    .code-wrap .st  { color: #b8c78f; }   /* strings */
+    .code-wrap .kw  { color: #9db8e0; }   /* keywords */
+
+    .code-file {
+      font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.02em;
+      color: var(--ink-subtle);
+      margin-bottom: 0.5rem;
+    }
+
+    code.inline {
+      font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.82em;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 0.08em 0.4em;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════ TOPBAR ═══════════════════════ -->
+  <header class="topbar" role="banner">
+    <a href="/" class="topbar-brand">Zeeyad Khan</a>
+    <nav class="topbar-nav" aria-label="Site navigation">
+      <a href="/#work">Work</a>
+      <a href="/explorations" class="active"><span class="nav-full">Current Explorations</span><span class="nav-short">Explorations</span></a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <a href="/explorations" class="topbar-back" aria-label="Back to Current Explorations">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M8.5 2.5L4 7l4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back
+    </a>
+  </header>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="hero" aria-label="Project hero">
+    <div class="hero-text">
+      <div class="hero-chips">
+        <span class="chip chip-blue">Health Tech</span>
+        <span class="chip">Privacy Engineering</span>
+        <span class="chip">React &middot; TypeScript</span>
+        <span class="chip">Browser Only</span>
+        <span class="chip">Solo Build</span>
+      </div>
+      <h1 class="hero-title">Appeal Kit</h1>
+      <p class="hero-sub">A browser only tool that helps a person turn a health insurance denial letter into a filed appeal, on time, with the right evidence attached. Deadlines that show their arithmetic, a letter built only from facts the user asserts, and nothing, ever, leaving the device.</p>
+    </div>
+    <img
+      class="hero-img"
+      src="/projects/insuranceappeal/insuranceappeal-photos/triage-1440.png"
+      alt="Appeal Kit triage screen showing a worked deadline derivation, a large 163 days left counter, a federal citation with source link, and an unconfirmed badge"
+      loading="eager"
+    >
+  </section>
+
+  <!-- ═══════════════════════ LAYOUT ═══════════════════════ -->
+  <div class="layout">
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" aria-label="Case study navigation">
+      <div class="sidebar-inner">
+        <p class="sidebar-eyebrow">Contents</p>
+        <ul class="sidebar-nav" role="list">
+          <li><a href="#overview"     class="nav-link">Overview</a></li>
+          <li><a href="#demo"         class="nav-link">Demo</a></li>
+          <li><a href="#problem"      class="nav-link">Problem</a></li>
+          <li><a href="#product"      class="nav-link">The Product</a></li>
+          <li><a href="#architecture" class="nav-link">Architecture</a></li>
+          <li><a href="#decisions"    class="nav-link">Engineering Decisions</a></li>
+          <li><a href="#testing"      class="nav-link">Testing</a></li>
+          <li><a href="#outcome"      class="nav-link">Outcome</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="content" id="main-content">
+
+      <!-- ═══════ OVERVIEW ═══════ -->
+      <section id="overview" class="section">
+        <div class="section-label">Overview</div>
+        <h2 class="section-title">Seven invariants, then the code</h2>
+        <p class="section-intro">Appeal Kit walks a person from a denial letter to a mailed appeal in six steps: what kind of denial this is, which rules apply to their plan, what the real deadline is with the arithmetic shown, what evidence that denial type needs, and a letter assembled only from facts they entered. Everything runs and stays in the browser. There is no server, no account, and no analytics.</p>
+
+        <p>This project began differently from anything else I have built: before writing code, I wrote seven invariants into the project rules, things like <strong>a wrong deadline in this app costs someone their appeal rights</strong> and <strong>the user asserts the facts, the tool structures them</strong>. Every engineering decision in this case study is one of those sentences turned into a mechanism: a lint rule, a type, a test, or a visible badge. The invariants are not documentation. They are the product.</p>
+
+        <div class="meta-strip">
+          <div class="meta-item">
+            <span class="meta-val">7</span>
+            <span class="meta-key">Written Invariants</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">0</span>
+            <span class="meta-key">Network Calls</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">33</span>
+            <span class="meta-key">Domain Tests</span>
+          </div>
+        </div>
+
+        <h4>My Role</h4>
+        <p>Design Engineer &middot; Designed and built the entire product solo: the invariants, the deadline engine, the interface system, the tests, and the demo pipeline</p>
+
+        <h4>Stack</h4>
+        <p>React &middot; TypeScript strict &middot; Vite &middot; Tailwind v4 &middot; zustand &middot; Dexie over IndexedDB &middot; <code class="inline">pdf-lib</code> &middot; Vitest and Playwright</p>
+
+        <div class="code-wrap">
+          <div class="code-file">CLAUDE.md · the seven invariants, abridged</div>
+          <pre><code>1  No PHI leaves the browser.
+2  The user asserts the facts. The tool structures them.
+   This is the line between a document-preparation tool and
+   the unauthorized practice of law.
+3  Never write law, deadlines, or code definitions from memory.
+   A wrong deadline in this app costs someone their appeal rights.
+4  No medical advice, ever.
+5  Letter generation is deterministic and template-first.
+6  Deadlines are computed, shown with their arithmetic, and sourced.
+   Never round, never guess, never display a bare date.
+7  Being routed away from an appeal is a valid, good outcome.</code></pre>
+        </div>
+      </section>
+
+      <!-- ═══════ DEMO ═══════ -->
+      <section id="demo" class="section">
+        <div class="section-label">Demo</div>
+        <h2 class="section-title">See it work</h2>
+        <p class="section-intro">A walkthrough of the full flow: classifying a denial, watching the deadline derivation compute itself, gathering evidence, and assembling the letter with every sentence traced to its source.</p>
+
+        <div class="video-wrap">
+          <video controls playsinline preload="metadata">
+            <source src="/projects/insuranceappeal/insurance-demo.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+            <a href="/projects/insuranceappeal/insurance-demo.mp4">Download the walkthrough instead.</a>
+          </video>
+          <p class="img-caption">Appeal Kit walkthrough: triage, the deadline derivation, evidence, and the provenance tinted letter</p>
+        </div>
+      </section>
+
+      <!-- ═══════ PROBLEM ═══════ -->
+      <section id="problem" class="section">
+        <div class="section-label">Problem</div>
+        <h2 class="section-title">The letter says no. The clock is already running.</h2>
+        <p class="section-intro">A health insurance denial arrives as a dense letter full of codes, and the person reading it is frightened, possibly sick, and has just been told no by an institution. Most people do not appeal at all, even though appeals frequently succeed. The ones who try face three traps at once: a deadline they do not know, evidence requirements they cannot guess, and a letter they have never written before.</p>
+
+        <p>There is a fourth trap hiding underneath: many denials are not appeal problems at all. A claim rejected for missing information is the provider's resubmission to fix. A deductible working as designed is not appealable. A tool that funnels every denial toward a letter would waste exactly the time these users do not have. And everything the tool touches is protected health information, which rules out the standard playbook of servers, analytics, and accounts before the first line of code.</p>
+
+        <div class="callout">
+          <div class="callout-eye">How Might We</div>
+          <p>Get a frightened non expert from a denial letter to a <strong>filed appeal with the right evidence, before the deadline</strong>, without a single byte of their health information leaving their own device?</p>
+        </div>
+
+        <p>The voice rules in the project doc answer the emotional half of the problem: write like a competent friend who has done this before, hedge where the law hedges, and never offer reassurance the tool cannot back up, because unearned comfort reads as untrustworthy. The engineering answers the rest.</p>
+      </section>
+
+      <!-- ═══════ THE PRODUCT ═══════ -->
+      <section id="product" class="section">
+        <div class="section-label">The Product</div>
+        <h2 class="section-title">Six steps, one case file</h2>
+        <p class="section-intro">The interface is built to feel like a well made government form: a docket rail on the left, flat paper sheets, squared corners, and monospace type for anything the user must transcribe exactly. The design brief banned every generic default and sourced the visual language from the paperwork itself: ledger, docket, receipt, stamp, copy.</p>
+
+        <h3>Start and coverage</h3>
+        <p>The first screen makes the privacy promise in plain words and lists what to have in hand. The second asks just two questions, where the coverage comes from and how the plan is funded, because those two answers decide which laws, deadlines, and regulators apply. Answering I do not know is a first class option, and the tool defaults conservatively while telling the user exactly what to confirm.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/insuranceappeal/insuranceappeal-photos/start-1440.png"
+            alt="Start step stating that everything stays on this device and listing the documents to have in hand"
+            loading="lazy"
+          >
+          <p class="img-caption">The first screen leads with the privacy promise: no account, no server, no analytics, and start over erases everything</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/insuranceappeal/insuranceappeal-photos/coverage-1440.png"
+            alt="Coverage step with plan source options, a funding question, and a resolved plan type card explaining that ERISA governs self funded employer plans"
+            loading="lazy"
+          >
+          <p class="img-caption">Two questions resolve the plan type, and with it the rulebook. The I do not know option says what most people need to hear: that is fine</p>
+        </div>
+
+        <h3>The denial, transcribed exactly</h3>
+        <p>The denial step is built around transcription. The reason code field, the dates, and the quoted denial reason are all set in monospace, a deliberate signal that says copy this exactly. The tool asks for the reason word for word because the appeal letter quotes it back to the plan, and a paraphrase would weaken the user's own case.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/insuranceappeal/insuranceappeal-photos/denial-1440.png"
+            alt="Denial step with a reason code field holding the code for not medically necessary, a verbatim denial reason textarea, and date fields with guidance on which date starts the clock"
+            loading="lazy"
+          >
+          <p class="img-caption">The received date hint encodes a legal judgment: when unsure, use the notice date, because erring early is the safe direction for a deadline</p>
+        </div>
+
+        <h3>What this means</h3>
+        <p>The triage screen is the product's centerpiece. It names the denial type in plain language, says what evidence matters most for it, and then shows every applicable deadline as a worked derivation: the anchor date, the addition, a drawn rule, the due date, and a days remaining counter set at 96 pixels in monospace. Beneath every rule sits its federal citation, a source link, and an unconfirmed badge wherever the content has not been re verified against its source.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/insuranceappeal/insuranceappeal-photos/print-triage.png"
+            alt="Print view of the deadline sheet showing the worked derivation and days left counter as a plain printable document"
+            loading="lazy"
+          >
+          <p class="img-caption">The deadline sheet prints as a plain document, because a date on paper taped to a fridge outlives any browser tab</p>
+        </div>
+
+        <h3>Evidence and the letter</h3>
+        <p>Evidence is a checklist keyed to the denial category, plus a ready to send request for a clinician letter, because for medical necessity denials the clinician's written statement is the evidence that matters most and the tool refuses to fabricate it. Attached files stay in the browser and get a SHA 256 fingerprint. The letter step then assembles everything into a document where every span of text is tinted by its origin: plain for template scaffolding, yellow for what the user typed, pink for what they quoted from an attached document.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/insuranceappeal/insuranceappeal-photos/evidence-1440.png"
+            alt="Evidence step with a checklist for the denial category, a prewritten clinician letter request, and local file attachment with SHA 256 fingerprints"
+            loading="lazy"
+          >
+          <p class="img-caption">The clinician request template does the hardest ask for the user, and stops at exactly the line the tool must not cross</p>
+        </div>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/insuranceappeal/insuranceappeal-photos/letter-1440.png"
+            alt="Letter step showing the facts form and the assembled appeal letter with provenance tints marking template text, user entered text, and quoted text"
+            loading="lazy"
+          >
+          <p class="img-caption">The carbonless triplicate view: one letter, three origins, each visible. The legend reads template, entered by you, quoted from your documents</p>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/insuranceappeal/insuranceappeal-photos/print-letter.png"
+                alt="Print view of the finished appeal letter as plain black text on white with no interface chrome"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/insuranceappeal/insuranceappeal-photos/triage-390.png"
+                alt="Triage screen on a phone with the deadline derivation and days left counter stacked in a single column"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">The mailed letter prints with every tint stripped, because the color coding is a working aid, not part of the filed document. The same screens hold at phone width</p>
+        </div>
+      </section>
+
+      <!-- ═══════ ARCHITECTURE ═══════ -->
+      <section id="architecture" class="section">
+        <div class="section-label">Architecture</div>
+        <h2 class="section-title">A domain layer that cannot touch the world</h2>
+        <p class="section-intro">The codebase is split so the risky logic is the pure logic. Everything that computes deadlines, classifies denials, or assembles the letter lives in a domain layer with zero React imports and zero I/O, enforced by lint rules and by running the unit tests in a plain Node environment where a DOM import would fail loudly.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">src/ · the layer map</div>
+          <pre><code>domain/        pure logic, zero React imports, zero I/O
+  deadlines/   the deadline engine
+  triage/      plan type + denial category classification
+  letter/      provenance-tagged block assembly
+features/      React feature modules (network calls banned by lint)
+content/       versioned JSON data, every entry carries its source
+lib/           storage, pdf, ics, crypto, the only wall-clock read
+ui/            four primitives + nine color tokens</code></pre>
+        </div>
+
+        <p>There is deliberately no router. The current step lives in the store, not the URL, which means no health information can ever leak through browser history, referrer headers, or a copied link. Persistence is a zustand store pointed at a small hand written adapter over Dexie, so everything the user types lands in IndexedDB on their own machine, and the start over button wipes both tables in one transaction.</p>
+
+        <p>All legal content lives in versioned JSON where every entry must carry three fields: a source URL, a verified flag, and the date it was last checked. The letter itself is assembled from blocks and slots with no conditionals beyond presence and no randomness, which is what makes it testable to the byte.</p>
+
+        <div class="callout">
+          <div class="callout-eye">Design Constraint</div>
+          <p>Even the demo respects the architecture. The seeded demo case computes its dates relative to today so the deadline counter always reads 16 days left on any recording day, but the engine itself has no clock override. The comment in the seeder says it best: <strong>move the data, not the clock</strong>. There is no test hook that could ship and lie to a real user.</p>
+        </div>
+      </section>
+
+      <!-- ═══════ ENGINEERING DECISIONS ═══════ -->
+      <section id="decisions" class="section">
+        <div class="section-label">Engineering Decisions</div>
+        <h2 class="section-title">Turning promises into mechanisms</h2>
+        <p class="section-intro">Anyone can write a privacy policy or a disclaimer. The engineering work in Appeal Kit was making each promise mechanically true: enforced by a type, a lint rule, a build step, or a test, so that breaking the promise requires visibly deleting the mechanism.</p>
+
+        <h3>1 &middot; Ship the uncertainty on the surface</h3>
+        <p>Invariant three forbids writing law from memory, so every deadline rule, denial category, and regulator entry in the content files carries a source citation, a verified flag, and a last checked date. Here is the honest part: <strong>all 22 seeded entries currently ship with verified set to false</strong>, because the citations were written down but not yet re read from their sources. Instead of hiding that, the interface says it everywhere: an unconfirmed badge beside every rule, a warning in the docket rail, and a disclaimer in the footer.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">src/domain/types.ts · provenance is the schema</div>
+          <pre><code><span class="cm">/** Every content entry carries its provenance. Invariant 3. */</span>
+<span class="kw">export interface</span> SourcedEntry {
+  id: string;
+  source: string;
+  verified: boolean;
+  lastChecked: string;
+}</code></pre>
+        </div>
+
+        <p>Most products would have shipped these rules silently and looked more finished. Shipping them flagged is the better product: the user is told, three times per screen, that their plan documents control the real answer. And flipping any entry to verified has a defined cost, written in the README: fetch and read the source that day, then update the date. Honesty became a workflow.</p>
+
+        <h3>2 &middot; A deadline must not depend on your timezone</h3>
+        <p>The deadline engine is 98 lines, and most of its decisions exist to defeat the four ways a date can lie. Dates parse through a strict gate: a regex that rejects anything but ISO format, a UTC date class so all arithmetic runs on UTC calendar fields, and a reality check that catches impossible dates. A person computing a deadline in one timezone must get the identical answer as a person in any other, on either side of daylight saving.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">src/domain/deadlines/engine.ts · the parser as a gate</div>
+          <pre><code><span class="cm">/**
+ * Parse a yyyy-MM-dd string as a UTC calendar date. Throws on anything else.
+ * Returns a UTCDate so all date-fns arithmetic downstream runs on UTC fields —
+ * a deadline must not change with the host machine's timezone or DST.
+ */</span>
+<span class="kw">export function</span> parseIsoDate(iso: string): UTCDate {
+  <span class="kw">const</span> match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  <span class="kw">if</span> (!match) <span class="kw">throw new</span> Error(<span class="st">`Expected a yyyy-MM-dd date, got "${iso}"`</span>);
+  ...
+  <span class="kw">if</span> (Number.isNaN(date.getTime())) <span class="kw">throw new</span> Error(<span class="st">`Not a real date: "${iso}"`</span>);
+}</code></pre>
+        </div>
+
+        <p>Two subtler calls sit around the parser. First, the wall clock is read in exactly one 14 line file, and it reads the user's local calendar, because a person at 6pm should see their own date. Every calculation after that runs on UTC. Second, today is always a parameter of the engine, never read inside it, which is what makes the whole engine deterministic and testable without fake timers.</p>
+
+        <h3>3 &middot; Never display a bare date</h3>
+        <p>Invariant six says deadlines are computed, shown with their arithmetic, and sourced. The engine enforces that by construction: the computation returns the arithmetic as a field, a full sentence naming the anchor, the addition, the result, and the citation, so no consumer can display the date without the derivation being available in the same object. The same sentence travels into the calendar export, so the reasoning survives even inside a calendar app two months later.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">src/domain/deadlines/engine.ts · the sum that shows its work</div>
+          <pre><code><span class="kw">const</span> arithmetic =
+  <span class="st">`${displayDate(anchorIso)} (${ANCHOR_LABELS[rule.anchor]}) `</span> +
+  <span class="st">`+ ${rule.amount} ${unitWord} = ${displayDate(dueDate)}, per ${rule.citation}`</span>;
+
+<span class="cm">// e.g. "March 3, 2026 (the date you received the denial)</span>
+<span class="cm">//       + 180 days = August 30, 2026, per 29 CFR 2560.503-1(h)(3)(i)"</span></code></pre>
+        </div>
+
+        <p>The design brief argues this is where the product earns its identity: the one loud element in a deliberately quiet interface is a large monospace counter above its own derivation, and as the brief puts it, no one else would build it, because it only makes sense if you have committed to never displaying an unsourced date.</p>
+
+        <h3>4 &middot; Carbonless triplicate: provenance as a type</h3>
+        <p>Invariant two is a legal boundary: the tool structures facts but never asserts them, which is the line between document preparation and practicing law. That sentence became a type with three values. Every span of the assembled letter is tagged template, user, or quoted, the letter preview tints each origin like the white, yellow, and pink sheets of carbonless paper, and the print stylesheet strips the tints so the mailed letter is a plain document.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">src/domain/letter/assemble.ts · the enforcement surface</div>
+          <pre><code><span class="cm">/**
+ * Where a piece of letter text came from — the carbonless-triplicate model:
+ * template scaffolding, the user's own entries, or words quoted from a
+ * document. This is the enforcement surface for invariant 2: anything not
+ * 'template' must trace to a slot the user filled.
+ */</span>
+<span class="kw">export type</span> Provenance = <span class="st">'template'</span> | <span class="st">'user'</span> | <span class="st">'quoted'</span>;
+
+<span class="cm">/** Unmapped slots default to 'user' — the safe over-attribution. */</span></code></pre>
+        </div>
+
+        <p>That last comment is the design in four words. If a future slot is ever left unclassified, the letter attributes it to the user, which can only ever under claim the tool's authorship. The failure mode is humility. A unit test locks the other direction too: the user's name must never appear in a template tagged segment. And the plain text letter is derived from the same tagged segments, joined, so the preview, the clipboard, and the PDF cannot disagree by construction.</p>
+
+        <h3>5 &middot; Four layers of nothing leaves this browser</h3>
+        <p>The privacy invariant is enforced at four independent layers, so removing any one of them still leaves three. Lint bans the network primitives across the entire source tree, including the two most people forget: the beacon API that survives page unload, and service workers that could proxy requests past every other check. The production build injects a content security policy that includes a rule almost nobody sets, forbidding form submission entirely, which closes the oldest exfiltration channel on the web. Fonts are self hosted so not even a font request leaks timing to a CDN. And the referrer policy makes sure that clicking a source link never tells a law site which denial page the user was reading.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">eslint.config.js · the network, deleted at lint time</div>
+          <pre><code><span class="cm">// Invariant 1: no PHI leaves the browser. Network primitives are banned
+// across src/**; there is nothing in this app that should talk to a host.</span>
+{ name: <span class="st">'fetch'</span>,          message: <span class="st">'No network calls. Invariant 1.'</span> },
+{ name: <span class="st">'XMLHttpRequest'</span>, message: <span class="st">'No network calls. Invariant 1.'</span> },
+{ name: <span class="st">'WebSocket'</span>, ... }, { name: <span class="st">'EventSource'</span>, ... },
+{ selector: <span class="st">"MemberExpression[property.name='sendBeacon']"</span>, ... },
+{ selector: <span class="st">"MemberExpression[...][property.name='serviceWorker']"</span>, ... }</code></pre>
+        </div>
+
+        <h3>6 &middot; Being routed away is the tool working</h3>
+        <p>Invariant seven required the humility to build a main feature and then route people away from it. Three lines of domain code decide whether a denial is an appeal problem at all, and one boolean reshapes the entire triage screen: deadlines are suppressed, the tone flips to certified green because this is good news, and the button relabels itself to continue anyway.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">src/domain/triage/denialCategory.ts · the routing verdict</div>
+          <pre><code><span class="cm">/** True when this category's route means "you likely do not need an appeal letter". */</span>
+<span class="kw">export function</span> isNonAppealRoute(category: DenialCategory): boolean {
+  <span class="kw">return</span> category.route === <span class="st">'provider-resubmission'</span>
+      || category.route === <span class="st">'cost-sharing'</span>
+      || category.route === <span class="st">'coding-review'</span>;
+}</code></pre>
+        </div>
+
+        <p>The judgment call is in what is missing from that list: a plan exclusion check still leads to deadlines, because a misapplied exclusion is exactly what appeals are for. A missing information rejection is the provider's fix. A deductible is the plan working as designed. Encoding that distinction is worth more to the user than any letter template, because it is the difference between a fast phone call and a wasted month.</p>
+
+        <h3>The smaller calls that add up</h3>
+
+        <div class="insight-grid fade-up">
+          <div class="insight-card">
+            <div class="insight-card-label">Why does I do not know get a safe default?</div>
+            <p>Most people with employer coverage do not know how their plan is funded. The resolver defaults to self funded because both employer branches share the same 180 day appeal window, and it returns an assumed flag alongside the answer so the interface must keep hedging in three places. The difference that remains, which regulator can help, is surfaced as a note to confirm, never hidden.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Why does typing co 50 just work?</div>
+            <p>Reason codes are normalized on both sides of the comparison, so co 50, CO50, and a bare 50 all match, and the content files carry bare number aliases because a person squinting at a crowded benefits statement may only see the digits. An unknown code is a soft landing, not an error: pick the closest wording instead, the letter builder works either way.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Why are there only two animations?</div>
+            <p>The motion policy permits exactly two transitions, each justified in a comment: the counter's shift when a case crosses an urgency threshold, and a small settle when a checklist item resolves. Everything else changes state instantly, because a person scanning for a date under stress is not an audience for ambient motion. Both respect the reduced motion preference.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Why is urgency never a color?</div>
+            <p>Red and green is the worst pairing for the most common form of color blindness, and this product serves people who are unwell. Every urgency state pairs its color with a weight change, an explicit text label, and a fixed position in the derivation, so a user who cannot distinguish the hues loses nothing. The stamp red is rationed to two uses in the whole product.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ TESTING ═══════ -->
+      <section id="testing" class="section">
+        <div class="section-label">Testing</div>
+        <h2 class="section-title">Tests that make the invariants falsifiable</h2>
+        <p class="section-intro">The test suite is shaped by the same priorities as the architecture: the deadline engine and letter assembler are tested exhaustively as pure functions, three Playwright journeys cover the flow end to end, and one e2e test exists purely to prove the privacy promise. Policies became assertions.</p>
+
+        <p>The unit tests read like a list of real world hazards. One crosses a leap year boundary. One pins the end of month clamping behavior of the date library the product depends on. One asserts the derivation sentence character for character, so the arithmetic can never quietly degrade into a bare date. And one runs the same computation as if from machines on opposite sides of the planet:</p>
+
+        <div class="code-wrap">
+          <div class="code-file">src/domain/deadlines/engine.test.ts · hazards, named</div>
+          <pre><code>it(<span class="st">'adds 180 days, crossing a leap-year boundary correctly'</span>, ...)
+it(<span class="st">'adds calendar months for month-unit rules'</span>, ...)
+   <span class="cm">// Jan 31 + 4 months clamps to May 31 (date-fns addMonths)</span>
+it(<span class="st">'shows the full arithmetic, never a bare date'</span>, ...)
+it(<span class="st">'is timezone-independent: same result regardless of host TZ'</span>, ...)
+it(<span class="st">'rejects non-ISO input'</span>, ...)   <span class="cm">// "03/01/2026" must throw, never guess</span></code></pre>
+        </div>
+
+        <p>The triage tests run against the real content files rather than fixtures, so they fail if the data regresses, not just the code, and one test walks every category asserting it carries a source URL, a verified flag, and a checked date. An invariant from a prose document, asserted on every run.</p>
+
+        <p>The flagship is the network isolation test. It walks the entire flow in a real browser, typing private text into every field, while recording every request the page makes. Then it asserts the list of external requests is empty, so a failure prints the offending URL. A privacy promise you cannot test is a marketing claim. This one is a passing test.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">e2e/network-isolation.spec.ts · the promise, executable</div>
+          <pre><code><span class="cm">// Invariant 1: no PHI leaves the browser. The app must complete a full case —
+// intake through letter preview — without one request to a non-local host.</span>
+page.on(<span class="st">'request'</span>, (request) =&gt; {
+  <span class="kw">const</span> url = <span class="kw">new</span> URL(request.url());
+  <span class="kw">const</span> local = url.hostname === <span class="st">'localhost'</span>
+    || url.hostname === <span class="st">'127.0.0.1'</span> || url.protocol === <span class="st">'data:'</span>;
+  <span class="kw">if</span> (!local) externalRequests.push(request.url());
+});
+...
+expect(externalRequests).toEqual([]);</code></pre>
+        </div>
+
+        <p>The last harness is not a test at all. A script captures every screen at three widths plus print emulation, and its header says review the images, do not just run this. That discipline caught the best bug of the project: in print, the navigation rail was hidden but its 180 pixel grid track survived, so the printed deadline sheet collapsed into a ribbon one word wide. Invisible in code review, invisible on screen, and fatal to the one artifact that actually gets mailed. The fix is one line of print CSS, with a comment pointing back at the bug so it cannot quietly return.</p>
+
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-card-label">Architecture as a Test</div>
+            <p>The unit suite runs in a plain Node environment, so any React or DOM import sneaking into the domain layer breaks the build. The layering rule enforces itself.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Negative Assertions</div>
+            <p>Two tests assert what the letter must never contain: the phrase medically necessary in the tool's own voice, and the user's name inside template attributed text. The tool's restraint is executable.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Stable Time, Two Ways</div>
+            <p>The demo seeds dates relative to today so the counter always shows 16 days left. The e2e tests hardcode dates so the due date is always the same. Same principle, inverted per need: move the data, never the clock.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Look at It</div>
+            <p>The screenshot harness exists because some bugs live only in rendered output. The print layout bug proved the point: no assertion would have caught it, and one glance did.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ OUTCOME ═══════ -->
+      <section id="outcome" class="section">
+        <div class="section-label">Outcome</div>
+        <h2 class="section-title">A tool that earns trust by refusing things</h2>
+        <p class="section-intro">Appeal Kit shipped as a complete six step flow: triage across nine denial categories with plain language verdicts, a deadline engine covering five plan types with sourced rules, an evidence system with local SHA 256 fingerprinting, a provenance tinted letter with PDF, print, and calendar export, and a test suite that makes its invariants falsifiable. All of it runs from static files, and none of it phones home.</p>
+
+        <div class="callout">
+          <div class="callout-eye">Key Finding</div>
+          <p>In a domain where the user is frightened and the stakes are legal, <strong>every refusal is a feature</strong>. Refusing to state deadlines without arithmetic, refusing to write clinical claims, refusing to hide unverified content, and refusing to push everyone toward an appeal are what make the tool's actual assertions worth believing.</p>
+        </div>
+
+        <h4>What I Would Fix First</h4>
+        <p>Auditing the shipped build surfaced three real defects, ranked by consequence. First, leaving the notice date blank silently drops the letter's entire opening paragraph, because the template rule that drops any line with an unfilled slot took the thesis sentence with it. The same rule that guarantees the letter never prints a blank can also delete its purpose, and the fix is to split that sentence across two template lines. Second, the PDF uses a built in Times font that cannot encode names outside Western European characters, so a user named Çağla gets the fallback message instead of a PDF. The graceful fallback works, but the right fix is embedding the app's own font. Third, the content files contain 24 carefully written matching phrases for classifying denials by wording, but the matcher that would use them is not built yet, so the wording picker is a plain list. The data shipped ahead of the feature.</p>
+
+        <h4>What I Learned</h4>
+        <p>Appeal Kit taught me to write the invariants before the code, and then to treat every one as an engineering requirement rather than a value statement. The privacy promise became a lint rule, a build step, and a passing test. The legal boundary became a type with a safe default. The honesty about unverified content became a schema. When a promise has a mechanism, it survives refactors, fatigue, and future contributors. When it does not, it is a hope.</p>
+
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-card-label">Invariants First</div>
+            <p>Seven sentences written before the first component shaped every layer beneath them. The most productive design artifact in the project was a rules file.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Honest by Default</div>
+            <p>Shipping 22 legal entries flagged unconfirmed, with the flag visible on every screen, beat both alternatives: silent confidence or shipping nothing.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Provenance Everywhere</div>
+            <p>The same idea, whose words are these, shaped the letter tints, the content schema, the source links, and the tests. One concept, applied consistently, did the work of ten features.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Design for the Worst Day</div>
+            <p>Every choice, from the hedged copy to the two animation policy to the 44 pixel touch targets, starts from the same picture: the user is having one of the worst weeks of their year. Calm is a feature you engineer.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-left">
+      <span class="footer-name">Zeeyad Khan</span>
+      <span class="footer-role">AI Product Designer &middot; zeeyadkhan.com</span>
+    </div>
+    <span class="footer-right">Appeal Kit &middot; Design Engineer</span>
+  </footer>
+
+  <!-- ═══════════════════════ LIGHTBOX ═══════════════════════ -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+    <button id="lightbox-close" aria-label="Close lightbox">&#x2715;</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+  <script>
+    // ── Lightbox ──
+    const lightbox     = document.getElementById('lightbox');
+    const lbImg        = document.getElementById('lightbox-img');
+    const lbClose      = document.getElementById('lightbox-close');
+
+    function openLightbox(img) {
+      lbImg.src     = img.src;
+      lbImg.alt     = img.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.img-wrap img, .img-cell img, .hero-img').forEach(img => {
+      img.addEventListener('click', () => openLightbox(img));
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+
+    // ── Active sidebar navigation on scroll ──
+    const sections  = document.querySelectorAll('section[id]');
+    const navLinks  = document.querySelectorAll('.nav-link');
+    const TOPBAR_H  = 58;
+
+    function syncNav() {
+      const y = window.scrollY;
+      let current = '';
+
+      sections.forEach(sec => {
+        if (y >= sec.offsetTop - TOPBAR_H - 100) {
+          current = sec.id;
+        }
+      });
+
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
+      });
+    }
+
+    window.addEventListener('scroll', syncNav, { passive: true });
+    syncNav();
+
+    // ── Fade-up on scroll (respects prefers-reduced-motion) ──
+    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!noMotion) {
+      const fadeEls = document.querySelectorAll('.fade-up');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+      fadeEls.forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    }
+  </script>
+
+</body>
+</html>
