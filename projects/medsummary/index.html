@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="VisitBrief, a patient controlled pre visit narrative tool that runs on a local model. A case study by Zeeyad Khan, AI Product Designer.">
+  <meta name="description" content="Visit Brief, a patient controlled pre visit narrative tool that runs on a local model. A case study by Zeeyad Khan, AI Product Designer.">
   <meta name="author" content="Zeeyad Khan">
-  <title>VisitBrief, Case Study &middot; Zeeyad Khan</title>
+  <title>Visit Brief, Case Study &middot; Zeeyad Khan</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -150,13 +150,13 @@
         <span class="chip">Vanilla JavaScript</span>
         <span class="chip">Solo Build</span>
       </div>
-      <h1 class="hero-title">VisitBrief</h1>
+      <h1 class="hero-title">Visit Brief</h1>
       <p class="hero-sub">A patient controlled pre visit narrative tool. Five short steps turn weeks of carried worry into a single page a busy doctor can read in under a minute, compressed by a local model so the story never leaves the patient's machine.</p>
     </div>
     <img
       class="hero-img"
       src="/projects/medsummary/medsummary-photos/landing.png"
-      alt="VisitBrief landing page reading You get about twelve minutes, walk in ready to be understood, beside a card showing rambling words becoming a brief"
+      alt="Visit Brief landing page reading You get about twelve minutes, walk in ready to be understood, beside a card showing rambling words becoming a brief"
       loading="eager"
     >
   </section>
@@ -188,7 +188,7 @@
       <section id="overview" class="section">
         <div class="section-label">Overview</div>
         <h2 class="section-title">Twelve minutes, one page, your words</h2>
-        <p class="section-intro">VisitBrief walks a patient through five short questions about what brought them in, when it started, what they take, what they fear, and what three things they need from the visit. A local model then compresses those answers into a one page pre visit brief: chief concern, timeline, medications, priorities in the patient's own order, and the worry that usually goes unsaid.</p>
+        <p class="section-intro">Visit Brief walks a patient through five short questions about what brought them in, when it started, what they take, what they fear, and what three things they need from the visit. A local model then compresses those answers into a one page pre visit brief: chief concern, timeline, medications, priorities in the patient's own order, and the worry that usually goes unsaid.</p>
 
         <p>The product lives on one design thesis, stated at the top of the stylesheet: <strong>two registers live in one product</strong>. The intake is an app, warm and paced for a nervous person. The brief is a document, serif and clinical, because it is the printed thing a doctor holds. The whole build is five files and 1,584 lines of vanilla HTML, CSS, and JavaScript, with the model running locally through Ollama so a health story never touches a server.</p>
 
@@ -216,7 +216,7 @@
         <div class="img-wrap">
           <img
             src="/projects/medsummary/medsummary-photos/landing-full.png"
-            alt="Full VisitBrief landing page with the before and after transformation card showing rambling words becoming a structured brief"
+            alt="Full Visit Brief landing page with the before and after transformation card showing rambling words becoming a structured brief"
             loading="lazy"
           >
           <p class="img-caption">The hero is not a screenshot of the product. It is the product's argument: rambling becomes a brief, animated on load</p>
@@ -235,7 +235,7 @@
             Your browser does not support embedded video.
             <a href="/projects/medsummary/MedSummary.mp4">Download the walkthrough instead.</a>
           </video>
-          <p class="img-caption">VisitBrief walkthrough: intake, generation on a local model, and the one page brief</p>
+          <p class="img-caption">Visit Brief walkthrough: intake, generation on a local model, and the one page brief</p>
         </div>
       </section>
 
@@ -252,7 +252,7 @@
           <p>Let a nervous patient tell their story once, in their own words, and walk in holding <strong>a single page their doctor can scan in under a minute</strong>, without that story ever leaving their machine?</p>
         </div>
 
-        <p>The scoping decision came first: VisitBrief solves only the half the patient controls. There is no clinician account, no records integration, no upload. The product deliberately stops at the piece of paper the patient owns, brings, and decides whether to share.</p>
+        <p>The scoping decision came first: Visit Brief solves only the half the patient controls. There is no clinician account, no records integration, no upload. The product deliberately stops at the piece of paper the patient owns, brings, and decides whether to share.</p>
       </section>
 
       <!-- ═══════ THE PRODUCT ═══════ -->
@@ -311,7 +311,7 @@
       <section id="architecture" class="section">
         <div class="section-label">Architecture</div>
         <h2 class="section-title">Small enough to be audited by its users</h2>
-        <p class="section-intro">VisitBrief has no framework, no build step, and no dependency a reader has to trust. That is not minimalism for taste. The product's core claim is that nothing leaves your machine, and a claim like that is only worth what a skeptical reader can verify. Anyone, including a clinician, can read all 1,584 lines and check it personally.</p>
+        <p class="section-intro">Visit Brief has no framework, no build step, and no dependency a reader has to trust. That is not minimalism for taste. The product's core claim is that nothing leaves your machine, and a claim like that is only worth what a skeptical reader can verify. Anyone, including a clinician, can read all 1,584 lines and check it personally.</p>
 
         <p>Application state is one integer: the current step. Everything else derives from it through a single render function that clamps out of range values, so the back button on step one and the next button on step five are harmless by construction rather than by disabled state logic. A single field registry maps the nine inputs, and that one map drives restore, read, autosave wiring, and clear. Adding a question is one line plus markup.</p>
 
@@ -342,7 +342,7 @@ extractJson() ──▶ normalizeBrief() ──▶ localStorage handoff
       <section id="decisions" class="section">
         <div class="section-label">Engineering Decisions</div>
         <h2 class="section-title">Treating the model as an unreliable interface</h2>
-        <p class="section-intro">The interesting engineering in VisitBrief is at the boundary between a small local model and a document a doctor will hold. A 3B model on a patient's laptop will wrap JSON in prose, drop fields, and improvise shapes. The product's job is to make sure none of that ever reaches the page.</p>
+        <p class="section-intro">The interesting engineering in Visit Brief is at the boundary between a small local model and a document a doctor will hold. A 3B model on a patient's laptop will wrap JSON in prose, drop fields, and improvise shapes. The product's job is to make sure none of that ever reaches the page.</p>
 
         <h3>1 &middot; Four layers of defense against one unreliable interface</h3>
         <p>The same problem is solved four independent times. The prompt instructs: respond with only a JSON object, no preamble and no markdown fences. The request enforces it again with Ollama's grammar constrained JSON mode. Then the response passes through a syntactic recovery function anyway, because models sometimes wrap JSON in prose regardless:</p>
@@ -446,7 +446,7 @@ Patient answers:
       <section id="testing" class="section">
         <div class="section-label">Tested by Running</div>
         <h2 class="section-title">Bugs the code review could not see</h2>
-        <p class="section-intro">VisitBrief has no test framework. Its verification discipline was running the real thing on real screens, and the repository preserves the evidence: an archived snapshot of the codebase from mid build, against which every later fix can be diffed. Two of those fixes are the best engineering stories in the project, because neither was fixable in the layer you would expect.</p>
+        <p class="section-intro">Visit Brief has no test framework. Its verification discipline was running the real thing on real screens, and the repository preserves the evidence: an archived snapshot of the codebase from mid build, against which every later fix can be diffed. Two of those fixes are the best engineering stories in the project, because neither was fixable in the layer you would expect.</p>
 
         <p>The first surfaced immediately after the snapshot. The original README said to just open the HTML file in a browser. Running it clean failed: a page opened from disk sends its request to Ollama with a null origin, and Ollama rejects it. There is no client side fix for that. So the fix shipped in documentation, with the diagnosis written down for the next person, and the marketing claim was narrowed to stay true: no build step, no keys became no build step, no keys, just a static file server.</p>
 
@@ -494,7 +494,7 @@ textarea.control { min-height: 104px; resize: vertical; }</code></pre>
       <section id="outcome" class="section">
         <div class="section-label">Outcome</div>
         <h2 class="section-title">A finished tool, and the audit that follows it</h2>
-        <p class="section-intro">VisitBrief shipped complete: a five step autosaving intake, a prompt engineered as a safety document, four layers of model output defense, a two register design system, a one page document with print and PDF export, and a recovery screen that turns failure into a runbook. It runs on any static file server next to a local model, and the patient's story stays home.</p>
+        <p class="section-intro">Visit Brief shipped complete: a five step autosaving intake, a prompt engineered as a safety document, four layers of model output defense, a two register design system, a one page document with print and PDF export, and a recovery screen that turns failure into a runbook. It runs on any static file server next to a local model, and the patient's story stays home.</p>
 
         <div class="callout">
           <div class="callout-eye">Key Finding</div>
@@ -505,7 +505,7 @@ textarea.control { min-height: 104px; resize: vertical; }</code></pre>
         <p>Auditing the shipped build surfaced three real defects worth naming. First, the shape guard checks that fields are arrays but never coerces their elements to strings, so a model returning structured medication objects would render literally as object Object on a medical document; the fix is one String call in the normalizer. Second, the error taxonomy is wired to the wrong predicate: parse failures show the could not reach Ollama message, sending the user to restart a service that is already running, and the message never resets between failures. Third, two late features quietly outgrew the privacy sentence printed on every screen: the sample preview became a landing page button without gaining a watermark, so a fabricated brief is indistinguishable from a real one, and the email button hands the story to a mail client while the words nothing leaves your device are still visible above it. The honest fix is a sample ribbon, and either dropping the email button or narrowing the claim to one that stays true.</p>
 
         <h4>What I Learned</h4>
-        <p>VisitBrief taught me that the boundary is the product. Almost every decision that matters happens where an unreliable model meets a document with real stakes: the prompt that constrains, the layers that recover, the normalizer that guarantees shape, the fallback that returns the patient's own words when compression fails. And the audit taught me the sequel: features added after the promise was written are where promises quietly break. The next version starts by making the claim and the code agree again.</p>
+        <p>Visit Brief taught me that the boundary is the product. Almost every decision that matters happens where an unreliable model meets a document with real stakes: the prompt that constrains, the layers that recover, the normalizer that guarantees shape, the fallback that returns the patient's own words when compression fails. And the audit taught me the sequel: features added after the promise was written are where promises quietly break. The next version starts by making the claim and the code agree again.</p>
 
         <div class="insight-grid">
           <div class="insight-card">
@@ -536,7 +536,7 @@ textarea.control { min-height: 104px; resize: vertical; }</code></pre>
       <span class="footer-name">Zeeyad Khan</span>
       <span class="footer-role">AI Product Designer &middot; zeeyadkhan.com</span>
     </div>
-    <span class="footer-right">VisitBrief &middot; Design Engineer</span>
+    <span class="footer-right">Visit Brief &middot; Design Engineer</span>
   </footer>
 
   <!-- ═══════════════════════ LIGHTBOX ═══════════════════════ -->
