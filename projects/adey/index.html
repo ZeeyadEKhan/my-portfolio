@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Adey, a brand and packaging concept for an Ethiopian single origin coffee. A graphic design case study by Zeeyad Khan.">
+  <meta name="author" content="Zeeyad Khan">
+  <title>Adey, Case Study &middot; Zeeyad Khan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    /* ── Lightbox ── */
+    .img-wrap img,
+    .img-cell img,
+    .hero-img {
+      cursor: zoom-in;
+    }
+
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    #lightbox.open {
+      display: flex;
+    }
+
+    #lightbox-img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+      object-fit: contain;
+      user-select: none;
+    }
+
+    #lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+
+    #lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════ TOPBAR ═══════════════════════ -->
+  <header class="topbar" role="banner">
+    <a href="/" class="topbar-brand">Zeeyad Khan</a>
+    <nav class="topbar-nav" aria-label="Site navigation">
+      <a href="/#work">Work</a>
+      <a href="/explorations"><span class="nav-full">Current Explorations</span><span class="nav-short">Explorations</span></a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <a href="/#work" class="topbar-back" aria-label="Back to work">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M8.5 2.5L4 7l4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back
+    </a>
+  </header>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="hero" aria-label="Project hero">
+    <div class="hero-text">
+      <div class="hero-chips">
+        <span class="chip chip-blue">Graphic Design</span>
+        <span class="chip">Brand Identity</span>
+        <span class="chip">Packaging</span>
+        <span class="chip">Coffee Concept</span>
+        <span class="chip">Solo Project</span>
+      </div>
+      <h1 class="hero-title">Adey</h1>
+      <p class="hero-sub">A brand and packaging concept for an Ethiopian single origin coffee. Adey is named for the golden daisy that blooms across the highlands when the long rains break, and the identity brings that origin forward: a bilingual lockup, a woven diamond band, and four roast profiles named for what you actually taste.</p>
+    </div>
+    <img
+      class="hero-img"
+      src="/projects/adey/adey-photos/lineup.png"
+      alt="The Adey family lineup: four coffee bags with green, oxblood, amber, and brown woven pattern bands beneath the wordmark and the line coffee began here"
+      loading="eager"
+    >
+  </section>
+
+  <!-- ═══════════════════════ LAYOUT ═══════════════════════ -->
+  <div class="layout">
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" aria-label="Case study navigation">
+      <div class="sidebar-inner">
+        <p class="sidebar-eyebrow">Contents</p>
+        <ul class="sidebar-nav" role="list">
+          <li><a href="#overview"  class="nav-link">Overview</a></li>
+          <li><a href="#brand"     class="nav-link">The Brand</a></li>
+          <li><a href="#identity"  class="nav-link">Identity</a></li>
+          <li><a href="#flavors"   class="nav-link">Flavor System</a></li>
+          <li><a href="#packaging" class="nav-link">Packaging</a></li>
+          <li><a href="#decisions" class="nav-link">Design Decisions</a></li>
+          <li><a href="#outcome"   class="nav-link">Outcome</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="content" id="main-content">
+
+      <!-- ═══════ OVERVIEW ═══════ -->
+      <section id="overview" class="section">
+        <div class="section-label">Overview</div>
+        <h2 class="section-title">Coffee began here</h2>
+        <p class="section-intro">Adey is a concept brand for a single origin coffee from Yirgacheffe, Ethiopia: heirloom varietals grown between 1,900 and 2,200 meters, hand picked by smallholder farmers, dried on raised beds under open sun. The design spans the name, a bilingual identity, and a four bag packaging system where every element, from the woven pattern band to the roast scale, comes from the same visual vocabulary.</p>
+
+        <p>Ethiopia is where coffee was born, and most specialty packaging treats that fact as a paragraph on the back. Adey builds the brand out of it. The name is the highland daisy that marks the Ethiopian new year. The script comes first. The pattern band is woven, not printed. <strong>The origin is the identity</strong>, not a certification stamp beside it.</p>
+
+        <div class="meta-strip">
+          <div class="meta-item">
+            <span class="meta-val">4</span>
+            <span class="meta-key">Roast Profiles</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">1,900+</span>
+            <span class="meta-key">Meters Above Sea</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">1</span>
+            <span class="meta-key">Bag Template</span>
+          </div>
+        </div>
+
+        <h4>My Role</h4>
+        <p>Brand and Packaging Designer &middot; Naming, identity, pattern system, packaging, and flavor architecture, designed solo</p>
+
+        <h4>Deliverables</h4>
+        <p>Wordmark and bilingual lockup &middot; woven pattern band in four colorways &middot; four bag designs &middot; roast and process architecture &middot; presentation system</p>
+      </section>
+
+      <!-- ═══════ THE BRAND ═══════ -->
+      <section id="brand" class="section">
+        <div class="section-label">The Brand</div>
+        <h2 class="section-title">Named for a flower, not a farm</h2>
+        <p class="section-intro">Adey is the golden daisy that covers the Ethiopian highlands the week the long rains finally break. It is the flower of the Ethiopian new year, the national shorthand for a fresh start, and it grows wild on the same slopes where these coffees are picked.</p>
+
+        <p>That name sets the brand's whole posture. Specialty coffee labels usually lead with washing station codes and lot numbers, precision that reads as authority to buyers and as noise to everyone else. Adey leads with something a person can feel: a place, a season, and the sentence that ends the origin debate before it starts. Coffee began here. Everything else on the bag exists to earn that line.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/adey/adey-photos/tile-floral.png"
+            alt="The Floral bag: a deep green woven pattern band above a cream label with the Amharic and Latin Adey lockup and the notes jasmine, bergamot, honeysuckle"
+            loading="lazy"
+          >
+          <p class="img-caption">The Floral profile: washed process, lightest roast, and the green band that starts the family</p>
+        </div>
+      </section>
+
+      <!-- ═══════ IDENTITY ═══════ -->
+      <section id="identity" class="section">
+        <div class="section-label">Identity</div>
+        <h2 class="section-title">A label built from three elements</h2>
+        <p class="section-intro">Every bag is composed from the same three elements: the woven diamond band, the bilingual lockup, and a roast scale that reuses the band's own diamond as its marker. Nothing on the label is decoration only; every ornament either names the origin or carries information.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/adey/adey-photos/details.png"
+            alt="Three label details enlarged: the woven diamond pattern band, the bilingual Amharic and Latin lockup, and the diamond roast scale"
+            loading="lazy"
+          >
+          <p class="img-caption">The label system at close range: the telet band, the bilingual lockup, and the roast scale</p>
+        </div>
+
+        <p>The band's diamond in diamond motif is drawn from telet, the woven borders of traditional Ethiopian dress and basketry, where geometry carries meaning row by row. On the bag it does the same double work: it is the most visible Ethiopian element on the shelf, and its colorway is the flavor code. The lockup follows the same logic as the pattern: the Amharic አደይ sits first, above the Latin, because the origin leads this brand. Below it, a single line of tracked monospace type carries the facts like a stamp on an export crate: single origin, Yirgacheffe, Ethiopia.</p>
+      </section>
+
+      <!-- ═══════ FLAVOR SYSTEM ═══════ -->
+      <section id="flavors" class="section">
+        <div class="section-label">Flavor System</div>
+        <h2 class="section-title">Named for the cup, not the process</h2>
+        <p class="section-intro">The four profiles are named for what the coffee tastes like: Floral, Berry, Citrus, Chocolate. The process language that usually headlines specialty bags, washed, natural, honey, dark roast, still appears, but demoted to a subline. A shopper who knows nothing about processing can still choose correctly in five seconds.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/adey/adey-photos/system.png"
+            alt="The flavor system board: four swatches in green, oxblood, amber, and brown with profile names, process labels, diamond roast scales, and tasting notes"
+            loading="lazy"
+          >
+          <p class="img-caption">The architecture: each profile pairs a band color, a process, a roast level on the diamond scale, and three tasting notes</p>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2">
+            <div class="img-cell">
+              <img
+                src="/projects/adey/adey-photos/tile-berry.png"
+                alt="The Berry bag with an oxblood woven band, natural process, and the notes blueberry, hibiscus, dark cherry"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/adey/adey-photos/tile-citrus.png"
+                alt="The Citrus bag with an amber woven band, honey process, and the notes meyer lemon, apricot, raw honey"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Berry in oxblood, Citrus in amber. Same template, same lockup, same baseline; only the band and its ink change</p>
+        </div>
+      </section>
+
+      <!-- ═══════ PACKAGING ═══════ -->
+      <section id="packaging" class="section">
+        <div class="section-label">Packaging</div>
+        <h2 class="section-title">A quiet front and a talkative side</h2>
+        <p class="section-intro">The bag splits its job in two. The cream front panel is the shelf face: lockup, profile name, three tasting notes, roast scale, and one line of facts. The black side panel is the reading face, carrying the full story, the daisy, the altitude, the farmers, the roasting philosophy, for the person who has already picked the bag up.</p>
+
+        <p>That split keeps the front honest. Nothing on it requires reading more than six words at a time, and the hierarchy runs exactly in the order a buyer decides: which brand, which flavor, how it tastes, how dark. The functional line at the base, whole bean, 250g, 1,900 plus meters above sea level, is set in monospace like a customs stamp, the one register where coffee is allowed to sound industrial.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/adey/adey-photos/tile-chocolate.png"
+            alt="The Chocolate bag with a dark brown woven band, dark roast, all four roast diamonds filled, and the notes cacao nib, molasses, toasted spice"
+            loading="lazy"
+          >
+          <p class="img-caption">Chocolate, the anchor of the range: the darkest band, all four diamonds filled, and the same quiet front</p>
+        </div>
+      </section>
+
+      <!-- ═══════ DESIGN DECISIONS ═══════ -->
+      <section id="decisions" class="section">
+        <div class="section-label">Design Decisions</div>
+        <h2 class="section-title">Why Adey looks the way it does</h2>
+        <p class="section-intro">Coffee shelves are crowded with two defaults: minimal white bags with abstract art, and heritage bags drowning in illustration. Adey argues for a third position, where every traditional element carries modern information, and each decision below trades a category habit for something the origin actually owns.</p>
+
+        <h3>1 &middot; The pattern is the flavor code</h3>
+        <p>One woven band, four colorways: deep green for Floral, oxblood for Berry, amber for Citrus, dark brown for Chocolate. The band is the single loudest element on the bag, which means the flavor difference is visible across a cafe, not just at reading distance. And because the geometry never changes, the four bags read instantly as one family. The pattern does the work a logo usually does and the work a color system usually does, at the same time.</p>
+
+        <h3>2 &middot; The diamond becomes data</h3>
+        <p>The roast scale is four diamonds, filled left to right: one for the lightest roast, four for the darkest. The diamond is lifted straight from the woven band above it, so the bag's most functional element and its most decorative element are the same shape. Ornament earns its place on this label by moonlighting as information, and the scale needs no words to be read in any language.</p>
+
+        <h3>3 &middot; Amharic first, always</h3>
+        <p>The lockup places አደይ above the Latin wordmark on every bag, in the band's own ink. As with any bilingual mark, the hierarchy is the message: a coffee that claims Ethiopian origin as its whole identity should not typeset that origin as a footnote. The Latin ADEY, wide tracked and heavy, carries retail legibility; the fidel above it carries the truth of the thing.</p>
+
+        <h3>4 &middot; Taste words beat process words</h3>
+        <p>Washed, natural, and honey are meaningful to perhaps one buyer in twenty. Jasmine, blueberry, and cacao are meaningful to everyone who has ever eaten breakfast. Naming the range for the cup, Floral, Berry, Citrus, Chocolate, moves the expertise into the subline where it rewards the connoisseur without gatekeeping the newcomer. The bag speaks flavor first and credentials second.</p>
+
+        <h3>5 &middot; One template, four bags, zero drift</h3>
+        <p>All four bags share one fixed composition: same band depth, same lockup position, same note line, same scale, same baseline. A new profile is a colorway and a text pass, not a design project. The discipline shows most in the family lineup, where the four bags align to the pixel, and it is the practical promise a real roaster needs: seasonal lots can join the range without touching the system.</p>
+
+        <h3>The smaller calls that add up</h3>
+
+        <div class="insight-grid fade-up">
+          <div class="insight-card">
+            <div class="insight-card-label">Why a black side panel?</div>
+            <p>The long copy, the naming story, the altitude, the roasting philosophy, lives on a black side panel in small white type, like a chalkboard in a cafe. Splitting the talkative surface from the shelf surface lets the front stay quiet without silencing the brand.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Why cream instead of white?</div>
+            <p>The label ground is a warm cream, not printer white. Against it the band colors read as dyed thread rather than screen ink, and the whole bag sits closer to paper, basket, and cloth, the material world the pattern comes from.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Why monospace for the facts?</div>
+            <p>Weight, format, and altitude are set in monospace, the typography of shipping stamps and lot cards. It separates verifiable fact from brand voice at a glance, and it nods to the export crates this trade actually moves in.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Why does gold thread every colorway?</div>
+            <p>The small gold triangles in the band border repeat in all four colorways, the daisy's color woven through the whole range. It is the one constant in the variable element, the same role the brand name plays in the system.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ OUTCOME ═══════ -->
+      <section id="outcome" class="section">
+        <div class="section-label">Outcome</div>
+        <h2 class="section-title">A range that scales without a redesign</h2>
+        <p class="section-intro">Adey shipped as a complete concept: name, bilingual identity, a woven pattern system in four colorways, four packaged profiles, and a flavor architecture that maps process and roast to language any buyer understands. The presentation on this page was rebuilt for consistency: the mockups were rendered at different scales and croppings, so every image here was recomposed on one grid, with the four bags matched in size and baseline to within a pixel.</p>
+
+        <div class="callout">
+          <div class="callout-eye">Key Finding</div>
+          <p>Heritage elements survive on a modern shelf when they are given <strong>jobs, not frames</strong>. The woven band is the flavor code. The diamond is the roast scale. The script is the hierarchy. Nothing traditional on this bag is displayed like an artifact, and that is exactly why none of it reads as costume.</p>
+        </div>
+
+        <h4>What I Learned</h4>
+        <p>Adey sharpened a rule I now apply everywhere: decoration that carries information cannot be cut, and decoration that carries nothing eventually will be. Every ornamental element on the bag survived design review because it was doing double duty. The project also proved the template discipline again, four bags aligned to one grid make each other stronger, and the same is true of the images that present them.</p>
+
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-card-label">Ornament With a Job</div>
+            <p>The pattern codes flavor, the diamond measures roast, the script sets hierarchy. Every traditional element earned its place by carrying modern information.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Name for the Buyer</div>
+            <p>Floral, Berry, Citrus, Chocolate is a menu anyone can order from. Expertise belongs in the subline, where it deepens trust instead of blocking the door.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Systems Are the Craft</div>
+            <p>The four bags differ by one color decision each. Everything else is held, and the holding is what makes the family read as a brand rather than four labels.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Presentation Is Design Too</div>
+            <p>Inconsistent renders undersold a consistent system. Rebuilding every image on one measured grid was the same discipline as the template itself, applied to the case study.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-left">
+      <span class="footer-name">Zeeyad Khan</span>
+      <span class="footer-role">AI Product Designer &middot; zeeyadkhan.com</span>
+    </div>
+    <span class="footer-right">Adey &middot; Brand and Packaging Designer</span>
+  </footer>
+
+  <!-- ═══════════════════════ LIGHTBOX ═══════════════════════ -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+    <button id="lightbox-close" aria-label="Close lightbox">&#x2715;</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+  <script>
+    // ── Lightbox ──
+    const lightbox     = document.getElementById('lightbox');
+    const lbImg        = document.getElementById('lightbox-img');
+    const lbClose      = document.getElementById('lightbox-close');
+
+    function openLightbox(img) {
+      lbImg.src     = img.src;
+      lbImg.alt     = img.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.img-wrap img, .img-cell img, .hero-img').forEach(img => {
+      img.addEventListener('click', () => openLightbox(img));
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+
+    // ── Active sidebar navigation on scroll ──
+    const sections  = document.querySelectorAll('section[id]');
+    const navLinks  = document.querySelectorAll('.nav-link');
+    const TOPBAR_H  = 58;
+
+    function syncNav() {
+      const y = window.scrollY;
+      let current = '';
+
+      sections.forEach(sec => {
+        if (y >= sec.offsetTop - TOPBAR_H - 100) {
+          current = sec.id;
+        }
+      });
+
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
+      });
+    }
+
+    window.addEventListener('scroll', syncNav, { passive: true });
+    syncNav();
+
+    // ── Fade-up on scroll (respects prefers-reduced-motion) ──
+    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!noMotion) {
+      const fadeEls = document.querySelectorAll('.fade-up');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+      fadeEls.forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    }
+  </script>
+
+</body>
+</html>
