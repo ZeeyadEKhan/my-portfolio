@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VisitBrief, a patient controlled pre visit narrative tool that runs on a local model. A case study by Zeeyad Khan, AI Product Designer.">
+  <meta name="author" content="Zeeyad Khan">
+  <title>VisitBrief, Case Study &middot; Zeeyad Khan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    /* ── Lightbox ── */
+    .img-wrap img,
+    .img-cell img,
+    .hero-img {
+      cursor: zoom-in;
+    }
+
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    #lightbox.open {
+      display: flex;
+    }
+
+    #lightbox-img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+      object-fit: contain;
+      user-select: none;
+    }
+
+    #lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+
+    #lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    /* ── Video embed ── */
+    .video-wrap { margin: 2.5rem 0; }
+
+    .video-wrap video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #111;
+    }
+
+    /* ── Code blocks ── */
+    .code-wrap { margin: 2.5rem 0; }
+
+    .code-wrap pre {
+      background: #1c1c1b;
+      border: 1px solid #2c2c2a;
+      border-radius: 8px;
+      padding: 1.35rem 1.5rem;
+      overflow-x: auto;
+      line-height: 1.68;
+    }
+
+    .code-wrap code {
+      font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.76rem;
+      color: #e6e4e0;
+      white-space: pre;
+    }
+
+    .code-wrap .cm  { color: #8f8d88; }   /* comments */
+    .code-wrap .st  { color: #b8c78f; }   /* strings */
+    .code-wrap .kw  { color: #9db8e0; }   /* keywords */
+
+    .code-file {
+      font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.02em;
+      color: var(--ink-subtle);
+      margin-bottom: 0.5rem;
+    }
+
+    code.inline {
+      font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.82em;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 0.08em 0.4em;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════ TOPBAR ═══════════════════════ -->
+  <header class="topbar" role="banner">
+    <a href="/" class="topbar-brand">Zeeyad Khan</a>
+    <nav class="topbar-nav" aria-label="Site navigation">
+      <a href="/#work">Work</a>
+      <a href="/explorations" class="active"><span class="nav-full">Current Explorations</span><span class="nav-short">Explorations</span></a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <a href="/explorations" class="topbar-back" aria-label="Back to Current Explorations">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M8.5 2.5L4 7l4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back
+    </a>
+  </header>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="hero" aria-label="Project hero">
+    <div class="hero-text">
+      <div class="hero-chips">
+        <span class="chip chip-blue">Health Tech</span>
+        <span class="chip">AI Product</span>
+        <span class="chip">Local LLM</span>
+        <span class="chip">Vanilla JavaScript</span>
+        <span class="chip">Solo Build</span>
+      </div>
+      <h1 class="hero-title">VisitBrief</h1>
+      <p class="hero-sub">A patient controlled pre visit narrative tool. Five short steps turn weeks of carried worry into a single page a busy doctor can read in under a minute, compressed by a local model so the story never leaves the patient's machine.</p>
+    </div>
+    <img
+      class="hero-img"
+      src="/projects/medsummary/medsummary-photos/landing.png"
+      alt="VisitBrief landing page reading You get about twelve minutes, walk in ready to be understood, beside a card showing rambling words becoming a brief"
+      loading="eager"
+    >
+  </section>
+
+  <!-- ═══════════════════════ LAYOUT ═══════════════════════ -->
+  <div class="layout">
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" aria-label="Case study navigation">
+      <div class="sidebar-inner">
+        <p class="sidebar-eyebrow">Contents</p>
+        <ul class="sidebar-nav" role="list">
+          <li><a href="#overview"     class="nav-link">Overview</a></li>
+          <li><a href="#demo"         class="nav-link">Demo</a></li>
+          <li><a href="#problem"      class="nav-link">Problem</a></li>
+          <li><a href="#product"      class="nav-link">The Product</a></li>
+          <li><a href="#architecture" class="nav-link">Architecture</a></li>
+          <li><a href="#decisions"    class="nav-link">Engineering Decisions</a></li>
+          <li><a href="#testing"      class="nav-link">Tested by Running</a></li>
+          <li><a href="#outcome"      class="nav-link">Outcome</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="content" id="main-content">
+
+      <!-- ═══════ OVERVIEW ═══════ -->
+      <section id="overview" class="section">
+        <div class="section-label">Overview</div>
+        <h2 class="section-title">Twelve minutes, one page, your words</h2>
+        <p class="section-intro">VisitBrief walks a patient through five short questions about what brought them in, when it started, what they take, what they fear, and what three things they need from the visit. A local model then compresses those answers into a one page pre visit brief: chief concern, timeline, medications, priorities in the patient's own order, and the worry that usually goes unsaid.</p>
+
+        <p>The product lives on one design thesis, stated at the top of the stylesheet: <strong>two registers live in one product</strong>. The intake is an app, warm and paced for a nervous person. The brief is a document, serif and clinical, because it is the printed thing a doctor holds. The whole build is five files and 1,584 lines of vanilla HTML, CSS, and JavaScript, with the model running locally through Ollama so a health story never touches a server.</p>
+
+        <div class="meta-strip">
+          <div class="meta-item">
+            <span class="meta-val">5</span>
+            <span class="meta-key">Intake Steps</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">1</span>
+            <span class="meta-key">Page Output</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">1,584</span>
+            <span class="meta-key">Lines Total</span>
+          </div>
+        </div>
+
+        <h4>My Role</h4>
+        <p>Design Engineer &middot; Designed and built the entire product solo: the intake flow, the prompt, the document system, and the export pipeline</p>
+
+        <h4>Stack</h4>
+        <p>Vanilla HTML, CSS, JavaScript &middot; Ollama running llama3.2 locally &middot; localStorage &middot; html2pdf for export &middot; no framework, no build step</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/medsummary/medsummary-photos/landing-full.png"
+            alt="Full VisitBrief landing page with the before and after transformation card showing rambling words becoming a structured brief"
+            loading="lazy"
+          >
+          <p class="img-caption">The hero is not a screenshot of the product. It is the product's argument: rambling becomes a brief, animated on load</p>
+        </div>
+      </section>
+
+      <!-- ═══════ DEMO ═══════ -->
+      <section id="demo" class="section">
+        <div class="section-label">Demo</div>
+        <h2 class="section-title">See it work</h2>
+        <p class="section-intro">A walkthrough of the full flow: the five step intake, the local model shaping the page, and the finished brief ready to print and carry into the appointment.</p>
+
+        <div class="video-wrap">
+          <video controls playsinline preload="metadata">
+            <source src="/projects/medsummary/MedSummary.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+            <a href="/projects/medsummary/MedSummary.mp4">Download the walkthrough instead.</a>
+          </video>
+          <p class="img-caption">VisitBrief walkthrough: intake, generation on a local model, and the one page brief</p>
+        </div>
+      </section>
+
+      <!-- ═══════ PROBLEM ═══════ -->
+      <section id="problem" class="section">
+        <div class="section-label">Problem</div>
+        <h2 class="section-title">The patient to doctor interface is broken</h2>
+        <p class="section-intro">Records flow out to the patient through portals and printouts, but the patient has no good way to send a clear, prioritized story back in. You carry a worry for weeks, and then the room moves fast, the visit runs about twelve minutes, and half of what you meant to say never gets said.</p>
+
+        <p>The worst casualty is usually the most important sentence: the fear underneath the symptoms, which is often the real reason the appointment was booked. Patients ramble because worry rambles. Doctors think in timelines and priorities. Nothing in the room translates between the two, and the person with the least practice speaking the clinical register is the one with the least time to do it.</p>
+
+        <div class="callout">
+          <div class="callout-eye">How Might We</div>
+          <p>Let a nervous patient tell their story once, in their own words, and walk in holding <strong>a single page their doctor can scan in under a minute</strong>, without that story ever leaving their machine?</p>
+        </div>
+
+        <p>The scoping decision came first: VisitBrief solves only the half the patient controls. There is no clinician account, no records integration, no upload. The product deliberately stops at the piece of paper the patient owns, brings, and decides whether to share.</p>
+      </section>
+
+      <!-- ═══════ THE PRODUCT ═══════ -->
+      <section id="product" class="section">
+        <div class="section-label">The Product</div>
+        <h2 class="section-title">Five questions, then a document</h2>
+        <p class="section-intro">The intake asks one question at a time, autosaves every keystroke, and paces a person who may be dreading the answers. Each question earns its place: doctors think in timelines, knowing what did not work saves everyone time, and the order of your three priorities tells the doctor where to spend the minutes if time runs short.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/medsummary/medsummary-photos/step1.png"
+            alt="Step one asking what brought you here, with a saved as you type indicator and a progress rail reading step 1 of 5"
+            loading="lazy"
+          >
+          <p class="img-caption">One question per screen, a progress rail, and the promise that matters to an anxious writer: saved as you type</p>
+        </div>
+
+        <h3>The question underneath the question</h3>
+        <p>Step four is the emotional core, and the only step that changes visual register mid app. The palette warms to amber, and the copy makes a promise: your brief will carry this with dignity, in your voice. That promise is not decoration. It reappears, almost word for word, as an instruction in the model prompt.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/medsummary/medsummary-photos/step4.png"
+            alt="Step four asking what are you most afraid of, in a warm amber register, with a note promising the brief will carry the answer with dignity"
+            loading="lazy"
+          >
+          <p class="img-caption">The fear step, in the warm register. Amber, not red, because fear on a medical form should be met with warmth, not alarm</p>
+        </div>
+
+        <h3>An honest wait</h3>
+        <p>While the local model works, the loading screen shows a miniature page assembling itself line by line, in lockstep with a checklist written in the product's voice: reading your answers, ordering the timeline, framing what matters most, laying out the page. The third skeleton bar is amber, because the third checklist item is the fear block. The loading state is a scale model of the output, down to the color of its one warm block.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/medsummary/medsummary-photos/generating.png"
+            alt="Generating screen with a miniature page skeleton assembling beside a checklist of steps, noting this stays on your machine"
+            loading="lazy"
+          >
+          <p class="img-caption">The generating screen repeats the promise at the moment of maximum sensitivity: this stays on your machine</p>
+        </div>
+
+        <h3>The brief</h3>
+        <p>The output switches registers completely: serif type, a masthead rule, a clinical layout sized to one printed page. The chief concern leads in large type. Priorities render as three numbered cards in the patient's own order. The timeline reads as a spine. And the patient's fear is the last thing on the page, in the largest body type, in the only colored block, so a clinician scanning top to bottom ends on the person.</p>
+
+        <div class="img-wrap">
+          <img
+            src="/projects/medsummary/medsummary-photos/brief.png"
+            alt="The finished one page brief with chief concern headline, three priority cards, a timeline spine, medications, questions to ask, and an amber what matters most block"
+            loading="lazy"
+          >
+          <p class="img-caption">A real brief generated by the local model from a real intake. The footer states what it is and is not: prepared by the patient, not a medical record</p>
+        </div>
+      </section>
+
+      <!-- ═══════ ARCHITECTURE ═══════ -->
+      <section id="architecture" class="section">
+        <div class="section-label">Architecture</div>
+        <h2 class="section-title">Small enough to be audited by its users</h2>
+        <p class="section-intro">VisitBrief has no framework, no build step, and no dependency a reader has to trust. That is not minimalism for taste. The product's core claim is that nothing leaves your machine, and a claim like that is only worth what a skeptical reader can verify. Anyone, including a clinician, can read all 1,584 lines and check it personally.</p>
+
+        <p>Application state is one integer: the current step. Everything else derives from it through a single render function that clamps out of range values, so the back button on step one and the next button on step five are harmless by construction rather than by disabled state logic. A single field registry maps the nine inputs, and that one map drives restore, read, autosave wiring, and clear. Adding a question is one line plus markup.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">app.js · the whole data flow</div>
+          <pre><code>nine fields ──▶ localStorage (autosave, every keystroke)
+     │
+     ▼
+buildPrompt(answers) ──▶ POST localhost:11434  (Ollama, llama3.2,
+     │                    stream: false, format: "json", temp 0.3)
+     ▼
+extractJson() ──▶ normalizeBrief() ──▶ localStorage handoff
+                                            │
+                                            ▼
+                                       brief.html renders
+                                       (standalone, no app.js)</code></pre>
+        </div>
+
+        <p>The handoff between intake and document goes through localStorage under versioned keys, never through the URL. A patient's stated fear in a query string would land in browser history and any referrer header. And the brief page is deliberately standalone: it loads no application code at all, reads its data, and if there is nothing stored or the data is corrupt, both failure modes resolve the same way, back to the start. There is no empty brief state to design because it cannot occur.</p>
+
+        <div class="callout">
+          <div class="callout-eye">Design Constraint</div>
+          <p>The two registers are enforced by the type system of the design, not by discipline. The sans face runs the app; the serif appears only in the brief. The serif escapes into the app in exactly four sanctioned places, and every one of them is a spot where the interface is <strong>pointing at the document</strong>.</p>
+        </div>
+      </section>
+
+      <!-- ═══════ ENGINEERING DECISIONS ═══════ -->
+      <section id="decisions" class="section">
+        <div class="section-label">Engineering Decisions</div>
+        <h2 class="section-title">Treating the model as an unreliable interface</h2>
+        <p class="section-intro">The interesting engineering in VisitBrief is at the boundary between a small local model and a document a doctor will hold. A 3B model on a patient's laptop will wrap JSON in prose, drop fields, and improvise shapes. The product's job is to make sure none of that ever reaches the page.</p>
+
+        <h3>1 &middot; Four layers of defense against one unreliable interface</h3>
+        <p>The same problem is solved four independent times. The prompt instructs: respond with only a JSON object, no preamble and no markdown fences. The request enforces it again with Ollama's grammar constrained JSON mode. Then the response passes through a syntactic recovery function anyway, because models sometimes wrap JSON in prose regardless:</p>
+
+        <div class="code-wrap">
+          <div class="code-file">app.js · extractJson, the syntactic layer</div>
+          <pre><code><span class="cm">/* Models sometimes wrap JSON in prose or fences. Recover the object safely. */</span>
+<span class="kw">function</span> extractJson(text) {
+  <span class="kw">if</span> (!text) <span class="kw">throw new</span> Error(<span class="st">"empty response"</span>);
+  <span class="kw">let</span> t = text.trim().replace(/```json/gi, <span class="st">""</span>).replace(/```/g, <span class="st">""</span>).trim();
+  <span class="kw">const</span> start = t.indexOf(<span class="st">"{"</span>);
+  <span class="kw">const</span> end = t.lastIndexOf(<span class="st">"}"</span>);
+  <span class="kw">if</span> (start === -1 || end === -1) <span class="kw">throw new</span> Error(<span class="st">"no JSON object found"</span>);
+  <span class="kw">return</span> JSON.parse(t.slice(start, end + 1));
+}</code></pre>
+        </div>
+
+        <p>The first brace and last brace trick survives both a chatty preamble and a polite postamble in one operation, and handles nested objects because it takes the last closing brace. The fourth layer is semantic: a shape guard that normalizes whatever parsed into exactly what the document needs. Its best decisions are a fallback chain three levels deep on the chief concern, so the largest headline can never be blank, and a hard cut of priorities to three, because the layout renders three columns and a model returning five would break the band. The layout invariant is enforced where the data is shaped, not patched in CSS.</p>
+
+        <p>The safest degradation is reserved for the most sensitive field: if the model garbles the fear, the patient's own sentence is used verbatim. When compression fails on the thing that matters most, the original words are already the right answer.</p>
+
+        <h3>2 &middot; The prompt is a safety document</h3>
+        <p>The prompt opens with five words that do all the safety work: you are a careful medical scribe. The model is a compression function over the patient's words, never a diagnostician. The anti hallucination clause names its categories instead of gesturing: do not invent symptoms, diagnoses, dates, or medications that are not present.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">app.js · buildPrompt, abridged</div>
+          <pre><code>You are a careful medical scribe helping a patient prepare for a short appointment.
+Turn the patient's own words below into a concise pre visit brief that a busy
+doctor can scan in under a minute.
+Preserve the patient's meaning. Do not invent symptoms, diagnoses, dates, or
+medications that are not present.
+Keep language plain and human. Phrase the patient's fear with dignity, in the
+first person.
+
+Patient answers:
+- Main concern: ${a.concern || <span class="st">"(not provided)"</span>}
+- Most afraid of: ${a.fear || <span class="st">"(not provided)"</span>}
+...</code></pre>
+        </div>
+
+        <p>Two details show the prompt was reasoned about rather than pasted. First, suggested questions are deliberately absent from the forbidden list: it is the one field where the model is licensed to add something the patient did not write. Second, blank fields become the marker (not provided) rather than an empty string, because a dangling label invites a model to fill the blank while an explicit marker tells it the absence is data. And the dignity instruction closes a loop that starts in the interface: the step four UI promises the brief will carry the fear with dignity in your voice, the prompt instructs exactly that, and the document renders it in the amber block. A UI promise you can grep for in the prompt.</p>
+
+        <h3>3 &middot; Two registers, one product</h3>
+        <p>The stylesheet opens by declaring the thesis, and the fonts enforce it as a rule rather than a vibe: the sans runs the app, and the serif appears only in the brief. Even the emotional palette is scoped like an API. The one warm note in the product has a documented boundary:</p>
+
+        <div class="code-wrap">
+          <div class="code-file">styles.css · the care tokens</div>
+          <pre><code><span class="cm">/* Care. The one warm note. Used only where the product holds space for the
+   person: the fear, and the brief's "what matters most" block. Amber, not
+   red, because fear on a medical form should be met with warmth not alarm. */</span>
+--care-ink: #9A5209;
+--care-wash: #FCF5EA;
+--care-line: #F0E1C6;</code></pre>
+        </div>
+
+        <p>The scope is honored in the code: the care palette appears in exactly four places, and the separate alert red appears only for system failure, never for anything a patient wrote. Red is for the machine breaking. Amber is for a human being afraid. A two color semantic system doing real work.</p>
+
+        <h3>4 &middot; Fighting the PDF library for one page</h3>
+        <p>The brief must be one page, and the export pipeline earns that the hard way. The capture library sizes its canvas from the live element before cloning anything, so the on screen card chrome had to be flattened in place and restored afterward, with the restore in a finally block so a failed export never leaves the page visually broken. And when the library's pagination produced a near blank second page, the fix went underneath the convenience API:</p>
+
+        <div class="code-wrap">
+          <div class="code-file">brief.html · the one page rule, enforced</div>
+          <pre><code><span class="cm">// html2pdf's own pagination can leave a near blank second page
+// once content runs even slightly past one page of pixels. The
+// brief is meant to be a single A4 page, so discard that slicing
+// and place the whole capture as one image, shrunk only as much
+// as needed to fit.</span>
+<span class="kw">while</span> (pdf.internal.getNumberOfPages() &gt; 1) {
+  pdf.deletePage(pdf.internal.getNumberOfPages());
+}</code></pre>
+        </div>
+
+        <p>Below that runs a hand written contain algorithm: fit to width first, fall back to fit to height, center horizontally, on a white base fill because JPEG has no alpha channel. The product constraint overrode the library default, and the code reached into the library's internals to make one page a rule instead of a hope.</p>
+
+        <h3>5 &middot; What was deliberately not built</h3>
+        <p>There is no input validation, and that is a decision with an argument. Every field is free text narrative; there is no wrong answer to what are you most afraid of, and a validation error on that question would be actively harmful. The system degrades instead: blanks become (not provided), the shape guard supplies fallbacks, and a completely empty submission still produces a valid document. Autosave has no debounce for a similar reason: nine short fields serialize in a couple of kilobytes, and a debounce would buy nothing except a window where an anxious person's words could be lost.</p>
+
+        <h3>The smaller calls that add up</h3>
+
+        <div class="insight-grid fade-up">
+          <div class="insight-card">
+            <div class="insight-card-label">Why is progress partly theater, and where is it honest?</div>
+            <p>Ollama's endpoint returns nothing until generation finishes, so the first two checklist ticks run on timers. The honesty lives at the endpoints: the final tick fires only on real success, and the timers are cleared on failure, so a failed run can never show a completed checklist. Perceived progress, with a floor of truth.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Why does the error screen read like a runbook?</div>
+            <p>The recovery screen's comment is its philosophy: direction, not apology. It names what happened, lists the three terminal commands that fix it, offers try again, and repeats the one sentence an anxious user needs: your answers are safe and still saved. The sample preview button beside it lets the design be seen with no model running at all.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Why does the sample preview prefer real answers?</div>
+            <p>The preview builds its brief from whatever the person already typed and falls back to canned content only where they typed nothing, using an all or nothing merge for medications so it can never mix one real drug with one invented one. A half real medication list on a medical document would be genuinely dangerous, and the merge idiom makes it impossible.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Why do keyboard users land in the right place?</div>
+            <p>Every step change focuses the first control with the preventScroll option, then runs its own smooth scroll to the top. Focus normally yanks the viewport; suppressing that lets keyboard users land on the field while sighted users get the intended motion. Two audiences, one line apart.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ TESTED BY RUNNING ═══════ -->
+      <section id="testing" class="section">
+        <div class="section-label">Tested by Running</div>
+        <h2 class="section-title">Bugs the code review could not see</h2>
+        <p class="section-intro">VisitBrief has no test framework. Its verification discipline was running the real thing on real screens, and the repository preserves the evidence: an archived snapshot of the codebase from mid build, against which every later fix can be diffed. Two of those fixes are the best engineering stories in the project, because neither was fixable in the layer you would expect.</p>
+
+        <p>The first surfaced immediately after the snapshot. The original README said to just open the HTML file in a browser. Running it clean failed: a page opened from disk sends its request to Ollama with a null origin, and Ollama rejects it. There is no client side fix for that. So the fix shipped in documentation, with the diagnosis written down for the next person, and the marketing claim was narrowed to stay true: no build step, no keys became no build step, no keys, just a static file server.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">README.md · a bug fixed in prose</div>
+          <pre><code>This matters: opening index.html directly from disk (a file:// URL)
+sends the browser's request to Ollama with a null origin, and Ollama
+rejects that. Serving over localhost gives it a real origin Ollama
+accepts.</code></pre>
+        </div>
+
+        <p>The second came a week later, in a stylesheet only session. On common laptop heights, the tallest step pushed the Next button below the fold, and a nervous first time user who cannot see the button believes the form is broken. The fix was four coordinated values cutting about a hundred pixels of vertical rhythm, with the comment naming the exact failure, and the escape hatch deliberately kept: the textarea got shorter, but it still resizes taller.</p>
+
+        <div class="code-wrap">
+          <div class="code-file">styles.css · the density pass</div>
+          <pre><code><span class="cm">/* Visibility of the primary action: a shorter default keeps the tallest step,
+   two stacked text areas, from pushing Next or Build my brief below the fold on
+   common laptop heights. Still roomy, and the person can drag it taller. */</span>
+textarea.control { min-height: 104px; resize: vertical; }</code></pre>
+        </div>
+
+        <p>Auditing the finished build for this case study continued the same discipline: I fed the JSON recovery function eleven adversarial model outputs under Node. It correctly survived fenced JSON, chatty preambles, trailing sign offs, nested objects, refusals, and truncation. The audit also found where the defense runs out, which belongs in the next section rather than under the rug.</p>
+
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-card-label">Archaeology as QA</div>
+            <p>The archived snapshot turns the folder into its own history: every post snapshot change is diffable, and each one traces to a run discovered problem rather than churn.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Principles as Comments</div>
+            <p>The file headers name the UX principles, and the same words recur as inline comments at each decision they govern. Feedback, usability, consistency: greppable, not aspirational.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Reduced Motion, Three Ways</div>
+            <p>The landing animation honors the reduced motion preference at three layers: a global CSS kill switch, targeted overrides for the states the kill switch cannot fix, and a JavaScript early return that skips the typewriter entirely.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">The Invisible Character Bug</div>
+            <p>The typewriter reads its text from the markup, so pretty printed indentation made it spend its first half second typing invisible whitespace. The fix was deleting a newline in HTML: a bug that only exists at the seam where formatting for humans becomes data for code.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ OUTCOME ═══════ -->
+      <section id="outcome" class="section">
+        <div class="section-label">Outcome</div>
+        <h2 class="section-title">A finished tool, and the audit that follows it</h2>
+        <p class="section-intro">VisitBrief shipped complete: a five step autosaving intake, a prompt engineered as a safety document, four layers of model output defense, a two register design system, a one page document with print and PDF export, and a recovery screen that turns failure into a runbook. It runs on any static file server next to a local model, and the patient's story stays home.</p>
+
+        <div class="callout">
+          <div class="callout-eye">Key Finding</div>
+          <p>In a product this small, <strong>the codebase itself is the trust document</strong>. No framework and no build step means a patient or clinician can read every line and verify the privacy claim personally. Auditability is not a nice property of the architecture. For a health tool with no company behind it, it is the architecture.</p>
+        </div>
+
+        <h4>What I Would Fix First</h4>
+        <p>Auditing the shipped build surfaced three real defects worth naming. First, the shape guard checks that fields are arrays but never coerces their elements to strings, so a model returning structured medication objects would render literally as object Object on a medical document; the fix is one String call in the normalizer. Second, the error taxonomy is wired to the wrong predicate: parse failures show the could not reach Ollama message, sending the user to restart a service that is already running, and the message never resets between failures. Third, two late features quietly outgrew the privacy sentence printed on every screen: the sample preview became a landing page button without gaining a watermark, so a fabricated brief is indistinguishable from a real one, and the email button hands the story to a mail client while the words nothing leaves your device are still visible above it. The honest fix is a sample ribbon, and either dropping the email button or narrowing the claim to one that stays true.</p>
+
+        <h4>What I Learned</h4>
+        <p>VisitBrief taught me that the boundary is the product. Almost every decision that matters happens where an unreliable model meets a document with real stakes: the prompt that constrains, the layers that recover, the normalizer that guarantees shape, the fallback that returns the patient's own words when compression fails. And the audit taught me the sequel: features added after the promise was written are where promises quietly break. The next version starts by making the claim and the code agree again.</p>
+
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-card-label">The Boundary Is the Product</div>
+            <p>Between a five field form and a one page document sits all the real engineering: constrain, recover, normalize, and degrade toward the user's own words.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Copy Is Load Bearing</div>
+            <p>The best fix in the project shipped in a README, and the most dangerous bug lives in a sentence the interface can no longer fully keep. Words are part of the system and need the same review code gets.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Design the Failure First</div>
+            <p>The recovery screen, the sample preview, and the autosave promise all exist for the run where things go wrong. For a nervous user, the failure path is the product's character under pressure.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Small Is a Feature</div>
+            <p>Five files that a stranger can read in an evening beat a framework app nobody audits. Every dependency the product refused is a claim it no longer has to defend.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-left">
+      <span class="footer-name">Zeeyad Khan</span>
+      <span class="footer-role">AI Product Designer &middot; zeeyadkhan.com</span>
+    </div>
+    <span class="footer-right">VisitBrief &middot; Design Engineer</span>
+  </footer>
+
+  <!-- ═══════════════════════ LIGHTBOX ═══════════════════════ -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+    <button id="lightbox-close" aria-label="Close lightbox">&#x2715;</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+  <script>
+    // ── Lightbox ──
+    const lightbox     = document.getElementById('lightbox');
+    const lbImg        = document.getElementById('lightbox-img');
+    const lbClose      = document.getElementById('lightbox-close');
+
+    function openLightbox(img) {
+      lbImg.src     = img.src;
+      lbImg.alt     = img.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.img-wrap img, .img-cell img, .hero-img').forEach(img => {
+      img.addEventListener('click', () => openLightbox(img));
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+
+    // ── Active sidebar navigation on scroll ──
+    const sections  = document.querySelectorAll('section[id]');
+    const navLinks  = document.querySelectorAll('.nav-link');
+    const TOPBAR_H  = 58;
+
+    function syncNav() {
+      const y = window.scrollY;
+      let current = '';
+
+      sections.forEach(sec => {
+        if (y >= sec.offsetTop - TOPBAR_H - 100) {
+          current = sec.id;
+        }
+      });
+
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
+      });
+    }
+
+    window.addEventListener('scroll', syncNav, { passive: true });
+    syncNav();
+
+    // ── Fade-up on scroll (respects prefers-reduced-motion) ──
+    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!noMotion) {
+      const fadeEls = document.querySelectorAll('.fade-up');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+      fadeEls.forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    }
+  </script>
+
+</body>
+</html>
