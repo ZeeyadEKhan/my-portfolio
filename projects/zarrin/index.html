@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zarrin, a brand and packaging concept for a sparkling saffron water. A graphic design case study by Zeeyad Khan.">
+  <meta name="author" content="Zeeyad Khan">
+  <title>Zarrin, Case Study &middot; Zeeyad Khan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    /* ── Lightbox ── */
+    .img-wrap img,
+    .img-cell img,
+    .hero-img {
+      cursor: zoom-in;
+    }
+
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    #lightbox.open {
+      display: flex;
+    }
+
+    #lightbox-img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+      object-fit: contain;
+      user-select: none;
+    }
+
+    #lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+
+    #lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    /* Dark artwork sits better without the light border */
+    .img-wrap.dark img { border-color: #2a2433; background: #17111f; }
+    .img-grid-2.dark .img-cell { border-color: #2a2433; background: #17111f; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════ TOPBAR ═══════════════════════ -->
+  <header class="topbar" role="banner">
+    <a href="/" class="topbar-brand">Zeeyad Khan</a>
+    <nav class="topbar-nav" aria-label="Site navigation">
+      <a href="/#work">Work</a>
+      <a href="/explorations"><span class="nav-full">Current Explorations</span><span class="nav-short">Explorations</span></a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <a href="/#work" class="topbar-back" aria-label="Back to work">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M8.5 2.5L4 7l4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back
+    </a>
+  </header>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="hero" aria-label="Project hero">
+    <div class="hero-text">
+      <div class="hero-chips">
+        <span class="chip chip-blue">Graphic Design</span>
+        <span class="chip">Brand Identity</span>
+        <span class="chip">Packaging</span>
+        <span class="chip">Beverage Concept</span>
+        <span class="chip">Solo Project</span>
+      </div>
+      <h1 class="hero-title">Zarrin</h1>
+      <p class="hero-sub">A brand and packaging concept for a sparkling saffron water. Zarrin means golden in Persian, and the identity treats the world's most precious spice with the reverence usually reserved for jewelry: a bilingual wordmark, a hand built ornament system, and four flavors drawn from one garden.</p>
+    </div>
+    <img
+      class="hero-img"
+      src="/projects/zarrin/zarrin-photos/lineup.png"
+      alt="The Zarrin family lineup: four ornamented cans in navy, burgundy, emerald, and garnet beneath the wordmark and the line four infusions, one garden"
+      loading="eager"
+    >
+  </section>
+
+  <!-- ═══════════════════════ LAYOUT ═══════════════════════ -->
+  <div class="layout">
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" aria-label="Case study navigation">
+      <div class="sidebar-inner">
+        <p class="sidebar-eyebrow">Contents</p>
+        <ul class="sidebar-nav" role="list">
+          <li><a href="#overview"  class="nav-link">Overview</a></li>
+          <li><a href="#brand"     class="nav-link">The Brand</a></li>
+          <li><a href="#identity"  class="nav-link">Identity</a></li>
+          <li><a href="#flavors"   class="nav-link">Flavor System</a></li>
+          <li><a href="#packaging" class="nav-link">Packaging</a></li>
+          <li><a href="#decisions" class="nav-link">Design Decisions</a></li>
+          <li><a href="#outcome"   class="nav-link">Outcome</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="content" id="main-content">
+
+      <!-- ═══════ OVERVIEW ═══════ -->
+      <section id="overview" class="section">
+        <div class="section-label">Overview</div>
+        <h2 class="section-title">Liquid gold, lightly sparkling</h2>
+        <p class="section-intro">Zarrin is a concept brand for a saffron sparkling water: real saffron, cold steeped in crisp carbonated water, with nothing added and nothing hidden. The design work spans the name, the bilingual identity, a four flavor packaging system, and the launch deck that introduces them.</p>
+
+        <p>The premise is that saffron already owns the imagery a premium beverage wants: it is the most expensive spice on earth, harvested by hand from a purple crocus, three red threads at a time, and it has meant celebration in Persian culture for three thousand years. The brand does not need to invent a story. It needs to <strong>set the one it inherited</strong>, the way a jeweler sets a stone.</p>
+
+        <div class="meta-strip">
+          <div class="meta-item">
+            <span class="meta-val">4</span>
+            <span class="meta-key">Flavors, One System</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">2</span>
+            <span class="meta-key">Scripts in the Lockup</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">1</span>
+            <span class="meta-key">Can Template</span>
+          </div>
+        </div>
+
+        <h4>My Role</h4>
+        <p>Brand and Packaging Designer &middot; Naming, identity, illustration, packaging system, and launch deck, designed solo</p>
+
+        <h4>Deliverables</h4>
+        <p>Wordmark and bilingual lockup &middot; crocus emblem and ornament system &middot; four can designs &middot; flavor color architecture &middot; seven frame launch deck</p>
+      </section>
+
+      <!-- ═══════ THE BRAND ═══════ -->
+      <section id="brand" class="section">
+        <div class="section-label">The Brand</div>
+        <h2 class="section-title">Saffron was meant to sparkle</h2>
+        <p class="section-intro">The category this product enters is crowded with white cans, pastel fruit, and the word clean. Zarrin positions against all of it. Sparkling water framed not as restraint but as occasion: the golden hour drink, poured over ice at the end of the day.</p>
+
+        <div class="img-wrap dark">
+          <img
+            src="/projects/zarrin/zarrin-photos/cover.png"
+            alt="The Zarrin cover frame: the wordmark above Farsi script, the tagline liquid gold, lightly sparkling, and the navy saffron can"
+            loading="lazy"
+          >
+          <p class="img-caption">The cover frame sets the register: dark ground, gold accents, serif wordmark, and the flagship navy can</p>
+        </div>
+
+        <p>The voice keeps the same posture as the visuals: short declarative lines that treat the ingredient with respect and the drinker as an adult. Saffron was meant to sparkle. Golden, by nature. Nothing added, nothing hidden. The manifesto frame carries the whole pitch in three sentences and one honest ingredient claim.</p>
+
+        <div class="img-wrap dark">
+          <img
+            src="/projects/zarrin/zarrin-photos/manifesto.png"
+            alt="The manifesto frame reading real saffron, cold steeped in crisp sparkling water, with a whisper of honey, rose, and warm spice"
+            loading="lazy"
+          >
+          <p class="img-caption">The manifesto: the product explained in the brand's voice, set in the document serif over the dark ground</p>
+        </div>
+      </section>
+
+      <!-- ═══════ IDENTITY ═══════ -->
+      <section id="identity" class="section">
+        <div class="section-label">Identity</div>
+        <h2 class="section-title">Two scripts, one flower, and a garden</h2>
+        <p class="section-intro">The identity is built from three elements that repeat on every surface: a bilingual lockup, a botanically honest crocus emblem, and an ornament vocabulary drawn from Persian textiles and garden architecture.</p>
+
+        <p>The lockup pairs the Latin wordmark, set in letterspaced serif capitals, with the name written in Persian script above it. The Farsi is not a decorative flourish tucked into a corner. It sits first, above the Latin, gilded in saffron gold, because the heritage is the headline of this brand and not a footnote to it.</p>
+
+        <div class="img-wrap dark">
+          <img
+            src="/projects/zarrin/zarrin-photos/details.png"
+            alt="Three ornament details enlarged from the can: the crocus bloom with red stigmas, the bilingual lockup, and the garden emblem with cypress trees"
+            loading="lazy"
+          >
+          <p class="img-caption">The three recurring elements at can scale: the crocus bloom, the bilingual lockup, and the garden emblem</p>
+        </div>
+
+        <p>The crocus emblem is the heart of the system, and it is drawn to tell the truth. Saffron is the dried stigma of the crocus flower, three red threads harvested from each bloom by hand. So the emblem is a stylized crocus with exactly three red stigmas rising from it, flanked by golden boteh, the paisley form that began in Persia. Below the lockup sits the garden emblem: a stylized tree flanked by cypresses, the oldest shorthand in Persian art for paradise, which was itself originally a word for a walled garden.</p>
+      </section>
+
+      <!-- ═══════ FLAVOR SYSTEM ═══════ -->
+      <section id="flavors" class="section">
+        <div class="section-label">Flavor System</div>
+        <h2 class="section-title">One garden, four palettes</h2>
+        <p class="section-intro">The line launches with four infusions: Saffron, the original, plus Saffron Rose, Saffron Lime, and Sour Cherry, each flavor a companion the spice has kept in Persian kitchens for centuries. Each one gets its own jewel tone, sampled straight from the finished cans.</p>
+
+        <div class="img-wrap dark">
+          <img
+            src="/projects/zarrin/zarrin-photos/flavors.png"
+            alt="The flavor system board: four color swatches in navy, burgundy, emerald, and garnet with flavor names, tasting notes, and the three constant accent colors"
+            loading="lazy"
+          >
+          <p class="img-caption">The flavor architecture: four grounds, each with its tasting notes, and the three constants held across every can</p>
+        </div>
+
+        <div class="img-group">
+          <div class="img-grid-2 dark">
+            <div class="img-cell">
+              <img
+                src="/projects/zarrin/zarrin-photos/saffron_rose.png"
+                alt="The Saffron Rose can in deep burgundy with pink petals on the crocus emblem"
+                loading="lazy"
+              >
+            </div>
+            <div class="img-cell">
+              <img
+                src="/projects/zarrin/zarrin-photos/saffron_lime.png"
+                alt="The Saffron Lime can in deep emerald with green petals on the crocus emblem"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <p class="img-caption">Saffron Rose in burgundy silk, Saffron Lime in emerald. The ornament recolors; the structure never moves</p>
+        </div>
+
+        <div class="img-wrap dark">
+          <img
+            src="/projects/zarrin/zarrin-photos/sour_cherry.png"
+            alt="The Sour Cherry can in deep garnet with rose pink petals and the notes tart albaloo, garnet, bold"
+            loading="lazy"
+          >
+          <p class="img-caption">Sour Cherry, the boldest of the four: tart albaloo in a garnet ground, named for the Persian cherry it steeps</p>
+        </div>
+      </section>
+
+      <!-- ═══════ PACKAGING ═══════ -->
+      <section id="packaging" class="section">
+        <div class="section-label">Packaging</div>
+        <h2 class="section-title">A can composed like a carpet</h2>
+        <p class="section-intro">The can is organized the way a Persian rug is: a bordered field with a medallion at its center, read top to bottom in bands. A star and diamond band under the lid, the crocus bloom as the upper medallion, the bilingual lockup at the heart, the garden emblem below, and a triangle border grounding the base.</p>
+
+        <p>Everything on the can sits on a strict vertical axis, in perfect bilateral symmetry, because symmetry is how both textiles and luxury labels signal order and intent. The only asymmetric marks are the scattered star sparkles around the bloom, and they are the point: the sparkle is the one thing in the composition that is alive. Functional copy stays in one quiet line at the base, 355 mL, zero sugar, zero calories, small and tracked wide so it reads as an engraving rather than a claim.</p>
+
+        <div class="img-wrap dark">
+          <img
+            src="/projects/zarrin/zarrin-photos/saffron.png"
+            alt="The flagship Saffron can in deep navy, showing the full band structure from the star border at the lid to the triangle border at the base"
+            loading="lazy"
+          >
+          <p class="img-caption">The flagship: golden petals on midnight navy, the one can where the flower carries the color of the spice itself</p>
+        </div>
+      </section>
+
+      <!-- ═══════ DESIGN DECISIONS ═══════ -->
+      <section id="decisions" class="section">
+        <div class="section-label">Design Decisions</div>
+        <h2 class="section-title">Why Zarrin looks the way it does</h2>
+        <p class="section-intro">Every choice in this identity argues against a category default. The decisions below are the ones that define the brand, and each one trades an easy convention for something the concept can actually own.</p>
+
+        <h3>1 &middot; Dark ground in a white category</h3>
+        <p>Premium sparkling water has settled on a formula: white or pastel cans, thin sans serif type, fruit photography or minimal line art. It reads as clean, and it all reads the same. Zarrin goes to the opposite pole, near black grounds borrowed from wine labels and perfume boxes, because the product story is evening, occasion, and gold. On a dark ground the saffron gold actually glows, the jewel tones register as jewels, and on a shelf of white cans the family reads as one unmistakable dark block.</p>
+
+        <h3>2 &middot; The Farsi sits above the Latin</h3>
+        <p>The safe version of a bilingual lockup puts the English name large and the original script somewhere small, a garnish of authenticity. Zarrin inverts the hierarchy on every can: the Persian script comes first, gilded, and the Latin serif carries the retail legibility below it. A shopper who cannot read Farsi still reads ZARRIN instantly; a shopper who can read it sees their language honored in first position. The lockup does different work for different audiences, and neither is an afterthought.</p>
+
+        <h3>3 &middot; The emblem is botanically honest</h3>
+        <p>The crocus bloom is drawn with exactly three red stigmas, because that is what saffron is: three red threads inside each purple crocus, pulled by hand. Across all four flavors the petals recolor to match the infusion, gold on navy, pink on burgundy, green on emerald, but <strong>the stigmas stay red on every can</strong>. The spice is the constant; the flavor is the variable. The packaging teaches the product architecture without a word of copy.</p>
+
+        <h3>4 &middot; Jewel tones instead of fruit colors</h3>
+        <p>The lazy flavor system paints the lime can lime green and the cherry can cherry red, and the family falls apart into a candy shelf. Zarrin assigns each flavor a jewel: midnight sapphire for the original, burgundy silk for rose, deep emerald for lime, dark garnet for sour cherry. Every ground is dark enough to hold the gold and cream at full contrast, so the four cans read as one family at ten feet and four distinct flavors at two.</p>
+
+        <h3>5 &middot; One template, four skins</h3>
+        <p>The four cans share one fixed composition: identical band structure, identical lockup position, identical emblem geometry. A new flavor is a palette decision, not a layout project. That discipline is what makes the family lineup look inevitable, and it is also the practical argument a real brand needs: the system scales to a fifth and sixth flavor without a redesign, and the shelf blocking gets stronger with every addition.</p>
+
+        <h3>The smaller calls that add up</h3>
+
+        <div class="insight-grid fade-up">
+          <div class="insight-card">
+            <div class="insight-card-label">Why letterspaced serif capitals?</div>
+            <p>The wordmark is set wide, in classical serif caps, the way a name is engraved on jewelry or cut into stone. Tight modern sans would say tech; this says heirloom. The generous tracking also lets the seven letters hold the full width of the can panel with no logo mark needed.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Why italic for the flavor names?</div>
+            <p>Flavor names are the one line set in italic serif, lowercase warmth against the engraved capitals everywhere else. The brand speaks in stone; the flavor speaks in a human voice. It is the same two register logic as a formal invitation with a handwritten name.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Why only two metals?</div>
+            <p>The ornament runs on exactly two inks over each ground: saffron gold and silk cream, with red reserved for the stigmas alone. Persian ornament earns richness through repetition and rhythm, not through more colors. Restraint is what keeps dense decoration from becoming noise.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Why a launch deck instead of mockups?</div>
+            <p>The concept ships as a seven frame deck, cover, manifesto, four flavors, and a closing invitation, built for the swipe. A beverage concept lives or dies on social first, so the deliverable is designed for the feed it would actually launch in, under the handle drinkzarrin.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ OUTCOME ═══════ -->
+      <section id="outcome" class="section">
+        <div class="section-label">Outcome</div>
+        <h2 class="section-title">A shelf ready family from one idea</h2>
+        <p class="section-intro">Zarrin shipped as a complete concept: name, voice, bilingual identity, a four flavor packaging system built on one disciplined template, and a launch deck that presents it the way it would meet the world. The presentation boards on this page, the family lineup, the flavor architecture, and the ornament details, were composed from the finished can art to show the system the way a brand guidelines page would.</p>
+
+        <div class="callout">
+          <div class="callout-eye">Key Finding</div>
+          <p>The strongest brand ideas are the ones the product already contains. Saffron brought the gold, the flower, the garden, and three thousand years of meaning. <strong>The design work was choosing what to leave out</strong>: two metals, one template, one honest flower, and a category convention declined at every fork.</p>
+        </div>
+
+        <h4>What I Learned</h4>
+        <p>Zarrin taught me that a packaging system is an argument about the future: every rule in the template, the fixed bands, the constant stigmas, the two metal limit, is a promise about what flavor five will look like before it exists. It also sharpened a conviction that carried into my product work: heritage reads as premium when it leads, and as decoration when it trails. Put the Farsi first and the whole brand stands up straighter.</p>
+
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-card-label">Systems Beat Layouts</div>
+            <p>Designing the template once and the palette four times produced more coherence than four bespoke cans ever could, and it turned every future flavor into a solved problem.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Honesty Is a Motif</div>
+            <p>The three red stigmas are the same discipline as an accurate diagram: the most beautiful version of the emblem turned out to be the botanically true one.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Position Against the Shelf</div>
+            <p>Every early exploration that followed category conventions disappeared into them. The design only became a brand when it picked the opposite pole and held it everywhere.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-card-label">Voice Finishes the Identity</div>
+            <p>Liquid gold, lightly sparkling did as much branding work as the wordmark. The visual system and the writing hold the same posture, and either one alone would be half a brand.</p>
+          </div>
+        </div>
+
+        <div class="img-wrap dark">
+          <img
+            src="/projects/zarrin/zarrin-photos/the_first_pour.png"
+            alt="The closing frame reading four infusions, one garden, saffron was meant to sparkle, with the handle drinkzarrin"
+            loading="lazy"
+          >
+          <p class="img-caption">The closing frame. Four infusions, one garden</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-left">
+      <span class="footer-name">Zeeyad Khan</span>
+      <span class="footer-role">AI Product Designer &middot; zeeyadkhan.com</span>
+    </div>
+    <span class="footer-right">Zarrin &middot; Brand and Packaging Designer</span>
+  </footer>
+
+  <!-- ═══════════════════════ LIGHTBOX ═══════════════════════ -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+    <button id="lightbox-close" aria-label="Close lightbox">&#x2715;</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+  <script>
+    // ── Lightbox ──
+    const lightbox     = document.getElementById('lightbox');
+    const lbImg        = document.getElementById('lightbox-img');
+    const lbClose      = document.getElementById('lightbox-close');
+
+    function openLightbox(img) {
+      lbImg.src     = img.src;
+      lbImg.alt     = img.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.img-wrap img, .img-cell img, .hero-img').forEach(img => {
+      img.addEventListener('click', () => openLightbox(img));
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+
+    // ── Active sidebar navigation on scroll ──
+    const sections  = document.querySelectorAll('section[id]');
+    const navLinks  = document.querySelectorAll('.nav-link');
+    const TOPBAR_H  = 58;
+
+    function syncNav() {
+      const y = window.scrollY;
+      let current = '';
+
+      sections.forEach(sec => {
+        if (y >= sec.offsetTop - TOPBAR_H - 100) {
+          current = sec.id;
+        }
+      });
+
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
+      });
+    }
+
+    window.addEventListener('scroll', syncNav, { passive: true });
+    syncNav();
+
+    // ── Fade-up on scroll (respects prefers-reduced-motion) ──
+    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!noMotion) {
+      const fadeEls = document.querySelectorAll('.fade-up');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+      fadeEls.forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    }
+  </script>
+
+</body>
+</html>
