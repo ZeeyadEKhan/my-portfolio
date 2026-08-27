@@ -588,19 +588,3 @@ hr { border: none; border-top: 1px solid var(--border); margin: 4rem 0; }
   .topbar-brand::after { font-size: 0.85rem; }
 }
 
-/* Skip to content */
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  z-index: 300;
-  background: var(--blue);
-  color: #fff;
-  padding: 0.8rem 1.2rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 0 0 6px 0;
-  text-decoration: none;
-}
-
-.skip-link:focus { left: 0; }
