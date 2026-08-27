@@ -111,6 +111,16 @@
     width: 100%;
     height: auto;
   }
+
+  /* case study code and media: nothing may exceed the column.
+     code.inline carries white-space: nowrap in page styles; this file
+     loads after them, so the equal-specificity rule here wins */
+  code.inline { white-space: normal; overflow-wrap: anywhere; }
+  .code-wrap pre { max-width: 100%; }
+  .video-wrap video, .img-cell img, .hero-img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 /* ── PHONE: card spacing steps down ── */
@@ -143,7 +153,7 @@
   a.about-link[style] { font-size: 0.875rem !important; }
 
   /* long unbroken strings must never force horizontal scroll */
-  .contact-link-value, .about-link, .footer-role, a[href^="mailto:"] {
+  .contact-link-value, .about-link, .footer-role, .code-file, a[href^="mailto:"] {
     overflow-wrap: anywhere;
   }
 }

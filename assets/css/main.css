@@ -546,7 +546,10 @@ hr { border: none; border-top: 1px solid var(--border); margin: 4rem 0; }
 
 /* ─── CASE STUDY RESPONSIVE ─── */
 @media (max-width: 860px) {
-  .layout { grid-template-columns: 1fr; padding: 0 1.5rem; }
+  /* minmax(0, 1fr): a plain 1fr track has min-width auto, so a wide
+     intrinsic child (code block, nowrap span) props the column open and
+     forces horizontal page scroll at phone widths */
+  .layout { grid-template-columns: minmax(0, 1fr); padding: 0 1.5rem; }
   .sidebar { display: none; }
   .content { padding: 3.5rem 0 5rem; max-width: 100%; }
   .hero-text { padding: 3rem 1.5rem 2.5rem; }
