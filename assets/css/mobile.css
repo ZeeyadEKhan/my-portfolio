@@ -78,3 +78,45 @@
     align-items: center;
   }
 }
+
+/* ── TABLET AND DOWN: single column galleries and case study media ── */
+@media (max-width: 900px) {
+  .project-row-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* hold the desktop thumb ratio so nothing jumps while loading */
+  .project-thumb { aspect-ratio: 16 / 10; }
+
+  .project-thumb img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .project-desc { font-size: 1rem; }
+
+  .project-tags {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* case study media: side by side figures stack */
+  .img-grid-2 { grid-template-columns: 1fr; }
+  .decision-grid { grid-template-columns: 1fr; }
+  .persona-row, .insight-grid { grid-template-columns: 1fr; }
+  .meta-strip { grid-template-columns: 1fr 1fr; }
+
+  .img-wrap img, .content-img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* ── PHONE: card spacing steps down ── */
+@media (max-width: 640px) {
+  .project-row-inner {
+    padding: 2.5rem 0;
+    gap: 1.5rem;
+  }
+}
