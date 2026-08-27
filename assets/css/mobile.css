@@ -1,0 +1,80 @@
+/* ===========================================
+   MOBILE ONLY OVERRIDES - loaded after each page's inline styles so
+   equal specificity rules here win the cascade at phone widths.
+   Every rule lives inside a max width media query, so desktop
+   (above 900px) is never affected. The single exception is the
+   .nav-toggle base rule directly below: it hides the NEW menu button
+   element everywhere, which is what keeps desktop pixel identical.
+   Breakpoints: 900 tablet, 640 phone, 400 small phone.
+   =========================================== */
+
+.nav-toggle { display: none; }
+
+/* ── PHONE: disclosure navigation ── */
+@media (max-width: 640px) {
+  .nav-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--ink);
+    transition: transform 0.18s ease, opacity 0.18s ease;
+  }
+
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .topbar-nav { display: none; }
+
+  body.nav-open .topbar-nav {
+    display: flex;
+    position: fixed;
+    top: var(--topbar-h);
+    left: 0;
+    right: 0;
+    z-index: 199;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 1.25rem 1.25rem;
+  }
+
+  .topbar-nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 1rem;
+    padding: 0 0.25rem;
+  }
+
+  body.nav-open { overflow: hidden; }
+
+  /* the disclosure panel frees the bar, so the full wordmark returns */
+  .topbar-brand { font-size: 0.9rem; }
+  .topbar-brand::after { content: none; }
+}
+
+/* ── TABLET AND DOWN: back link tap target ── */
+@media (max-width: 900px) {
+  .topbar-back {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}

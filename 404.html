@@ -81,6 +81,7 @@
       .nf-wrap { padding: 0 1.5rem; }
     }
   </style>
+  <link rel="stylesheet" href="/assets/css/mobile.css">
 </head>
 <body class="page-body">
 
@@ -88,7 +89,8 @@
 
   <header class="topbar">
     <a href="/" class="topbar-brand">Zeeyad Khan</a>
-    <nav class="topbar-nav" aria-label="Site navigation">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav id="site-nav" class="topbar-nav" aria-label="Site navigation">
       <a href="/#work">Work</a>
       <a href="/explorations">Explorations</a>
       <a href="/about">About</a>
@@ -117,5 +119,6 @@
     </footer>
   </div>
 
+  <script src="/assets/js/nav.js" defer></script>
 </body>
 </html>

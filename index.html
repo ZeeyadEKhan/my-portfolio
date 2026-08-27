@@ -252,6 +252,7 @@
       .home-hero { padding: 4rem 1.5rem 3.5rem; }
     }
   </style>
+  <link rel="stylesheet" href="/assets/css/mobile.css">
 </head>
 <body class="home-body">
 
@@ -259,7 +260,8 @@
 
   <header class="topbar">
     <a href="/" class="topbar-brand">Zeeyad Khan</a>
-    <nav class="topbar-nav" aria-label="Site navigation">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav id="site-nav" class="topbar-nav" aria-label="Site navigation">
       <a href="/#work" class="active">Work</a>
       <a href="/explorations">Explorations</a>
       <a href="/about">About</a>
@@ -418,5 +420,6 @@
       document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
     }
   </script>
+  <script src="/assets/js/nav.js" defer></script>
 </body>
 </html>

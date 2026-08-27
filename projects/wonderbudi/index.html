@@ -63,6 +63,7 @@
       cursor: zoom-in;
     }
   </style>
+  <link rel="stylesheet" href="/assets/css/mobile.css">
 </head>
 
 <body>
@@ -72,7 +73,8 @@
   <!-- =============== TOPBAR =============== -->
   <header class="topbar" role="banner">
     <a href="/" class="topbar-brand">Zeeyad Khan</a>
-    <nav class="topbar-nav" aria-label="Site navigation">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav id="site-nav" class="topbar-nav" aria-label="Site navigation">
       <a href="/#work">Work</a>
       <a href="/explorations">Explorations</a>
       <a href="/about">About</a>
@@ -1171,5 +1173,6 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
   </script>
 
+  <script src="/assets/js/nav.js" defer></script>
 </body>
 </html>
