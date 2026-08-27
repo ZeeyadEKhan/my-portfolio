@@ -134,7 +134,7 @@
   .flow-num, .flow-desc, .flow-name,
   .contact-link-type, .callout-eye, .code-file,
   .persona-meta, .insight-card-label, .insight-card p,
-  a.about-link {
+  a.about-link, .topbar-nav a {
     font-size: 0.875rem;
   }
 
