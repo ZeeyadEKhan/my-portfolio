@@ -559,6 +559,31 @@ hr { border: none; border-top: 1px solid var(--border); margin: 4rem 0; }
 @media (max-width: 540px) {
   .meta-strip { grid-template-columns: 1fr 1fr; }
   .site-footer { flex-direction: column; align-items: flex-start; gap: 1rem; }
+}
+
+/* Small screen navigation: tap targets 44px minimum, no collisions */
+@media (max-width: 860px) {
+  .topbar { padding: 0 1.25rem; }
+  .topbar-nav { gap: 1rem; }
+  .topbar-nav a { font-size: 0.78rem; padding: 0.72rem 0.1rem; }
+  .topbar-brand { padding: 0.72rem 0; }
+}
+
+@media (max-width: 480px) {
   .topbar-nav { gap: 0.7rem; }
-  .topbar-nav a { font-size: 0.78rem; }
+  .topbar-nav a { font-size: 0.74rem; padding: 0.8rem 0.1rem; }
+  .topbar-brand { font-size: 0; }
+  .topbar-brand::after {
+    content: 'ZK';
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+}
+
+@media (max-width: 350px) {
+  .topbar { padding: 0 0.7rem; }
+  .topbar-nav { gap: 0.45rem; }
+  .topbar-nav a { font-size: 0.66rem; letter-spacing: -0.01em; padding: 0.9rem 0.1rem; }
+  .topbar-brand::after { font-size: 0.85rem; }
 }
