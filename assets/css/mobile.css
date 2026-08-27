@@ -120,3 +120,30 @@
     gap: 1.5rem;
   }
 }
+
+/* ── TABLET AND DOWN: 14px readable floor for small label styles ── */
+@media (max-width: 900px) {
+  .work-label, .project-num, .project-tag, .chip,
+  .meta-key, .footer-role, .footer-right,
+  .section-label, h4, .skip-link, .project-cta,
+  .sidebar-eyebrow, .topbar-back,
+  .home-hero-eyebrow, .about-eyebrow, .contact-eyebrow, .nf-eyebrow,
+  .about-sidebar-label, .about-tool, .about-link,
+  .ed-pill-key, .ed-pill-val, .img-caption,
+  .decision-card-q, .decision-card-a,
+  .flow-num, .flow-desc, .flow-name,
+  .contact-link-type, .callout-eye, .code-file,
+  .persona-meta, .insight-card-label, .insight-card p,
+  a.about-link {
+    font-size: 0.875rem;
+  }
+
+  /* two Connect links carry inline font-size styles; only !important can
+     override an inline style, and this applies at phone widths only */
+  a.about-link[style] { font-size: 0.875rem !important; }
+
+  /* long unbroken strings must never force horizontal scroll */
+  .contact-link-value, .about-link, .footer-role, a[href^="mailto:"] {
+    overflow-wrap: anywhere;
+  }
+}
