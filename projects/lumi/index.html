@@ -65,6 +65,33 @@
       transition: background 0.15s;
     }
     .lightbox-close:hover { background: rgba(255,255,255,0.3); }
+
+    /* Content lists: Goals, Core Features, Evaluation Questions */
+    .content-list { margin: 0 0 1.2rem; max-width: 63ch; }
+    .content-list li { margin-bottom: 0.55rem; padding-left: 1.15rem; position: relative; }
+    .content-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+    ol.content-list { counter-reset: item; }
+    ol.content-list li { counter-increment: item; padding-left: 1.6rem; }
+    ol.content-list li::before {
+      content: counter(item);
+      background: none;
+      width: auto;
+      height: auto;
+      top: 0;
+      border-radius: 0;
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 0.82em;
+    }
     .img-wrap img, .img-cell img, .hero-img {
       cursor: zoom-in;
     }
@@ -253,9 +280,13 @@
         
         
         <h3>Goals</h3>
-        <p>Three design goals emerged from the research phase and guided every subsequent decision.</p>
+        <p>Three design goals emerged from the research phase and guided every subsequent decision. They ran in sequence.</p>
 
-                <p>The goals ran in sequence: stop, build, understand.</p>
+        <ul class="content-list">
+          <li><strong>Stop</strong> the escalation of the anger</li>
+          <li><strong>Build</strong> an empathetic relationship with the robot</li>
+          <li><strong>Understand</strong> the patterns of anger within themselves and others</li>
+        </ul>
       </section>
 
       <!-- ═══════ CONCEPT ═══════ -->
@@ -330,8 +361,17 @@
         </div>
 
         <h3>Core Features</h3>
+        <p>Six capabilities make the two stage system work.</p>
 
-        
+        <ul class="content-list">
+          <li><strong>Speaker</strong> &middot; provides a source of sound to cool users down in heated moments</li>
+          <li><strong>Microphone</strong> &middot; detects the noise during an argument and locates the users in their environment</li>
+          <li><strong>Camera</strong> &middot; the head spins 360 degrees and the camera detects facial expressions</li>
+          <li><strong>SLAM</strong> &middot; maps the environment of the house</li>
+          <li><strong>LED light</strong> &middot; warns the users with different colors of light depending on their level of anger</li>
+          <li><strong>Mobility</strong> &middot; quickly approaches the users and provides a cool down method during a heated argument</li>
+        </ul>
+
         <h3>Physical Design</h3>
         <p>Lumi's form is futuristic yet friendly, inspired by BB8 and designed to be simple and non-threatening. Brand values: <strong>Friendly, Warm, Empathy</strong>. The LED light band is the primary emotional display, changing color in real time to signal the current anger level.</p>
 
@@ -413,8 +453,18 @@
         <p class="section-intro">Two rounds of user testing across 15 participants validated sound effectiveness and refined the voice design. Each sprint combined quantitative surveys with contextual inquiry sessions.</p>
 
         <h3>Evaluation Questions</h3>
+        <p>Sprint 1 set out to answer five concept questions and two design questions.</p>
 
-        
+        <ol class="content-list">
+          <li>Does the interruption from the AI robot with an unexpected sound actually cool them down during an argument?</li>
+          <li>What kind of sound most effectively gets the user's attention?</li>
+          <li>How do users perceive the unexpected sound effect during the argument?</li>
+          <li>How do users feel about getting different responses for different stages of anger?</li>
+          <li>Do they want consistency with content or do they want varied audio from the robot?</li>
+          <li>Do users feel that the size and design of the robot would be effective in calming them?</li>
+          <li>Is the movement and speed of the robot enough to catch the user's attention during a heated argument?</li>
+        </ol>
+
         <h3>MVP Testing Plan</h3>
 
         <div class="img-wrap fade-up">
