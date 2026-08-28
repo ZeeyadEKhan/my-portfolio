@@ -235,6 +235,13 @@
 
     .work-bridge a:hover { text-decoration: underline; }
 
+    /* Closing contact line, same rhythm as the bridge line above it */
+    .home-say-hello {
+      max-width: none;
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0 3rem;
+    }
+
     .home-footer {
       max-width: var(--page-max);
       margin: 0 auto;
@@ -441,18 +448,23 @@
 
       <p class="work-bridge">Built, not just designed: six self directed tools and brand systems, shipped end to end. <a href="/explorations">Explorations</a></p>
 
+      <p class="work-bridge home-say-hello">I am open to full time roles. <a href="/contact">Say hello</a></p>
+
     </div>
   </section>
 
-  <div class="home-footer">
   </main>
 
+  <div class="home-footer">
     <footer class="site-footer">
       <div class="footer-left">
         <span class="footer-name">Zeeyad Khan</span>
         <span class="footer-role">AI Product Designer · zeeyadkhan.com</span>
       </div>
-      <span class="footer-right">San Francisco · 2026</span>
+      <div class="footer-right-col">
+        <span class="footer-right">San Francisco · 2026</span>
+        <span class="footer-right"><a href="mailto:zeeyadenkhan@gmail.com" class="footer-contact-link">zeeyadenkhan@gmail.com</a> · <a href="https://www.linkedin.com/in/zeeyadkhan" target="_blank" rel="noopener" class="footer-contact-link">LinkedIn</a></span>
+      </div>
     </footer>
   </div>
 
