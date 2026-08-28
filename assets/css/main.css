@@ -591,3 +591,22 @@ hr { border: none; border-top: 1px solid var(--border); margin: 4rem 0; }
   .topbar-brand::after { font-size: 0.85rem; }
 }
 
+
+/* ─── SKIP LINK ─── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 300;
+  padding: 0.65rem 1.1rem;
+  background: var(--ink);
+  color: var(--white);
+  border-radius: 0 0 8px 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}

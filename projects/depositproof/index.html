@@ -133,9 +133,12 @@
     }
   </style>
   <link rel="stylesheet" href="/assets/css/mobile.css?v=3">
+  <script defer data-domain="zeeyadkhan.com" src="https://plausible.io/js/script.js"></script>
 </head>
 
 <body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- ═══════════════════════ TOPBAR ═══════════════════════ -->
   <header class="topbar" role="banner">
@@ -155,7 +158,7 @@
   </header>
 
   <!-- ═══════════════════════ HERO ═══════════════════════ -->
-  <section class="hero" aria-label="Project hero" id="main" tabindex="-1">
+  <section class="hero" aria-label="Project hero">
     <div class="hero-text">
       <div class="hero-chips">
         <span class="chip chip-blue">Legal Tech</span>
@@ -172,6 +175,8 @@
       src="/projects/depositproof/depositproof-photos/hero.webp"
       alt="DepositProof hero reading Your deposit is a claim, document it like one, beside an evidence tag specimen with a live timestamp"
       loading="eager"
+      width="2000"
+      height="1250"
     >
   </section>
 
@@ -196,7 +201,7 @@
     </aside>
 
     <!-- ─── MAIN CONTENT ─── -->
-    <main class="content" id="main-content">
+    <main class="content" id="main-content" tabindex="-1">
 
       <!-- ═══════ OVERVIEW ═══════ -->
       <section id="overview" class="section">
@@ -232,6 +237,8 @@
             src="/projects/depositproof/depositproof-photos/desktop-full.webp"
             alt="Full DepositProof page with the hero, the photo protocol holding two logged entries, the wear or damage checker, and the dispute letter"
             loading="lazy"
+            width="1600"
+            height="4409"
           >
           <p class="img-caption">The whole product on one page: protocol, classifier, and letter, connected as a single case file</p>
         </div>
@@ -283,6 +290,8 @@
             src="/projects/depositproof/depositproof-photos/protocol-logged.webp"
             alt="Photo protocol module with two logged evidence entries showing thumbnails, timestamps, SHA fingerprints, and device time badges"
             loading="lazy"
+            width="1600"
+            height="1560"
           >
           <p class="img-caption">Two logged entries with thumbnails, exhibit numbers, timestamps, and SHA fingerprints, ready to export as a packet</p>
         </div>
@@ -292,6 +301,8 @@
             src="/projects/depositproof/depositproof-photos/lightbox.webp"
             alt="Lightbox view of a logged evidence photo with its caption and metadata over a dimmed page"
             loading="lazy"
+            width="1600"
+            height="1000"
           >
           <p class="img-caption">The evidence lightbox: arrow keys move between photos, and focus returns to the exact thumbnail on close</p>
         </div>
@@ -304,6 +315,8 @@
             src="/projects/depositproof/depositproof-photos/verdict-wear.webp"
             alt="Wear verdict in green for small nail holes in walls, citing the Alabama statute and noting charges to patch them are usually not deductible"
             loading="lazy"
+            width="1600"
+            height="1197"
           >
           <p class="img-caption">A wear verdict: green, hedged, and anchored to the state statute rather than a promise</p>
         </div>
@@ -315,6 +328,8 @@
                 src="/projects/depositproof/depositproof-photos/verdict-damage.webp"
                 alt="Damage verdict in red for large carpet stains or burns"
                 loading="lazy"
+                width="1600"
+                height="1197"
               >
             </div>
             <div class="img-cell">
@@ -322,6 +337,8 @@
                 src="/projects/depositproof/depositproof-photos/verdict-judgment.webp"
                 alt="Judgment call verdict in amber for a broken door or hinge, explaining that the cause decides it"
                 loading="lazy"
+                width="1600"
+                height="1197"
               >
             </div>
           </div>
@@ -336,6 +353,8 @@
             src="/projects/depositproof/depositproof-photos/letter.webp"
             alt="Dispute letter module with a facts form beside a letter preview where unfilled placeholders are highlighted in amber"
             loading="lazy"
+            width="1600"
+            height="1800"
           >
           <p class="img-caption">The letter builds itself as facts arrive. Amber highlights mark exactly what still needs the tenant before it goes in the mail</p>
         </div>
@@ -345,6 +364,8 @@
             src="/projects/depositproof/depositproof-photos/mobile-hero.webp"
             alt="DepositProof hero on a phone screen with the evidence tag specimen below the headline"
             loading="lazy"
+            width="780"
+            height="1688"
           >
           <p class="img-caption">The same file serves phones through four surgical breakpoints, because most move out photos start on a phone</p>
         </div>
@@ -695,6 +716,7 @@ overflowX: document.documentElement.scrollWidth &gt; document.documentElement.cl
     }
   </script>
 
+  <script src="/assets/js/lightbox-a11y.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
 </body>
 </html>

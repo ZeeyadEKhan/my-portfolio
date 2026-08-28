@@ -133,9 +133,12 @@
     }
   </style>
   <link rel="stylesheet" href="/assets/css/mobile.css?v=3">
+  <script defer data-domain="zeeyadkhan.com" src="https://plausible.io/js/script.js"></script>
 </head>
 
 <body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- ═══════════════════════ TOPBAR ═══════════════════════ -->
   <header class="topbar" role="banner">
@@ -155,7 +158,7 @@
   </header>
 
   <!-- ═══════════════════════ HERO ═══════════════════════ -->
-  <section class="hero" aria-label="Project hero" id="main" tabindex="-1">
+  <section class="hero" aria-label="Project hero">
     <div class="hero-text">
       <div class="hero-chips">
         <span class="chip chip-blue">AI Product</span>
@@ -172,6 +175,8 @@
       src="/projects/persona-generator/persona-photos/landing-hero.webp"
       alt="Persona landing page: Turn product ideas into research backed user personas"
       loading="eager"
+      width="1440"
+      height="900"
     >
   </section>
 
@@ -196,7 +201,7 @@
     </aside>
 
     <!-- ─── MAIN CONTENT ─── -->
-    <main class="content" id="main-content">
+    <main class="content" id="main-content" tabindex="-1">
 
       <!-- ═══════ OVERVIEW ═══════ -->
       <section id="overview" class="section">
@@ -232,6 +237,8 @@
             src="/projects/persona-generator/persona-photos/landing-full.webp"
             alt="Persona landing page showing the full feature grid and an example generated persona set"
             loading="lazy"
+            width="1440"
+            height="2885"
           >
           <p class="img-caption">The landing page: one product description in, a full discovery package out</p>
         </div>
@@ -273,6 +280,8 @@
             src="/projects/persona-generator/persona-photos/create-form.webp"
             alt="Step one of the creation wizard asking What are you building, with a three step progress indicator and a note that generation happens locally via Ollama"
             loading="lazy"
+            width="1440"
+            height="900"
           >
           <p class="img-caption">The three step wizard opens with one question and a promise: generated locally, no data leaves your machine</p>
         </div>
@@ -292,6 +301,8 @@
             src="/projects/persona-generator/persona-photos/demo-personas.webp"
             alt="Three persona cards: Aisha Okafor a fintech product manager, Marcus Webb a corporate law partner, and Jordan Kim a freelance UX designer, each with goals, pain points, motivations, and a quote"
             loading="lazy"
+            width="1440"
+            height="1322"
           >
           <p class="img-caption">Three personas for a habit tracking app: a PM, a law partner, and a freelancer, each with different reasons to care</p>
         </div>
@@ -304,6 +315,8 @@
             src="/projects/persona-generator/persona-photos/demo-user-journey.webp"
             alt="User journey board with columns for Awareness, Discovery, Decision, and First Use, each listing user actions, thoughts, emotions, pain points, and opportunities"
             loading="lazy"
+            width="1440"
+            height="1281"
           >
           <p class="img-caption">The journey: five stages, each broken into actions, thoughts, emotions, pain points, and opportunities</p>
         </div>
@@ -313,6 +326,8 @@
             src="/projects/persona-generator/persona-photos/demo-jtbd.webp"
             alt="Jobs To Be Done cards for each persona structured as When, I Want To, So I Can statements"
             loading="lazy"
+            width="1440"
+            height="900"
           >
           <p class="img-caption">One job story per persona: when a sprint goes sideways, I want to reschedule without a guilt spiral</p>
         </div>
@@ -325,6 +340,8 @@
             src="/projects/persona-generator/persona-photos/demo-interview-questions.webp"
             alt="Interview questions grouped into Background, Current Behavior, Pain Points, Motivations, and Product Validation categories"
             loading="lazy"
+            width="1440"
+            height="900"
           >
           <p class="img-caption">Ten questions across five categories, written to be asked out loud in a real session</p>
         </div>
@@ -334,6 +351,8 @@
             src="/projects/persona-generator/persona-photos/demo-insights.webp"
             alt="Product insights panel with feature opportunities, MVP recommendations, design considerations, potential risks, and research assumptions"
             loading="lazy"
+            width="1440"
+            height="1329"
           >
           <p class="img-caption">Insights include a section most AI tools omit: the assumptions worth testing before you build</p>
         </div>
@@ -346,6 +365,8 @@
             src="/projects/persona-generator/persona-photos/interview.webp"
             alt="Interview simulation chat with persona Aisha Okafor, who introduces herself and invites questions about her work and frustrations"
             loading="lazy"
+            width="1440"
+            height="900"
           >
           <p class="img-caption">Interview simulation: pressure test your questions against the persona before spending real participants on them</p>
         </div>
@@ -360,6 +381,8 @@
                 src="/projects/persona-generator/persona-photos/projects.webp"
                 alt="My Projects page listing a saved research project with its three personas and Open and Compare actions"
                 loading="lazy"
+                width="1440"
+                height="900"
               >
             </div>
             <div class="img-cell">
@@ -367,6 +390,8 @@
                 src="/projects/persona-generator/persona-photos/demo-personas-dark.webp"
                 alt="The persona workspace rendered in dark mode"
                 loading="lazy"
+                width="1440"
+                height="900"
               >
             </div>
           </div>
@@ -784,6 +809,7 @@ it(<span class="st">"throws rather than returning a workspace with no personas"<
     }
   </script>
 
+  <script src="/assets/js/lightbox-a11y.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
 </body>
 </html>
