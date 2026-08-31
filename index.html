@@ -134,6 +134,31 @@
       margin-bottom: 1.25rem;
     }
 
+    /* Outcome line: one measured or observed result per project */
+    .project-outcome {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+      max-width: 44ch;
+    }
+
+    .project-outcome-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      flex-shrink: 0;
+    }
+
+    .project-outcome-val {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
     .project-tags {
       display: flex;
       flex-wrap: wrap;
@@ -312,7 +337,8 @@
           <div class="project-info">
             <p class="project-num">01</p>
             <h2 class="project-name">Legaleey</h2>
-            <p class="project-desc">An AI powered legal document search platform for law firms. In testing, time to find relevant clauses dropped by 80% compared to Acrobat.</p>
+            <p class="project-desc">An AI powered legal document search platform for law firms.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">In testing, time to find relevant clauses dropped by 80% compared to Acrobat</span></p>
             <div class="project-tags">
               <span class="project-tag">B2B SaaS</span>
               <span class="project-tag">Legal Tech</span>
@@ -339,7 +365,8 @@
           <div class="project-info">
             <p class="project-num">02</p>
             <h2 class="project-name">NOMADO</h2>
-            <p class="project-desc">A restaurant and hospitality digital menu redesign. Ten rounds of usability testing lifted order completion by 30% and cut user friction by 20%.</p>
+            <p class="project-desc">A restaurant and hospitality digital menu redesign.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Ten rounds of usability testing lifted order completion by 30% and cut friction by 20%</span></p>
             <div class="project-tags">
               <span class="project-tag">Professional Work</span>
               <span class="project-tag">Hospitality</span>
@@ -364,6 +391,7 @@
             <p class="project-num">02</p>
             <h2 class="project-name">Lumi</h2>
             <p class="project-desc">An AI social robot that monitors anger patterns, calms arguments in real time, and builds empathy through light, sound, and voice.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Two testing sprints with 15 participants validated sound effectiveness and shaped the final voice design</span></p>
             <div class="project-tags">
               <span class="project-tag">AI Product</span>
               <span class="project-tag">Physical Design</span>
@@ -387,6 +415,7 @@
             <p class="project-num">03</p>
             <h2 class="project-name">Wonderbudi</h2>
             <p class="project-desc">An AI robot that calms children during emotional distress, helps teachers recognize a child in need, and connects families and counselors to support.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">The revised app structure scored 90% correct answers in the closing tree test</span></p>
             <div class="project-tags">
               <span class="project-tag">AI Social Robot</span>
               <span class="project-tag">Children&#8217;s Mental Health</span>
@@ -409,6 +438,7 @@
             <p class="project-num">04</p>
             <h2 class="project-name">Explorius</h2>
             <p class="project-desc">A mobile app that helps digital nomads plan trips, fight social isolation, and connect with other nomads wherever they are in the world.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">In testing, the dashboard redesign drew the strongest positive response of any change</span></p>
             <div class="project-tags">
               <span class="project-tag">Mobile App</span>
               <span class="project-tag">Digital Nomads</span>
@@ -430,7 +460,8 @@
           <div class="project-info">
             <p class="project-num">05</p>
             <h2 class="project-name">Baloo</h2>
-            <p class="project-desc">A screenless AI storytelling toy for children that sustains full engagement without a display, validated through two prototype rounds with real families.</p>
+            <p class="project-desc">A screenless AI storytelling toy for children that sustains full engagement without a display.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Across two prototype rounds, children held focus for full stories without requesting a screen</span></p>
             <div class="project-tags">
               <span class="project-tag">Screenless Toy</span>
               <span class="project-tag">Children Ages 1 to 5</span>
