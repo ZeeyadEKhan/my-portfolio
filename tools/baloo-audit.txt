@@ -1,0 +1,27 @@
+baloo_bear_alongside_the_parent_app.webp :: bear with pastel limbs beside baloo logo and three app phones (Bethany's Stories, Denny the Dog story player, Age Range 2-3 Edit Topics) :: MATCH :: none
+amount_of_time_spent_on_screen.webp :: slide "Amount of time spent on screen under 5 years old and the effect", 63% over two hours a day, AAP under one hour for ages 2 to 5, big 2hr :: MISMATCH (caption cited a 32% parent stat not in image) :: caption rewritten to only visible stats
+results_when_and_why_children_use.webp :: pie chart Distraction 33%, Entertainment 28%, Education 22%, Other 17% :: MATCH :: none
+parent_1_children_ages_2_and.webp :: Parent 1 slide, children ages 2 and 5, two quote notes about keeping kids busy and posture vs control :: MATCH :: none
+emotion_timeline_8_45_to_9.webp :: table Time/Activity/Emotion, Zoom Math upset, Brain Break happy, Recess angry, Brain Break skeptical :: MISMATCH (caption said most content during free breaks, but recess and second break show negative faces) :: caption rewritten to visible faces
+cultural_probe_kit_three_panel_package.webp :: Cultural Probe slide, Hello panel, Here's Your Task For The Day panel, five question panel :: MATCH :: none
+full_affinity_map_showing_multiple_clusters.webp :: affinity board with yellow data notes, blue notes, pink/red theme notes, Outliers cluster :: MATCH :: none
+cindy_persona_5th_grade_teacher_married.webp :: Cindy persona card, 38, 6th grade teacher, married, child is 2, quote, frustrations, views, motivations :: MISMATCH (page said 5th grade teacher and child is 5) :: alt and caption rewritten to 6th grade and child is 2
+cindy_s_journey_map_doing_unaware.webp :: journey map Doing/Thinking/Feeling with faces skeptical, upset, happy, neutral, love :: MISMATCH (alt listed first feeling as upset, image shows skeptical) :: alt feeling list corrected
+bethany_persona_5_years_old_highly.webp :: Bethany persona card, "Bethany is 4 years old", sociable, short attention span, tech usage, activities, needs :: MISMATCH (page said 5 years old) :: alt and caption changed to 4 years old
+codi_capabilities_best_ability_to_create.webp :: Codi robot photo with Best Capabilities (create/edit content, offline, outfits) and Poor Capabilities (wifi, no real AI interaction, no pause) :: MATCH :: none
+snappy_diagram_ar_point_and_shoot.webp :: Snappy diagram, AR point and shoot camera, speaks name of object, photos into coloring book on phone app (Flower, City) :: MATCH :: none
+tori_diagram_ar_coloring_book_where.webp :: Tori diagram, BALL coloring book behind phone, image comes to life, teaches colors shapes and words, AR only works when page is colored in :: MATCH :: none
+3_ways_to_solve_the_problem.webp :: tree diagram "3 ways to solve the problem" with Eliminate, Transition into Physical World, Reduce :: MATCH :: none
+storyboard_comic_panel_1_parent_says.webp :: three panel storyboard, parent asks Tommy to play with Baloo, Baloo asks ocean or forest, Tommy answers The ocean :: MATCH :: none
+initial_concept_sketches_two_hand_drawn.webp :: hand drawn bear sketches with colored limbs and shape symbols, ear input, boop nose for voice recognition, reinforced ear loop notes :: MISMATCH (alt listed a diamond shape not visible) :: alt shape list trimmed to triangle circle square star
+charging_capabilities_three_illustrations_showing_baloo.webp :: three illustrations, bear charging on rocking chair, USB C cable to back zip, close up of port under zipper :: MATCH :: none
+parent_app_parents_get_to_control.webp :: Parent App slide, Bethany's Stories with Entertain Educate Explore tabs and Timmy/Cristie/Denny cards, Bethany's Adventures with Recommended :: MATCH :: none
+parent_app_settings_on_the_settings.webp :: Parent App Settings slide, Settings menu (Profiles, Age Range, Edit Characters, Notifications, Help, About, Account) and Age Range 2 to 3 with Edit Topics list :: MATCH :: none
+feedback_our_first_prototyping_sessions_yielded.webp :: Feedback text slide, first prototyping sessions mixed results, 5 year olds grasped story, younger struggled, voices kept focus, parents suggested sections :: MATCH :: none
+feedback_parents_suggested_the_storyline_to.webp :: Feedback text slide, balance ease vs complexity, activities too easy, new storylines for 2 to 4 year olds :: MATCH :: none
+potential_storylines_four_detailed_story_branches.webp :: four story flowcharts, Leo the orange cat color choice, Hide and seek with Elle the elephant, Sound Identification cow game, hide and seek counting to 5 :: MATCH :: none
+mid_fi_with_our_insights_from.webp :: Mid Fi slide, text about audio matching farm animal game for ages 1 to 4 and boredom in 3 to 4 year olds, two illustrated bear prototypes :: MATCH :: none
+narrowed_down_form_from_the_feedback.webp :: Narrowed Down Form slide, text about one decision per limb, bear with green yellow blue red limbs and shape symbols :: MATCH :: none
+hi_fi_sound_effects_and_background.webp :: Hi Fi slide, text on sound effects and music, six bear color variations across cream, brown, and tan bodies :: MATCH :: none
+finalized_form_defined_colored_limbs_for.webp :: Finalized Form slide, text on colored limbs and added sounds, bear with purple arm, yellow arm, blue leg, pink leg, shape symbols :: MATCH :: none
+the_finalized_baloo_bear_photographed_against.webp :: final render of the bear on a dark starry background, purple and yellow arms, blue and pink legs with symbols :: MATCH :: none

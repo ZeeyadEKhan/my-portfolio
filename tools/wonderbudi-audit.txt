@@ -1,0 +1,28 @@
+Banner.webp :: Executive summary board with robot, 4 wristbands, parent app phone screens, watch, 6 activity robots :: MATCH :: none
+1_in_every_5_children_aged.webp :: Pictogram, 5 children, 1 dark, headline 1 in every 5 children aged 5-17 are in need of help :: MATCH :: none
+primary_research_participants_4_children_coping.webp :: Circles: 4 children w trauma, 5 adults, 5 social workers/counselors, 2 child psychologists, 2 surveys, 16 interviews, 22 insights :: MATCH :: none
+child_with_trauma_quotes_i_don.webp :: Two quote cards: therapist stuff boring; could not communicate emotions :: MATCH :: none
+we_asked_if_parents_would_allow.webp :: Survey card: out of 52 responses, 50 said yes to wearable device :: MATCH :: none
+affinity_map_with_763_data_points.webp :: Sticky note affinity board, 763 Data points label, clusters incl How authorities respond, at home therapy :: MATCH :: none
+tommy_johnson_10_years_old_savannah.webp :: Persona card Tommy Johnson, 10, Savannah GA, lost mother, quiet, communicates through art :: MATCH :: none
+peter_johnson_42_lawyer_savannah_georgia.webp :: Persona card Peter Johnson, 42, lawyer, involved father under stress, wants app visibility :: MATCH :: none
+tommy_s_journey_map_excitement_at.webp :: Journey map with emotions excitement, worry, loss, feeling alone, needing more help, happy again :: MATCH :: none
+concept_1_wonderbudi_biometric_bracelet_that.webp :: Concept 1 board: biometric bracelet, parent app, avatars, robot with embedded UI, variety of activities :: MATCH :: none
+concept_2_virtual_counseling_in_school.webp :: Concept 2 board: bracelet, parent app, appointments, plus cons access negative ethics :: MATCH :: none
+storyboard_at_the_end_of_their.webp :: Storyboard slide, 10 emoticon scale red to green, names Tommy Jennifer Robert in Mrs Zimmermans class :: MATCH :: none
+storyboard_outcomes_jennifer_selected_the_happy.webp :: Three outcome cards: Jennifer happy face back to class, Tommy sad face counselor, Ryan neutral face monitored :: MATCH :: none
+wonderbudi_robot_with_colorful_budibands_in.webp :: Robots with FOUR wristbands (blue green gold pink), dance activity screen, avatar picker, Tap Budi Band Here screen :: MISMATCH :: alt and caption rewritten, five colors changed to four, screens described accurately
+during_wonderbudi_9_steps_tap_budiband.webp :: Nine step cards, tap Budiband, pick avatar and color (no face expression), feelings, activity, timer, reflection, breathing, walk back :: MISMATCH :: alt fixed, removed invented face expression
+steps_4_and_5_kids_choose.webp :: Steps 4 and 5 cards, activity categories dance sports show music WonderBudi, timer, three robots with screens :: MATCH :: none
+steps_6_7_and_8_wonderbudi.webp :: Steps 6 7 8 cards, reflection at five minutes left, breathing, feelings conversation, robots with Talk to Me and paint screens :: MATCH :: none
+chat_scenario_2_child_is_feeling.webp :: Chat script scenario 2, angry child ages 7-12, 20 minute session, breathing first, play, reflection re mean friend :: MATCH :: none
+budiband_reads_heart_rhythm_o2_levels.webp :: BudiBand slide, four bands blue yellowgreen gold pink, reads heart rhythm O2 temp, no screen, parents see data :: MISMATCH :: caption rewritten, dropped comfortable waterproof five colors, now screenless four colors parents see data
+parent_app_wonderbudi_trips_shows_session.webp :: Two phones, Tommy's WonderBudi Trips list with dates and expanded counselor notes about mom's death :: MATCH :: none
+parent_app_health_status_tommy_s.webp :: Two phones, Tommy's Health Status, heart rate and skin temperature only, Today Week Month chart, NO O2 :: MISMATCH :: alt rewritten to drop O2 levels claim
+parent_app_dashboard_welcome_susan_tommy.webp :: Dashboard phone, Welcome Susan, Tommy saw WonderBudi today, 72 BPM 99% O2 91 degrees, Netflix Kidz Wristband Parent App toggles :: MATCH :: none
+parent_app_settings_parents_can_allow.webp :: Settings phone with Allow Videos, Video games, Music, Dance, Art toggles :: MATCH :: none
+observing_kids_doing_their_card_sorting.webp :: Two photos of kids card sorting, one on a PHONE, one on a laptop :: MISMATCH :: alt and caption rewritten, tablet changed to phone
+card_sorting_results_people_look_at.webp :: Card sort results screen, People look at the keywords, Group 2 Biometrics 100% with Monitor Heart Rate and Monitor O2 Level :: MATCH :: none
+best_grouping_suggestions_based_on_how.webp :: Dendrogram of ten cards with agreement levels, conclusion best grouping was to create 5 categories :: MISMATCH :: alt rewritten, removed false claim that five card names were the 5 categories
+user_test_3_tree_test_results.webp :: Tree test bars, 90% ended at correct answer, 75% chosen without backtracking :: MATCH :: none
+wonderbudi_core_values_radial_diagram_destigmatize.webp :: Radial diagram, seven circles: Destigmatize Mental Health, Normalize Getting Help, Personal Problem Solving, Speaking Up When Upset, Practicing Introspectively, Fostering Empathy, Student Self Confidence :: MATCH :: none

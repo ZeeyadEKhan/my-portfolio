@@ -1,0 +1,21 @@
+primary_research_methods_2_surveys_with.webp :: text slide with 2 surveys 73 responses, 15 interviews, 4 sensory cues beside photo of woman in a market street :: MATCH :: caption wording tightened to match visible text
+60_of_non_nomads_said_they.webp :: 60 percent donut chart, would be a nomad if they had people to join them, attributed Non Nomads :: MATCH :: none
+interview_quotes_from_nomads_feeling_less.webp :: three quote cards about feeling less involved with coworkers, always being online to combat remote work, and too many choices :: MATCH :: none
+affinity_diagram_with_416_yellow_notes.webp :: affinity board with 416 yellow, 46 green, 20 pink, 06 blue counts and barrier insight sticky, four pink cluster headers :: MATCH :: none
+persona_ryan_byrne_22_years_old.webp :: persona card Ryan Byrne, 22, Houston Texas, Computer Science, pain points and wants as listed :: MATCH :: none
+persona_marley_lim_24_years_old.webp :: persona card Marley Lim, 24, Auckland NZ, Digital Marketing, isolation and planning pain points :: MATCH :: alt corrected to say reliable wifi sources as shown
+how_might_we_statements_improve_travel.webp :: six HMW cards with the core card highlighted, help digital nomads be less overwhelmed and stressed when moving, working, and pre planning :: MATCH :: none
+competitive_analysis_matrix_budgeting_vs_workspace.webp :: positioning chart with corner labels Budgeting, Workspace, Planning, Connecting, competitors plotted, star labeled where we want to be :: MISMATCH (alt claimed wrong axes, an Explorius label, and no nearby competitors) :: alt and caption rewritten to describe visible chart
+features_diagram_centered_on_ease_of.webp :: Features diagram, central circle ease of mind and increased social interactions with four feature circles :: MATCH :: none
+community_app_centered_on_increasing_social.webp :: Community App slide, increase in social interaction and community, Q/A forum, booking services, public map :: MATCH :: none
+combined_concepts_visual_train_icon_and.webp :: train and ghost icons with combined to make less travel agency and more focus on connection and local planning :: MATCH :: none
+explorius_brand_identity_poppins_typeface_in.webp :: Poppins type specimen in Bold, semi, regular, thin plus four swatches purple, teal, blue, light gray :: MATCH :: none
+people_want_a_dashboard_to_see.webp :: People Want slide with seven bullet wants from dashboard to profile page with settings :: MATCH :: alt corrected to request to message in app as shown
+site_map_showing_five_top_level.webp :: site map with Onboarding into Dashboard, Itinerary, Map, Explore, Profile and their child pages :: MATCH :: none
+lo_fi_explore_screens_near_you.webp :: four Explore screens with Near You, Destinations, Partnerships tabs and Going, Interested, Not Going actions :: MATCH :: none
+updated_explore_screens_showing_separated_events.webp :: updated Explore dashboard, Events list, event detail, callouts Events vs Excursions, Explore dash so no confusion, swiping, expanded info :: MATCH :: caption adjusted, removed booking claim not shown in callouts
+lo_fi_dashboard_screen_showing_recommended.webp :: Dashboard screen with Recommended Near You, Recommended Destinations, and Partnerships carousels :: MATCH :: none
+dashboard_changes_updated_screen_showing_notifications.webp :: Dashboard Changes slide with updated screen and callouts Any Notifications, Close by Nomads, Reccomended Excursions, Upcoming Events :: MATCH :: none
+old_navigation_abstract_icons_including_a.webp :: Old Navigation bar with pentagon, notepad, telescope, people cluster, and person icons :: MATCH :: none
+new_navigation_icons_more_straightforward_replaced.webp :: New Navigation bar with home, globe, folded map, luggage, and profile icons plus icons more straight forword note :: MATCH :: none
+business_model_canvas_key_partners_include.webp :: Business Model Canvas with Key Partners, Key Activities, Key Resources, Value Propositions, Customer Relationships, Channels, Customer Segment, Cost Structure, Revenue Streams :: MATCH :: alt first revenue item corrected to digital nomads paying to attend excursions
