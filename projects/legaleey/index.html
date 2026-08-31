@@ -433,34 +433,6 @@
 
         <ul class="flow-list fade-up">
           <li class="flow-item">
-            <span class="flow-num">01</span>
-            <div class="flow-text">
-              <p class="flow-name">Onboarding and Sign Up</p>
-              <p class="flow-desc">Multistep flow covering email entry, password creation, phone number, and verification code. Designed to feel lightweight while gathering necessary information for account security.</p>
-            </div>
-          </li>
-          <li class="flow-item">
-            <span class="flow-num">02</span>
-            <div class="flow-text">
-              <p class="flow-name">First Time Dashboard</p>
-              <p class="flow-desc">Onboarding tile layout covering File Search, Uploading, File Management, and What is New. Provides orientation without overwhelming new users unfamiliar with the platform.</p>
-            </div>
-          </li>
-          <li class="flow-item">
-            <span class="flow-num">03</span>
-            <div class="flow-text">
-              <p class="flow-name">Returning User Dashboard</p>
-              <p class="flow-desc">Tiles for Current Uploaded Documents, Problems, Recent Searches, and What is New. Surfaces what matters most for a user returning mid project.</p>
-            </div>
-          </li>
-          <li class="flow-item">
-            <span class="flow-num">04</span>
-            <div class="flow-text">
-              <p class="flow-name">Document Upload</p>
-              <p class="flow-desc">A circular drop zone creates a clear focal point, with a progress sidebar and error handling covering every upload state.</p>
-            </div>
-          </li>
-          <li class="flow-item">
             <span class="flow-num">05</span>
             <div class="flow-text">
               <p class="flow-name">Document Management</p>
@@ -481,34 +453,52 @@
               <p class="flow-desc">Toggles for Case Sensitive, Include Inflections, and Maintain Word Order. A single select group for Search Anywhere vs. Search Within N Words, with a number input for the distance parameter.</p>
             </div>
           </li>
+        </ul>
+
+        <h3>Also designed</h3>
+        <ul class="flow-list fade-up">
+          <li class="flow-item">
+            <span class="flow-num">01</span>
+            <div class="flow-text">
+              <p class="flow-name">Onboarding and Sign Up &middot; <span style="font-weight:400; color:var(--ink-muted);">email, password, phone, and verification, kept lightweight</span></p>
+            </div>
+          </li>
+          <li class="flow-item">
+            <span class="flow-num">02</span>
+            <div class="flow-text">
+              <p class="flow-name">First Time Dashboard &middot; <span style="font-weight:400; color:var(--ink-muted);">four orientation tiles instead of a walkthrough</span></p>
+            </div>
+          </li>
+          <li class="flow-item">
+            <span class="flow-num">03</span>
+            <div class="flow-text">
+              <p class="flow-name">Returning User Dashboard &middot; <span style="font-weight:400; color:var(--ink-muted);">recent work surfaced for mid project returns</span></p>
+            </div>
+          </li>
+          <li class="flow-item">
+            <span class="flow-num">04</span>
+            <div class="flow-text">
+              <p class="flow-name">Document Upload &middot; <span style="font-weight:400; color:var(--ink-muted);">circular drop zone with full error handling</span></p>
+            </div>
+          </li>
           <li class="flow-item">
             <span class="flow-num">08</span>
             <div class="flow-text">
-              <p class="flow-name">Search Help Modal</p>
-              <p class="flow-desc">Boolean operator reference covering AND, OR, EXCLUDE, and Exact Phrase with concrete examples. Reduces dependence on support and builds user confidence with advanced queries.</p>
+              <p class="flow-name">Search Help Modal &middot; <span style="font-weight:400; color:var(--ink-muted);">Boolean operator reference with concrete examples</span></p>
             </div>
           </li>
           <li class="flow-item">
             <span class="flow-num">09</span>
             <div class="flow-text">
-              <p class="flow-name">Settings Panels</p>
-              <p class="flow-desc">Account, Notifications with email and phone toggles for new features and upload completion, Contact Info, Sign Out, Billing, and Privacy Policy.</p>
+              <p class="flow-name">Settings Panels &middot; <span style="font-weight:400; color:var(--ink-muted);">account, notifications, billing, and privacy</span></p>
             </div>
           </li>
         </ul>
 
-        <img src="/projects/legaleey/legaleey-photos/upload_notification_prompt.webp" alt="Upload notification prompt embedded in the upload flow" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;" loading="lazy" width="1600" height="1003">
-        <p class="img-caption">Embedded guidance was chosen over external documentation to keep lawyers in context during their first sessions. Leaving the product to read a help article breaks the flow at the moment users are most likely to abandon.</p>
         <img src="/projects/legaleey/legaleey-photos/upload_circular_drop_zone.webp" alt="Upload screen with circular drag and drop zone and Add files button" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;" loading="lazy" width="1600" height="1003">
         <p class="img-caption">The circular focal point was chosen over a rectangular zone to reduce upload hesitation in testing. A single centered target creates a clear call to action without requiring any instructional copy.</p>
         <img src="/projects/legaleey/legaleey-photos/upload_rectangular_drop_zone.webp" alt="Upload screen with the first iteration rectangular drop zone" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;" loading="lazy" width="1600" height="1003">
         <p class="img-caption">The rectangular drop zone was the first iteration, replaced after the circular form performed better in testing. Side by side testing showed the circular variant reduced time to first upload by [ZEEYAD: exact figure or percentage].</p>
-        <img src="/projects/legaleey/legaleey-photos/password_reset_enter_email.webp" alt="Password reset screen asking for the account email" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;" loading="lazy" width="1600" height="1003">
-        <p class="img-caption">Password recovery keeps the flow inside the same secure visual environment as login. A single email step lets a locked out lawyer regain access without contacting support, protecting time sensitive work.</p>
-        <img src="/projects/legaleey/legaleey-photos/new_user_welcome_tiles.webp" alt="New user welcome screen with four orientation tiles" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;" loading="lazy" width="1600" height="1003">
-        <p class="img-caption">New user orientation was delivered as tiles rather than a walkthrough to lower cognitive load at entry. Walkthroughs require sequential completion and block action, while tiles let users choose their own starting point.</p>
-        <img src="/projects/legaleey/legaleey-photos/upload_tutorial_modal.webp" alt="Upload tutorial modal with an embedded live screenshot of the upload interface" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;" loading="lazy" width="1600" height="1003">
-        <p class="img-caption">The upload tutorial embedded a live screenshot so new users could preview the interface before interacting with it. Previewing the outcome before committing to an action is a consistent pattern across all onboarding flows in the product.</p>
       </section>
 
       <!-- DESIGN DECISIONS -->
