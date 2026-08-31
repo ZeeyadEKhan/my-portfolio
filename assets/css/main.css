@@ -640,6 +640,29 @@ hr { border: none; border-top: 1px solid var(--border); margin: 4rem 0; }
   margin-top: 0;
 }
 
+/* ─── CASE TESTIMONIAL (empty until /data/testimonials.json has an entry) ─── */
+.case-quote {
+  margin: 0 0 3.5rem;
+  padding: 1.75rem 2rem;
+  border-left: 3px solid var(--blue);
+  background: var(--surface);
+  border-radius: 0 12px 12px 0;
+}
+
+.case-quote-text {
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.case-quote-attrib {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
 /* ─── CASE STUDY CLOSE (next project + contact) ─── */
 .case-next {
   border-top: 1px solid var(--border);
@@ -669,6 +692,16 @@ hr { border: none; border-top: 1px solid var(--border); margin: 4rem 0; }
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
+}
+
+.case-next-desc {
+  display: block;
+  margin-top: 0.6rem;
+  max-width: 52ch;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--ink-muted);
 }
 
 .case-next-arrow {
