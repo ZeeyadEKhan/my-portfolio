@@ -628,3 +628,14 @@ hr { border: none; border-top: 1px solid var(--border); margin: 4rem 0; }
 .footer-contact-link:hover {
   color: var(--ink);
 }
+
+/* ─── CASE SUMMARY (top of every case study) ─── */
+.case-summary {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 3.5rem;
+}
+
+.case-summary h4 {
+  margin-top: 0;
+}
