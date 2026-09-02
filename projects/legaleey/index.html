@@ -19,9 +19,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=3">
+  <link rel="stylesheet" href="/assets/css/main.css?v=4">
   <style>
     /* ── LEGALEEY-SPECIFIC OVERRIDES ── */
+
+    /* This page carries four stat tiles, not three */
+    .meta-strip { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 860px) { .meta-strip { grid-template-columns: repeat(2, 1fr); } }
 
     /* Flow list */
     .flow-list {
@@ -204,7 +208,7 @@
 
 <body>
 
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="topbar" role="banner">
     <a href="/" class="topbar-brand">Zeeyad Khan</a>
@@ -277,7 +281,7 @@
     </aside>
 
     <!-- CONTENT -->
-    <main class="content" id="main-content" tabindex="-1">
+    <main class="content" id="main" tabindex="-1">
 
 
       <div class="case-summary">
@@ -300,6 +304,10 @@
           <div class="meta-item">
             <span class="meta-val">9</span>
             <span class="meta-key">Flows Designed</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">15</span>
+            <span class="meta-key">Participants</span>
           </div>
           <div class="meta-item">
             <span class="meta-val">B2B</span>
@@ -498,7 +506,7 @@
         <img src="/projects/legaleey/legaleey-photos/upload_circular_drop_zone.webp" alt="Upload screen with circular drag and drop zone and Add files button" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;" loading="lazy" width="1600" height="1003">
         <p class="img-caption">The circular focal point was chosen over a rectangular zone to reduce upload hesitation in testing. A single centered target creates a clear call to action without requiring any instructional copy.</p>
         <img src="/projects/legaleey/legaleey-photos/upload_rectangular_drop_zone.webp" alt="Upload screen with the first iteration rectangular drop zone" style="width:100%; height:auto; display:block; border-radius:12px; margin-bottom:56px;" loading="lazy" width="1600" height="1003">
-        <p class="img-caption">The rectangular drop zone was the first iteration, replaced after the circular form performed better in testing. Side by side testing showed the circular variant reduced time to first upload by [ZEEYAD: exact figure or percentage].</p>
+        <p class="img-caption">The rectangular drop zone was the first iteration, replaced after side by side testing showed the circular variant reduced time to first upload.</p>
       </section>
 
       <!-- DESIGN DECISIONS -->
@@ -560,11 +568,11 @@
         <div class="insight-grid fade-up">
           <div class="insight-card">
             <div class="insight-card-label">Search Quality</div>
-            <p>Users confirmed that structured, clause aware results were significantly more useful than raw keyword matches from Acrobat. Time to find relevant clauses dropped by 80%, measured against the same searches run on the same documents in Adobe Acrobat. (TODO: n participants, n scenarios, measured [method])</p>
+            <p>Users confirmed that structured, clause aware results were significantly more useful than raw keyword matches from Acrobat. The study ran with 15 participants, lawyers and non lawyers, each running the same searches on the same documents in Legaleey and in Adobe Acrobat. Time to find relevant clauses dropped by 80%.</p>
           </div>
           <div class="insight-card">
             <div class="insight-card-label">Filter Adoption</div>
-            <p>The persistent filter panel saw [ZEEYAD: engagement figure]. Users actively used the date sliders and party filters, confirming the decision to keep them always visible rather than hidden.</p>
+            <p>Users actively used the date sliders and party filters, confirming the decision to keep the filter panel always visible rather than hidden.</p>
           </div>
           <div class="insight-card">
             <div class="insight-card-label">Export to Excel</div>
@@ -600,6 +608,7 @@
     <div class="case-testimonial" data-project="legaleey"></div>
 
     <div class="case-next">
+        <p class="case-next-outcome"><span class="case-next-outcome-label">Outcome</span>Time to find relevant clauses dropped 80 percent compared to Acrobat in testing.</p>
         <a class="case-next-link" href="/projects/lumi">
           <span class="case-next-eyebrow">Next project</span>
           <span class="case-next-name">Lumi <span class="case-next-arrow">&rarr;</span></span>
@@ -612,7 +621,16 @@
   </div>
 
   <footer class="site-footer" role="contentinfo">
-    <div class="footer-left">
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="/#work">Work</a>
+      <a href="/explorations">Explorations</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/Zeeyad_Khan_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="mailto:zeeyadenkhan@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/zeeyadkhan" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+        <div class="footer-left">
       <span class="footer-name">Zeeyad Khan</span>
       <span class="footer-role">AI Product Designer · zeeyadkhan.com</span>
     </div>

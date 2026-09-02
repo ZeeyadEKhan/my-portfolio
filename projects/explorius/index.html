@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=3">
+  <link rel="stylesheet" href="/assets/css/main.css?v=4">
   <style>
     /* ── Lightbox ── */
     .img-wrap img,
@@ -86,7 +86,7 @@
 
 <body>
 
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ═══════════════════════ TOPBAR ═══════════════════════ -->
   <header class="topbar" role="banner">
@@ -119,11 +119,11 @@
     </div>
     <img
       class="hero-img"
-      src="/projects/explorius/explorius-photos/explorius_brand_hero_crater_lake.webp"
-      alt="Explorius brand mark over a volcanic crater lake with the tagline: Lets get away"
+      src="/projects/explorius/explorius-photos/explorius_hero_map_connections.webp"
+      alt="Explorius map screen with nearby nomads pinned and a searchable list of close by places, beside three promises: see your connections, find new places, easy meetups"
       loading="eager"
-      width="2000"
-      height="735"
+      width="2400"
+      height="1160"
     >
   </section>
 
@@ -148,7 +148,7 @@
     </aside>
 
     <!-- ─── MAIN CONTENT ─── -->
-    <main class="content" id="main-content" tabindex="-1">
+    <main class="content" id="main" tabindex="-1">
 
 
       <div class="case-summary">
@@ -431,28 +431,15 @@
         <h3>High Fidelity Screens</h3>
         <p>With the architecture validated, screens were built across all five sections of the app. The six below map to the decisions that defined the product.</p>
 
-        <div class="img-group">
-          <div class="img-grid-2">
-            <div class="img-cell">
-              <img
-                src="/projects/explorius/explorius-photos/events_detail_screen_with_going_interested.webp"
-                alt="Dashboard screen greeting the user with Near By places, Upcoming Events, and Recommended Events, with a one tap stealth mode toggle"
-                loading="lazy"
-                width="1600"
-                height="816"
-              >
-            </div>
-            <div class="img-cell">
-              <img
-                src="/projects/explorius/explorius-photos/excursion_detail_screen_with_cost_attendees.webp"
-                alt="Map screen with nearby nomads pinned and a searchable list of close by places to eat and work"
-                loading="lazy"
-                width="1204"
-                height="1094"
-              >
-            </div>
-          </div>
-          <p class="img-caption">The Dashboard is utility first, and the map pairs nearby nomads with places worth meeting at</p>
+        <div class="img-wrap">
+          <img
+            src="/projects/explorius/explorius-photos/events_detail_screen_with_going_interested.webp"
+            alt="Dashboard screen greeting the user with Near By places, Upcoming Events, and Recommended Events, with a one tap stealth mode toggle"
+            loading="lazy"
+            width="1600"
+            height="816"
+          >
+          <p class="img-caption">The Dashboard is utility first: nearby places, upcoming events, and a one tap stealth mode toggle</p>
         </div>
 
         <div class="img-group">
@@ -697,6 +684,7 @@
     <div class="case-testimonial" data-project="explorius"></div>
 
     <div class="case-next">
+        <p class="case-next-outcome"><span class="case-next-outcome-label">Outcome</span>The dashboard redesign drew the strongest positive response of any change in testing.</p>
         <a class="case-next-link" href="/projects/baloo">
           <span class="case-next-eyebrow">Next project</span>
           <span class="case-next-name">Baloo <span class="case-next-arrow">&rarr;</span></span>
@@ -710,7 +698,16 @@
 
   <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
   <footer class="site-footer" role="contentinfo">
-    <div class="footer-left">
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="/#work">Work</a>
+      <a href="/explorations">Explorations</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/Zeeyad_Khan_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="mailto:zeeyadenkhan@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/zeeyadkhan" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+        <div class="footer-left">
       <span class="footer-name">Zeeyad Khan</span>
       <span class="footer-role">AI Product Designer &middot; zeeyadkhan.com</span>
     </div>

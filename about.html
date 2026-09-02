@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=3">
+  <link rel="stylesheet" href="/assets/css/main.css?v=4">
   <style>
     .page-body { padding-top: var(--topbar-h); }
 
@@ -145,6 +145,16 @@
 
     .about-link:hover { opacity: 0.7; }
 
+    /* Awards caption under the portrait */
+    .about-awards {
+      margin: -1.5rem 0 2.5rem;
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: var(--ink-subtle);
+      line-height: 1.7;
+    }
+
     /* Photo */
     .about-photo {
       margin-bottom: 2.5rem;
@@ -181,7 +191,8 @@
     "sameAs": ["https://www.linkedin.com/in/zeeyadkhan"],
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "San Francisco"
+      "addressLocality": "San Francisco",
+      "addressRegion": "CA"
     }
   }
   </script>
@@ -189,7 +200,7 @@
 </head>
 <body class="page-body">
 
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="topbar">
     <a href="/" class="topbar-brand">Zeeyad Khan</a>
@@ -203,7 +214,7 @@
     </nav>
   </header>
 
-  <main class="about-wrap" id="main-content" tabindex="-1">
+  <main class="about-wrap" id="main" tabindex="-1">
 
     <div class="about-hero">
       <p class="about-eyebrow">AI Product Designer</p>
@@ -214,7 +225,7 @@
       <div class="about-bio">
         <p>I am an <strong>AI Product Designer and UX researcher</strong> based in San Francisco, with a BFA in User Experience Design from the Savannah College of Art and Design. My work sits where product thinking, visual craft, and human behavior meet.</p>
 
-        <p>I have designed across a wide range of contexts: a <strong>physical AI robot</strong> that calms conflict in real time, a <strong>B2B legal tech platform</strong> that helps lawyers search contracts faster, and two consumer <strong>brand and packaging systems</strong>, <a href="/projects/zarrin" class="about-link">Zarrin</a> and <a href="/projects/adey" class="about-link">Adey</a>.</p>
+        <p>I have designed across a wide range of contexts: the <strong>Lumi and Wonderbudi social robots</strong>, the <strong>Legaleey legal search platform</strong>, the <strong>Explorius travel app</strong>, the <strong>Baloo storytelling toy</strong>, and the six <a href="/explorations" class="about-link">Explorations</a> tools and brand systems.</p>
 
         <p>At SCAD I completed a graduate studio on the complexity of simplicity, and it still shapes how I open every ambiguous brief: find the smallest unit of user value, then build outward from there.</p>
 
@@ -231,6 +242,7 @@
         <div class="about-photo">
           <img src="/ZeeyadKhanaboutme.webp" alt="Zeeyad Khan, AI Product Designer" width="900" height="1013">
         </div>
+        <p class="about-awards">21 international design awards (IDA and Indigo Design Award) and multiple Dean's List honors at SCAD.</p>
 
         <div class="about-sidebar-section">
           <p class="about-sidebar-label">Disciplines</p>
@@ -281,7 +293,7 @@
           <p class="about-sidebar-label">Connect</p>
           <ul class="about-skill-list" style="gap: 0.75rem;">
             <li style="border: none; padding: 0;">
-              <a href="/contact" class="about-link" style="font-size:0.82rem;">zeeyadenkhan@gmail.com →</a>
+              <a href="mailto:zeeyadenkhan@gmail.com" class="about-link" style="font-size:0.82rem;">zeeyadenkhan@gmail.com →</a>
             </li>
             <li style="border: none; padding: 0;">
               <a href="https://www.linkedin.com/in/zeeyadkhan" target="_blank" rel="noopener" class="about-link" style="font-size:0.82rem;">LinkedIn →</a>
@@ -296,7 +308,16 @@
 
   <div style="max-width: var(--page-max); margin: 0 auto; padding: 0 2.5rem;" class="about-footer">
     <footer class="site-footer" style="padding-left:0; padding-right:0;">
-      <div class="footer-left">
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/#work">Work</a>
+        <a href="/explorations">Explorations</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/Zeeyad_Khan_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="mailto:zeeyadenkhan@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/zeeyadkhan" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+            <div class="footer-left">
         <span class="footer-name">Zeeyad Khan</span>
         <span class="footer-role">AI Product Designer · zeeyadkhan.com</span>
       </div>
