@@ -272,6 +272,15 @@ ul { list-style: none; }
   overflow-x: auto;
 }
 
+/* Image overlays open and close without motion when the user asks for it */
+@media (prefers-reduced-motion: reduce) {
+  #lightbox, #lightbox *,
+  .lightbox-overlay, .lightbox-overlay * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
 /* ─── SECTION SCAFFOLDING ─── */
 .section { margin-bottom: 7.5rem; }
 
