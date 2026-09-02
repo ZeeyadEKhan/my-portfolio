@@ -126,6 +126,31 @@
       margin-bottom: 1.25rem;
     }
 
+    /* Outcome line: one measured or observed result per project */
+    .project-outcome {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+      max-width: 44ch;
+    }
+
+    .project-outcome-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      flex-shrink: 0;
+    }
+
+    .project-outcome-val {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
     .project-tags {
       display: flex;
       flex-wrap: wrap;
@@ -271,6 +296,7 @@
             <p class="project-num">01</p>
             <h2 class="project-name">Persona</h2>
             <p class="project-desc">An AI powered UX research tool that turns a product idea into personas, journeys, and interview kits, generated entirely on a local model so ideas never leave your machine.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Shipped: a full discovery package generated in about a minute, fully local</span></p>
             <div class="project-tags">
               <span class="project-tag">AI Product</span>
               <span class="project-tag">Design Engineering</span>
@@ -294,6 +320,7 @@
             <p class="project-num">02</p>
             <h2 class="project-name">Deposit Proof</h2>
             <p class="project-desc">A tenant side tool for security deposit disputes: a timestamped photo protocol, a wear versus damage check grounded in state law, and a dispute letter that builds itself, all in one HTML file that never uploads a photo.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Shipped: evidence packets build and print with nothing leaving the device</span></p>
             <div class="project-tags">
               <span class="project-tag">Legal Tech</span>
               <span class="project-tag">Evidence UX</span>
@@ -302,7 +329,7 @@
             </div>
             <span class="project-cta-row">
               <a class="project-cta" href="/projects/depositproof">View Case Study <span class="project-cta-arrow">→</span></a>
-              <a class="project-cta" href="/tools/depositproof/" target="_blank" rel="noopener">Open the tool <span class="project-cta-arrow">→</span></a>
+              <a class="project-cta" href="/tools/depositproof/" target="_blank" rel="noopener">Try it <span class="project-cta-arrow">→</span></a>
             </span>
           </div>
           <a class="project-thumb thumb-depositproof" href="/projects/depositproof" aria-label="Deposit Proof case study">
@@ -322,6 +349,7 @@
             <p class="project-num">03</p>
             <h2 class="project-name">Appeal Kit</h2>
             <p class="project-desc">A browser only tool that turns a health insurance denial letter into a filed appeal: deadlines that show their arithmetic, evidence matched to the denial type, and a letter built only from facts the user asserts. Nothing ever leaves the device.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Shipped: seven invariants enforced by tests, nothing ever leaves the device</span></p>
             <div class="project-tags">
               <span class="project-tag">Health Tech</span>
               <span class="project-tag">Privacy Engineering</span>
@@ -330,7 +358,7 @@
             </div>
             <span class="project-cta-row">
               <a class="project-cta" href="/projects/insuranceappeal">View Case Study <span class="project-cta-arrow">→</span></a>
-              <a class="project-cta" href="/tools/appealkit/" target="_blank" rel="noopener">Open the tool <span class="project-cta-arrow">→</span></a>
+              <a class="project-cta" href="/tools/appealkit/" target="_blank" rel="noopener">Try it <span class="project-cta-arrow">→</span></a>
             </span>
           </div>
           <a class="project-thumb thumb-appealkit" href="/projects/insuranceappeal" aria-label="Appeal Kit case study">
@@ -348,6 +376,7 @@
             <p class="project-num">04</p>
             <h2 class="project-name">Visit Brief</h2>
             <p class="project-desc">A patient controlled pre visit narrative tool: five short steps and a local model turn weeks of carried worry into a one page brief a doctor can read in under a minute, without the story ever leaving the patient's machine.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Shipped: five files and 1,584 lines, running fully local</span></p>
             <div class="project-tags">
               <span class="project-tag">Health Tech</span>
               <span class="project-tag">AI Product</span>
@@ -371,6 +400,7 @@
             <p class="project-num">05</p>
             <h2 class="project-name">Zarrin</h2>
             <p class="project-desc">A brand and packaging concept for a sparkling saffron water: a bilingual identity, a hand built Persian ornament system, and four jewel toned flavors drawn from one garden.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">A full identity and packaging system across four cans and a seven frame launch deck</span></p>
             <div class="project-tags">
               <span class="project-tag">Graphic Design</span>
               <span class="project-tag">Brand Identity</span>
@@ -393,6 +423,7 @@
             <p class="project-num">06</p>
             <h2 class="project-name">Adey</h2>
             <p class="project-desc">A brand and packaging concept for an Ethiopian single origin coffee: a bilingual lockup, a woven pattern band in four colorways, and roast profiles named for what you actually taste.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">A full identity and packaging system across four bags in one aligned template</span></p>
             <div class="project-tags">
               <span class="project-tag">Graphic Design</span>
               <span class="project-tag">Brand Identity</span>

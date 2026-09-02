@@ -693,6 +693,14 @@ hr { border: none; border-top: 1px solid var(--border); margin: 4rem 0; }
 
 .case-links a:hover { text-decoration: underline; }
 
+/* Plain note for tools that cannot be hosted or linked yet */
+.case-links-note {
+  margin-top: 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--ink-muted);
+}
+
 /* ─── CASE TESTIMONIAL (empty until /data/testimonials.json has an entry) ─── */
 .case-quote {
   margin: 0 0 3.5rem;
