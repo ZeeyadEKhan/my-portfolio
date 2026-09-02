@@ -220,7 +220,7 @@
 
 
       <div class="case-summary">
-        <h4>At a Glance</h4>
+        <h2 class="eyebrow-heading">At a Glance</h2>
         <p><strong>Role:</strong> Design Engineer, designed and built solo end to end<br>
         <strong>Platform:</strong> Local first web app, Next.js with Ollama<br>
         <strong>Outcome:</strong> Shipped: a full discovery package generated in about a minute, fully local</p>
@@ -254,10 +254,10 @@
           </div>
         </div>
 
-        <h4>My Role</h4>
+        <h3 class="eyebrow-heading">My Role</h3>
         <p>Design Engineer &middot; Designed and built the entire product solo: UX, interface, AI pipeline, testing, and CI</p>
 
-        <h4>Stack</h4>
+        <h3 class="eyebrow-heading">Stack</h3>
         <p>Next.js 16 &middot; React 19 &middot; TypeScript &middot; Tailwind CSS v4 &middot; shadcn/ui &middot; Zod &middot; Ollama &middot; Vitest &middot; Playwright</p>
 
         <div class="img-wrap">
@@ -716,10 +716,10 @@ it(<span class="st">"throws rather than returning a workspace with no personas"<
           <p>The quality of an AI product is decided less by the model than by <strong>what the product does when the model fails</strong>. Repair before retry, top up before discard, honest gaps before fake completeness. Those policies, not the weights, are what users experience as reliability.</p>
         </div>
 
-        <h4>Known Tradeoffs</h4>
+        <h3 class="eyebrow-heading">Known Tradeoffs</h3>
         <p>Some gaps are deliberate and worth naming. There's no response streaming; the staged loader is the mitigation, and for a package that must be validated as a whole before display, partial output has limited value. There's no rate limiting, which is defensible for a localhost tool with no per token cost but would be the first addition if it ever fronted a hosted model. And the repo still carries fossils of the hosted model era (a dead tool schema file, unreachable error branches), honest evidence of an architecture that was tried, measured, and replaced.</p>
 
-        <h4>What I Learned</h4>
+        <h3 class="eyebrow-heading">What I Learned</h3>
         <p>Building Persona solo meant owning every layer, and the layers taught different lessons. The design lesson: an AI tool earns trust through its edges: diffs before applying changes, real counts instead of padded cards, warnings when generation degrades. The engineering lesson: constraints are generative. Choosing a weak model forced better validation, better recovery, better tests, and better honesty than a frontier model ever would have.</p>
 
         <div class="insight-grid">

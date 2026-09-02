@@ -220,7 +220,7 @@
 
 
       <div class="case-summary">
-        <h4>At a Glance</h4>
+        <h2 class="eyebrow-heading">At a Glance</h2>
         <p><strong>Role:</strong> Design Engineer, designed and built solo end to end<br>
         <strong>Platform:</strong> Local web app over Ollama, no framework, no build step<br>
         <strong>Outcome:</strong> Shipped: five files and 1,584 lines, running fully local</p>
@@ -254,10 +254,10 @@
           </div>
         </div>
 
-        <h4>My Role</h4>
+        <h3 class="eyebrow-heading">My Role</h3>
         <p>Design Engineer &middot; Designed and built the entire product solo: the intake flow, the prompt, the document system, and the export pipeline</p>
 
-        <h4>Stack</h4>
+        <h3 class="eyebrow-heading">Stack</h3>
         <p>Vanilla HTML, CSS, JavaScript &middot; Ollama running llama3.2 locally &middot; localStorage &middot; html2pdf for export &middot; no framework, no build step</p>
 
         <div class="img-wrap">
@@ -558,10 +558,10 @@ textarea.control { min-height: 104px; resize: vertical; }</code></pre>
           <p>In a product this small, <strong>the codebase itself is the trust document</strong>. No framework and no build step means a patient or clinician can read every line and verify the privacy claim personally. Auditability is not a nice property of the architecture. For a health tool with no company behind it, it is the architecture.</p>
         </div>
 
-        <h4>What I Would Fix First</h4>
+        <h3 class="eyebrow-heading">What I Would Fix First</h3>
         <p>Auditing the shipped build surfaced three real defects worth naming. First, the shape guard checks that fields are arrays but never coerces their elements to strings, so a model returning structured medication objects would render literally as object Object on a medical document; the fix is one String call in the normalizer. Second, the error taxonomy is wired to the wrong predicate: parse failures show the could not reach Ollama message, sending the user to restart a service that is already running, and the message never resets between failures. Third, two late features quietly outgrew the privacy sentence printed on every screen: the sample preview became a landing page button without gaining a watermark, so a fabricated brief is indistinguishable from a real one, and the email button hands the story to a mail client while the words nothing leaves your device are still visible above it. The honest fix is a sample ribbon, and either dropping the email button or narrowing the claim to one that stays true.</p>
 
-        <h4>What I Learned</h4>
+        <h3 class="eyebrow-heading">What I Learned</h3>
         <p>Visit Brief taught me that the boundary is the product. Almost every decision that matters happens where an unreliable model meets a document with real stakes: the prompt that constrains, the layers that recover, the normalizer that guarantees shape, the fallback that returns the patient's own words when compression fails. And the audit taught me the sequel: features added after the promise was written are where promises quietly break. The next version starts by making the claim and the code agree again.</p>
 
         <div class="insight-grid">

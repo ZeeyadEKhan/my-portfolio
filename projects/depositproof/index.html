@@ -220,7 +220,7 @@
 
 
       <div class="case-summary">
-        <h4>At a Glance</h4>
+        <h2 class="eyebrow-heading">At a Glance</h2>
         <p><strong>Role:</strong> Design Engineer, designed and built solo end to end<br>
         <strong>Platform:</strong> Browser only, single file web app<br>
         <strong>Outcome:</strong> Shipped: evidence packets build and print with nothing leaving the device</p>
@@ -252,10 +252,10 @@
           </div>
         </div>
 
-        <h4>My Role</h4>
+        <h3 class="eyebrow-heading">My Role</h3>
         <p>Design Engineer &middot; Designed and built the entire product solo: research, interface, evidence pipeline, legal content, and test harnesses</p>
 
-        <h4>Stack</h4>
+        <h3 class="eyebrow-heading">Stack</h3>
         <p>Plain HTML, CSS, and JavaScript &middot; exifr for EXIF parsing &middot; Web Crypto for hashing &middot; Puppeteer harnesses for testing</p>
 
         <div class="img-wrap">
@@ -621,10 +621,10 @@ overflowX: document.documentElement.scrollWidth &gt; document.documentElement.cl
           <p>In a product that touches legal outcomes, <strong>restraint is a feature users can feel</strong>. Hedged verdicts, visible placeholders, refusing to classify unknown items, and grading the tool's own evidence quality all say the same thing: this tool will not pretend to know more than it does. That is what makes the parts it does claim believable.</p>
         </div>
 
-        <h4>What I Would Fix First</h4>
+        <h3 class="eyebrow-heading">What I Would Fix First</h3>
         <p>The strongest engineering habit I took from this build is auditing my own shipped work, so here are the three real defects I found, ranked by product consequence. First, exhibit numbers can collide: remove an entry and the next photo logged can reuse an existing number, which is fatal in a tool whose pitch is an indexed evidence packet, and renumbering is also wrong because a printed tag already carries its number. Second, the tenancy length field is decorative: it re runs the classifier and re fires the animation, but nothing reads its value, while the copy promises that tenancy length matters. Third, there is no loading state while a large batch hashes, so ten phone photos mean seconds of a silent, clickable button. None of these are cosmetic, and all three are on the list for the full build.</p>
 
-        <h4>What I Learned</h4>
+        <h3 class="eyebrow-heading">What I Learned</h3>
         <p>Building DepositProof taught me that the hardest engineering decisions in a consumer legal tool are refusals. Refusing an LLM meant hand authoring rules I could defend line by line. Refusing persistence meant the privacy claim is structural rather than a policy promise. Refusing a PDF library meant the export is twelve lines of CSS that will still work in ten years. Every refusal was more work than the default, and every one made the product more trustworthy.</p>
 
         <div class="insight-grid">

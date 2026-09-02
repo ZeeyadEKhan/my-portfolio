@@ -220,7 +220,7 @@
 
 
       <div class="case-summary">
-        <h4>At a Glance</h4>
+        <h2 class="eyebrow-heading">At a Glance</h2>
         <p><strong>Role:</strong> Design Engineer, designed and built solo end to end<br>
         <strong>Platform:</strong> Browser only React application<br>
         <strong>Outcome:</strong> Shipped: seven invariants enforced by tests, nothing ever leaves the device</p>
@@ -252,10 +252,10 @@
           </div>
         </div>
 
-        <h4>My Role</h4>
+        <h3 class="eyebrow-heading">My Role</h3>
         <p>Design Engineer &middot; Designed and built the entire product solo: the invariants, the deadline engine, the interface system, the tests, and the demo pipeline</p>
 
-        <h4>Stack</h4>
+        <h3 class="eyebrow-heading">Stack</h3>
         <p>React &middot; TypeScript strict &middot; Vite &middot; Tailwind v4 &middot; zustand &middot; Dexie over IndexedDB &middot; <code class="inline">pdf-lib</code> &middot; Vitest and Playwright</p>
 
         <div class="code-wrap">
@@ -638,10 +638,10 @@ expect(externalRequests).toEqual([]);</code></pre>
           <p>In a domain where the user is frightened and the stakes are legal, <strong>every refusal is a feature</strong>. Refusing to state deadlines without arithmetic, refusing to write clinical claims, refusing to hide unverified content, and refusing to push everyone toward an appeal are what make the tool's actual assertions worth believing.</p>
         </div>
 
-        <h4>What I Would Fix First</h4>
+        <h3 class="eyebrow-heading">What I Would Fix First</h3>
         <p>Auditing the shipped build surfaced three real defects, ranked by consequence. First, leaving the notice date blank silently drops the letter's entire opening paragraph, because the template rule that drops any line with an unfilled slot took the thesis sentence with it. The same rule that guarantees the letter never prints a blank can also delete its purpose, and the fix is to split that sentence across two template lines. Second, the PDF uses a built in Times font that cannot encode names outside Western European characters, so a user named Çağla gets the fallback message instead of a PDF. The graceful fallback works, but the right fix is embedding the app's own font. Third, the content files contain 24 carefully written matching phrases for classifying denials by wording, but the matcher that would use them is not built yet, so the wording picker is a plain list. The data shipped ahead of the feature.</p>
 
-        <h4>What I Learned</h4>
+        <h3 class="eyebrow-heading">What I Learned</h3>
         <p>Appeal Kit taught me to write the invariants before the code, and then to treat every one as an engineering requirement rather than a value statement. The privacy promise became a lint rule, a build step, and a passing test. The legal boundary became a type with a safe default. The honesty about unverified content became a schema. When a promise has a mechanism, it survives refactors, fatigue, and future contributors. When it does not, it is a hope.</p>
 
         <div class="insight-grid">

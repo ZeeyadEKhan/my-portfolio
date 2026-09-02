@@ -326,6 +326,19 @@ h4 {
   margin-bottom: 0.6rem;
 }
 
+/* Eyebrow look for headings whose outline level differs from h4:
+   same visual as h4 above, applied to h2/h3 to keep heading levels
+   sequential without changing the design. */
+.eyebrow-heading {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+  margin-top: 2.25rem;
+  margin-bottom: 0.6rem;
+}
+
 strong { font-weight: 600; color: var(--ink); }
 
 /* ─── META STRIP ─── */
@@ -655,7 +668,8 @@ hr { border: none; border-top: 1px solid var(--border); margin: 4rem 0; }
   margin-bottom: 3.5rem;
 }
 
-.case-summary h4 {
+.case-summary h4,
+.case-summary .eyebrow-heading {
   margin-top: 0;
 }
 
