@@ -212,7 +212,9 @@ ul { list-style: none; }
 /* ─── CASE STUDY: LAYOUT ─── */
 .layout {
   display: grid;
-  grid-template-columns: var(--sidebar-w) 1fr;
+  /* minmax(0, 1fr) so wide intrinsic content (code blocks) scrolls inside
+     the column instead of widening the page */
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
   max-width: var(--page-max);
   margin: 0 auto;
   padding: 0 2.5rem;
@@ -262,6 +264,12 @@ ul { list-style: none; }
 .content {
   padding: 5.5rem 0 6rem 4.5rem;
   max-width: var(--content-max);
+  min-width: 0;
+}
+
+.content pre {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 /* ─── SECTION SCAFFOLDING ─── */
