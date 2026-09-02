@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DepositProof. Move out evidence, organized like a case file.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* palette */
+    --paper:#FEFEFE;
+    --ink:#101623;
+    --navy:#101623;
+    --navy-2:#1A2233;
+    --muted:#5B6472;
+    --faint:#8A93A3;
+    --line:#E4E8EF;
+    --line-soft:#EEF1F6;
+    --board:#F4F6FA;
+    --blue:#246EFA;
+    --blue-deep:#1D5FE8;
+    --blue-press:#1751C9;
+    --blue-text:#1A5BE0;
+    --blue-soft:#EAF1FF;
+    --blue-mist:#8FB5FF;
+    --green:#51D560;
+    --green-text:#167A22;
+    --green-soft:#EAFBEC;
+    --green-edge:#BFEEC6;
+    --red:#F93C3F;
+    --red-text:#C22326;
+    --red-soft:#FEECEC;
+    --red-edge:#F7C6C6;
+    --amber:#F9AE22;
+    --amber-text:#8A5B00;
+    --amber-soft:#FEF5E2;
+    --amber-edge:#F3DDB0;
+    /* type */
+    --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    --sans:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+    /* elevation */
+    --shadow-1:0 1px 2px rgba(16,22,35,.05),0 2px 8px rgba(16,22,35,.05);
+    --shadow-2:0 2px 4px rgba(16,22,35,.06),0 10px 28px rgba(16,22,35,.10);
+    --shadow-3:0 4px 8px rgba(16,22,35,.08),0 20px 48px rgba(16,22,35,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  ::selection{background:var(--blue);color:#fff}
+  img,svg{max-width:100%}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  section{scroll-margin-top:88px}
+
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
+    outline:2px solid var(--blue-text);outline-offset:2px;border-radius:4px
+  }
+
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:20;background:rgba(254,254,254,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:16px;letter-spacing:-.02em;min-width:0}
+  .brand .dot{flex:none;width:10px;height:10px;border-radius:3px;background:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+  .casecode{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--muted);white-space:nowrap}
+  .entrychip{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.02em;color:var(--blue-text);background:var(--blue-soft);border:1px solid #D6E4FF;border-radius:999px;padding:3px 10px;white-space:nowrap;opacity:0;transform:translateY(2px);transition:opacity .25s ease,transform .25s ease;pointer-events:none}
+  .entrychip.on{opacity:1;transform:none}
+  nav{display:flex;gap:4px;flex-wrap:wrap}
+  nav a{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:6px;transition:color .15s,background .15s}
+  nav a:hover,nav a:focus-visible{color:var(--blue-text);background:var(--blue-soft)}
+  @media(max-width:760px){
+    .bar{height:auto;min-height:64px;flex-wrap:wrap;padding:10px 0}
+    .casecode{display:none}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{padding:72px 0 64px;border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-text);margin-bottom:16px}
+  .eyebrow::before{content:'';width:20px;height:2px;background:var(--blue);border-radius:1px}
+  h1{font-size:clamp(34px,4.6vw,54px);font-weight:800;letter-spacing:-.03em;line-height:1.06;max-width:17ch}
+  .hero-copy p{margin-top:16px;max-width:52ch;color:var(--muted);font-size:17px;line-height:1.6}
+  .cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+
+  .btn{font:inherit;font-weight:700;font-size:14px;border:none;cursor:pointer;border-radius:8px;padding:12px 20px;background:var(--blue-deep);color:#fff;box-shadow:var(--shadow-1);transition:background .15s,transform .1s,box-shadow .15s}
+  .btn:hover{background:var(--blue-press);box-shadow:var(--shadow-2)}
+  .btn:active{transform:translateY(1px)}
+  .btn.ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--blue-deep);color:var(--blue-text);background:var(--blue-soft);box-shadow:none}
+  .btn-block{margin-top:16px;width:100%}
+
+  /* evidence board field behind the specimen */
+  .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:400px;border-radius:16px;background:var(--board);border:1px solid var(--line-soft);overflow:hidden}
+  .hero-visual::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(36,110,250,.14) 1px,transparent 1.4px);background-size:24px 24px;pointer-events:none}
+  .board-note{position:absolute;top:16px;left:20px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--faint);text-transform:uppercase}
+
+  /* the specimen tag */
+  .specimen{position:relative;width:368px;max-width:88%}
+  .spec-back{position:absolute;top:14px;left:-12px;width:100%;height:100%;background:#F7F9FC;border:1px solid var(--line);border-radius:10px;transform:rotate(-2.6deg);box-shadow:var(--shadow-1)}
+  .spec-hang{position:relative;filter:drop-shadow(0 3px 4px rgba(16,22,35,.08)) drop-shadow(0 18px 30px rgba(16,22,35,.16));transform:rotate(2.4deg);animation:float 7s ease-in-out infinite alternate}
+  @keyframes float{from{translate:0 0}to{translate:0 -7px}}
+  .spec-front{position:relative;background:#fff;clip-path:polygon(0 50%,34px 0,calc(100% - 10px) 0,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,34px 100%);padding:24px 24px 24px 62px;min-height:216px}
+  .spec-front::before{content:'';position:absolute;left:44px;top:12px;bottom:12px;border-left:2px dashed var(--line)}
+  .spec-eyelet{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;background:var(--board);border:4px solid #D5DBE6;box-shadow:inset 0 1px 2px rgba(16,22,35,.25),0 1px 0 rgba(255,255,255,.9)}
+  .spec-head{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.16em;color:var(--blue-text);text-transform:uppercase}
+  .spec-room{font-size:17px;font-weight:800;letter-spacing:-.01em;margin-top:8px}
+  .spec-note{font-size:13px;color:var(--muted);margin-top:2px;max-width:30ch}
+  .spec-meta{margin-top:16px;padding-top:12px;border-top:1px solid var(--line-soft);display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-family:var(--mono);font-size:11px}
+  .spec-meta .k{color:var(--faint);letter-spacing:.08em}
+  .spec-meta .v{color:var(--ink);font-weight:500}
+  .spec-meta .v.ok{color:var(--green-text)}
+  .spec-stamp{position:absolute;top:18px;right:16px;transform:rotate(-7deg);font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.22em;color:var(--blue-text);border:2px solid var(--blue-deep);border-radius:4px;padding:4px 10px 4px 12px;opacity:.85}
+  .spec-code{position:absolute;right:18px;bottom:16px;width:84px;height:16px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 7px,transparent 7px 9px,var(--ink) 9px 10px,transparent 10px 14px);opacity:.8}
+
+  /* docket strip */
+  .deadline{margin-top:48px;display:flex;background:var(--navy);border-radius:12px;overflow:hidden;box-shadow:var(--shadow-2)}
+  .deadline > div{flex:1;min-width:150px;padding:20px 24px}
+  .deadline > div + div{border-left:1px solid rgba(254,254,254,.12)}
+  .deadline .k{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#93A0B4}
+  .deadline .v{font-weight:800;font-size:19px;letter-spacing:-.01em;margin-top:6px;color:var(--paper)}
+  .deadline .v.blue{color:var(--blue-mist)}
+  @media(max-width:960px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero-visual{min-height:340px}
+  }
+  @media(max-width:640px){
+    .hero{padding:48px 0 48px}
+    .deadline{flex-direction:column}
+    .deadline > div + div{border-left:none;border-top:1px solid rgba(254,254,254,.12)}
+    .spec-hang{transform:rotate(1.6deg)}
+    .spec-front{padding:20px 16px 20px 56px;min-height:200px}
+    .spec-head{padding-right:70px}
+    .spec-stamp{top:14px;right:10px;font-size:10px;letter-spacing:.14em;padding:3px 8px}
+    .spec-code{display:none}
+  }
+
+  /* ---------- section scaffolding ---------- */
+  section{padding:88px 0;border-bottom:1px solid var(--line)}
+  .step{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--blue-text);background:var(--blue-soft);border:1px solid #D6E4FF;border-radius:4px;padding:4px 10px;margin-bottom:16px}
+  h2{font-size:clamp(24px,3vw,32px);font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+  .lede{color:var(--muted);max-width:58ch;font-size:16px;line-height:1.6;margin-bottom:40px}
+  @media(max-width:640px){section{padding:56px 0}.lede{margin-bottom:32px}}
+
+  .grid{display:grid;grid-template-columns:360px 1fr;gap:32px;align-items:start}
+  @media(max-width:880px){.grid{grid-template-columns:1fr}}
+
+  .panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px;box-shadow:var(--shadow-1)}
+  .panel h3{font-size:15px;font-weight:700;margin-bottom:8px}
+  label{display:block;font-size:13px;font-weight:600;margin:16px 0 6px}
+  input,select,textarea{font:inherit;font-size:14px;width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+  input:hover,select:hover,textarea:hover{border-color:#CBD3E0}
+  input:focus,select:focus,textarea:focus{border-color:var(--blue-deep);box-shadow:0 0 0 3px var(--blue-soft);outline:none}
+  input::placeholder{color:var(--faint)}
+  textarea{resize:vertical}
+  .hint{font-size:12px;color:var(--muted);line-height:1.5;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+
+  /* ---------- module 1: evidence tags ---------- */
+  .taglist{display:flex;flex-direction:column;gap:12px}
+  .tag{position:relative;background:#fff;border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:8px;padding:14px 16px 14px 40px;display:flex;justify-content:space-between;gap:12px;align-items:flex-start;box-shadow:var(--shadow-1);transition:transform .18s ease,box-shadow .18s ease;animation:tagIn .32s ease backwards}
+  .tag:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
+  @keyframes tagIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .tag::before{content:'';position:absolute;left:16px;top:19px;width:9px;height:9px;border-radius:50%;background:var(--board);border:2.5px solid #D5DBE6;box-shadow:inset 0 1px 1px rgba(16,22,35,.2)}
+  .tag .room{font-weight:700;font-size:14px;letter-spacing:-.01em}
+  .tag .cond{font-size:13px;color:var(--muted);margin-top:2px}
+  .tag .meta{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:8px;letter-spacing:.02em}
+  .tag button{flex:none;background:none;border:1px solid transparent;border-radius:6px;color:var(--faint);cursor:pointer;font:inherit;font-size:12px;font-weight:600;padding:4px 8px;transition:color .15s,border-color .15s,background .15s}
+  .tag button:hover{color:var(--red-text);border-color:var(--red-edge);background:var(--red-soft)}
+  .tagbody{flex:1;min-width:0}
+  .thumbbtn{flex:none;padding:0;border:none;background:none;cursor:zoom-in;border-radius:4px;line-height:0}
+  .thumb{width:64px;height:64px;border-radius:4px;object-fit:cover;border:1px solid var(--line);box-shadow:var(--shadow-1);transition:box-shadow .18s ease}
+  .thumbbtn:hover .thumb{box-shadow:var(--shadow-2)}
+  .vbadge{display:inline-block;font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;padding:2px 6px;margin-left:8px;vertical-align:2px;white-space:nowrap}
+  .vbadge.exif{color:var(--blue-text);background:var(--blue-soft);border:1px solid var(--blue)}
+  .vbadge.dev{color:var(--muted);background:var(--board);border:1px solid var(--line)}
+  input[type=file]{padding:8px;font-size:13px;color:var(--muted)}
+  input[type=file]::file-selector-button{font:inherit;font-weight:600;font-size:13px;color:var(--blue-text);background:var(--blue-soft);border:1px solid #D6E4FF;border-radius:6px;padding:6px 12px;margin-right:10px;cursor:pointer;transition:background .15s}
+  input[type=file]::file-selector-button:hover{background:#DCE9FF}
+  .empty{border:1.5px dashed var(--line);border-radius:10px;padding:48px 32px;text-align:center;color:var(--muted);font-size:13px;line-height:1.6;background:var(--board)}
+  .counter{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.02em;margin-top:16px}
+  .listactions{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+
+  /* ---------- module 2: verdict ---------- */
+  .verdict{border-radius:12px;padding:24px;border:1px solid var(--line);border-bottom-width:3px;box-shadow:var(--shadow-1);transition:background-color .35s ease,border-color .35s ease}
+  .verdict .vhead{display:flex;align-items:center;gap:12px}
+  .vicon{flex:none;width:32px;height:32px;border-radius:50%;display:none;align-items:center;justify-content:center;background:#fff;box-shadow:var(--shadow-1)}
+  .verdict.wear .vicon.ic-wear{display:flex;color:var(--green-text)}
+  .verdict.damage .vicon.ic-damage{display:flex;color:var(--red-text)}
+  .verdict.judgment .vicon.ic-judgment{display:flex;color:var(--amber-text)}
+  .verdict .label{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:600}
+  .verdict.wear{background:var(--green-soft);border-color:var(--green-edge);border-bottom-color:var(--green)}
+  .verdict.damage{background:var(--red-soft);border-color:var(--red-edge);border-bottom-color:var(--red)}
+  .verdict.judgment{background:var(--amber-soft);border-color:var(--amber-edge);border-bottom-color:var(--amber)}
+  .verdict.wear .label{color:var(--green-text)}
+  .verdict.damage .label{color:var(--red-text)}
+  .verdict.judgment .label{color:var(--amber-text)}
+  .verdict h4{font-size:20px;font-weight:800;letter-spacing:-.015em;margin:14px 0 8px}
+  .verdict p{font-size:14px;line-height:1.6;color:var(--ink)}
+  .verdict .cite{font-family:var(--mono);font-size:11px;line-height:1.6;color:var(--muted);margin-top:16px;padding-top:12px;border-top:1px dashed rgba(16,22,35,.18)}
+  .verdict.swap .vfade{animation:vIn .3s ease}
+  @keyframes vIn{from{opacity:.2}to{opacity:1}}
+  .flagbtn{margin-top:16px}
+  .flagbtn.added{color:var(--green-text);border-color:var(--green-edge);background:var(--green-soft)}
+  .flaglist{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+  .flaglist:empty{display:none}
+  .flaghead{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .flagrow{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:8px;padding:10px 12px;box-shadow:var(--shadow-1);animation:tagIn .28s ease backwards}
+  .flagrow .fl-main{min-width:0}
+  .flagrow .fl-item{font-weight:700;font-size:13px;letter-spacing:-.01em}
+  .flagrow .fl-verdict{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:2px}
+  .flagrow button{flex:none;background:none;border:1px solid transparent;border-radius:6px;color:var(--faint);cursor:pointer;font:inherit;font-size:12px;font-weight:600;padding:4px 8px;transition:color .15s,border-color .15s,background .15s}
+  .flagrow button:hover{color:var(--red-text);border-color:var(--red-edge);background:var(--red-soft)}
+  .meta .soft{opacity:.7;font-style:italic}
+
+  /* ---------- module 3: letter on a desk ---------- */
+  .disclaimer{display:flex;gap:12px;align-items:flex-start;background:var(--amber-soft);border:1px solid var(--amber-edge);border-left:3px solid var(--amber);border-radius:10px;padding:16px;font-size:13px;line-height:1.6;margin-bottom:24px;max-width:72ch}
+  .disclaimer .sig{flex:none;color:var(--amber-text);font-size:15px;line-height:1.4}
+  .disclaimer strong{font-weight:700}
+  .desk{background:var(--board);border:1px solid var(--line-soft);border-radius:16px;padding:32px}
+  .letter{position:relative;background:#fff;border:1px solid var(--line-soft);border-radius:2px;padding:40px 40px 40px 64px;font-size:13.5px;white-space:pre-wrap;font-family:var(--mono);line-height:1.75;max-height:560px;overflow:auto;box-shadow:var(--shadow-2);color:var(--ink)}
+  .letter::before{content:'';position:absolute;left:44px;top:0;bottom:0;border-left:1px solid rgba(249,60,63,.28);pointer-events:none}
+  .ph{font-family:inherit;background:var(--amber-soft);color:var(--amber-text);font-weight:600;border-radius:3px;padding:0 4px;box-shadow:inset 0 -1px 0 var(--amber-edge)}
+  .letteractions{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+  @media(max-width:640px){
+    .desk{padding:16px}
+    .letter{padding:24px 20px 24px 44px;font-size:12.5px}
+    .letter::before{left:30px}
+  }
+
+  /* ---------- footer / toast ---------- */
+  footer{background:var(--navy);color:#93A0B4;font-size:13px;padding:40px 0 48px}
+  footer .fx{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer .fbrand{color:var(--paper);font-weight:700}
+  footer .fmono{font-family:var(--mono);font-size:11px;letter-spacing:.06em;margin-top:8px}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(6px);background:var(--navy);color:#fff;font-size:13px;font-weight:600;padding:11px 20px;border-radius:10px;box-shadow:var(--shadow-3);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;z-index:30}
+  .toast.show{opacity:1;transform:translateX(-50%)}
+
+  /* ---------- lightbox ---------- */
+  .lightbox{position:fixed;inset:0;z-index:40;background:rgba(16,22,35,.93);display:none;align-items:center;justify-content:center;padding:48px 32px 88px;cursor:zoom-out}
+  .lightbox.open{display:flex;animation:lbIn .18s ease}
+  @keyframes lbIn{from{opacity:0}to{opacity:1}}
+  .lightbox img{max-width:88vw;max-height:74vh;border-radius:8px;box-shadow:var(--shadow-3);background:#fff}
+  .lb-cap{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);max-width:min(88vw,660px);background:rgba(16,22,35,.86);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:14px 20px;text-align:center;box-shadow:0 12px 32px rgba(0,0,0,.45)}
+  .lb-cap .lb-head{font-family:var(--sans);font-weight:700;font-size:14px;letter-spacing:-.01em;color:#F4F6FA}
+  .lb-cap .lb-meta{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:9px 16px;margin-top:11px;font-family:var(--mono);font-size:12px;color:#C9D2E0}
+  .lb-cap .lb-badge{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:3px 9px}
+  .lb-cap .lb-badge.exif{color:#DCE9FF;background:rgba(36,110,250,.24);border:1px solid rgba(143,181,255,.65)}
+  .lb-cap .lb-badge.dev{color:#C9D2E0;background:rgba(254,254,254,.09);border:1px solid rgba(254,254,254,.28)}
+  .lb-cap .lb-k{color:#8FB5FF;letter-spacing:.06em}
+  .lb-cap .lb-hint{margin-top:11px;font-family:var(--mono);font-size:10.5px;color:#7E8AA0;letter-spacing:.02em}
+  .lb-close{position:absolute;top:16px;right:16px;background:rgba(254,254,254,.12);border:1px solid rgba(254,254,254,.35);color:#fff;border-radius:8px;font:inherit;font-weight:700;font-size:13px;padding:8px 16px;cursor:pointer;transition:background .15s}
+  .lb-close:hover{background:rgba(254,254,254,.24)}
+  .lb-close:focus-visible{outline:2px solid var(--blue-mist);outline-offset:2px}
+
+  /* ---------- reduced motion ---------- */
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none !important;transition:none !important}
+    html{scroll-behavior:auto}
+  }
+
+  /* ---------- print: the letter only ---------- */
+  @media print{
+    header,footer,.hero,#protocol,#classify,.toast,.lightbox,
+    #letter .step,#letter h2,#letter .lede,#letter .disclaimer,#letter .panel,#letter .letteractions{display:none !important}
+    body{background:#fff}
+    section{padding:0;border:none}
+    #letter .grid{display:block}
+    .desk{background:#fff;border:none;border-radius:0;padding:0}
+    .letter{border:none;border-radius:0;box-shadow:none;padding:0;max-height:none;overflow:visible;color:#000;font-size:11pt;line-height:1.7}
+    .letter::before{display:none}
+    .ph{background:none;color:#000;font-weight:400;box-shadow:none;padding:0}
+    @page{margin:2cm}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <div class="brand">
+      <span class="dot"></span>DepositProof
+      <span class="casecode" id="casecode">CASE 2026 0718 001</span>
+      <span class="entrychip" id="entryCount" aria-hidden="true">0 entries</span>
+    </div>
+    <nav aria-label="Sections">
+      <a href="#protocol">Photo protocol</a>
+      <a href="#classify">Wear or damage</a>
+      <a href="#letter">Dispute letter</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" aria-label="Introduction">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Evidence tooling for tenants</div>
+        <h1>Your deposit is a claim. Document it like one.</h1>
+        <p>DepositProof turns your move out into a case file: a timestamped photo protocol, a wear versus damage check grounded in state deposit law, and a dispute letter template you fill with your own facts. Built for tenants, admissible in small claims.</p>
+        <div class="cta">
+          <button class="btn" onclick="document.getElementById('protocol').scrollIntoView()">Start the protocol</button>
+          <button class="btn ghost" onclick="document.getElementById('letter').scrollIntoView()">Preview the letter</button>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Sample evidence tag with a live timestamp">
+        <span class="board-note" aria-hidden="true">Specimen · actual size</span>
+        <div class="specimen">
+          <div class="spec-back" aria-hidden="true"></div>
+          <div class="spec-hang">
+            <div class="spec-front">
+              <span class="spec-eyelet" aria-hidden="true"></span>
+              <div class="spec-head">Evidence · Exhibit A</div>
+              <div class="spec-room">Kitchen · wide shot</div>
+              <div class="spec-note">Counter chip left of sink, present at move in</div>
+              <div class="spec-meta">
+                <span class="k">IMG</span><span class="v">0001 · CASE 2026 0718 001</span>
+                <span class="k">TIME</span><span class="v" id="specimenTime">2026 07 18 · 00:00:00</span>
+                <span class="k">GPS</span><span class="v ok">Locked · hash pending</span>
+              </div>
+              <span class="spec-stamp" aria-hidden="true">LOGGED</span>
+              <span class="spec-code" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="deadline" role="group" aria-label="Deadline summary">
+      <div><div class="k">Your state</div><div class="v" id="dlState">Georgia</div></div>
+      <div><div class="k">Return deadline</div><div class="v blue" id="dlDays">30 days</div></div>
+      <div><div class="k">Itemization required</div><div class="v" id="dlItem">Yes</div></div>
+    </div>
+  </section>
+
+  <section id="protocol" aria-label="Photo protocol">
+    <div class="step">MODULE 01</div>
+    <h2>Timestamped photo protocol</h2>
+    <p class="lede">Photos win disputes when they are systematic, dated, and complete. Log each shot as you take it. Every entry gets a timestamp and a room tag, and the export bundles everything into a packet you can hand to a landlord, a mediator, or a small claims clerk.</p>
+    <div class="grid">
+      <div class="panel">
+        <h3>Log a photo</h3>
+        <label for="photoFile">Photo</label>
+        <input id="photoFile" type="file" accept="image/*" multiple>
+        <label for="location">Location</label>
+        <select id="location" onchange="toggleLocationOther()">
+          <option>Kitchen</option><option>Bathroom</option><option>Bedroom</option>
+          <option>Living room</option><option>Hallway</option>
+          <option value="__other__">Other</option>
+        </select>
+        <div id="locationOtherWrap" style="display:none">
+          <label for="locationOther">Name the location</label>
+          <input id="locationOther" placeholder="For example, garage or patio">
+        </div>
+        <label for="surface">Surface or item</label>
+        <select id="surface" onchange="toggleSurfaceOther()">
+          <option value="">Whole room or wide shot</option>
+          <option>Walls and paint</option><option>Carpet and floors</option>
+          <option>Appliances</option><option>Windows and blinds</option>
+          <option value="__other__">Other</option>
+        </select>
+        <div id="surfaceOtherWrap" style="display:none">
+          <label for="surfaceOther">Name the surface or item</label>
+          <input id="surfaceOther" placeholder="For example, ceiling or trim">
+        </div>
+        <label for="subject">What the photo shows</label>
+        <input id="subject" placeholder="Nail holes in the wall, about twelve total">
+        <label for="condition">Condition note</label>
+        <input id="condition" placeholder="Small holes, no cracked paint around them">
+        <button class="btn btn-block" onclick="logPhoto()">Log photo with timestamp</button>
+        <p class="hint">EXIF capture time and GPS coordinates are read from each file right in your browser, and every file gets a SHA 256 fingerprint. Nothing uploads anywhere.</p>
+      </div>
+      <div>
+        <div class="taglist" id="taglist">
+          <div class="empty" id="emptyState">No photos logged yet. Upload one or more images per area, wide shot first, then close ups of anything a landlord might charge for.</div>
+        </div>
+        <div class="counter" id="counter">0 entries · 0 rooms covered</div>
+        <div class="listactions">
+          <button class="btn ghost" onclick="exportPacket()">Export evidence packet</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="classify" aria-label="Wear versus damage classifier">
+    <div class="step">MODULE 02</div>
+    <h2>Wear or damage</h2>
+    <p class="lede">Landlords cannot deduct for normal wear and tear in any state. The line between wear and damage decides most deposit disputes. Pick what your landlord charged for and see where it usually falls.</p>
+    <div class="grid">
+      <div class="panel">
+        <h3>Check a deduction</h3>
+        <label for="state">State</label>
+        <select id="state" onchange="updateState()"></select>
+        <label for="item">Item charged</label>
+        <select id="item" onchange="onItemChange()">
+          <option value="nailholes">Small nail holes in walls</option>
+          <option value="paint">Faded or scuffed paint</option>
+          <option value="carpetwear">Worn carpet in walk paths</option>
+          <option value="carpetstain">Large carpet stains or burns</option>
+          <option value="holes">Large holes in drywall</option>
+          <option value="blinds">Sun damaged blinds</option>
+          <option value="brokendoor">Broken door or hinge</option>
+          <option value="grime">Dirty oven or heavy grime</option>
+          <option value="pet">Pet urine odor in flooring</option>
+          <option value="__other__">Other</option>
+        </select>
+        <div id="itemOtherWrap" style="display:none">
+          <label for="itemOther">Describe the charge</label>
+          <input id="itemOther" placeholder="What the landlord deducted for" oninput="classify()">
+        </div>
+        <label for="years">Years you lived there</label>
+        <input id="years" type="number" min="0" max="30" value="3" onchange="classify()">
+        <p class="hint">Tenancy length matters. Courts expect more wear after three years than after six months, and they prorate the useful life of paint and carpet.</p>
+      </div>
+      <div>
+        <div class="verdict wear" id="verdict">
+          <div class="vfade">
+            <div class="vhead">
+              <span class="vicon ic-wear" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10 -10"/></svg></span>
+              <span class="vicon ic-damage" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+              <span class="vicon ic-judgment" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15"/><path d="M8.5 19h7"/><path d="M5 7h14"/><path d="M5 7l-2.6 5.2a2.9 2.9 0 0 0 5.2 0Z"/><path d="M19 7l-2.6 5.2a2.9 2.9 0 0 0 5.2 0Z"/></svg></span>
+              <span class="label" id="vLabel">Usually normal wear</span>
+            </div>
+            <h4 id="vTitle">Small nail holes in walls</h4>
+            <p id="vBody">Courts in most states treat a reasonable number of small nail holes as ordinary use of the home. A charge to patch them is usually not deductible.</p>
+            <div class="cite" id="vCite">General principle across state deposit statutes. Verify your statute before you rely on it.</div>
+          </div>
+        </div>
+        <button class="btn ghost flagbtn" id="flagBtn" onclick="addToLetter()">Add this deduction to my dispute letter</button>
+        <div class="flaglist" id="flagList" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="letter" aria-label="Dispute letter builder">
+    <div class="step">MODULE 03</div>
+    <h2>Dispute letter template</h2>
+    <div class="disclaimer" role="note">
+      <span class="sig" aria-hidden="true">&#9888;</span>
+      <div><strong>This is a template, not legal advice.</strong> DepositProof gives you a structure and you supply the facts. It does not evaluate your case or predict an outcome. For amounts above small claims limits or anything unusual, talk to a tenant rights organization or a lawyer.</div>
+    </div>
+    <p class="lede">The letter pulls in your state deadline, your logged evidence count, and any deductions you flagged in module two. Fill in the blanks, review every line, and send it certified mail. Anything still highlighted in amber needs your facts before it goes in the mail.</p>
+    <div class="grid">
+      <div class="panel">
+        <h3>Your facts</h3>
+        <label for="fName">Your name</label>
+        <input id="fName" placeholder="Full name" oninput="buildLetter()">
+        <label for="fLandlord">Landlord or property manager</label>
+        <input id="fLandlord" placeholder="Name or company" oninput="buildLetter()">
+        <label for="fAddress">Rental address</label>
+        <input id="fAddress" placeholder="Street, city, state" oninput="buildLetter()">
+        <label for="fMoveout">Move out date</label>
+        <input id="fMoveout" type="date" oninput="buildLetter()">
+        <label for="fDeposit">Deposit amount</label>
+        <input id="fDeposit" type="number" min="0" placeholder="2400" oninput="buildLetter()">
+      </div>
+      <div>
+        <div class="desk">
+          <div class="letter" id="letterBody" aria-live="polite"></div>
+        </div>
+        <div class="letteractions">
+          <button class="btn" onclick="copyLetter()">Copy letter text</button>
+          <button class="btn ghost" onclick="window.print()">Print</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap fx">
+    <div>
+      <div class="fbrand">DepositProof</div>
+      <div>A UX case study prototype by Zeeyad Khan</div>
+      <div class="fmono">CASE 2026 0718 001 · FILE UNDER TENANT</div>
+    </div>
+    <div>Not a law firm. Not legal advice. Your facts, your letter, your call.</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" onclick="closeLightbox()">
+  <button class="lb-close" id="lbClose" onclick="closeLightbox()">Close</button>
+  <img id="lbImg" alt="">
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<script>
+const STATES = {
+  AL:{name:'Alabama',days:'60 days',item:'Yes, itemized',cite:'Ala. Code section 35 9A 201'},
+  AK:{name:'Alaska',days:'14 to 30 days',item:'Yes, itemized',cite:'Alaska Stat. section 34.03.070'},
+  AZ:{name:'Arizona',days:'14 business days',item:'Yes, itemized',cite:'Ariz. Rev. Stat. section 33 1321'},
+  AR:{name:'Arkansas',days:'60 days',item:'Yes, itemized',cite:'Ark. Code section 18 16 305'},
+  CA:{name:'California',days:'21 days',item:'Yes, itemized',cite:'Cal. Civ. Code section 1950.5'},
+  CO:{name:'Colorado',days:'30 to 60 days',item:'Yes, itemized',cite:'Colo. Rev. Stat. section 38 12 103'},
+  CT:{name:'Connecticut',days:'30 days',item:'Yes, itemized',cite:'Conn. Gen. Stat. section 47a 21'},
+  DE:{name:'Delaware',days:'20 days',item:'Yes, itemized',cite:'Del. Code tit. 25 section 5514'},
+  FL:{name:'Florida',days:'15 to 30 days',item:'Yes, with notice',cite:'Fla. Stat. section 83.49'},
+  GA:{name:'Georgia',days:'30 days',item:'Yes, if deducting',cite:'O.C.G.A. section 44 7 34'},
+  HI:{name:'Hawaii',days:'14 days',item:'Yes, itemized',cite:'Haw. Rev. Stat. section 521 44'},
+  ID:{name:'Idaho',days:'21 to 30 days',item:'Yes, itemized',cite:'Idaho Code section 6 321'},
+  IL:{name:'Illinois',days:'30 to 45 days',item:'Yes, itemized',cite:'765 ILCS 710'},
+  IN:{name:'Indiana',days:'45 days',item:'Yes, itemized',cite:'Ind. Code section 32 31 3 12'},
+  IA:{name:'Iowa',days:'30 days',item:'Yes, itemized',cite:'Iowa Code section 562A.12'},
+  KS:{name:'Kansas',days:'30 days',item:'Yes, itemized',cite:'Kan. Stat. section 58 2550'},
+  KY:{name:'Kentucky',days:'30 to 60 days',item:'Yes, itemized',cite:'Ky. Rev. Stat. section 383.580'},
+  LA:{name:'Louisiana',days:'30 days',item:'Yes, itemized',cite:'La. Rev. Stat. section 9:3251'},
+  ME:{name:'Maine',days:'21 to 30 days',item:'Yes, itemized',cite:'Me. Rev. Stat. tit. 14 section 6033'},
+  MD:{name:'Maryland',days:'45 days',item:'Yes, itemized',cite:'Md. Code Real Prop. section 8 203'},
+  MA:{name:'Massachusetts',days:'30 days',item:'Yes, itemized',cite:'Mass. Gen. Laws ch. 186 section 15B'},
+  MI:{name:'Michigan',days:'30 days',item:'Yes, itemized',cite:'Mich. Comp. Laws section 554.609'},
+  MN:{name:'Minnesota',days:'21 days',item:'Yes, itemized',cite:'Minn. Stat. section 504B.178'},
+  MS:{name:'Mississippi',days:'45 days',item:'Yes, itemized',cite:'Miss. Code section 89 8 21'},
+  MO:{name:'Missouri',days:'30 days',item:'Yes, itemized',cite:'Mo. Rev. Stat. section 535.300'},
+  MT:{name:'Montana',days:'10 to 30 days',item:'Yes, itemized',cite:'Mont. Code section 70 25 202'},
+  NE:{name:'Nebraska',days:'14 days',item:'Yes, itemized',cite:'Neb. Rev. Stat. section 76 1416'},
+  NV:{name:'Nevada',days:'30 days',item:'Yes, itemized',cite:'Nev. Rev. Stat. section 118A.242'},
+  NH:{name:'New Hampshire',days:'30 days',item:'Yes, itemized',cite:'N.H. Rev. Stat. section 540 A:7'},
+  NJ:{name:'New Jersey',days:'30 days',item:'Yes, itemized',cite:'N.J. Stat. section 46:8 21.1'},
+  NM:{name:'New Mexico',days:'30 days',item:'Yes, itemized',cite:'N.M. Stat. section 47 8 18'},
+  NY:{name:'New York',days:'14 days',item:'Yes, itemized',cite:'N.Y. Gen. Oblig. Law section 7 108'},
+  NC:{name:'North Carolina',days:'30 days',item:'Yes, itemized',cite:'N.C. Gen. Stat. section 42 52'},
+  ND:{name:'North Dakota',days:'30 days',item:'Yes, itemized',cite:'N.D. Cent. Code section 47 16 07.1'},
+  OH:{name:'Ohio',days:'30 days',item:'Yes, itemized',cite:'Ohio Rev. Code section 5321.16'},
+  OK:{name:'Oklahoma',days:'45 days',item:'Yes, itemized',cite:'Okla. Stat. tit. 41 section 115'},
+  OR:{name:'Oregon',days:'31 days',item:'Yes, itemized',cite:'Or. Rev. Stat. section 90.300'},
+  PA:{name:'Pennsylvania',days:'30 days',item:'Yes, itemized',cite:'68 Pa. Stat. section 250.512'},
+  RI:{name:'Rhode Island',days:'20 days',item:'Yes, itemized',cite:'R.I. Gen. Laws section 34 18 19'},
+  SC:{name:'South Carolina',days:'30 days',item:'Yes, itemized',cite:'S.C. Code section 27 40 410'},
+  SD:{name:'South Dakota',days:'14 to 45 days',item:'Yes, itemized',cite:'S.D. Codified Laws section 43 32 24'},
+  TN:{name:'Tennessee',days:'30 days',item:'Yes, itemized',cite:'Tenn. Code section 66 28 301'},
+  TX:{name:'Texas',days:'30 days',item:'Yes, itemized',cite:'Tex. Prop. Code section 92.103'},
+  UT:{name:'Utah',days:'30 days',item:'Yes, itemized',cite:'Utah Code section 57 17 3'},
+  VT:{name:'Vermont',days:'14 days',item:'Yes, itemized',cite:'Vt. Stat. tit. 9 section 4461'},
+  VA:{name:'Virginia',days:'45 days',item:'Yes, itemized',cite:'Va. Code section 55.1 1226'},
+  WA:{name:'Washington',days:'30 days',item:'Yes, itemized',cite:'RCW 59.18.280'},
+  WV:{name:'West Virginia',days:'45 to 60 days',item:'Yes, itemized',cite:'W. Va. Code section 37 6A 18'},
+  WI:{name:'Wisconsin',days:'21 days',item:'Yes, itemized',cite:'Wis. Stat. section 704.28'},
+  WY:{name:'Wyoming',days:'30 days',item:'Yes, itemized',cite:'Wyo. Stat. section 1 21 1208'}
+};
+
+const RULES = {
+  nailholes:{v:'wear',label:'Usually normal wear',body:'Courts in most states treat a reasonable number of small nail holes as ordinary use of the home. A charge to patch them is usually not deductible.'},
+  paint:{v:'wear',label:'Usually normal wear',body:'Paint has a useful life, often treated as two to three years. Fading and light scuffs from ordinary living are wear. After a full repaint cycle, charging you for repainting is hard to justify.'},
+  carpetwear:{v:'wear',label:'Usually normal wear',body:'Traffic patterns in walk paths are the definition of normal wear. Carpet also depreciates, so even genuine damage is prorated against its remaining useful life, not charged at full replacement cost.'},
+  carpetstain:{v:'damage',label:'Usually chargeable damage',body:'Large stains, burns, and tears go beyond ordinary use. Expect a deduction, but only for the depreciated value of the carpet, not a brand new replacement.'},
+  holes:{v:'damage',label:'Usually chargeable damage',body:'Large holes in drywall exceed normal use and are generally deductible at a reasonable repair cost. Get your own repair quote so the charge cannot be inflated.'},
+  blinds:{v:'wear',label:'Usually normal wear',body:'Sun damage happens to blinds no matter who lives there. Deterioration from ordinary exposure is wear, not tenant damage.'},
+  brokendoor:{v:'judgment',label:'Depends on the cause',body:'A hinge that failed from age is wear. A door broken by impact is damage. The cause decides it, which is exactly why your photo protocol matters.'},
+  grime:{v:'judgment',label:'Depends on the lease and degree',body:'Ordinary cleaning is often on the landlord, but many leases require the unit returned in broom clean condition. Heavy grime beyond ordinary use can be deductible. Photograph your final clean.'},
+  pet:{v:'damage',label:'Usually chargeable damage',body:'Odor and urine damage in flooring goes beyond normal wear in nearly every state, and pet deposits or fees may already cover part of it. Check what your lease collected up front.'}
+};
+
+let photos = [];
+let flagged = [];
+let caseNum = 1;
+
+function fmtDate(d){
+  const p = n => String(n).padStart(2,'0');
+  return d.getFullYear()+' '+p(d.getMonth()+1)+' '+p(d.getDate())+' · '+p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds());
+}
+
+function ts(){ return fmtDate(new Date()); }
+
+function pluralize(n, singular, plural){
+  return n + ' ' + (n === 1 ? singular : (plural || singular + 's'));
+}
+
+function entryLocation(p){ return p.location || p.room || 'Other location'; }
+function entryPlace(p){
+  const loc = entryLocation(p);
+  return p.surface ? loc + ' · ' + p.surface : loc;
+}
+
+let exifrModule = null;
+function getExifr(){
+  exifrModule = exifrModule || import('./exifr.full.esm.mjs')
+    .then(m => m.default || m)
+    .catch(() => null);
+  return exifrModule;
+}
+
+function fmtGps(lat, lon){
+  return Math.abs(lat).toFixed(4)+' '+(lat >= 0 ? 'N' : 'S')+' '+Math.abs(lon).toFixed(4)+' '+(lon >= 0 ? 'E' : 'W');
+}
+
+function readAsDataURL(file){
+  return new Promise(resolve => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result);
+    r.onerror = () => resolve('');
+    r.readAsDataURL(file);
+  });
+}
+
+async function hashFile(buf){
+  try{
+    const digest = await crypto.subtle.digest('SHA-256', buf);
+    return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2,'0')).join('').slice(0,12);
+  }catch(e){ return ''; }
+}
+
+async function processFile(file, location, surface, subject, cond){
+  const buf = await file.arrayBuffer();
+  const hash = await hashFile(buf);
+  const src = await readAsDataURL(file);
+  let exifDate = null, gps = '';
+  const ex = await getExifr();
+  if(ex){
+    try{
+      const data = await ex.parse(file);
+      if(data){
+        if(data.DateTimeOriginal instanceof Date && !isNaN(data.DateTimeOriginal)){ exifDate = data.DateTimeOriginal; }
+        if(typeof data.latitude === 'number' && typeof data.longitude === 'number'){ gps = fmtGps(data.latitude, data.longitude); }
+      }
+    }catch(e){}
+  }
+  return {
+    location, surface, subject, cond,
+    time: exifDate ? fmtDate(exifDate) : ts(),
+    id: 'IMG '+String(photos.length+1).padStart(4,'0'),
+    src, hash, gps,
+    exif: !!exifDate
+  };
+}
+
+async function logPhoto(){
+  let location = document.getElementById('location').value;
+  if(location === '__other__'){ location = document.getElementById('locationOther').value.trim() || 'Other location'; }
+  let surface = document.getElementById('surface').value;
+  if(surface === '__other__'){ surface = document.getElementById('surfaceOther').value.trim() || 'Other surface'; }
+  const subject = document.getElementById('subject').value.trim() || 'General condition, wide shot';
+  const cond = document.getElementById('condition').value.trim();
+  const input = document.getElementById('photoFile');
+  const files = input ? Array.from(input.files || []) : [];
+  if(files.length === 0){
+    photos.push({location, surface, subject, cond, time: ts(), id: 'IMG '+String(photos.length+1).padStart(4,'0'), src:'', hash:'', gps:'', exif:false});
+  } else {
+    for(const f of files){
+      const entry = await processFile(f, location, surface, subject, cond);
+      photos.push(entry);
+    }
+  }
+  document.getElementById('subject').value='';
+  document.getElementById('condition').value='';
+  if(input){ input.value=''; }
+  renderPhotos();
+  toast(files.length > 1 ? pluralize(files.length,'photo')+' logged with timestamps' : 'Photo logged with timestamp');
+}
+
+function removePhoto(i){ photos.splice(i,1); renderPhotos(); }
+
+function renderPhotos(){
+  const list = document.getElementById('taglist');
+  if(photos.length===0){
+    list.innerHTML = '<div class="empty">No photos logged yet. Upload one or more images per area, wide shot first, then close ups of anything a landlord might charge for.</div>';
+  } else {
+    list.innerHTML = photos.map((p,i)=>`
+      <div class="tag" style="animation-delay:${Math.min(i*40,320)}ms">
+        ${p.src?`<button class="thumbbtn" onclick="openLightbox(${i})" aria-label="View photo full size"><img class="thumb" src="${p.src}" alt="${escapeHtml(p.subject)}"></button>`:''}
+        <div class="tagbody">
+          <div class="room">${escapeHtml(entryPlace(p))} · ${escapeHtml(p.subject)}<span class="vbadge ${p.exif?'exif':'dev'}">${p.exif?'EXIF verified':'device time'}</span></div>
+          ${p.cond?`<div class="cond">${escapeHtml(p.cond)}</div>`:''}
+          <div class="meta">${p.id} · ${p.time} · ${p.gps ? 'GPS '+p.gps : '<span class="soft">no location data, which is optional</span>'} · ${p.hash ? 'SHA '+p.hash : 'hash pending'}</div>
+        </div>
+        <button aria-label="Remove entry" onclick="removePhoto(${i})">Remove</button>
+      </div>`).join('');
+  }
+  const rooms = new Set(photos.map(entryLocation)).size;
+  document.getElementById('counter').textContent = pluralize(photos.length,'entry','entries')+' · '+pluralize(rooms,'room','rooms')+' covered';
+  const chip = document.getElementById('entryCount');
+  if(chip){ chip.textContent = pluralize(photos.length,'entry','entries'); }
+  buildLetter();
+}
+
+function escapeHtml(s){ return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function exportPacket(){
+  if(photos.length===0){ toast('Log at least one photo first'); return; }
+  const locations = new Set(photos.map(entryLocation)).size;
+  const summary = pluralize(photos.length,'entry','entries')+' across '+pluralize(locations,'location','locations');
+  const data = JSON.stringify({case:'DepositProof evidence packet', generated: ts(), summary, entryCount: photos.length, locationCount: locations, entries: photos, flaggedDeductions: flagged}, null, 2);
+  const blob = new Blob([data], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'depositproof evidence packet.json';
+  a.click();
+  toast('Evidence packet exported');
+}
+
+function populateStates(){
+  const sel = document.getElementById('state');
+  if(!sel){ return; }
+  sel.innerHTML = Object.keys(STATES).map(k => '<option value="'+k+'">'+STATES[k].name+'</option>').join('');
+}
+
+function toggleLocationOther(){
+  const isOther = document.getElementById('location').value === '__other__';
+  document.getElementById('locationOtherWrap').style.display = isOther ? '' : 'none';
+  if(isOther){ document.getElementById('locationOther').focus(); }
+}
+
+function toggleSurfaceOther(){
+  const isOther = document.getElementById('surface').value === '__other__';
+  document.getElementById('surfaceOtherWrap').style.display = isOther ? '' : 'none';
+  if(isOther){ document.getElementById('surfaceOther').focus(); }
+}
+
+function onItemChange(){
+  const isOther = document.getElementById('item').value === '__other__';
+  document.getElementById('itemOtherWrap').style.display = isOther ? '' : 'none';
+  if(isOther){ document.getElementById('itemOther').focus(); }
+  classify();
+}
+
+function updateState(){
+  const s = STATES[document.getElementById('state').value];
+  document.getElementById('dlState').textContent = s.name;
+  document.getElementById('dlDays').textContent = s.days;
+  document.getElementById('dlItem').textContent = s.item;
+  classify();
+  buildLetter();
+}
+
+function classify(){
+  const itemSel = document.getElementById('item');
+  const key = itemSel.value;
+  const s = STATES[document.getElementById('state').value];
+  const box = document.getElementById('verdict');
+  const citeLine = 'Starting point: '+s.cite+'. This tool describes general patterns, not your outcome. Verify the statute before you rely on it.';
+  if(key === '__other__'){
+    const custom = document.getElementById('itemOther').value.trim();
+    box.className = 'verdict judgment';
+    document.getElementById('vLabel').textContent = 'Depends on your facts';
+    document.getElementById('vTitle').textContent = custom || 'Your own item';
+    document.getElementById('vBody').textContent = 'This item is not in the built in list, so DepositProof does not suggest whether it usually reads as wear or damage. Describe exactly what happened, then let your photo evidence and your state statute carry the argument.';
+    document.getElementById('vCite').textContent = citeLine;
+    void box.offsetWidth;
+    box.classList.add('swap');
+    return;
+  }
+  const r = RULES[key];
+  box.className = 'verdict '+r.v;
+  document.getElementById('vLabel').textContent = r.label;
+  document.getElementById('vTitle').textContent = itemSel.selectedOptions[0].textContent;
+  document.getElementById('vBody').textContent = r.body;
+  document.getElementById('vCite').textContent = citeLine;
+  void box.offsetWidth;
+  box.classList.add('swap');
+}
+
+function addToLetter(){
+  const itemSel = document.getElementById('item');
+  let label, verdict;
+  if(itemSel.value === '__other__'){
+    label = document.getElementById('itemOther').value.trim() || '[DESCRIBE THE ITEM]';
+    verdict = 'depends on your facts';
+  } else {
+    label = itemSel.selectedOptions[0].textContent;
+    verdict = RULES[itemSel.value].label;
+  }
+  if(flagged.some(f=>f.label===label)){ toast('Already in your letter'); flashFlagBtn(); return; }
+  flagged.push({label, verdict});
+  renderFlagged();
+  buildLetter();
+  toast('Added to your dispute letter');
+  flashFlagBtn();
+}
+
+function flashFlagBtn(){
+  const b = document.getElementById('flagBtn');
+  if(!b){ return; }
+  b.classList.add('added');
+  b.textContent = 'Added to your letter';
+  clearTimeout(b._h);
+  b._h = setTimeout(()=>{ b.classList.remove('added'); b.textContent = 'Add this deduction to my dispute letter'; }, 1400);
+}
+
+function renderFlagged(){
+  const box = document.getElementById('flagList');
+  if(!box){ return; }
+  if(flagged.length === 0){ box.innerHTML = ''; return; }
+  box.innerHTML = '<div class="flaghead">Flagged for your letter</div>' + flagged.map((f,i)=>`
+    <div class="flagrow">
+      <div class="fl-main">
+        <div class="fl-item">${escapeHtml(f.label)}</div>
+        <div class="fl-verdict">${escapeHtml(f.verdict)}</div>
+      </div>
+      <button aria-label="Remove this deduction" onclick="removeFlag(${i})">Remove</button>
+    </div>`).join('');
+}
+
+function removeFlag(i){
+  flagged.splice(i,1);
+  renderFlagged();
+  buildLetter();
+  toast('Removed from your letter');
+}
+
+function val(id, fallback){ const v = document.getElementById(id).value.trim(); return v || fallback; }
+
+function buildLetter(){
+  const s = STATES[document.getElementById('state') ? document.getElementById('state').value : 'GA'];
+  const name = val('fName','[YOUR NAME]');
+  const landlord = val('fLandlord','[LANDLORD NAME]');
+  const address = val('fAddress','[RENTAL ADDRESS]');
+  const moveout = val('fMoveout','[MOVE OUT DATE]');
+  const deposit = val('fDeposit','[AMOUNT]');
+  const areas = new Set(photos.map(entryLocation)).size;
+  const evidenceLine = photos.length>0
+    ? 'I documented the condition of the unit with '+pluralize(photos.length,'timestamped photograph','timestamped photographs')+' taken at move out, covering '+pluralize(areas,'area','areas')+' of the home. I can provide the full set on request.'
+    : 'I documented the condition of the unit with timestamped photographs taken at move out and can provide them on request.';
+  const disputes = flagged.length>0
+    ? flagged.map((f,i)=>(i+1)+'. '+f.label+'. My position: '+f.verdict.toLowerCase()+'. Cited under '+s.name+' law, '+s.cite+'. [DESCRIBE THE SPECIFIC CHARGE AND YOUR FACTS]').join('\n')
+    : '1. [DESCRIBE EACH DEDUCTION YOU DISPUTE AND WHY]';
+
+  const raw =
+`${name}
+${address}
+
+${landlord}
+[LANDLORD MAILING ADDRESS]
+
+RE: Return of security deposit for ${address}
+
+Dear ${landlord},
+
+I vacated the property at ${address} on ${moveout} and returned all keys. Under ${s.name} law (${s.cite}), my security deposit of $${deposit} must be returned within ${s.days} of move out, with an itemized statement for any amount withheld.
+
+${evidenceLine}
+
+I dispute the following deductions:
+
+${disputes}
+
+Normal wear and tear is not deductible from a security deposit under ${s.name} law. I request the return of $[AMOUNT DISPUTED] within 14 days of this letter to the address above.
+
+If we cannot resolve this, I am prepared to pursue the matter in small claims court, where wrongful withholding can carry additional penalties.
+
+Sincerely,
+
+${name}
+[PHONE] · [EMAIL]
+
+Sent by certified mail on [DATE]`;
+
+  document.getElementById('letterBody').innerHTML =
+    escapeHtml(raw).replace(/\[[A-Z][A-Z0-9 ]*\]/g, m => '<mark class="ph">'+m+'</mark>');
+}
+
+function copyLetter(){
+  const text = document.getElementById('letterBody').innerText;
+  const done = () => toast('Letter copied to clipboard');
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done, () => { fallbackCopy(text); done(); });
+  } else {
+    fallbackCopy(text); done();
+  }
+}
+
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.setAttribute('readonly','');
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+}
+
+function tickSpecimen(){
+  const el = document.getElementById('specimenTime');
+  if(el){ el.textContent = ts(); }
+}
+
+let lbIndex = -1;
+let lbReturnFocus = null;
+
+function lbPhotoIndexes(){
+  return photos.map((p,i) => p.src ? i : -1).filter(i => i >= 0);
+}
+
+function lbShow(i){
+  const p = photos[i];
+  if(!p || !p.src){ return; }
+  lbIndex = i;
+  const img = document.getElementById('lbImg');
+  img.src = p.src;
+  img.alt = p.subject;
+  const badge = p.exif
+    ? '<span class="lb-badge exif">EXIF verified</span>'
+    : '<span class="lb-badge dev">device time</span>';
+  const gps = p.gps
+    ? '<span><span class="lb-k">GPS</span> '+escapeHtml(p.gps)+'</span>'
+    : '<span>no location data, which is optional</span>';
+  document.getElementById('lbCap').innerHTML =
+    '<div class="lb-head">'+escapeHtml(entryPlace(p))+' · '+escapeHtml(p.subject)+'</div>'+
+    '<div class="lb-meta">'+
+      badge+
+      '<span class="lb-k">'+escapeHtml(p.id)+'</span>'+
+      '<span><span class="lb-k">Captured</span> '+escapeHtml(p.time)+'</span>'+
+      gps+
+    '</div>'+
+    '<div class="lb-hint">Esc closes · arrow keys navigate</div>';
+}
+
+function openLightbox(i){
+  lbReturnFocus = document.activeElement;
+  lbShow(i);
+  document.getElementById('lightbox').classList.add('open');
+  document.getElementById('lbClose').focus();
+  document.addEventListener('keydown', lbKeys);
+}
+
+function closeLightbox(){
+  const box = document.getElementById('lightbox');
+  if(!box.classList.contains('open')){ return; }
+  box.classList.remove('open');
+  document.removeEventListener('keydown', lbKeys);
+  if(lbReturnFocus && document.contains(lbReturnFocus)){ lbReturnFocus.focus(); }
+  lbReturnFocus = null;
+  lbIndex = -1;
+}
+
+function lbNav(dir){
+  const idxs = lbPhotoIndexes();
+  if(idxs.length === 0){ return; }
+  const pos = idxs.indexOf(lbIndex);
+  const next = idxs[(pos + dir + idxs.length) % idxs.length];
+  lbShow(next);
+}
+
+function lbKeys(e){
+  if(e.key === 'Escape'){ closeLightbox(); }
+  else if(e.key === 'ArrowRight'){ lbNav(1); }
+  else if(e.key === 'ArrowLeft'){ lbNav(-1); }
+  // Focus moves to the close control on open and is restored on close. Tab is
+  // left to the browser so focus is never trapped on a single control.
+}
+
+populateStates();
+renderPhotos();
+renderFlagged();
+classify();
+buildLetter();
+updateState();
+tickSpecimen();
+getExifr();
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+setInterval(tickSpecimen, reduceMotion.matches ? 60000 : 1000);
+
+const heroEl = document.querySelector('.hero');
+const chipEl = document.getElementById('entryCount');
+if(heroEl && chipEl && 'IntersectionObserver' in window){
+  new IntersectionObserver(entries => {
+    chipEl.classList.toggle('on', !entries[0].isIntersecting);
+  }, {threshold:0}).observe(heroEl);
+}
+
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._h);
+  t._h = setTimeout(()=>t.classList.remove('show'), 1800);
+}
+</script>
+</body>
+</html>

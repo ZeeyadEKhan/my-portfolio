@@ -659,6 +659,26 @@ hr { border: none; border-top: 1px solid var(--border); margin: 4rem 0; }
   margin-top: 0;
 }
 
+/* Link row inside At a Glance: live tool and source links */
+.case-links {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+}
+
+.case-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.case-links a:hover { text-decoration: underline; }
+
 /* ─── CASE TESTIMONIAL (empty until /data/testimonials.json has an entry) ─── */
 .case-quote {
   margin: 0 0 3.5rem;

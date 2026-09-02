@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=4">
+  <link rel="stylesheet" href="/assets/css/main.css?v=5">
   <style>
     /* ── EXPLORATIONS (mirrors home) ── */
     .home-body { padding-top: var(--topbar-h); }
@@ -160,6 +160,16 @@
 
     .project-row:hover .project-cta-arrow { transform: translateX(4px); }
 
+    /* Cards with a live tool carry two links side by side */
+    .project-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 2rem;
+    }
+
+    a.project-cta { text-decoration: none; }
+    a.project-cta:hover .project-cta-arrow { transform: translateX(4px); }
+
     /* Right: image */
     .project-thumb {
       border-radius: 10px;
@@ -260,8 +270,9 @@
         </div>
       </a>
 
-      <!-- 02 DepositProof -->
-      <a href="/projects/depositproof" class="project-row">
+      <!-- 02 DepositProof. Split into two links so "Open the tool" can sit
+           beside "View Case Study" without nesting anchors. -->
+      <div class="project-row">
         <div class="project-row-inner">
           <div class="project-info">
             <p class="project-num">02</p>
@@ -273,18 +284,23 @@
               <span class="project-tag">Vanilla JS</span>
               <span class="project-tag">Single File</span>
             </div>
-            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
+            <span class="project-cta-row">
+              <a class="project-cta" href="/projects/depositproof">View Case Study <span class="project-cta-arrow">→</span></a>
+              <a class="project-cta" href="/tools/depositproof/" target="_blank" rel="noopener">Open the tool <span class="project-cta-arrow">→</span></a>
+            </span>
           </div>
-          <div class="project-thumb thumb-depositproof">
+          <a class="project-thumb thumb-depositproof" href="/projects/depositproof" aria-label="Deposit Proof case study">
             <img src="/DepositProofbox.webp"
                  alt="DepositProof hero reading Your deposit is a claim, document it like one"
                  loading="lazy" width="900" height="562">
-          </div>
+          </a>
         </div>
-      </a>
+      </div>
 
       <!-- 03 Appeal Kit -->
-      <a href="/projects/insuranceappeal" class="project-row">
+      <!-- 03 Appeal Kit. Split into two links so "Open the tool" can sit
+           beside "View Case Study" without nesting anchors. -->
+      <div class="project-row">
         <div class="project-row-inner">
           <div class="project-info">
             <p class="project-num">03</p>
@@ -296,15 +312,18 @@
               <span class="project-tag">React</span>
               <span class="project-tag">Browser Only</span>
             </div>
-            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
+            <span class="project-cta-row">
+              <a class="project-cta" href="/projects/insuranceappeal">View Case Study <span class="project-cta-arrow">→</span></a>
+              <a class="project-cta" href="/tools/appealkit/" target="_blank" rel="noopener">Open the tool <span class="project-cta-arrow">→</span></a>
+            </span>
           </div>
-          <div class="project-thumb thumb-appealkit">
+          <a class="project-thumb thumb-appealkit" href="/projects/insuranceappeal" aria-label="Appeal Kit case study">
             <img src="/AppealKitbox.webp"
                  alt="Appeal Kit start screen stating that everything stays on this device"
                  loading="lazy" width="900" height="625">
-          </div>
+          </a>
         </div>
-      </a>
+      </div>
 
       <!-- 04 VisitBrief -->
       <a href="/projects/medsummary" class="project-row">
