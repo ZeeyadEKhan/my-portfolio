@@ -710,6 +710,21 @@ hr { border: none; border-top: 1px solid var(--border); margin: 4rem 0; }
 
 .case-links a:hover { text-decoration: underline; }
 
+/* Primary demo button inside the At a Glance link row */
+.case-links a.case-demo-btn {
+  padding: 0.6rem 1.1rem;
+  border-radius: 8px;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.case-links a.case-demo-btn:hover {
+  background: #1751C9;
+  text-decoration: none;
+}
+
 /* Plain note for tools that cannot be hosted or linked yet */
 .case-links-note {
   margin-top: 1.1rem;

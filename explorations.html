@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=5">
+  <link rel="stylesheet" href="/assets/css/main.css?v=6">
   <style>
     /* ── EXPLORATIONS (mirrors home) ── */
     .home-body { padding-top: var(--topbar-h); }
@@ -289,7 +289,7 @@
   <section class="home-hero" aria-label="Introduction">
     <p class="home-hero-eyebrow">Current Explorations · San Francisco</p>
     <h1 class="home-hero-title">Built, not just designed.</h1>
-    <p class="home-hero-desc">Self directed work where I own every layer. The tools up top are designed, coded, tested, and shipped end to end, and the brand systems that follow carry the same ownership from research question to final artifact. This page changes as often as the work does.</p>
+    <p class="home-hero-desc">Self directed work where I own every layer. The tools up top are designed, coded, tested, and shipped end to end, with live demos you can open from each card, and the brand systems that follow carry the same ownership from research question to final artifact. This page changes as often as the work does.</p>
   </section>
 
   <!-- Explorations -->
@@ -298,7 +298,7 @@
       <p class="work-label">Current Explorations</p>
 
       <!-- 01 Persona -->
-      <a href="/projects/persona-generator" class="project-row">
+      <div class="project-row">
         <div class="project-row-inner">
           <div class="project-info">
             <p class="project-num">01</p>
@@ -311,14 +311,17 @@
               <span class="project-tag">Next.js</span>
               <span class="project-tag">Local LLM</span>
             </div>
-            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
+            <span class="project-cta-row">
+            <a class="project-cta" href="/projects/persona-generator">View Case Study <span class="project-cta-arrow">→</span></a>
+            <a class="project-cta" href="https://persona-chi-nine.vercel.app" target="_blank" rel="noopener">Launch demo <span class="project-cta-arrow">→</span></a>
+          </span>
           </div>
-          <div class="project-thumb thumb-persona">
+          <a class="project-thumb thumb-persona" href="/projects/persona-generator" aria-label="Persona case study">
             <img src="/Personabox.webp"
                  alt="Persona landing page: turn product ideas into research backed user personas" width="900" height="562">
-          </div>
+          </a>
         </div>
-      </a>
+      </div>
 
       <!-- 02 DepositProof. Split into two links so "Open the tool" can sit
            beside "View Case Study" without nesting anchors. -->
@@ -337,7 +340,7 @@
             </div>
             <span class="project-cta-row">
               <a class="project-cta" href="/projects/depositproof">View Case Study <span class="project-cta-arrow">→</span></a>
-              <a class="project-cta" href="/tools/depositproof/" target="_blank" rel="noopener">Try it <span class="project-cta-arrow">→</span></a>
+              <a class="project-cta" href="https://depositproof-dusky.vercel.app" target="_blank" rel="noopener">Launch demo <span class="project-cta-arrow">→</span></a>
             </span>
           </div>
           <a class="project-thumb thumb-depositproof" href="/projects/depositproof" aria-label="Deposit Proof case study">
@@ -366,7 +369,7 @@
             </div>
             <span class="project-cta-row">
               <a class="project-cta" href="/projects/insuranceappeal">View Case Study <span class="project-cta-arrow">→</span></a>
-              <a class="project-cta" href="/tools/appealkit/" target="_blank" rel="noopener">Try it <span class="project-cta-arrow">→</span></a>
+              <a class="project-cta" href="https://appealkit-flax.vercel.app" target="_blank" rel="noopener">Launch demo <span class="project-cta-arrow">→</span></a>
             </span>
           </div>
           <a class="project-thumb thumb-appealkit" href="/projects/insuranceappeal" aria-label="Appeal Kit case study">
@@ -378,7 +381,7 @@
       </div>
 
       <!-- 04 VisitBrief -->
-      <a href="/projects/medsummary" class="project-row">
+      <div class="project-row">
         <div class="project-row-inner">
           <div class="project-info">
             <p class="project-num">04</p>
@@ -391,15 +394,18 @@
               <span class="project-tag">Local LLM</span>
               <span class="project-tag">Vanilla JS</span>
             </div>
-            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
+            <span class="project-cta-row">
+            <a class="project-cta" href="/projects/medsummary">View Case Study <span class="project-cta-arrow">→</span></a>
+            <a class="project-cta" href="https://visitbrief-nine.vercel.app" target="_blank" rel="noopener">Launch demo <span class="project-cta-arrow">→</span></a>
+          </span>
           </div>
-          <div class="project-thumb thumb-visitbrief">
+          <a class="project-thumb thumb-visitbrief" href="/projects/medsummary" aria-label="Visit Brief case study">
             <img src="/VisitBriefbox.webp"
                  alt="Visit Brief landing page reading you get about twelve minutes, walk in ready to be understood"
                  loading="lazy" width="900" height="562">
-          </div>
+          </a>
         </div>
-      </a>
+      </div>
 
       <!-- 05 Zarrin -->
       <a href="/projects/zarrin" class="project-row">
