@@ -3,3 +3,13 @@ audit-tools/
 archive/
 drafts/
 assets-offsite/
+.mobile-audit/
+.claude/
+.vercel/
+node_modules/
+.DS_Store
+*.md
+*.fig
+*.psd
+*.ai
+*.sketch
