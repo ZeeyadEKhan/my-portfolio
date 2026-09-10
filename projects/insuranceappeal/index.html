@@ -100,7 +100,12 @@
       border: 0;
       display: block;
     }
-    .video-wrap .video-poster { object-fit: cover; cursor: pointer; }
+    /* the iframe stays hidden until the visitor asks for it, so a placeholder
+       or slow embed can never paint over the poster */
+    .video-wrap .video-embed iframe { display: none; }
+    .video-wrap .video-embed.is-playing iframe { display: block; }
+    .video-wrap .video-poster { object-fit: cover; cursor: pointer; z-index: 1; }
+    .video-wrap .video-play { z-index: 2; }
     .video-wrap .video-play {
       position: absolute;
       inset: 0;
@@ -831,6 +836,6 @@ expect(externalRequests).toEqual([]);</code></pre>
   <script src="/assets/js/lightbox-a11y.js" defer></script>
   <script src="/assets/js/testimonial.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
-  <script src="/assets/js/video-embed.js" defer></script>
+  <script src="/assets/js/video-embed.js?v=2" defer></script>
 </body>
 </html>
