@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=6">
+  <link rel="stylesheet" href="/assets/css/main.css?v=7">
   <style>
     /* ── HOME-SPECIFIC ── */
     .home-body { padding-top: var(--topbar-h); }
@@ -162,17 +162,30 @@
     .project-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
+      align-items: baseline;
+      row-gap: 0.2rem;
+      margin-bottom: 1rem;
+      max-width: 44ch;
+      /* every item carries a leading hairline; the row is shifted left by one
+         separator width and clipped, so a line never starts with one */
+      margin-left: calc(-1.4rem - 1px);
+      clip-path: inset(0 0 0 calc(1.4rem + 1px));
     }
 
     .project-tag {
-      font-size: 0.72rem;
-      font-weight: 500;
-      line-height: 1.4;
-      padding: 0.2rem 0.55rem;
-      border-radius: 4px;
-      background: var(--surface);
+      font-size: 0.78rem;
+      font-weight: 400;
+      line-height: 1.6;
       color: var(--ink-muted);
+    }
+    .project-tag::before {
+      content: "";
+      display: inline-block;
+      width: 1px;
+      height: 0.8em;
+      margin: 0 0.7rem;
+      background: var(--border);
+      vertical-align: -0.05em;
     }
 
     .project-cta {
@@ -283,7 +296,7 @@
       .home-hero { padding: 4rem 1.5rem 3.5rem; }
     }
   </style>
-  <link rel="stylesheet" href="/assets/css/mobile.css?v=3">
+  <link rel="stylesheet" href="/assets/css/mobile.css?v=4">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -338,14 +351,14 @@
           <div class="project-info">
             <p class="project-num">01</p>
             <h2 class="project-name">Legaleey</h2>
-            <p class="project-desc">An AI powered legal document search platform for law firms.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">In testing, time to find relevant clauses dropped by 80% compared to Acrobat</span></p>
             <div class="project-tags">
               <span class="project-tag">B2B SaaS</span>
               <span class="project-tag">Legal Tech</span>
               <span class="project-tag">Desktop</span>
               <span class="project-tag">UX Design</span>
             </div>
+            <p class="project-desc">An AI powered legal document search platform for law firms.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">In testing, time to find relevant clauses dropped by 80% compared to Acrobat</span></p>
             <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
           </div>
           <div class="project-thumb thumb-legaleey">
@@ -366,14 +379,14 @@
           <div class="project-info">
             <p class="project-num">02</p>
             <h2 class="project-name">NOMADO</h2>
-            <p class="project-desc">A restaurant and hospitality digital menu redesign.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Ten rounds of usability testing lifted order completion by 30% and cut friction by 20%</span></p>
             <div class="project-tags">
               <span class="project-tag">Digital Menu</span>
               <span class="project-tag">Hospitality</span>
               <span class="project-tag">Usability Testing</span>
               <span class="project-tag">Product Design</span>
             </div>
+            <p class="project-desc">A restaurant and hospitality digital menu redesign.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Ten rounds of usability testing lifted order completion by 30% and cut friction by 20%</span></p>
             <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
           </div>
           <div class="project-thumb thumb-nomado">
@@ -391,14 +404,14 @@
           <div class="project-info">
             <p class="project-num">02</p>
             <h2 class="project-name">Lumi</h2>
-            <p class="project-desc">An AI social robot that monitors anger patterns, calms arguments in real time, and builds empathy through light, sound, and voice.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Two testing sprints with 15 participants validated sound effectiveness and shaped the final voice design</span></p>
             <div class="project-tags">
               <span class="project-tag">AI Product</span>
               <span class="project-tag">Anger De escalation</span>
               <span class="project-tag">Physical Design</span>
               <span class="project-tag">UX Research</span>
             </div>
+            <p class="project-desc">An AI social robot that monitors anger patterns, calms arguments in real time, and builds empathy through light, sound, and voice.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Two testing sprints with 15 participants validated sound effectiveness and shaped the final voice design</span></p>
             <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
           </div>
           <div class="project-thumb thumb-lumi">
@@ -415,13 +428,13 @@
           <div class="project-info">
             <p class="project-num">03</p>
             <h2 class="project-name">Wonderbudi</h2>
-            <p class="project-desc">An AI robot that calms children during emotional distress, helps teachers recognize a child in need, and connects families and counselors to support.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">50 of 52 parents approved a school worn biometric device in testing</span></p>
             <div class="project-tags">
               <span class="project-tag">AI Social Robot</span>
               <span class="project-tag">Children&#8217;s Mental Health</span>
               <span class="project-tag">Physical Product</span>
             </div>
+            <p class="project-desc">An AI robot that calms children during emotional distress, helps teachers recognize a child in need, and connects families and counselors to support.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">50 of 52 parents approved a school worn biometric device in testing</span></p>
             <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
           </div>
           <div class="project-thumb thumb-wonderbudi">
@@ -438,13 +451,13 @@
           <div class="project-info">
             <p class="project-num">04</p>
             <h2 class="project-name">Explorius</h2>
-            <p class="project-desc">A mobile app that helps digital nomads plan trips, fight social isolation, and connect with other nomads wherever they are in the world.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">In testing, the dashboard redesign drew the strongest positive response of any change</span></p>
             <div class="project-tags">
               <span class="project-tag">Mobile App</span>
               <span class="project-tag">Digital Nomads</span>
               <span class="project-tag">Travel and Connection</span>
             </div>
+            <p class="project-desc">A mobile app that helps digital nomads plan trips, fight social isolation, and connect with other nomads wherever they are in the world.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">In testing, the dashboard redesign drew the strongest positive response of any change</span></p>
             <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
           </div>
           <div class="project-thumb thumb-explorius">
@@ -461,13 +474,13 @@
           <div class="project-info">
             <p class="project-num">05</p>
             <h2 class="project-name">Baloo</h2>
-            <p class="project-desc">A screenless AI storytelling toy for children that sustains full engagement without a display.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Across two prototype rounds, children held focus for full stories without requesting a screen</span></p>
             <div class="project-tags">
               <span class="project-tag">Screenless Toy</span>
               <span class="project-tag">Children Ages 1 to 5</span>
               <span class="project-tag">Interactive Storytelling</span>
             </div>
+            <p class="project-desc">A screenless AI storytelling toy for children that sustains full engagement without a display.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Across two prototype rounds, children held focus for full stories without requesting a screen</span></p>
             <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
           </div>
           <div class="project-thumb thumb-baloo">

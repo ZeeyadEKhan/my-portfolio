@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=6">
+  <link rel="stylesheet" href="/assets/css/main.css?v=7">
   <style>
     /* ── EXPLORATIONS (mirrors home) ── */
     .home-body { padding-top: var(--topbar-h); }
@@ -154,17 +154,30 @@
     .project-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
+      align-items: baseline;
+      row-gap: 0.2rem;
+      margin-bottom: 1rem;
+      max-width: 44ch;
+      /* every item carries a leading hairline; the row is shifted left by one
+         separator width and clipped, so a line never starts with one */
+      margin-left: calc(-1.4rem - 1px);
+      clip-path: inset(0 0 0 calc(1.4rem + 1px));
     }
 
     .project-tag {
-      font-size: 0.72rem;
-      font-weight: 500;
-      line-height: 1.4;
-      padding: 0.2rem 0.55rem;
-      border-radius: 4px;
-      background: var(--surface);
+      font-size: 0.78rem;
+      font-weight: 400;
+      line-height: 1.6;
       color: var(--ink-muted);
+    }
+    .project-tag::before {
+      content: "";
+      display: inline-block;
+      width: 1px;
+      height: 0.8em;
+      margin: 0 0.7rem;
+      background: var(--border);
+      vertical-align: -0.05em;
     }
 
     .project-cta {
@@ -239,7 +252,7 @@
       .home-hero { padding: 4rem 1.5rem 3.5rem; }
     }
   </style>
-  <link rel="stylesheet" href="/assets/css/mobile.css?v=3">
+  <link rel="stylesheet" href="/assets/css/mobile.css?v=4">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -302,14 +315,14 @@
           <div class="project-info">
             <p class="project-num">01</p>
             <h2 class="project-name">Persona</h2>
-            <p class="project-desc">An AI powered UX research tool that turns a product idea into personas, journeys, and interview kits, generated entirely on a local model so ideas never leave your machine.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Shipped: a full discovery package generated in about a minute, fully local</span></p>
             <div class="project-tags">
               <span class="project-tag">AI Product</span>
               <span class="project-tag">Design Engineering</span>
               <span class="project-tag">Next.js</span>
               <span class="project-tag">Local LLM</span>
             </div>
+            <p class="project-desc">An AI powered UX research tool that turns a product idea into personas, journeys, and interview kits, generated entirely on a local model so ideas never leave your machine.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Shipped: a full discovery package generated in about a minute, fully local</span></p>
             <span class="project-cta-row">
             <a class="project-cta" href="/projects/persona-generator">View Case Study <span class="project-cta-arrow">→</span></a>
             <a class="project-cta" href="https://persona-chi-nine.vercel.app" target="_blank" rel="noopener">Launch demo <span class="project-cta-arrow">→</span></a>
@@ -435,13 +448,13 @@
           <div class="project-info">
             <p class="project-num">06</p>
             <h2 class="project-name">Adey</h2>
-            <p class="project-desc">A brand and packaging concept for an Ethiopian single origin coffee: a bilingual lockup, a woven pattern band in four colorways, and roast profiles named for what you actually taste.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">A full identity and packaging system across four bags in one aligned template</span></p>
             <div class="project-tags">
               <span class="project-tag">Graphic Design</span>
               <span class="project-tag">Brand Identity</span>
               <span class="project-tag">Packaging</span>
             </div>
+            <p class="project-desc">A brand and packaging concept for an Ethiopian single origin coffee: a bilingual lockup, a woven pattern band in four colorways, and roast profiles named for what you actually taste.</p>
+            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">A full identity and packaging system across four bags in one aligned template</span></p>
             <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
           </div>
           <div class="project-thumb thumb-adey">

@@ -174,25 +174,40 @@ ul { list-style: none; }
 .hero-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
+  align-items: baseline;
+  row-gap: 0.3rem;
+  max-width: 520px;
+  margin-top: 1.6rem;
+  padding-top: 1rem;
+  /* every item carries a leading hairline; the container is shifted left by
+     one separator width and clipped, so a line never starts with one */
+  --sep: calc(1.5rem + 1px);
+  margin-left: calc(-1 * var(--sep));
+  clip-path: inset(0 0 0 var(--sep));
+  background: linear-gradient(var(--border), var(--border)) no-repeat;
+  background-position: var(--sep) 0;
+  background-size: calc(100% - var(--sep)) 1px;
 }
 
 .chip {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.74rem;
-  font-weight: 500;
+  display: inline;
+  font-size: 0.8rem;
+  font-weight: 400;
   letter-spacing: 0;
-  line-height: 1.4;
-  padding: 0.24rem 0.6rem;
-  border-radius: 4px;
-  background: var(--surface);
+  line-height: 1.6;
   color: var(--ink-muted);
 }
-
-.chip-accent { background: var(--accent-tint); color: var(--accent); font-weight: 600; }
-.chip-green  { background: var(--green); color: #fff; }
+.chip::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 0.8em;
+  margin: 0 0.75rem;
+  background: var(--border);
+  vertical-align: -0.05em;
+}
+.chip-accent { color: var(--accent); font-weight: 600; }
+.chip-green  { color: var(--green); font-weight: 600; }
 
 .hero-title {
   font-size: clamp(4rem, 9vw, 8rem);
