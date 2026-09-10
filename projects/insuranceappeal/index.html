@@ -82,14 +82,50 @@
     /* ── Video embed ── */
     .video-wrap { margin: 2.5rem 0; }
 
-    .video-wrap video {
+    .video-wrap .video-embed {
+      position: relative;
       width: 100%;
-      height: auto;
       display: block;
+      overflow: hidden;
       border-radius: 8px;
       border: 1px solid var(--border);
       background: #111;
     }
+    .video-wrap .video-embed iframe,
+    .video-wrap .video-embed .video-poster {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+    .video-wrap .video-poster { object-fit: cover; cursor: pointer; }
+    .video-wrap .video-play {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-wrap .video-play span {
+      width: 64px;
+      height: 64px;
+      border-radius: 100px;
+      background: rgba(25, 25, 24, 0.82);
+      border: 1px solid rgba(254, 254, 254, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-wrap .video-play svg { width: 22px; height: 22px; margin-left: 3px; fill: #fff; }
+    .video-wrap .video-embed.is-playing .video-poster,
+    .video-wrap .video-embed.is-playing .video-play { display: none; }
 
     /* ── Code blocks ── */
     .code-wrap { margin: 2.5rem 0; }
@@ -291,11 +327,11 @@
         <p class="section-intro">A walkthrough of the full flow: classifying a denial, watching the deadline derivation compute itself, gathering evidence, and assembling the letter with every sentence traced to its source.</p>
 
         <div class="video-wrap">
-          <video controls playsinline preload="metadata">
-            <source src="/projects/insuranceappeal/insurance-demo.mp4" type="video/mp4">
-            Your browser does not support embedded video.
-            <a href="/projects/insuranceappeal/insurance-demo.mp4">Download the walkthrough instead.</a>
-          </video>
+          <div class="video-embed" style="aspect-ratio: 1504 / 1080;">
+            <img class="video-poster" src="/projects/insuranceappeal/insuranceappeal-photos/demo-poster.webp" alt="Appeal Kit walkthrough, first frame" width="1504" height="1080" loading="lazy" decoding="async">
+            <button type="button" class="video-play" aria-label="Play the Appeal Kit walkthrough"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></button>
+            <iframe src="https://REPLACE_WITH_VIDEO_EMBED/appeal-kit" title="Appeal Kit walkthrough" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
           <p class="img-caption">Appeal Kit walkthrough: triage, the deadline derivation, evidence, and the provenance tinted letter</p>
         </div>
       </section>
@@ -795,5 +831,6 @@ expect(externalRequests).toEqual([]);</code></pre>
   <script src="/assets/js/lightbox-a11y.js" defer></script>
   <script src="/assets/js/testimonial.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
+  <script src="/assets/js/video-embed.js" defer></script>
 </body>
 </html>
