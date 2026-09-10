@@ -117,7 +117,7 @@
      loads after them, so the equal-specificity rule here wins */
   code.inline { white-space: normal; overflow-wrap: anywhere; }
   .code-wrap pre { max-width: 100%; }
-  .video-wrap video, .video-wrap .video-embed, .img-cell img, .hero-img {
+  .video-wrap video, .img-cell img, .hero-img {
     max-width: 100%;
     height: auto;
   }

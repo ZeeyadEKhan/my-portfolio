@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=7">
+  <link rel="stylesheet" href="/assets/css/main.css?v=8">
   <style>
     /* ── Lightbox ── */
     .img-wrap img,
@@ -82,55 +82,14 @@
     /* ── Video embed ── */
     .video-wrap { margin: 2.5rem 0; }
 
-    .video-wrap .video-embed {
-      position: relative;
+    .video-wrap video {
       width: 100%;
+      height: auto;
       display: block;
-      overflow: hidden;
       border-radius: 8px;
       border: 1px solid var(--border);
       background: #111;
     }
-    .video-wrap .video-embed iframe,
-    .video-wrap .video-embed .video-poster {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
-    /* the iframe stays hidden until the visitor asks for it, so a placeholder
-       or slow embed can never paint over the poster */
-    .video-wrap .video-embed iframe { display: none; }
-    .video-wrap .video-embed.is-playing iframe { display: block; }
-    .video-wrap .video-poster { object-fit: cover; cursor: pointer; z-index: 1; }
-    .video-wrap .video-play { z-index: 2; }
-    .video-wrap .video-play {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      background: transparent;
-      border: 0;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .video-wrap .video-play span {
-      width: 64px;
-      height: 64px;
-      border-radius: 100px;
-      background: rgba(25, 25, 24, 0.82);
-      border: 1px solid rgba(254, 254, 254, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .video-wrap .video-play svg { width: 22px; height: 22px; margin-left: 3px; fill: #fff; }
-    .video-wrap .video-embed.is-playing .video-poster,
-    .video-wrap .video-embed.is-playing .video-play { display: none; }
 
     /* ── Code blocks ── */
     .code-wrap { margin: 2.5rem 0; }
@@ -173,7 +132,7 @@
       white-space: nowrap;
     }
   </style>
-  <link rel="stylesheet" href="/assets/css/mobile.css?v=4">
+  <link rel="stylesheet" href="/assets/css/mobile.css?v=5">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -328,11 +287,11 @@
         <p class="section-intro">A walkthrough of the full flow: logging photos with verified timestamps, checking a deduction against state law, and watching the dispute letter build itself from the evidence.</p>
 
         <div class="video-wrap">
-          <div class="video-embed" style="aspect-ratio: 2172 / 1080;">
-            <img class="video-poster" src="/projects/depositproof/depositproof-photos/demo-poster.webp" alt="Deposit Proof walkthrough, first frame" width="1600" height="795" loading="lazy" decoding="async">
-            <button type="button" class="video-play" aria-label="Play the Deposit Proof walkthrough"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></button>
-            <iframe src="https://REPLACE_WITH_VIDEO_EMBED/deposit-proof" title="Deposit Proof walkthrough" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-          </div>
+          <video controls playsinline preload="metadata" poster="/projects/depositproof/depositproof-photos/demo-poster.webp">
+            <source src="/projects/depositproof/Deposit-Proof-Demo.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+            <a href="/projects/depositproof/Deposit-Proof-Demo.mp4">Download the walkthrough instead.</a>
+          </video>
           <p class="img-caption">DepositProof walkthrough: photo protocol, wear versus damage verdicts, and the dispute letter</p>
         </div>
       </section>
@@ -819,6 +778,5 @@ overflowX: document.documentElement.scrollWidth &gt; document.documentElement.cl
   <script src="/assets/js/lightbox-a11y.js" defer></script>
   <script src="/assets/js/testimonial.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
-  <script src="/assets/js/video-embed.js?v=2" defer></script>
 </body>
 </html>

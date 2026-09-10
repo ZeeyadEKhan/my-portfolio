@@ -8,6 +8,7 @@
   --white:        #FEFEFE;
   --accent:       #0F7A5A;   /* emerald, 5.3 to 1 on white */
   --accent-tint:  #E9F4EE;
+  --accent-deep:  #0C6448;
   --blue:         var(--accent);   /* alias kept for archived pages */
   --yellow:       #F9AE22;
   --red:          #F93C3F;
@@ -738,7 +739,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 4rem 0; }
 }
 
 .case-links a.case-demo-btn:hover {
-  background: #1751C9;
+  background: var(--accent-deep);
   text-decoration: none;
 }
 
