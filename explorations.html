@@ -18,241 +18,9 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=8">
-  <style>
-    /* ── EXPLORATIONS (mirrors home) ── */
-    .home-body { padding-top: var(--topbar-h); }
-
-    /* Hero intro */
-    .home-hero {
-      max-width: var(--page-max);
-      margin: 0 auto;
-      padding: 7rem 2.5rem 6rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .home-hero-eyebrow {
-      font-size: 0.7rem;
-      font-weight: 300;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-subtle);
-      margin-bottom: 1.5rem;
-    }
-
-    .home-hero-title {
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.0;
-      color: var(--ink);
-      max-width: 14ch;
-      margin-bottom: 2rem;
-    }
-
-    .home-hero-desc {
-      font-size: 1.05rem;
-      font-weight: 300;
-      color: var(--ink-muted);
-      max-width: 48ch;
-      line-height: 1.7;
-    }
-
-    /* Work section */
-    .work-section {
-      max-width: var(--page-max);
-      margin: 0 auto;
-      padding: 0 2.5rem;
-    }
-
-    .work-label {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-subtle);
-      padding: 2.5rem 0 2rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* Project row */
-    .project-row {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      border-bottom: 1px solid var(--border);
-      cursor: pointer;
-    }
-
-    .project-row-inner {
-      padding: 3.5rem 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      transition: opacity 0.2s ease;
-    }
-
-    .project-row:hover .project-row-inner { opacity: 0.72; }
-
-    /* Left: text info */
-    .project-info {}
-
-    .project-num {
-      font-size: 0.65rem;
-      font-weight: 300;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-subtle);
-      margin-bottom: 1rem;
-    }
-
-    .project-name {
-      font-size: clamp(2.4rem, 4vw, 3.6rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.0;
-      color: var(--ink);
-      margin-bottom: 0.85rem;
-    }
-
-    .project-desc {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: var(--ink-muted);
-      line-height: 1.65;
-      max-width: 44ch;
-      margin-bottom: 1.25rem;
-    }
-
-    /* Outcome line: one measured or observed result per project */
-    .project-outcome {
-      display: flex;
-      align-items: baseline;
-      gap: 0.6rem;
-      margin-bottom: 1.25rem;
-      max-width: 44ch;
-    }
-
-    .project-outcome-label {
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .project-outcome-val {
-      font-size: 0.85rem;
-      font-weight: 400;
-      color: var(--ink);
-      line-height: 1.55;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      row-gap: 0.2rem;
-      margin-bottom: 1rem;
-      max-width: 44ch;
-      /* every item carries a leading hairline; the row is shifted left by one
-         separator width and clipped, so a line never starts with one */
-      margin-left: calc(-1.4rem - 1px);
-      clip-path: inset(0 0 0 calc(1.4rem + 1px));
-    }
-
-    .project-tag {
-      font-size: 0.78rem;
-      font-weight: 400;
-      line-height: 1.6;
-      color: var(--ink-muted);
-    }
-    .project-tag::before {
-      content: "";
-      display: inline-block;
-      width: 1px;
-      height: 0.8em;
-      margin: 0 0.7rem;
-      background: var(--border);
-      vertical-align: -0.05em;
-    }
-
-    .project-cta {
-      margin-top: 1.75rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--accent);
-    }
-
-    .project-cta-arrow {
-      display: inline-block;
-      transition: transform 0.2s ease;
-    }
-
-    .project-row:hover .project-cta-arrow { transform: translateX(4px); }
-
-    /* Cards with a live tool carry two links side by side */
-    .project-cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0 2rem;
-    }
-
-    a.project-cta { text-decoration: none; }
-    a.project-cta:hover .project-cta-arrow { transform: translateX(4px); }
-
-    /* Right: image */
-    .project-thumb {
-      border-radius: 10px;
-      overflow: hidden;
-      aspect-ratio: 16 / 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .project-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* Per-project thumb colors */
-    .thumb-persona      { background: #f4f2ef; }
-    .thumb-depositproof { background: #f4f6fa; }
-    .thumb-appealkit    { background: #eef2f0; }
-    .thumb-visitbrief   { background: #f3f6fb; }
-    .thumb-zarrin       { background: #17111f; }
-    .thumb-adey         { background: #f1efed; }
-    .thumb-explorius    { background: #e8f0ff; }
-    .thumb-baloo        { background: #fff8e8; }
-
-    /* Home footer */
-    .home-footer {
-      max-width: var(--page-max);
-      margin: 0 auto;
-      padding: 0 2.5rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 860px) {
-      .work-section, .home-hero, .home-footer { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .project-row-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .project-thumb { aspect-ratio: 16 / 9; }
-    }
-
-    @media (max-width: 540px) {
-      .home-hero { padding: 4rem 1.5rem 3.5rem; }
-    }
-  </style>
-  <link rel="stylesheet" href="/assets/css/mobile.css?v=5">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&family=Schibsted+Grotesk:wght@400..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?v=9">
+  <link rel="stylesheet" href="/assets/css/mobile.css?v=6">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -297,144 +65,123 @@
 
   <main id="main" tabindex="-1">
 
-  <!-- Hero -->
-  <section class="home-hero" aria-label="Introduction">
-    <p class="home-hero-eyebrow">Current Explorations · San Francisco</p>
-    <h1 class="home-hero-title">Built, not just designed.</h1>
-    <p class="home-hero-desc">Self directed work where I own every layer. The tools up top are designed, coded, tested, and shipped end to end, with live demos you can open from each card, and the brand systems that follow carry the same ownership from research question to final artifact. This page changes as often as the work does.</p>
+  <section class="intro" aria-label="Introduction">
+    <p class="intro-margin">Explorations</p>
+    <h1 class="intro-statement">Self directed work where I own every layer.</h1>
+    <p class="intro-lead">The tools up top are designed, coded, tested, and shipped end to end, with live demos you can open from each row, and the brand systems that follow carry the same ownership from research question to final artifact. This page changes as often as the work does.</p>
   </section>
 
-  <!-- Explorations -->
-  <section id="explorations" aria-label="Current explorations">
+  <section id="explorations" aria-labelledby="explorations-label">
     <div class="work-section">
-      <p class="work-label">Current Explorations</p>
+      <h2 class="work-label" id="explorations-label">Current explorations</h2>
 
-      <!-- 01 Persona -->
+      <!-- Persona: two destinations, so the row is not one link -->
       <div class="project-row">
         <div class="project-row-inner">
+          <p class="project-meta"><b>Solo build</b>Design engineer</p>
           <div class="project-info">
-            <p class="project-num">01</p>
-            <h2 class="project-name">Persona</h2>
+            <h3 class="project-name"><a href="/projects/persona-generator">Persona</a></h3>
+            <p class="project-desc">An AI powered UX research tool that turns a product idea into personas, journeys, and interview kits, generated entirely on a local model so ideas never leave your machine.</p>
+            <p class="project-outcome">Shipped: a full discovery package generated in about a minute, fully local.</p>
             <div class="project-tags">
-              <span class="project-tag">AI Product</span>
-              <span class="project-tag">Design Engineering</span>
+              <span class="project-tag">AI product</span>
+              <span class="project-tag">Design engineering</span>
               <span class="project-tag">Next.js</span>
               <span class="project-tag">Local LLM</span>
             </div>
-            <p class="project-desc">An AI powered UX research tool that turns a product idea into personas, journeys, and interview kits, generated entirely on a local model so ideas never leave your machine.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Shipped: a full discovery package generated in about a minute, fully local</span></p>
-            <span class="project-cta-row">
-            <a class="project-cta" href="/projects/persona-generator">View Case Study <span class="project-cta-arrow">→</span></a>
-            <a class="project-cta" href="https://persona-chi-nine.vercel.app" target="_blank" rel="noopener">Launch demo <span class="project-cta-arrow">→</span></a>
-          </span>
+            <p class="project-links"><a href="/projects/persona-generator">Case study</a><a href="https://persona-chi-nine.vercel.app" target="_blank" rel="noopener">Live demo</a></p>
           </div>
-          <a class="project-thumb thumb-persona" href="/projects/persona-generator" aria-label="Persona case study">
+          <a class="project-thumb" href="/projects/persona-generator" aria-label="Persona case study">
             <img src="/Personabox.webp"
                  alt="Persona landing page: turn product ideas into research backed user personas" width="900" height="562">
           </a>
         </div>
       </div>
 
-      <!-- 02 DepositProof. Split into two links so "Open the tool" can sit
-           beside "View Case Study" without nesting anchors. -->
+      <!-- Deposit Proof: two destinations, so the row is not one link -->
       <div class="project-row">
         <div class="project-row-inner">
+          <p class="project-meta"><b>Solo build</b>Design engineer</p>
           <div class="project-info">
-            <p class="project-num">02</p>
-            <h2 class="project-name">Deposit Proof</h2>
+            <h3 class="project-name"><a href="/projects/depositproof">Deposit Proof</a></h3>
             <p class="project-desc">A tenant side tool for security deposit disputes: a timestamped photo protocol, a wear versus damage check grounded in state law, and a dispute letter that builds itself, all in one HTML file that never uploads a photo.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Shipped: evidence packets build and print with nothing leaving the device</span></p>
+            <p class="project-outcome">Shipped: evidence packets build and print with nothing leaving the device.</p>
             <div class="project-tags">
-              <span class="project-tag">Legal Tech</span>
+              <span class="project-tag">Legal tech</span>
               <span class="project-tag">Evidence UX</span>
               <span class="project-tag">Vanilla JS</span>
-              <span class="project-tag">Single File</span>
+              <span class="project-tag">Single file</span>
             </div>
-            <span class="project-cta-row">
-              <a class="project-cta" href="/projects/depositproof">View Case Study <span class="project-cta-arrow">→</span></a>
-              <a class="project-cta" href="https://depositproof-dusky.vercel.app" target="_blank" rel="noopener">Launch demo <span class="project-cta-arrow">→</span></a>
-            </span>
+            <p class="project-links"><a href="/projects/depositproof">Case study</a><a href="https://depositproof-dusky.vercel.app" target="_blank" rel="noopener">Live demo</a></p>
           </div>
-          <a class="project-thumb thumb-depositproof" href="/projects/depositproof" aria-label="Deposit Proof case study">
+          <a class="project-thumb" href="/projects/depositproof" aria-label="Deposit Proof case study">
             <img src="/DepositProofbox.webp"
-                 alt="DepositProof hero reading Your deposit is a claim, document it like one"
-                 loading="lazy" width="900" height="562">
+                 alt="DepositProof hero reading Your deposit is a claim, document it like one" loading="lazy" width="900" height="562">
           </a>
         </div>
       </div>
 
-      <!-- 03 Appeal Kit -->
-      <!-- 03 Appeal Kit. Split into two links so "Open the tool" can sit
-           beside "View Case Study" without nesting anchors. -->
+      <!-- Appeal Kit: two destinations, so the row is not one link -->
       <div class="project-row">
         <div class="project-row-inner">
+          <p class="project-meta"><b>Solo build</b>Design engineer</p>
           <div class="project-info">
-            <p class="project-num">03</p>
-            <h2 class="project-name">Appeal Kit</h2>
+            <h3 class="project-name"><a href="/projects/insuranceappeal">Appeal Kit</a></h3>
             <p class="project-desc">A browser only tool that turns a health insurance denial letter into a filed appeal: deadlines that show their arithmetic, evidence matched to the denial type, and a letter built only from facts the user asserts. Nothing ever leaves the device.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Shipped: seven invariants enforced by tests, nothing ever leaves the device</span></p>
+            <p class="project-outcome">Shipped: seven invariants enforced by tests, nothing ever leaves the device.</p>
             <div class="project-tags">
-              <span class="project-tag">Health Tech</span>
-              <span class="project-tag">Privacy Engineering</span>
+              <span class="project-tag">Health tech</span>
+              <span class="project-tag">Privacy engineering</span>
               <span class="project-tag">React</span>
-              <span class="project-tag">Browser Only</span>
+              <span class="project-tag">Browser only</span>
             </div>
-            <span class="project-cta-row">
-              <a class="project-cta" href="/projects/insuranceappeal">View Case Study <span class="project-cta-arrow">→</span></a>
-              <a class="project-cta" href="https://appealkit-flax.vercel.app" target="_blank" rel="noopener">Launch demo <span class="project-cta-arrow">→</span></a>
-            </span>
+            <p class="project-links"><a href="/projects/insuranceappeal">Case study</a><a href="https://appealkit-flax.vercel.app" target="_blank" rel="noopener">Live demo</a></p>
           </div>
-          <a class="project-thumb thumb-appealkit" href="/projects/insuranceappeal" aria-label="Appeal Kit case study">
+          <a class="project-thumb" href="/projects/insuranceappeal" aria-label="Appeal Kit case study">
             <img src="/AppealKitbox.webp"
-                 alt="Appeal Kit start screen stating that everything stays on this device"
-                 loading="lazy" width="900" height="625">
+                 alt="Appeal Kit start screen stating that everything stays on this device" loading="lazy" width="900" height="625">
           </a>
         </div>
       </div>
 
-      <!-- 04 VisitBrief -->
+      <!-- Visit Brief: two destinations, so the row is not one link -->
       <div class="project-row">
         <div class="project-row-inner">
+          <p class="project-meta"><b>Solo build</b>Design engineer</p>
           <div class="project-info">
-            <p class="project-num">04</p>
-            <h2 class="project-name">Visit Brief</h2>
-            <p class="project-desc">A patient controlled pre visit narrative tool: five short steps and a local model turn weeks of carried worry into a one page brief a doctor can read in under a minute, without the story ever leaving the patient's machine.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Shipped: five files and 1,584 lines, running fully local</span></p>
+            <h3 class="project-name"><a href="/projects/medsummary">Visit Brief</a></h3>
+            <p class="project-desc">A patient controlled pre visit narrative tool: five short steps and a local model turn weeks of carried worry into a one page brief a doctor can read in under a minute, without the story ever leaving the patient’s machine.</p>
+            <p class="project-outcome">Shipped: five files and 1,584 lines, running fully local.</p>
             <div class="project-tags">
-              <span class="project-tag">Health Tech</span>
-              <span class="project-tag">AI Product</span>
+              <span class="project-tag">Health tech</span>
+              <span class="project-tag">AI product</span>
               <span class="project-tag">Local LLM</span>
               <span class="project-tag">Vanilla JS</span>
             </div>
-            <span class="project-cta-row">
-            <a class="project-cta" href="/projects/medsummary">View Case Study <span class="project-cta-arrow">→</span></a>
-            <a class="project-cta" href="https://visitbrief-nine.vercel.app" target="_blank" rel="noopener">Launch demo <span class="project-cta-arrow">→</span></a>
-          </span>
+            <p class="project-links"><a href="/projects/medsummary">Case study</a><a href="https://visitbrief-nine.vercel.app" target="_blank" rel="noopener">Live demo</a></p>
           </div>
-          <a class="project-thumb thumb-visitbrief" href="/projects/medsummary" aria-label="Visit Brief case study">
+          <a class="project-thumb" href="/projects/medsummary" aria-label="Visit Brief case study">
             <img src="/VisitBriefbox.webp"
-                 alt="Visit Brief landing page reading you get about twelve minutes, walk in ready to be understood"
-                 loading="lazy" width="900" height="562">
+                 alt="Visit Brief landing page reading you get about twelve minutes, walk in ready to be understood" loading="lazy" width="900" height="562">
           </a>
         </div>
       </div>
 
-      <!-- 05 Zarrin -->
+      <!-- Zarrin -->
       <a href="/projects/zarrin" class="project-row">
         <div class="project-row-inner">
+          <p class="project-meta"><b>Solo concept</b>Brand designer</p>
           <div class="project-info">
-            <p class="project-num">05</p>
-            <h2 class="project-name">Zarrin</h2>
+            <h3 class="project-name">Zarrin</h3>
             <p class="project-desc">A brand and packaging concept for a sparkling saffron water: a bilingual identity, a hand built Persian ornament system, and four jewel toned flavors drawn from one garden.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">A full identity and packaging system across four cans and a seven frame launch deck</span></p>
+            <p class="project-outcome">A full identity and packaging system across four cans and a seven frame launch deck.</p>
             <div class="project-tags">
-              <span class="project-tag">Graphic Design</span>
-              <span class="project-tag">Brand Identity</span>
+              <span class="project-tag">Graphic design</span>
+              <span class="project-tag">Brand identity</span>
               <span class="project-tag">Packaging</span>
             </div>
-            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
           </div>
-          <div class="project-thumb thumb-zarrin">
+          <div class="project-thumb">
             <img src="/Zarrinbox.webp"
                  alt="Four Zarrin cans in navy, burgundy, emerald, and garnet beneath the wordmark"
                  loading="lazy" width="900" height="562">
@@ -442,22 +189,21 @@
         </div>
       </a>
 
-      <!-- 06 Adey -->
+      <!-- Adey -->
       <a href="/projects/adey" class="project-row">
         <div class="project-row-inner">
+          <p class="project-meta"><b>Solo concept</b>Brand designer</p>
           <div class="project-info">
-            <p class="project-num">06</p>
-            <h2 class="project-name">Adey</h2>
+            <h3 class="project-name">Adey</h3>
+            <p class="project-desc">A brand and packaging concept for an Ethiopian single origin coffee: a bilingual lockup, a woven pattern band in four colorways, and roast profiles named for what you actually taste.</p>
+            <p class="project-outcome">A full identity and packaging system across four bags in one aligned template.</p>
             <div class="project-tags">
-              <span class="project-tag">Graphic Design</span>
-              <span class="project-tag">Brand Identity</span>
+              <span class="project-tag">Graphic design</span>
+              <span class="project-tag">Brand identity</span>
               <span class="project-tag">Packaging</span>
             </div>
-            <p class="project-desc">A brand and packaging concept for an Ethiopian single origin coffee: a bilingual lockup, a woven pattern band in four colorways, and roast profiles named for what you actually taste.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">A full identity and packaging system across four bags in one aligned template</span></p>
-            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
           </div>
-          <div class="project-thumb thumb-adey">
+          <div class="project-thumb">
             <img src="/Adeybox.webp"
                  alt="Four Adey coffee bags with green, oxblood, amber, and brown woven bands beneath the wordmark"
                  loading="lazy" width="900" height="562">
@@ -492,18 +238,6 @@
     </footer>
   </div>
 
-  <script>
-    // Fade up on scroll
-    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!noMotion) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-      }, { threshold: 0.08 });
-      document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
-    } else {
-      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
-    }
-  </script>
   <script src="/assets/js/nav.js" defer></script>
 </body>
 </html>

@@ -18,285 +18,9 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=8">
-  <style>
-    /* ── HOME-SPECIFIC ── */
-    .home-body { padding-top: var(--topbar-h); }
-
-    /* Hero intro */
-    .home-hero {
-      max-width: var(--page-max);
-      margin: 0 auto;
-      padding: 7rem 2.5rem 6rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .home-hero-eyebrow {
-      font-size: 0.7rem;
-      font-weight: 300;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-subtle);
-      margin-bottom: 1.5rem;
-    }
-
-    .home-hero-title {
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.0;
-      color: var(--ink);
-      max-width: 14ch;
-      margin-bottom: 2rem;
-    }
-
-    .home-hero-desc {
-      font-size: 1.05rem;
-      font-weight: 300;
-      color: var(--ink-muted);
-      max-width: 48ch;
-      line-height: 1.7;
-    }
-
-    /* Work section */
-    .work-section {
-      max-width: var(--page-max);
-      margin: 0 auto;
-      padding: 0 2.5rem;
-    }
-
-    .work-label {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-subtle);
-      padding: 2.5rem 0 2rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* Project row */
-    .project-row {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      border-bottom: 1px solid var(--border);
-      cursor: pointer;
-    }
-
-    .project-row-inner {
-      padding: 3.5rem 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      transition: opacity 0.2s ease;
-    }
-
-    .project-row:hover .project-row-inner { opacity: 0.72; }
-
-    /* Disabled rows (no case study yet) */
-    .project-row.coming-soon {
-      cursor: default;
-      pointer-events: none;
-    }
-
-    .project-row.coming-soon .project-row-inner { opacity: 0.42; }
-
-    /* Left: text info */
-    .project-info {}
-
-    .project-num {
-      font-size: 0.65rem;
-      font-weight: 300;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-subtle);
-      margin-bottom: 1rem;
-    }
-
-    .project-name {
-      font-size: clamp(2.4rem, 4vw, 3.6rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.0;
-      color: var(--ink);
-      margin-bottom: 0.85rem;
-    }
-
-    .project-desc {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: var(--ink-muted);
-      line-height: 1.65;
-      max-width: 44ch;
-      margin-bottom: 1.25rem;
-    }
-
-    /* Outcome line: one measured or observed result per project */
-    .project-outcome {
-      display: flex;
-      align-items: baseline;
-      gap: 0.6rem;
-      margin-bottom: 1.25rem;
-      max-width: 44ch;
-    }
-
-    .project-outcome-label {
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .project-outcome-val {
-      font-size: 0.85rem;
-      font-weight: 400;
-      color: var(--ink);
-      line-height: 1.55;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      row-gap: 0.2rem;
-      margin-bottom: 1rem;
-      max-width: 44ch;
-      /* every item carries a leading hairline; the row is shifted left by one
-         separator width and clipped, so a line never starts with one */
-      margin-left: calc(-1.4rem - 1px);
-      clip-path: inset(0 0 0 calc(1.4rem + 1px));
-    }
-
-    .project-tag {
-      font-size: 0.78rem;
-      font-weight: 400;
-      line-height: 1.6;
-      color: var(--ink-muted);
-    }
-    .project-tag::before {
-      content: "";
-      display: inline-block;
-      width: 1px;
-      height: 0.8em;
-      margin: 0 0.7rem;
-      background: var(--border);
-      vertical-align: -0.05em;
-    }
-
-    .project-cta {
-      margin-top: 1.75rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--accent);
-    }
-
-    .project-cta-arrow {
-      display: inline-block;
-      transition: transform 0.2s ease;
-    }
-
-    .project-row:hover .project-cta-arrow { transform: translateX(4px); }
-
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 1.75rem;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    /* Right: image / placeholder */
-    .project-thumb {
-      border-radius: 10px;
-      overflow: hidden;
-      aspect-ratio: 16 / 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .project-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .project-thumb-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    /* Per-project thumb colors */
-    .thumb-lumi      { background: #1e2c3a; }
-    .thumb-wonderbudi { background: #f0ece6; }
-    .thumb-explorius { background: #e8f0ff; }
-    .thumb-baloo     { background: #fff8e8; }
-    .thumb-legaleey  { background: #eef3ff; }
-    .thumb-appealkit { background: #eef2f0; }
-    .thumb-persona   { background: #f4f2ef; }
-
-    /* Home footer */
-    /* Bridge line to Explorations */
-    .work-bridge {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: var(--ink-muted);
-      line-height: 1.65;
-      padding: 2.5rem 0;
-    }
-
-    .work-bridge a {
-      color: var(--accent);
-      font-weight: 500;
-      text-decoration: none;
-    }
-
-    .work-bridge a:hover { text-decoration: underline; }
-
-    /* Closing contact line, same rhythm as the bridge line above it */
-    .home-say-hello {
-      max-width: none;
-      border-top: 1px solid var(--border);
-      padding: 2.5rem 0 3rem;
-    }
-
-    .home-footer {
-      max-width: var(--page-max);
-      margin: 0 auto;
-      padding: 0 2.5rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 860px) {
-      .work-section, .home-hero, .home-footer { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .project-row-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .project-thumb { aspect-ratio: 16 / 9; }
-    }
-
-    @media (max-width: 540px) {
-      .home-hero { padding: 4rem 1.5rem 3.5rem; }
-    }
-  </style>
-  <link rel="stylesheet" href="/assets/css/mobile.css?v=5">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&family=Schibsted+Grotesk:wght@400..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?v=9">
+  <link rel="stylesheet" href="/assets/css/mobile.css?v=6">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -333,63 +57,56 @@
 
   <main id="main" tabindex="-1">
 
-  <!-- Hero -->
-  <section class="home-hero" aria-label="Introduction">
-    <p class="home-hero-eyebrow">AI Product Designer · San Francisco · Open to full time roles</p>
-    <h1 class="home-hero-title">Design that earns attention.</h1>
-    <p class="home-hero-desc">People don't read interfaces. They scan, guess, and move on. I design for the way people behave, not the way we hope they will.</p>
+  <section class="intro" aria-label="Introduction">
+    <p class="intro-margin">AI product designer<br>San Francisco<br>Open to full time roles</p>
+    <h1 class="intro-statement">People don’t read interfaces. They scan, guess, and move on. I design for the way people behave, not the way we hope they will.</h1>
   </section>
 
-  <!-- Work -->
-  <section id="work" aria-label="Selected work">
+  <section id="work" aria-labelledby="work-label">
     <div class="work-section">
-      <p class="work-label">Selected Work</p>
+      <h2 class="work-label" id="work-label">Selected work</h2>
 
-      <!-- 01 Legaleey -->
+      <!-- Legaleey -->
       <a href="/projects/legaleey" class="project-row">
         <div class="project-row-inner">
+          <p class="project-meta"><b>2023</b>Product designer</p>
           <div class="project-info">
-            <p class="project-num">01</p>
-            <h2 class="project-name">Legaleey</h2>
+            <h3 class="project-name">Legaleey</h3>
+            <p class="project-desc">An AI powered legal document search platform for law firms.</p>
+            <p class="project-outcome">In testing, time to find relevant clauses dropped by 80% compared to Acrobat.</p>
             <div class="project-tags">
               <span class="project-tag">B2B SaaS</span>
-              <span class="project-tag">Legal Tech</span>
+              <span class="project-tag">Legal tech</span>
               <span class="project-tag">Desktop</span>
-              <span class="project-tag">UX Design</span>
+              <span class="project-tag">UX design</span>
             </div>
-            <p class="project-desc">An AI powered legal document search platform for law firms.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">In testing, time to find relevant clauses dropped by 80% compared to Acrobat</span></p>
-            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
           </div>
-          <div class="project-thumb thumb-legaleey">
+          <div class="project-thumb">
             <img src="/LegaleeySERPbox.webp"
                  alt="Legaleey search results screen with the persistent filter panel, date and percentage sliders, and clause aware results in an eight column table" width="900" height="559">
           </div>
         </div>
       </a>
 
-      <!-- 02 NOMADO: PENDING OWNER APPROVAL of drafts/nomado/index.html.
-           To enable: move drafts/nomado to projects/nomado, uncomment this card,
-           renumber the cards below (Lumi 03, Wonderbudi 04, Explorius 05, Baloo 06)
-           or drop one student project to keep the section at five, add a NOMADO
-           thumbnail webp at the repo root plus a .thumb-nomado background in the
-           style block above, and add the page to sitemap.xml.
+      <!-- NOMADO: PENDING OWNER APPROVAL of drafts/nomado/index.html.
+           To enable: move drafts/nomado to projects/nomado, uncomment this row,
+           add a NOMADO thumbnail webp at the repo root, add the page to
+           sitemap.xml, and fill the year in the margin line.
       <a href="/projects/nomado" class="project-row">
         <div class="project-row-inner">
+          <p class="project-meta"><b>YEAR</b>Product designer</p>
           <div class="project-info">
-            <p class="project-num">02</p>
-            <h2 class="project-name">NOMADO</h2>
-            <div class="project-tags">
-              <span class="project-tag">Digital Menu</span>
-              <span class="project-tag">Hospitality</span>
-              <span class="project-tag">Usability Testing</span>
-              <span class="project-tag">Product Design</span>
-            </div>
+            <h3 class="project-name">NOMADO</h3>
             <p class="project-desc">A restaurant and hospitality digital menu redesign.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Ten rounds of usability testing lifted order completion by 30% and cut friction by 20%</span></p>
-            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
+            <p class="project-outcome">Ten rounds of usability testing lifted order completion by 30% and cut friction by 20%.</p>
+            <div class="project-tags">
+              <span class="project-tag">Digital menu</span>
+              <span class="project-tag">Hospitality</span>
+              <span class="project-tag">Usability testing</span>
+              <span class="project-tag">Product design</span>
+            </div>
           </div>
-          <div class="project-thumb thumb-nomado">
+          <div class="project-thumb">
             <img src="/NOMADObox.webp"
                  alt="NOMADO project"
                  loading="lazy">
@@ -398,102 +115,91 @@
       </a>
       -->
 
-      <!-- 02 Lumi -->
+      <!-- Lumi -->
       <a href="/projects/lumi" class="project-row">
         <div class="project-row-inner">
+          <p class="project-meta"><b>SCAD studio</b>Prototype lead</p>
           <div class="project-info">
-            <p class="project-num">02</p>
-            <h2 class="project-name">Lumi</h2>
-            <div class="project-tags">
-              <span class="project-tag">AI Product</span>
-              <span class="project-tag">Anger De escalation</span>
-              <span class="project-tag">Physical Design</span>
-              <span class="project-tag">UX Research</span>
-            </div>
+            <h3 class="project-name">Lumi</h3>
             <p class="project-desc">An AI social robot that monitors anger patterns, calms arguments in real time, and builds empathy through light, sound, and voice.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Two testing sprints with 15 participants validated sound effectiveness and shaped the final voice design</span></p>
-            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
+            <p class="project-outcome">Two testing sprints with 15 participants validated sound effectiveness and shaped the final voice design.</p>
+            <div class="project-tags">
+              <span class="project-tag">AI product</span>
+              <span class="project-tag">Anger de escalation</span>
+              <span class="project-tag">Physical design</span>
+              <span class="project-tag">UX research</span>
+            </div>
           </div>
-          <div class="project-thumb thumb-lumi">
+          <div class="project-thumb">
             <img src="/Lumibox.webp"
-                 alt="Lumi robot showing three LED states"
-                 loading="lazy" width="900" height="559">
+                 alt="Lumi robot showing three LED states" loading="lazy" width="900" height="559">
           </div>
         </div>
       </a>
-
-      <!-- 03 Wonderbudi -->
+      <!-- Wonderbudi -->
       <a href="/projects/wonderbudi/" class="project-row">
         <div class="project-row-inner">
+          <p class="project-meta"><b>SCAD studio</b>UX researcher</p>
           <div class="project-info">
-            <p class="project-num">03</p>
-            <h2 class="project-name">Wonderbudi</h2>
-            <div class="project-tags">
-              <span class="project-tag">AI Social Robot</span>
-              <span class="project-tag">Children&#8217;s Mental Health</span>
-              <span class="project-tag">Physical Product</span>
-            </div>
+            <h3 class="project-name">Wonderbudi</h3>
             <p class="project-desc">An AI robot that calms children during emotional distress, helps teachers recognize a child in need, and connects families and counselors to support.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">50 of 52 parents approved a school worn biometric device in testing</span></p>
-            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
+            <p class="project-outcome">50 of 52 parents approved a school worn biometric device in testing.</p>
+            <div class="project-tags">
+              <span class="project-tag">AI social robot</span>
+              <span class="project-tag">Children&#8217;s mental health</span>
+              <span class="project-tag">Physical product</span>
+            </div>
           </div>
-          <div class="project-thumb thumb-wonderbudi">
+          <div class="project-thumb">
             <img src="/WonderbudiRobotbox.webp"
-                 alt="WonderBudi robots with embedded activity screens beside Budiband wristbands in four colors"
-                 loading="lazy" width="900" height="559">
+                 alt="WonderBudi robots with embedded activity screens beside Budiband wristbands in four colors" loading="lazy" width="900" height="559">
           </div>
         </div>
       </a>
-
-      <!-- 04 Explorius -->
+      <!-- Explorius -->
       <a href="/projects/explorius/" class="project-row">
         <div class="project-row-inner">
+          <p class="project-meta"><b>SCAD studio</b>Prototype lead</p>
           <div class="project-info">
-            <p class="project-num">04</p>
-            <h2 class="project-name">Explorius</h2>
-            <div class="project-tags">
-              <span class="project-tag">Mobile App</span>
-              <span class="project-tag">Digital Nomads</span>
-              <span class="project-tag">Travel and Connection</span>
-            </div>
+            <h3 class="project-name">Explorius</h3>
             <p class="project-desc">A mobile app that helps digital nomads plan trips, fight social isolation, and connect with other nomads wherever they are in the world.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">In testing, the dashboard redesign drew the strongest positive response of any change</span></p>
-            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
+            <p class="project-outcome">In testing, the dashboard redesign drew the strongest positive response of any change.</p>
+            <div class="project-tags">
+              <span class="project-tag">Mobile app</span>
+              <span class="project-tag">Digital nomads</span>
+              <span class="project-tag">Travel and connection</span>
+            </div>
           </div>
-          <div class="project-thumb thumb-explorius">
+          <div class="project-thumb">
             <img src="/ExploriusUIbox.webp"
-                 alt="Explorius map screen with nearby nomads and close by places, beside three promises: see your connections, find new places, easy meetups"
-                 loading="lazy" width="900" height="559">
+                 alt="Explorius map screen with nearby nomads and close by places, beside three promises: see your connections, find new places, easy meetups" loading="lazy" width="900" height="559">
           </div>
         </div>
       </a>
-
-      <!-- 05 Baloo -->
+      <!-- Baloo -->
       <a href="/projects/baloo/" class="project-row">
         <div class="project-row-inner">
+          <p class="project-meta"><b>SCAD studio</b>UX researcher</p>
           <div class="project-info">
-            <p class="project-num">05</p>
-            <h2 class="project-name">Baloo</h2>
-            <div class="project-tags">
-              <span class="project-tag">Screenless Toy</span>
-              <span class="project-tag">Children Ages 1 to 5</span>
-              <span class="project-tag">Interactive Storytelling</span>
-            </div>
+            <h3 class="project-name">Baloo</h3>
             <p class="project-desc">A screenless AI storytelling toy for children that sustains full engagement without a display.</p>
-            <p class="project-outcome"><span class="project-outcome-label">Outcome</span><span class="project-outcome-val">Across two prototype rounds, children held focus for full stories without requesting a screen</span></p>
-            <span class="project-cta">View Case Study <span class="project-cta-arrow">→</span></span>
+            <p class="project-outcome">Across two prototype rounds, children held focus for full stories without requesting a screen.</p>
+            <div class="project-tags">
+              <span class="project-tag">Screenless toy</span>
+              <span class="project-tag">Children ages 1 to 5</span>
+              <span class="project-tag">Interactive storytelling</span>
+            </div>
           </div>
-          <div class="project-thumb thumb-baloo">
+          <div class="project-thumb">
             <img src="/Baloobox.webp"
-                 alt="Baloo project"
-                 loading="lazy" width="900" height="559">
+                 alt="Baloo plush bear with colored limbs beside three parent app screens" loading="lazy" width="900" height="559">
           </div>
         </div>
       </a>
 
-      <p class="work-bridge">Built, not just designed: six self directed tools and brand systems, shipped end to end. <a href="/explorations">Explorations</a></p>
+      <p class="work-bridge">Six self directed tools and brand systems, shipped end to end, are on the <a href="/explorations">Explorations page</a>.</p>
 
-      <p class="work-bridge home-say-hello">I am open to full time roles. <a href="/contact">Say hello</a></p>
+      <p class="work-bridge">I am open to full time roles. <a href="/contact">Say hello</a>.</p>
 
     </div>
   </section>
@@ -522,18 +228,6 @@
     </footer>
   </div>
 
-  <script>
-    // Fade up on scroll
-    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!noMotion) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-      }, { threshold: 0.08 });
-      document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
-    } else {
-      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
-    }
-  </script>
   <script src="/assets/js/nav.js" defer></script>
 </body>
 </html>

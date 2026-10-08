@@ -20,8 +20,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=8">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&family=Schibsted+Grotesk:wght@400..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?v=9">
   <style>
     /* ── Lightbox ── */
     .img-wrap img,
@@ -86,7 +86,6 @@
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 8px;
       border: 1px solid var(--border);
       background: #111;
     }
@@ -97,7 +96,6 @@
     .code-wrap pre {
       background: #1c1c1b;
       border: 1px solid #2c2c2a;
-      border-radius: 8px;
       padding: 1.35rem 1.5rem;
       overflow-x: auto;
       line-height: 1.68;
@@ -105,7 +103,7 @@
 
     .code-wrap code {
       font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.76rem;
+      font-size: 0.8125rem;
       color: #e6e4e0;
       white-space: pre;
     }
@@ -116,8 +114,8 @@
 
     .code-file {
       font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.02em;
+      font-size: 0.8rem;
+      letter-spacing: 0;
       color: var(--ink-subtle);
       margin-bottom: 0.5rem;
     }
@@ -127,12 +125,11 @@
       font-size: 0.82em;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 5px;
       padding: 0.08em 0.4em;
       white-space: nowrap;
     }
   </style>
-  <link rel="stylesheet" href="/assets/css/mobile.css?v=5">
+  <link rel="stylesheet" href="/assets/css/mobile.css?v=6">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -186,13 +183,13 @@
   <section class="hero" aria-label="Project hero">
     <div class="hero-text">
       <h1 class="hero-title">Visit Brief</h1>
-      <p class="hero-sub">A patient controlled pre visit narrative tool. Five short steps turn weeks of carried worry into a single page a busy doctor can read in under a minute, compressed by a local model so the story never leaves the patient's machine.</p>
+      <p class="hero-sub">A patient controlled pre visit narrative tool. Five short steps turn weeks of carried worry into a single page a busy doctor can read in under a minute, compressed by a local model so the story never leaves the patient’s machine.</p>
       <div class="hero-chips">
-        <span class="chip chip-accent">Health Tech</span>
-        <span class="chip">AI Product</span>
+        <span class="chip">Health tech</span>
+        <span class="chip">AI product</span>
         <span class="chip">Local LLM</span>
         <span class="chip">Vanilla JavaScript</span>
-        <span class="chip">Solo Build</span>
+        <span class="chip">Solo build</span>
       </div>
     </div>
     <img
@@ -216,10 +213,10 @@
           <li><a href="#overview"     class="nav-link">Overview</a></li>
           <li><a href="#demo"         class="nav-link">Demo</a></li>
           <li><a href="#problem"      class="nav-link">Problem</a></li>
-          <li><a href="#product"      class="nav-link">The Product</a></li>
+          <li><a href="#product"      class="nav-link">The product</a></li>
           <li><a href="#architecture" class="nav-link">Architecture</a></li>
-          <li><a href="#decisions"    class="nav-link">Engineering Decisions</a></li>
-          <li><a href="#testing"      class="nav-link">Tested by Running</a></li>
+          <li><a href="#decisions"    class="nav-link">Engineering decisions</a></li>
+          <li><a href="#testing"      class="nav-link">Tested by running</a></li>
           <li><a href="#outcome"      class="nav-link">Outcome</a></li>
         </ul>
       </div>
@@ -230,39 +227,27 @@
 
 
       <div class="case-summary">
-        <h2 class="eyebrow-heading">At a Glance</h2>
-        <p><strong>Role:</strong> Design Engineer, designed and built solo end to end<br>
-        <strong>Platform:</strong> Local web app over Ollama, no framework, no build step<br>
-        <strong>Outcome:</strong> Shipped: five files and 1,584 lines, running fully local</p>
+        <h2 class="eyebrow-heading">At a glance</h2>
+        <dl class="facts">
+          <div><dt>Role</dt><dd>Design Engineer, designed and built solo end to end</dd></div>
+          <div><dt>Platform</dt><dd>Local web app over Ollama, no framework, no build step</dd></div>
+          <div><dt>In numbers</dt><dd class="figures"><span>5 intake steps</span><span>1 page output</span><span>1,584 lines total</span></dd></div>
+          <div><dt>Outcome</dt><dd>Shipped: five files and 1,584 lines, running fully local</dd></div>
+        </dl>
         <p class="case-links">
-          <a class="case-demo-btn" href="https://visitbrief-nine.vercel.app" target="_blank" rel="noopener">Try the live demo <span aria-hidden="true">&rarr;</span></a>
+          <a class="case-demo-btn" href="https://visitbrief-nine.vercel.app" target="_blank" rel="noopener">Try the live demo</a>
         </p>
       </div>
 
       <!-- ═══════ OVERVIEW ═══════ -->
       <section id="overview" class="section">
-        <div class="section-label">Overview</div>
         <h2 class="section-title">Twelve minutes, one page, your words</h2>
-        <p class="section-intro">Visit Brief walks a patient through five short questions about what brought them in, when it started, what they take, what they fear, and what three things they need from the visit. A local model then compresses those answers into a one page pre visit brief: chief concern, timeline, medications, priorities in the patient's own order, and the worry that usually goes unsaid.</p>
+        <p class="section-intro">Visit Brief walks a patient through five short questions about what brought them in, when it started, what they take, what they fear, and what three things they need from the visit. A local model then compresses those answers into a one page pre visit brief: chief concern, timeline, medications, priorities in the patient’s own order, and the worry that usually goes unsaid.</p>
 
         <p>The product lives on one design thesis, stated at the top of the stylesheet: <strong>two registers live in one product</strong>. The intake is an app, warm and paced for a nervous person. The brief is a document, serif and clinical, because it is the printed thing a doctor holds. The whole build is five files and 1,584 lines of vanilla HTML, CSS, and JavaScript, with the model running locally through Ollama so a health story never touches a server.</p>
 
-        <div class="meta-strip">
-          <div class="meta-item">
-            <span class="meta-val">5</span>
-            <span class="meta-key">Intake Steps</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-val">1</span>
-            <span class="meta-key">Page Output</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-val">1,584</span>
-            <span class="meta-key">Lines Total</span>
-          </div>
-        </div>
 
-        <h3 class="eyebrow-heading">My Role</h3>
+        <h3 class="eyebrow-heading">My role</h3>
         <p>Design Engineer &middot; Designed and built the entire product solo: the intake flow, the prompt, the document system, and the export pipeline</p>
 
         <h3 class="eyebrow-heading">Stack</h3>
@@ -276,13 +261,12 @@
             width="1600"
             height="1070"
           >
-          <p class="img-caption">The hero is not a screenshot of the product. It is the product's argument: rambling becomes a brief, animated on load</p>
+          <p class="img-caption">The hero is not a screenshot of the product. It is the product’s argument: rambling becomes a brief, animated on load</p>
         </div>
       </section>
 
       <!-- ═══════ DEMO ═══════ -->
       <section id="demo" class="section">
-        <div class="section-label">Demo</div>
         <h2 class="section-title">See it work</h2>
         <p class="section-intro">A walkthrough of the full flow: the five step intake, the local model shaping the page, and the finished brief ready to print and carry into the appointment.</p>
 
@@ -298,15 +282,13 @@
 
       <!-- ═══════ PROBLEM ═══════ -->
       <section id="problem" class="section">
-        <div class="section-label">Problem</div>
         <h2 class="section-title">The patient to doctor interface is broken</h2>
         <p class="section-intro">Records flow out to the patient through portals and printouts, but the patient has no good way to send a clear, prioritized story back in. You carry a worry for weeks, and then the room moves fast, the visit runs about twelve minutes, and half of what you meant to say never gets said.</p>
 
         <p>The worst casualty is usually the most important sentence: the fear underneath the symptoms, which is often the real reason the appointment was booked. Patients ramble because worry rambles. Doctors think in timelines and priorities. Nothing in the room translates between the two, and the person with the least practice speaking the clinical register is the one with the least time to do it.</p>
 
         <div class="callout">
-          <div class="callout-eye">How Might We</div>
-          <p>Let a nervous patient tell their story once, in their own words, and walk in holding <strong>a single page their doctor can scan in under a minute</strong>, without that story ever leaving their machine?</p>
+          <p><strong class="runin">How might we</strong> let a nervous patient tell their story once, in their own words, and walk in holding <strong>a single page their doctor can scan in under a minute</strong>, without that story ever leaving their machine?</p>
         </div>
 
         <p>The scoping decision came first: Visit Brief solves only the half the patient controls. There is no clinician account, no records integration, no upload. The product deliberately stops at the piece of paper the patient owns, brings, and decides whether to share.</p>
@@ -314,7 +296,6 @@
 
       <!-- ═══════ THE PRODUCT ═══════ -->
       <section id="product" class="section">
-        <div class="section-label">The Product</div>
         <h2 class="section-title">Five questions, then a document</h2>
         <p class="section-intro">The intake asks one question at a time, autosaves every keystroke, and paces a person who may be dreading the answers. Each question earns its place: doctors think in timelines, knowing what did not work saves everyone time, and the order of your three priorities tells the doctor where to spend the minutes if time runs short.</p>
 
@@ -344,7 +325,7 @@
         </div>
 
         <h3>An honest wait</h3>
-        <p>While the local model works, the loading screen shows a miniature page assembling itself line by line, in lockstep with a checklist written in the product's voice: reading your answers, ordering the timeline, framing what matters most, laying out the page. The third skeleton bar is amber, because the third checklist item is the fear block. The loading state is a scale model of the output, down to the color of its one warm block.</p>
+        <p>While the local model works, the loading screen shows a miniature page assembling itself line by line, in lockstep with a checklist written in the product’s voice: reading your answers, ordering the timeline, framing what matters most, laying out the page. The third skeleton bar is amber, because the third checklist item is the fear block. The loading state is a scale model of the output, down to the color of its one warm block.</p>
 
         <div class="img-wrap">
           <img
@@ -358,7 +339,7 @@
         </div>
 
         <h3>The brief</h3>
-        <p>The output switches registers completely: serif type, a masthead rule, a clinical layout sized to one printed page. The chief concern leads in large type. Priorities render as three numbered cards in the patient's own order. The timeline reads as a spine. And the patient's fear is the last thing on the page, in the largest body type, in the only colored block, so a clinician scanning top to bottom ends on the person.</p>
+        <p>The output switches registers completely: serif type, a masthead rule, a clinical layout sized to one printed page. The chief concern leads in large type. Priorities render as three numbered cards in the patient’s own order. The timeline reads as a spine. And the patient’s fear is the last thing on the page, in the largest body type, in the only colored block, so a clinician scanning top to bottom ends on the person.</p>
 
         <div class="img-wrap">
           <img
@@ -374,9 +355,8 @@
 
       <!-- ═══════ ARCHITECTURE ═══════ -->
       <section id="architecture" class="section">
-        <div class="section-label">Architecture</div>
         <h2 class="section-title">Small enough to be audited by its users</h2>
-        <p class="section-intro">Visit Brief has no framework, no build step, and no dependency a reader has to trust. That is not minimalism for taste. The product's core claim is that nothing leaves your machine, and a claim like that is only worth what a skeptical reader can verify. Anyone, including a clinician, can read all 1,584 lines and check it personally.</p>
+        <p class="section-intro">Visit Brief has no framework, no build step, and no dependency a reader has to trust. That is not minimalism for taste. The product’s core claim is that nothing leaves your machine, and a claim like that is only worth what a skeptical reader can verify. Anyone, including a clinician, can read all 1,584 lines and check it personally.</p>
 
         <p>Application state is one integer: the current step. Everything else derives from it through a single render function that clamps out of range values, so the back button on step one and the next button on step five are harmless by construction rather than by disabled state logic. A single field registry maps the nine inputs, and that one map drives restore, read, autosave wiring, and clear. Adding a question is one line plus markup.</p>
 
@@ -395,22 +375,20 @@ extractJson() ──▶ normalizeBrief() ──▶ localStorage handoff
                                        (standalone, no app.js)</code></pre>
         </div>
 
-        <p>The handoff between intake and document goes through localStorage under versioned keys, never through the URL. A patient's stated fear in a query string would land in browser history and any referrer header. And the brief page is deliberately standalone: it loads no application code at all, reads its data, and if there is nothing stored or the data is corrupt, both failure modes resolve the same way, back to the start. There is no empty brief state to design because it cannot occur.</p>
+        <p>The handoff between intake and document goes through localStorage under versioned keys, never through the URL. A patient’s stated fear in a query string would land in browser history and any referrer header. And the brief page is deliberately standalone: it loads no application code at all, reads its data, and if there is nothing stored or the data is corrupt, both failure modes resolve the same way, back to the start. There is no empty brief state to design because it cannot occur.</p>
 
         <div class="callout">
-          <div class="callout-eye">Design Constraint</div>
-          <p>The two registers are enforced by the type system of the design, not by discipline. The sans face runs the app; the serif appears only in the brief. The serif escapes into the app in exactly four sanctioned places, and every one of them is a spot where the interface is <strong>pointing at the document</strong>.</p>
+          <p><strong class="runin">Design constraint.</strong> The two registers are enforced by the type system of the design, not by discipline. The sans face runs the app; the serif appears only in the brief. The serif escapes into the app in exactly four sanctioned places, and every one of them is a spot where the interface is <strong>pointing at the document</strong>.</p>
         </div>
       </section>
 
       <!-- ═══════ ENGINEERING DECISIONS ═══════ -->
       <section id="decisions" class="section">
-        <div class="section-label">Engineering Decisions</div>
         <h2 class="section-title">Treating the model as an unreliable interface</h2>
-        <p class="section-intro">The interesting engineering in Visit Brief is at the boundary between a small local model and a document a doctor will hold. A 3B model on a patient's laptop will wrap JSON in prose, drop fields, and improvise shapes. The product's job is to make sure none of that ever reaches the page.</p>
+        <p class="section-intro">The interesting engineering in Visit Brief is at the boundary between a small local model and a document a doctor will hold. A 3B model on a patient’s laptop will wrap JSON in prose, drop fields, and improvise shapes. The product’s job is to make sure none of that ever reaches the page.</p>
 
         <h3>1 &middot; Four layers of defense against one unreliable interface</h3>
-        <p>The same problem is solved four independent times. The prompt instructs: respond with only a JSON object, no preamble and no markdown fences. The request enforces it again with Ollama's grammar constrained JSON mode. Then the response passes through a syntactic recovery function anyway, because models sometimes wrap JSON in prose regardless:</p>
+        <p>The same problem is solved four independent times. The prompt instructs: respond with only a JSON object, no preamble and no markdown fences. The request enforces it again with Ollama’s grammar constrained JSON mode. Then the response passes through a syntactic recovery function anyway, because models sometimes wrap JSON in prose regardless:</p>
 
         <div class="code-wrap">
           <div class="code-file">app.js · extractJson, the syntactic layer</div>
@@ -427,10 +405,10 @@ extractJson() ──▶ normalizeBrief() ──▶ localStorage handoff
 
         <p>The first brace and last brace trick survives both a chatty preamble and a polite postamble in one operation, and handles nested objects because it takes the last closing brace. The fourth layer is semantic: a shape guard that normalizes whatever parsed into exactly what the document needs. Its best decisions are a fallback chain three levels deep on the chief concern, so the largest headline can never be blank, and a hard cut of priorities to three, because the layout renders three columns and a model returning five would break the band. The layout invariant is enforced where the data is shaped, not patched in CSS.</p>
 
-        <p>The safest degradation is reserved for the most sensitive field: if the model garbles the fear, the patient's own sentence is used verbatim. When compression fails on the thing that matters most, the original words are already the right answer.</p>
+        <p>The safest degradation is reserved for the most sensitive field: if the model garbles the fear, the patient’s own sentence is used verbatim. When compression fails on the thing that matters most, the original words are already the right answer.</p>
 
         <h3>2 &middot; The prompt is a safety document</h3>
-        <p>The prompt opens with five words that do all the safety work: you are a careful medical scribe. The model is a compression function over the patient's words, never a diagnostician. The anti hallucination clause names its categories instead of gesturing: do not invent symptoms, diagnoses, dates, or medications that are not present.</p>
+        <p>The prompt opens with five words that do all the safety work: you are a careful medical scribe. The model is a compression function over the patient’s words, never a diagnostician. The anti hallucination clause names its categories instead of gesturing: do not invent symptoms, diagnoses, dates, or medications that are not present.</p>
 
         <div class="code-wrap">
           <div class="code-file">app.js · buildPrompt, abridged</div>
@@ -466,7 +444,7 @@ Patient answers:
         <p>The scope is honored in the code: the care palette appears in exactly four places, and the separate alert red appears only for system failure, never for anything a patient wrote. Red is for the machine breaking. Amber is for a human being afraid. A two color semantic system doing real work.</p>
 
         <h3>4 &middot; Fighting the PDF library for one page</h3>
-        <p>The brief must be one page, and the export pipeline earns that the hard way. The capture library sizes its canvas from the live element before cloning anything, so the on screen card chrome had to be flattened in place and restored afterward, with the restore in a finally block so a failed export never leaves the page visually broken. And when the library's pagination produced a near blank second page, the fix went underneath the convenience API:</p>
+        <p>The brief must be one page, and the export pipeline earns that the hard way. The capture library sizes its canvas from the live element before cloning anything, so the on screen card chrome had to be flattened in place and restored afterward, with the restore in a finally block so a failed export never leaves the page visually broken. And when the library’s pagination produced a near blank second page, the fix went underneath the convenience API:</p>
 
         <div class="code-wrap">
           <div class="code-file">brief.html · the one page rule, enforced</div>
@@ -480,36 +458,31 @@ Patient answers:
 }</code></pre>
         </div>
 
-        <p>Below that runs a hand written contain algorithm: fit to width first, fall back to fit to height, center horizontally, on a white base fill because JPEG has no alpha channel. The product constraint overrode the library default, and the code reached into the library's internals to make one page a rule instead of a hope.</p>
+        <p>Below that runs a hand written contain algorithm: fit to width first, fall back to fit to height, center horizontally, on a white base fill because JPEG has no alpha channel. The product constraint overrode the library default, and the code reached into the library’s internals to make one page a rule instead of a hope.</p>
 
         <h3>5 &middot; What was deliberately not built</h3>
-        <p>There is no input validation, and that is a decision with an argument. Every field is free text narrative; there is no wrong answer to what are you most afraid of, and a validation error on that question would be actively harmful. The system degrades instead: blanks become (not provided), the shape guard supplies fallbacks, and a completely empty submission still produces a valid document. Autosave has no debounce for a similar reason: nine short fields serialize in a couple of kilobytes, and a debounce would buy nothing except a window where an anxious person's words could be lost.</p>
+        <p>There is no input validation, and that is a decision with an argument. Every field is free text narrative; there is no wrong answer to what are you most afraid of, and a validation error on that question would be actively harmful. The system degrades instead: blanks become (not provided), the shape guard supplies fallbacks, and a completely empty submission still produces a valid document. Autosave has no debounce for a similar reason: nine short fields serialize in a couple of kilobytes, and a debounce would buy nothing except a window where an anxious person’s words could be lost.</p>
 
         <h3>The smaller calls that add up</h3>
 
-        <div class="insight-grid fade-up">
+        <div class="insight-grid">
           <div class="insight-card">
-            <div class="insight-card-label">Why is progress partly theater, and where is it honest?</div>
-            <p>Ollama's endpoint returns nothing until generation finishes, so the first two checklist ticks run on timers. The honesty lives at the endpoints: the final tick fires only on real success, and the timers are cleared on failure, so a failed run can never show a completed checklist. Perceived progress, with a floor of truth.</p>
+            <p><strong class="runin">Why is progress partly theater, and where is it honest?</strong> Ollama’s endpoint returns nothing until generation finishes, so the first two checklist ticks run on timers. The honesty lives at the endpoints: the final tick fires only on real success, and the timers are cleared on failure, so a failed run can never show a completed checklist. Perceived progress, with a floor of truth.</p>
           </div>
           <div class="insight-card">
-            <div class="insight-card-label">Why does the error screen read like a runbook?</div>
-            <p>The recovery screen's comment is its philosophy: direction, not apology. It names what happened, lists the three terminal commands that fix it, offers try again, and repeats the one sentence an anxious user needs: your answers are safe and still saved. The sample preview button beside it lets the design be seen with no model running at all.</p>
+            <p><strong class="runin">Why does the error screen read like a runbook?</strong> The recovery screen’s comment is its philosophy: direction, not apology. It names what happened, lists the three terminal commands that fix it, offers try again, and repeats the one sentence an anxious user needs: your answers are safe and still saved. The sample preview button beside it lets the design be seen with no model running at all.</p>
           </div>
           <div class="insight-card">
-            <div class="insight-card-label">Why does the sample preview prefer real answers?</div>
-            <p>The preview builds its brief from whatever the person already typed and falls back to canned content only where they typed nothing, using an all or nothing merge for medications so it can never mix one real drug with one invented one. A half real medication list on a medical document would be genuinely dangerous, and the merge idiom makes it impossible.</p>
+            <p><strong class="runin">Why does the sample preview prefer real answers?</strong> The preview builds its brief from whatever the person already typed and falls back to canned content only where they typed nothing, using an all or nothing merge for medications so it can never mix one real drug with one invented one. A half real medication list on a medical document would be genuinely dangerous, and the merge idiom makes it impossible.</p>
           </div>
           <div class="insight-card">
-            <div class="insight-card-label">Why do keyboard users land in the right place?</div>
-            <p>Every step change focuses the first control with the preventScroll option, then runs its own smooth scroll to the top. Focus normally yanks the viewport; suppressing that lets keyboard users land on the field while sighted users get the intended motion. Two audiences, one line apart.</p>
+            <p><strong class="runin">Why do keyboard users land in the right place?</strong> Every step change focuses the first control with the preventScroll option, then runs its own smooth scroll to the top. Focus normally yanks the viewport; suppressing that lets keyboard users land on the field while sighted users get the intended motion. Two audiences, one line apart.</p>
           </div>
         </div>
       </section>
 
       <!-- ═══════ TESTED BY RUNNING ═══════ -->
       <section id="testing" class="section">
-        <div class="section-label">Tested by Running</div>
         <h2 class="section-title">Bugs the code review could not see</h2>
         <p class="section-intro">Visit Brief has no test framework. Its verification discipline was running the real thing on real screens, and the repository preserves the evidence: an archived snapshot of the codebase from mid build, against which every later fix can be diffed. Two of those fixes are the best engineering stories in the project, because neither was fixable in the layer you would expect.</p>
 
@@ -537,57 +510,47 @@ textarea.control { min-height: 104px; resize: vertical; }</code></pre>
 
         <div class="insight-grid">
           <div class="insight-card">
-            <div class="insight-card-label">Archaeology as QA</div>
-            <p>The archived snapshot turns the folder into its own history: every post snapshot change is diffable, and each one traces to a run discovered problem rather than churn.</p>
+            <p><strong class="runin">Archaeology as QA.</strong> The archived snapshot turns the folder into its own history: every post snapshot change is diffable, and each one traces to a run discovered problem rather than churn.</p>
           </div>
           <div class="insight-card">
-            <div class="insight-card-label">Principles as Comments</div>
-            <p>The file headers name the UX principles, and the same words recur as inline comments at each decision they govern. Feedback, usability, consistency: greppable, not aspirational.</p>
+            <p><strong class="runin">Principles as comments.</strong> The file headers name the UX principles, and the same words recur as inline comments at each decision they govern. Feedback, usability, consistency: greppable, not aspirational.</p>
           </div>
           <div class="insight-card">
-            <div class="insight-card-label">Reduced Motion, Three Ways</div>
-            <p>The landing animation honors the reduced motion preference at three layers: a global CSS kill switch, targeted overrides for the states the kill switch cannot fix, and a JavaScript early return that skips the typewriter entirely.</p>
+            <p><strong class="runin">Reduced motion, three ways.</strong> The landing animation honors the reduced motion preference at three layers: a global CSS kill switch, targeted overrides for the states the kill switch cannot fix, and a JavaScript early return that skips the typewriter entirely.</p>
           </div>
           <div class="insight-card">
-            <div class="insight-card-label">The Invisible Character Bug</div>
-            <p>The typewriter reads its text from the markup, so pretty printed indentation made it spend its first half second typing invisible whitespace. The fix was deleting a newline in HTML: a bug that only exists at the seam where formatting for humans becomes data for code.</p>
+            <p><strong class="runin">The invisible character bug.</strong> The typewriter reads its text from the markup, so pretty printed indentation made it spend its first half second typing invisible whitespace. The fix was deleting a newline in HTML: a bug that only exists at the seam where formatting for humans becomes data for code.</p>
           </div>
         </div>
       </section>
 
       <!-- ═══════ OUTCOME ═══════ -->
       <section id="outcome" class="section">
-        <div class="section-label">Outcome</div>
         <h2 class="section-title">A finished tool, and the audit that follows it</h2>
-        <p class="section-intro">Visit Brief shipped complete: a five step autosaving intake, a prompt engineered as a safety document, four layers of model output defense, a two register design system, a one page document with print and PDF export, and a recovery screen that turns failure into a runbook. It runs on any static file server next to a local model, and the patient's story stays home.</p>
+        <p class="section-intro">Visit Brief shipped complete: a five step autosaving intake, a prompt engineered as a safety document, four layers of model output defense, a two register design system, a one page document with print and PDF export, and a recovery screen that turns failure into a runbook. It runs on any static file server next to a local model, and the patient’s story stays home.</p>
 
         <div class="callout">
-          <div class="callout-eye">Key Finding</div>
-          <p>In a product this small, <strong>the codebase itself is the trust document</strong>. No framework and no build step means a patient or clinician can read every line and verify the privacy claim personally. Auditability is not a nice property of the architecture. For a health tool with no company behind it, it is the architecture.</p>
+          <p><strong class="runin">Key finding.</strong> In a product this small, <strong>the codebase itself is the trust document</strong>. No framework and no build step means a patient or clinician can read every line and verify the privacy claim personally. Auditability is not a nice property of the architecture. For a health tool with no company behind it, it is the architecture.</p>
         </div>
 
-        <h3 class="eyebrow-heading">What I Would Fix First</h3>
+        <h3 class="eyebrow-heading">What I would fix first</h3>
         <p>Auditing the shipped build surfaced three real defects worth naming. First, the shape guard checks that fields are arrays but never coerces their elements to strings, so a model returning structured medication objects would render literally as object Object on a medical document; the fix is one String call in the normalizer. Second, the error taxonomy is wired to the wrong predicate: parse failures show the could not reach Ollama message, sending the user to restart a service that is already running, and the message never resets between failures. Third, two late features quietly outgrew the privacy sentence printed on every screen: the sample preview became a landing page button without gaining a watermark, so a fabricated brief is indistinguishable from a real one, and the email button hands the story to a mail client while the words nothing leaves your device are still visible above it. The honest fix is a sample ribbon, and either dropping the email button or narrowing the claim to one that stays true.</p>
 
-        <h3 class="eyebrow-heading">What I Learned</h3>
-        <p>Visit Brief taught me that the boundary is the product. Almost every decision that matters happens where an unreliable model meets a document with real stakes: the prompt that constrains, the layers that recover, the normalizer that guarantees shape, the fallback that returns the patient's own words when compression fails. And the audit taught me the sequel: features added after the promise was written are where promises quietly break. The next version starts by making the claim and the code agree again.</p>
+        <h3 class="eyebrow-heading">What I learned</h3>
+        <p>Visit Brief taught me that the boundary is the product. Almost every decision that matters happens where an unreliable model meets a document with real stakes: the prompt that constrains, the layers that recover, the normalizer that guarantees shape, the fallback that returns the patient’s own words when compression fails. And the audit taught me the sequel: features added after the promise was written are where promises quietly break. The next version starts by making the claim and the code agree again.</p>
 
         <div class="insight-grid">
           <div class="insight-card">
-            <div class="insight-card-label">The Boundary Is the Product</div>
-            <p>Between a five field form and a one page document sits all the real engineering: constrain, recover, normalize, and degrade toward the user's own words.</p>
+            <p><strong class="runin">The boundary is the product.</strong> Between a five field form and a one page document sits all the real engineering: constrain, recover, normalize, and degrade toward the user’s own words.</p>
           </div>
           <div class="insight-card">
-            <div class="insight-card-label">Copy Is Load Bearing</div>
-            <p>The best fix in the project shipped in a README, and the most dangerous bug lives in a sentence the interface can no longer fully keep. Words are part of the system and need the same review code gets.</p>
+            <p><strong class="runin">Copy is load bearing.</strong> The best fix in the project shipped in a README, and the most dangerous bug lives in a sentence the interface can no longer fully keep. Words are part of the system and need the same review code gets.</p>
           </div>
           <div class="insight-card">
-            <div class="insight-card-label">Design the Failure First</div>
-            <p>The recovery screen, the sample preview, and the autosave promise all exist for the run where things go wrong. For a nervous user, the failure path is the product's character under pressure.</p>
+            <p><strong class="runin">Design the failure first.</strong> The recovery screen, the sample preview, and the autosave promise all exist for the run where things go wrong. For a nervous user, the failure path is the product’s character under pressure.</p>
           </div>
           <div class="insight-card">
-            <div class="insight-card-label">Small Is a Feature</div>
-            <p>Five files that a stranger can read in an evening beat a framework app nobody audits. Every dependency the product refused is a claim it no longer has to defend.</p>
+            <p><strong class="runin">Small is a feature.</strong> Five files that a stranger can read in an evening beat a framework app nobody audits. Every dependency the product refused is a claim it no longer has to defend.</p>
           </div>
         </div>
       </section>
@@ -597,7 +560,7 @@ textarea.control { min-height: 104px; resize: vertical; }</code></pre>
         <div class="case-testimonial" data-project="medsummary"></div>
         <a class="case-next-link" href="/projects/zarrin">
           <span class="case-next-eyebrow">Next project</span>
-          <span class="case-next-name">Zarrin <span class="case-next-arrow">&rarr;</span></span>
+          <span class="case-next-name">Zarrin</span>
         </a>
         <p class="case-next-contact"><a href="https://visitbrief-nine.vercel.app" target="_blank" rel="noopener">Try the live demo</a>, then see how it was built in the sections above.</p>
         <p class="case-next-contact">Open to full time roles and select freelance work. <a href="mailto:zeeyadenkhan@gmail.com">Say hello</a>, find me on <a href="https://www.linkedin.com/in/zeeyadkhan" target="_blank" rel="noopener">LinkedIn</a>, or use the <a href="/contact">contact page</a>.</p>
@@ -690,24 +653,6 @@ textarea.control { min-height: 104px; resize: vertical; }</code></pre>
     window.addEventListener('scroll', syncNav, { passive: true });
     syncNav();
 
-    // ── Fade-up on scroll (respects prefers-reduced-motion) ──
-    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (!noMotion) {
-      const fadeEls = document.querySelectorAll('.fade-up');
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-
-      fadeEls.forEach(el => io.observe(el));
-    } else {
-      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
-    }
   </script>
 
   <script src="/assets/js/lightbox-a11y.js" defer></script>
