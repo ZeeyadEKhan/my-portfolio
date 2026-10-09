@@ -3,10 +3,9 @@
    equal specificity rules here win the cascade at phone widths.
    Every rule lives inside a max width media query, so desktop
    (above 900px) is never affected. The single exception is the
-   .nav-toggle base rule directly below: it hides the menu button
-   element everywhere, which is what keeps desktop unchanged.
-   Breakpoints: 900 tablet, 640 phone.
-   The type scale already starts at 14px, so no size floor is needed.
+   .nav-toggle base rule directly below: it hides the NEW menu button
+   element everywhere, which is what keeps desktop pixel identical.
+   Breakpoints: 900 tablet, 640 phone, 400 small phone.
    =========================================== */
 
 .nav-toggle { display: none; }
@@ -39,7 +38,6 @@
   .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
   .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  .topbar { gap: 0.75rem; }
   .topbar-nav { display: none; }
 
   body.nav-open .topbar-nav {
@@ -51,31 +49,63 @@
     z-index: 199;
     flex-direction: column;
     align-items: stretch;
-    gap: 0;
-    background: var(--paper);
-    border-bottom: 1px solid var(--rule);
-    padding: 0.5rem var(--pad) 1rem;
+    gap: 8px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 1.25rem 1.25rem;
   }
 
   .topbar-nav a {
     display: flex;
     align-items: center;
     min-height: 44px;
-    font-size: var(--size-small);
+    font-size: 1rem;
+    padding: 0 0.25rem;
   }
 
   body.nav-open { overflow: hidden; }
 
-  .project-row-inner { padding: 1.5rem 0 2.25rem; }
+  /* the disclosure panel frees the bar, so the full wordmark returns */
+  .topbar-brand { font-size: 0.9rem; }
+  .topbar-brand::after { content: none; }
 }
 
-/* ── TABLET AND DOWN: tap targets and media that must fit the column ── */
+/* ── TABLET AND DOWN: back link tap target ── */
 @media (max-width: 900px) {
   .topbar-back {
     min-height: 44px;
     display: inline-flex;
     align-items: center;
   }
+}
+
+/* ── TABLET AND DOWN: single column galleries and case study media ── */
+@media (max-width: 900px) {
+  .project-row-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* hold the desktop thumb ratio so nothing jumps while loading */
+  .project-thumb { aspect-ratio: 16 / 10; }
+
+  .project-thumb img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .project-desc { font-size: 1rem; }
+
+  .project-tags {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* case study media: side by side figures stack */
+  .img-grid-2 { grid-template-columns: 1fr; }
+  .decision-grid { grid-template-columns: 1fr; }
+  .persona-row, .insight-grid { grid-template-columns: 1fr; }
+  .meta-strip { grid-template-columns: 1fr 1fr; }
 
   .img-wrap img, .content-img {
     width: 100%;
@@ -91,6 +121,36 @@
     max-width: 100%;
     height: auto;
   }
+}
+
+/* ── PHONE: card spacing steps down ── */
+@media (max-width: 640px) {
+  .project-row-inner {
+    padding: 2.5rem 0;
+    gap: 1.5rem;
+  }
+}
+
+/* ── TABLET AND DOWN: 14px readable floor for small label styles ── */
+@media (max-width: 900px) {
+  .work-label, .project-num, .project-tag, .chip,
+  .meta-key, .footer-role, .footer-right,
+  .section-label, h4, .eyebrow-heading, .project-cta,
+  .sidebar-eyebrow, .topbar-back,
+  .home-hero-eyebrow, .about-eyebrow, .contact-eyebrow, .nf-eyebrow,
+  .about-sidebar-label, .about-tool, .about-link,
+  .ed-pill-key, .ed-pill-val, .img-caption,
+  .decision-card-q, .decision-card-a,
+  .flow-num, .flow-desc, .flow-name,
+  .contact-link-type, .callout-eye, .code-file,
+  .persona-meta, .insight-card-label, .insight-card p,
+  a.about-link, .topbar-nav a {
+    font-size: 0.875rem;
+  }
+
+  /* two Connect links carry inline font-size styles; only !important can
+     override an inline style, and this applies at phone widths only */
+  a.about-link[style] { font-size: 0.875rem !important; }
 
   /* long unbroken strings must never force horizontal scroll */
   .contact-link-value, .about-link, .footer-role, .code-file, a[href^="mailto:"] {

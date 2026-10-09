@@ -20,8 +20,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&family=Schibsted+Grotesk:wght@400..600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=9">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?v=8">
   <style>
     /* Lightbox */
     #lightbox {
@@ -63,8 +63,13 @@
       cursor: zoom-in;
     }
 
+    /* WonderBudi is one unbreakable ten character word; the shared 4rem
+       title minimum overflows a phone viewport, so it scales down here only */
+    @media (max-width: 480px) {
+      .hero-title { font-size: clamp(2.6rem, 13vw, 4rem); }
+    }
   </style>
-  <link rel="stylesheet" href="/assets/css/mobile.css?v=6">
+  <link rel="stylesheet" href="/assets/css/mobile.css?v=5">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -120,9 +125,9 @@
       <h1 class="hero-title">WonderBudi</h1>
       <p class="hero-sub">An AI robot that calms children during emotional distress, helps teachers recognize a child in need, and connects families and counselors to the support that matters most.</p>
       <div class="hero-chips">
-        <span class="chip">AI social robot</span>
-        <span class="chip">Children&#8217;s mental health</span>
-        <span class="chip">Physical product</span>
+        <span class="chip chip-accent">AI Social Robot</span>
+        <span class="chip">Children&#8217;s Mental Health</span>
+        <span class="chip">Physical Product</span>
       </div>
     </div>
     <img
@@ -149,7 +154,7 @@
           <li><a href="#concept"   class="nav-link">Concept</a></li>
           <li><a href="#design"    class="nav-link">Design</a></li>
           <li><a href="#decisions" class="nav-link">Decisions</a></li>
-          <li><a href="#testing"   class="nav-link">User testing</a></li>
+          <li><a href="#testing"   class="nav-link">User Testing</a></li>
           <li><a href="#outcome"   class="nav-link">Outcome</a></li>
         </ul>
       </div>
@@ -160,26 +165,42 @@
 
 
       <div class="case-summary">
-        <h2 class="eyebrow-heading">At a glance</h2>
-        <dl class="facts">
-          <div><dt>Role</dt><dd>UX Researcher, Product Designer, Prototype Lead, User Testing Lead</dd></div>
-          <div><dt>Timeline</dt><dd>Ten week graduate studio at SCAD</dd></div>
-          <div><dt>Platform</dt><dd>Classroom robot, Budiband wearable, and parent mobile app</dd></div>
-          <div><dt>In numbers</dt><dd class="figures"><span>10 week project</span><span>16 users interviewed</span><span>22 insights made</span><span>3 test rounds</span></dd></div>
-          <div><dt>Outcome</dt><dd>50 of 52 parents approved a school worn biometric device in testing, with consistent enthusiasm from the six educators and counselors</dd></div>
-        </dl>
+        <h2 class="eyebrow-heading">At a Glance</h2>
+        <p><strong>Role:</strong> UX Researcher, Product Designer, Prototype Lead, User Testing Lead<br>
+        <strong>Timeline:</strong> Ten week graduate studio at SCAD<br>
+        <strong>Platform:</strong> Classroom robot, Budiband wearable, and parent mobile app<br>
+        <strong>Outcome:</strong> 50 of 52 parents approved a school worn biometric device in testing, with consistent enthusiasm from the six educators and counselors</p>
       </div>
 
       <!-- ======= OVERVIEW ======= -->
       <section id="overview" class="section">
+        <div class="section-label">Overview</div>
         <h2 class="section-title">A robot that gives kids a way out</h2>
         <p class="section-intro">WonderBudi is an AI robot designed for elementary school classrooms. It gives children a safe, engaging space to calm down during emotional distress, while silently alerting teachers and parents when a child needs further professional support.</p>
 
         <p>The system pairs a biometric wristband called the Budiband with a child facing robot and a parent facing mobile app. When a child&#8217;s vitals signal distress, the ecosystem activates: teachers are notified, the child is walked to WonderBudi, and a structured 20 minute session of play therapy activities begins. At the end of every session, a single emoticon check in determines whether the child returns to class or meets with a school counselor.</p>
 
+        <div class="meta-strip fade-up">
+          <div class="meta-item">
+            <span class="meta-val">10</span>
+            <span class="meta-key">Week Project</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">16</span>
+            <span class="meta-key">Users Interviewed</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">22</span>
+            <span class="meta-key">Insights Made</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">3</span>
+            <span class="meta-key">Test Rounds</span>
+          </div>
+        </div>
 
 
-        <h3 class="eyebrow-heading">My role</h3>
+        <h3 class="eyebrow-heading">My Role</h3>
         <p>UX Researcher &middot; Product Designer &middot; Prototype Lead &middot; User Testing Lead</p>
 
         <h3 class="eyebrow-heading">Technologies</h3>
@@ -189,16 +210,18 @@
 
       <!-- ======= PROBLEM ======= -->
       <section id="problem" class="section">
+        <div class="section-label">Problem</div>
         <h2 class="section-title">Children who cannot speak up</h2>
         <p class="section-intro">Mental health challenges in children are widespread and frequently go unaddressed. Young children lack the maturity and vocabulary to identify what they are feeling, which makes it nearly impossible for them to ask for the help they need.</p>
 
         <p>Schools are structurally underprepared to close this gap. There are not enough counselors to monitor every student, and most children will not surface distress on their own. By the time a problem becomes visible, it has often gone unaddressed for far too long.</p>
 
-        <div class="callout">
-          <p><strong class="runin">How might we</strong> help children <strong>calm down in times of distress</strong> and direct them to mental healthcare services when they do not have the ability to express their need for it on their own?</p>
+        <div class="callout fade-up">
+          <div class="callout-eye">How Might We</div>
+          <p>Help children <strong>calm down in times of distress</strong> and direct them to mental healthcare services when they do not have the ability to express their need for it on their own?</p>
         </div>
 
-                <div class="img-wrap">
+                <div class="img-wrap fade-up">
           <img
             src="/projects/wonderbudi/wonderbudi-photos/1_in_every_5_children_aged.webp"
             alt="1 in every 5 children aged 5 to 17 are in need of help"
@@ -213,10 +236,11 @@
 
       <!-- ======= RESEARCH ======= -->
       <section id="research" class="section">
+        <div class="section-label">Research</div>
         <h2 class="section-title">Listening before designing</h2>
         <p class="section-intro">A broad research effort spanning secondary literature, two surveys, and 16 structured interviews across four participant groups produced 22 core insights that shaped every design decision that followed.</p>
 
-        <div class="img-wrap">
+        <div class="img-wrap fade-up">
           <img
             src="/projects/wonderbudi/wonderbudi-photos/primary_research_participants_4_children_coping.webp"
             alt="Primary research participants: 4 children coping with trauma, 5 adults with childhood trauma, 5 social workers and counselors, 2 child psychologists, 2 surveys, 16 total interviews, 22 insights made"
@@ -227,10 +251,10 @@
           <p class="img-caption">16 interviews across four participant groups yielded 22 actionable insights</p>
         </div>
 
-        <h3>Voices from the field</h3>
+        <h3>Voices from the Field</h3>
         <p>Interviews kept surfacing the same two findings: children find traditional therapy boring and cannot articulate what they feel, while 50 out of 52 surveyed parents said yes to a wearable device.</p>
 
-        <div class="img-wrap">
+        <div class="img-wrap fade-up">
           <img
             src="/projects/wonderbudi/wonderbudi-photos/child_with_trauma_quotes_i_don.webp"
             alt="Child with trauma quotes: I don't do the stuff my therapist says because it's boring; I was not easily able to communicate my emotions to anyone since I really had no idea what was happening"
@@ -241,7 +265,7 @@
           <p class="img-caption">Children with trauma describe boredom with traditional therapy and an inability to articulate what they feel</p>
         </div>
 
-        <div class="img-wrap">
+        <div class="img-wrap fade-up">
           <img
             src="/projects/wonderbudi/wonderbudi-photos/we_asked_if_parents_would_allow.webp"
             alt="We asked if parents would allow their kids to have a wearable device. Out of 52 responses, 50 said yes."
@@ -252,10 +276,10 @@
           <p class="img-caption">50 out of 52 parents said they would allow their child to wear a biometric device at school</p>
         </div>
 
-        <h3>Affinity mapping</h3>
+        <h3>Affinity Mapping</h3>
         <p>Affinity mapping organized 763 data points from all 16 interviews into themed clusters, and a 6 step affinitization process distilled them into the How Might We statements.</p>
 
-        <div class="img-wrap">
+        <div class="img-wrap fade-up">
           <img
             src="/projects/wonderbudi/wonderbudi-photos/affinity_map_with_763_data_points.webp"
             alt="Affinity map with 763 data points organized into clusters covering how authorities respond, home therapy experiences, and children's trauma at school"
@@ -266,20 +290,21 @@
           <p class="img-caption">763 data points from all 16 interviews organized by theme and participant type</p>
         </div>
 
-                        <h3>The pivot</h3>
+                        <h3>The Pivot</h3>
         <p>Mid research, the team discovered that schools did not need more therapy programs. The real problem was identifying which students needed those programs in the first place. This drove a strategic pivot that redefined the entire product direction.</p>
 
               </section>
 
       <!-- ======= CONCEPT ======= -->
       <section id="concept" class="section">
+        <div class="section-label">Concept</div>
         <h2 class="section-title">From insight to system</h2>
         <p class="section-intro">With the pivot established, the team built personas, mapped emotional user journeys, ran a Crazy 8 ideation sprint, and selected the WonderBudi ecosystem as the direction most capable of serving children, parents, and counselors simultaneously.</p>
 
-        <h3>Personas and user journeys</h3>
+        <h3>Personas and User Journeys</h3>
         <p>Two personas grounded the concept work: Tommy, a 10 year old who recently lost his mother, and Peter, an involved father who cannot reach his son.</p>
 
-        <div class="img-group">
+        <div class="img-group fade-up">
           <div class="img-grid-2">
             <div class="img-cell">
               <img
@@ -303,7 +328,7 @@
           <p class="img-caption">Tommy (child) and Peter (parent): two perspectives on the same unmet need, separated by a communication gap WonderBudi is built to bridge</p>
         </div>
 
-        <div class="img-wrap">
+        <div class="img-wrap fade-up">
           <img
             src="/projects/wonderbudi/wonderbudi-photos/tommy_s_journey_map_excitement_at.webp"
             alt="Tommy's Journey map: excitement at the new school year, worry as he pays less attention in class, loss after his mother passes away, feeling alone and withdrawn from friends, needing more help, fully supported through WonderBudi, happy again at the end of the year"
@@ -317,7 +342,7 @@
         <h3>Ideation</h3>
         <p>A Crazy 8 sprint generated eight rapid concept sketches, two of which were developed into full concepts, and the chosen direction was scoped as an early intervention tool, not a replacement for ongoing therapy.</p>
 
-        <div class="img-group">
+        <div class="img-group fade-up">
           <div class="img-grid-2">
             <div class="img-cell">
               <img
@@ -344,7 +369,7 @@
         <h3>Storyboard</h3>
         <p>A classroom storyboard placed WonderBudi in a realistic school scenario, showing how three children with three different emotional states are all served by the same system on the same day in Mrs. Zimmerman&#8217;s class.</p>
 
-        <div class="img-group">
+        <div class="img-group fade-up">
           <div class="img-grid-2">
             <div class="img-cell">
               <img
@@ -371,10 +396,11 @@
 
       <!-- ======= DESIGN ======= -->
       <section id="design" class="section">
+        <div class="section-label">Design</div>
         <h2 class="section-title">Building the WonderBudi world</h2>
         <p class="section-intro">The final design is a connected three part ecosystem: the WonderBudi robot, the Budiband biometric wristband, and the Parent App. Each component serves a different user, but all three share a data layer that keeps counselors, teachers, and parents informed in real time.</p>
 
-        <div class="img-wrap">
+        <div class="img-wrap fade-up">
           <img
             src="/projects/wonderbudi/wonderbudi-photos/wonderbudi_robot_with_colorful_budibands_in.webp"
             alt="WonderBudi robots with Budibands in four colors, a dance activity playing on one embedded screen, an avatar picker on another, and the Tap Budi Band Here onboarding screen on the right"
@@ -385,10 +411,10 @@
           <p class="img-caption">The WonderBudi robot, Budiband wristbands in four colors, and the tap to start onboarding screen</p>
         </div>
 
-        <h3>The ecosystem flow</h3>
+        <h3>The Ecosystem Flow</h3>
         <p>Parents complete a consent and onboarding process before their child&#8217;s first session, and once the Budiband detects a change in biometrics, the flow from alert to classroom return runs across nine structured steps.</p>
 
-        <div class="img-wrap">
+        <div class="img-wrap fade-up">
           <img
                 src="/projects/wonderbudi/wonderbudi-photos/during_wonderbudi_9_steps_tap_budiband.webp"
                 alt="During WonderBudi, 9 steps: tap Budiband to start; pick an avatar and color; WonderBudi asks how the child is feeling; choose an activity; track time; WonderBudi starts a reflection conversation; kids have a breathing moment; WonderBudi starts a conversation to reflect and engage; once the session is over, the teacher walks the child back to class"
@@ -399,10 +425,10 @@
           <p class="img-caption">From biometric alert to classroom return: the full in school flow across nine structured steps</p>
         </div>
 
-        <h3>The WonderBudi session</h3>
+        <h3>The WonderBudi Session</h3>
         <p>Each session follows the same arc: the child picks an avatar and an activity, tracks the remaining time on a visible timer, then closes with a breathing moment and reflection before returning to class.</p>
 
-        <div class="img-group">
+        <div class="img-group fade-up">
           <div class="img-grid-2">
             <div class="img-cell">
               <img
@@ -426,10 +452,10 @@
           <p class="img-caption">Structured play with a visible timer transitions into a guided breathing moment and reflection, keeping the session inside the 20 minute window</p>
         </div>
 
-                <h3>Voice interaction scripts</h3>
+                <h3>Voice Interaction Scripts</h3>
         <p>Three conversation scripts cover the most common emotional states children arrive with. Each follows the same structure: an opening check in, a play session, a guided reflection, and a closing affirmation that the child can return anytime.</p>
 
-        <div class="img-wrap">
+        <div class="img-wrap fade-up">
           <img
                 src="/projects/wonderbudi/wonderbudi-photos/chat_scenario_2_child_is_feeling.webp"
                 alt="Chat Scenario 2: child is feeling angry, ages 7 to 12, 20-minute session. Budi leads a breathing exercise first, then play activities, then reflects on a friend being mean and what the child can say to that friend today."
@@ -440,10 +466,10 @@
           <p class="img-caption">The anger script opens with a guided breathing exercise before play, then converges on the same reflective structure as the sad and anxious scripts</p>
         </div>
 
-        <h3>Hardware and components</h3>
+        <h3>Hardware and Components</h3>
         <p>The Budiband reads heart rhythm, O2 levels, and skin temperature, and it has no screen to prevent distractions: parents can see the data but the student cannot.</p>
 
-        <div class="img-wrap">
+        <div class="img-wrap fade-up">
           <img
                 src="/projects/wonderbudi/wonderbudi-photos/budiband_reads_heart_rhythm_o2_levels.webp"
                 alt="BudiBand: reads heart rhythm, O2 levels, and temperature. Has no screen to prevent distractions. Parents can see the data but the student cannot. Available in blue, yellow-green, gold, and pink."
@@ -457,7 +483,7 @@
         <h3>Parent App</h3>
         <p>Parents have 24/7 access to their child&#8217;s biometrics and WonderBudi session history through the companion app. The dashboard acts as a single control center: showing vitals, session transcripts, counselor notes, and activity permissions together in one view.</p>
 
-                <div class="img-group">
+                <div class="img-group fade-up">
           <div class="img-grid-2">
             <div class="img-cell">
               <img
@@ -481,7 +507,7 @@
           <p class="img-caption">Session history with counselor notes (left) and long term biometric trends (right) give parents a complete and evolving picture of their child</p>
         </div>
 
-        <div class="img-group">
+        <div class="img-group fade-up">
           <div class="img-grid-2">
             <div class="img-cell">
               <img
@@ -509,30 +535,36 @@
 
       <!-- ======= DESIGN DECISIONS ======= -->
       <section id="decisions" class="section">
+        <div class="section-label">Design Decisions</div>
         <h2 class="section-title">Why WonderBudi works the way it does</h2>
         <p class="section-intro">Four decisions defined the character of the product. Each one came directly from something a real user said or did during research or testing.</p>
-        <div class="insight-grid">
+        <div class="insight-grid fade-up">
           <div class="insight-card">
-            <p><strong class="runin">Why does the Budiband have no screen?</strong> Early concepts included a display on the wristband to show the child their own biometric readings. Research with child psychologists showed that giving children real time access to their own stress data increases anxiety rather than reducing it. Removing the screen entirely kept the band invisible to the child while still giving parents and teachers full visibility through the app. The band works best when the child forgets it is there.</p>
+            <div class="insight-card-label">Why does the Budiband have no screen?</div>
+            <p>Early concepts included a display on the wristband to show the child their own biometric readings. Research with child psychologists showed that giving children real time access to their own stress data increases anxiety rather than reducing it. Removing the screen entirely kept the band invisible to the child while still giving parents and teachers full visibility through the app. The band works best when the child forgets it is there.</p>
           </div>
           <div class="insight-card">
-            <p><strong class="runin">Why is the session exactly 20 minutes?</strong> Play therapy literature and direct interviews with school counselors pointed to 15 to 20 minutes as the window where a child can decompress without missing enough class to fall behind. Shorter sessions did not give enough time for the reflection conversation. Longer sessions created anxiety about returning to class. The 20 minute structure was not arbitrary. It was the clinical consensus from the professionals interviewed during research.</p>
+            <div class="insight-card-label">Why is the session exactly 20 minutes?</div>
+            <p>Play therapy literature and direct interviews with school counselors pointed to 15 to 20 minutes as the window where a child can decompress without missing enough class to fall behind. Shorter sessions did not give enough time for the reflection conversation. Longer sessions created anxiety about returning to class. The 20 minute structure was not arbitrary. It was the clinical consensus from the professionals interviewed during research.</p>
           </div>
           <div class="insight-card">
-            <p><strong class="runin">Why is the emoticon check in 10 options instead of 3?</strong> A 3 option check in (happy, neutral, sad) was the first design. Counselor feedback in testing showed that a 3 point scale collapsed too many emotional states into the same category and routed children incorrectly. A 10 point scale with a color gradient from red to green gives the system enough resolution to distinguish a child who is slightly upset from one who needs immediate counselor intervention. The routing accuracy depends on the granularity of the input.</p>
+            <div class="insight-card-label">Why is the emoticon check in 10 options instead of 3?</div>
+            <p>A 3 option check in (happy, neutral, sad) was the first design. Counselor feedback in testing showed that a 3 point scale collapsed too many emotional states into the same category and routed children incorrectly. A 10 point scale with a color gradient from red to green gives the system enough resolution to distinguish a child who is slightly upset from one who needs immediate counselor intervention. The routing accuracy depends on the granularity of the input.</p>
           </div>
           <div class="insight-card">
-            <p><strong class="runin">Why is WonderBudi placed near the counselor&#8217;s office?</strong> Placing WonderBudi in the classroom itself was the original plan. Teacher interviews revealed that a robot in the classroom would create distraction and stigma, with other students watching when a classmate was sent to use it. Moving it near the counselor&#8217;s office normalized the visit as a routine school activity rather than a visible disciplinary or emotional event, protecting the child&#8217;s dignity during a vulnerable moment.</p>
+            <div class="insight-card-label">Why is WonderBudi placed near the counselor&#8217;s office?</div>
+            <p>Placing WonderBudi in the classroom itself was the original plan. Teacher interviews revealed that a robot in the classroom would create distraction and stigma, with other students watching when a classmate was sent to use it. Moving it near the counselor&#8217;s office normalized the visit as a routine school activity rather than a visible disciplinary or emotional event, protecting the child&#8217;s dignity during a vulnerable moment.</p>
           </div>
         </div>
       </section>
 
       <!-- ======= USER TESTING ======= -->
       <section id="testing" class="section">
+        <div class="section-label">User Testing</div>
         <h2 class="section-title">Testing with real educators and children</h2>
         <p class="section-intro">Three rounds of user testing validated the Parent App&#8217;s information architecture through card sorting and tree testing with children and parents, and gathered direct feedback from six real educators and counselors across international and domestic schools.</p>
 
-        <div class="img-wrap">
+        <div class="img-wrap fade-up">
           <img
                 src="/projects/wonderbudi/wonderbudi-photos/observing_kids_doing_their_card_sorting.webp"
                 alt="Observing kids doing their card sorting: two children photographed during the card sorting exercise, one on a phone and one on a laptop"
@@ -543,10 +575,10 @@
           <p class="img-caption">Real children did the card sorting themselves, one on a phone and one on a laptop, during observed testing sessions</p>
         </div>
 
-        <h3>Test 1 and 2: card sorting</h3>
+        <h3>Test 1 and 2: Card Sorting</h3>
         <p>Closed and open card sorts showed how parents naturally group Parent App content, and the results pointed to a 5 category navigation structure.</p>
 
-        <div class="img-wrap">
+        <div class="img-wrap fade-up">
           <img
                 src="/projects/wonderbudi/wonderbudi-photos/card_sorting_results_people_look_at.webp"
                 alt="Card sorting results: people look at keywords. Monitor Heart Rate and Monitor O2 Level grouped together under biometrics with 100 percent agreement across participants."
@@ -557,7 +589,7 @@
           <p class="img-caption">Monitor Heart Rate and Monitor O2 Level grouped together with 100 percent agreement: users navigate by concrete keywords, not brand terms</p>
         </div>
 
-        <div class="img-wrap">
+        <div class="img-wrap fade-up">
           <img
             src="/projects/wonderbudi/wonderbudi-photos/best_grouping_suggestions_based_on_how.webp"
             alt="Best Grouping Suggestions: a dendrogram showing agreement levels across ten Parent App cards such as Monitor O2 Level and Monitor Heart Rate, with the conclusion that the best grouping suggestion was to create 5 categories"
@@ -568,10 +600,10 @@
           <p class="img-caption">Card sorting data pointed clearly to a 5 category navigation structure for the Parent App</p>
         </div>
 
-        <h3>Test 3: tree test</h3>
+        <h3>Test 3: Tree Test</h3>
         <p>A final tree test checked whether participants could find the right destinations inside the revised 5 category structure.</p>
 
-        <div class="img-wrap">
+        <div class="img-wrap fade-up">
           <img
             src="/projects/wonderbudi/wonderbudi-photos/user_test_3_tree_test_results.webp"
             alt="User Test 3 Tree Test results: 90% of tasks completed by participants ended at a correct answer; 75% of answers were chosen without backtracking"
@@ -582,32 +614,38 @@
           <p class="img-caption">Tree test results: 90% task success rate and 75% directness confirmed the 5 category navigation structure was intuitive and ready for production</p>
         </div>
 
-        <div class="insight-grid">
+        <div class="insight-grid fade-up">
           <div class="insight-card">
-            <p><strong class="runin">Navigation clarity.</strong> 90% of participants reached the correct destination, confirming the 5 category structure mapped closely to how parents think about monitoring their child.</p>
+            <div class="insight-card-label">Navigation Clarity</div>
+            <p>90% of participants reached the correct destination, confirming the 5 category structure mapped closely to how parents think about monitoring their child.</p>
           </div>
           <div class="insight-card">
-            <p><strong class="runin">Direct pathing.</strong> 75% of answers were reached without backtracking, a strong signal that the information architecture was intuitive without prior training or guidance.</p>
+            <div class="insight-card-label">Direct Pathing</div>
+            <p>75% of answers were reached without backtracking, a strong signal that the information architecture was intuitive without prior training or guidance.</p>
           </div>
           <div class="insight-card">
-            <p><strong class="runin">Label confusion.</strong> The term WonderBudi as a navigation label confused participants and was categorized separately. Labels were revised to reflect specific actions rather than the product name.</p>
+            <div class="insight-card-label">Label Confusion</div>
+            <p>The term WonderBudi as a navigation label confused participants and was categorized separately. Labels were revised to reflect specific actions rather than the product name.</p>
           </div>
           <div class="insight-card">
-            <p><strong class="runin">Keyword reliance.</strong> Users scanned for concrete keywords rather than brand names. Labels across the app were revised to prioritize action oriented language throughout.</p>
+            <div class="insight-card-label">Keyword Reliance</div>
+            <p>Users scanned for concrete keywords rather than brand names. Labels across the app were revised to prioritize action oriented language throughout.</p>
           </div>
         </div>
       </section>
 
       <!-- ======= OUTCOME ======= -->
       <section id="outcome" class="section">
+        <div class="section-label">Outcome</div>
         <h2 class="section-title">A system that speaks for those who cannot</h2>
         <p class="section-intro">WonderBudi demonstrates that a child who cannot yet put their distress into words does not have to stay invisible. The six educators and counselors who participated in testing responded with consistent enthusiasm. One 4th grade teacher described it as the first tool she had seen that could catch the kids who fall through the cracks before they disappear entirely. A school counselor at an international school noted that the emoticon routing system solved the identification problem that consumes the majority of a counselor&#8217;s day. By reading biometrics, offering play based calm, and routing real data to the adults who need it, WonderBudi creates a bridge between a child in need and the professional who can help.</p>
 
-                        <div class="callout">
-                          <p><strong class="runin">Key finding.</strong> A 90% tree test success rate and 50 out of 52 parents approving wearables for their children validated both the information architecture and the core premise: <strong>parents actively want visibility into their child&#8217;s school day wellbeing</strong> and will adopt a system that gives it to them.</p>
-                        </div>
+                        <div class="callout fade-up">
+          <div class="callout-eye">Key Finding</div>
+          <p>A 90% tree test success rate and 50 out of 52 parents approving wearables for their children validated both the information architecture and the core premise: <strong>parents actively want visibility into their child&#8217;s school day wellbeing</strong> and will adopt a system that gives it to them.</p>
+        </div>
 
-        <div class="img-wrap">
+        <div class="img-wrap fade-up">
           <img
             src="/projects/wonderbudi/wonderbudi-photos/wonderbudi_core_values_radial_diagram_destigmatize.webp"
             alt="WonderBudi Core Values radial diagram: Destigmatize Mental Health, Normalize Getting Help, Student Self Confidence, Personal Problem Solving, Fostering Empathy, Practicing Introspectively, Speaking Up When Upset"
@@ -618,20 +656,24 @@
           <p class="img-caption">Seven core values guided every design decision, from the script language Budi uses to the color options on the Budiband</p>
         </div>
 
-                        <h3 class="eyebrow-heading">Future directions</h3>
+                        <h3 class="eyebrow-heading">Future Directions</h3>
 
-        <div class="insight-grid">
+        <div class="insight-grid fade-up">
           <div class="insight-card">
-            <p><strong class="runin">Personalization engine.</strong> The longer WonderBudi knows a child, the more precisely it can tailor activities and conversation scripts to what works for that specific child over time.</p>
+            <div class="insight-card-label">Personalization Engine</div>
+            <p>The longer WonderBudi knows a child, the more precisely it can tailor activities and conversation scripts to what works for that specific child over time.</p>
           </div>
           <div class="insight-card">
-            <p><strong class="runin">Counselor dashboard.</strong> A dedicated counselor view to see cross class distress patterns, flag recurring students, and coordinate follow up sessions without reviewing individual parent app logs.</p>
+            <div class="insight-card-label">Counselor Dashboard</div>
+            <p>A dedicated counselor view to see cross class distress patterns, flag recurring students, and coordinate follow up sessions without reviewing individual parent app logs.</p>
           </div>
           <div class="insight-card">
-            <p><strong class="runin">Tier 2 tablet.</strong> A lower cost tablet only version at $300 would make WonderBudi accessible to schools with tighter budgets and no space for a dedicated robot station.</p>
+            <div class="insight-card-label">Tier 2 Tablet</div>
+            <p>A lower cost tablet only version at $300 would make WonderBudi accessible to schools with tighter budgets and no space for a dedicated robot station.</p>
           </div>
           <div class="insight-card">
-            <p><strong class="runin">Longitudinal study.</strong> A multi semester study tracking emotional regulation outcomes would provide clinical evidence to support adoption across broader school districts and funding bodies.</p>
+            <div class="insight-card-label">Longitudinal Study</div>
+            <p>A multi semester study tracking emotional regulation outcomes would provide clinical evidence to support adoption across broader school districts and funding bodies.</p>
           </div>
         </div>
 
@@ -642,7 +684,7 @@
         <div class="case-testimonial" data-project="wonderbudi"></div>
         <a class="case-next-link" href="/projects/explorius">
           <span class="case-next-eyebrow">Next project</span>
-          <span class="case-next-name">Explorius</span>
+          <span class="case-next-name">Explorius <span class="case-next-arrow">&rarr;</span></span>
           <span class="case-next-desc">A mobile app that helps digital nomads plan trips, fight social isolation, and connect with other nomads wherever they are in the world.</span>
         </a>
         <p class="case-next-contact">Open to full time roles and select freelance work. <a href="mailto:zeeyadenkhan@gmail.com">Say hello</a>, find me on <a href="https://www.linkedin.com/in/zeeyadkhan" target="_blank" rel="noopener">LinkedIn</a>, or use the <a href="/contact">contact page</a>.</p>
@@ -703,6 +745,24 @@
     window.addEventListener('scroll', syncNav, { passive: true });
     syncNav();
 
+    // Fade-up on scroll (respects prefers-reduced-motion)
+    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!noMotion) {
+      const fadeEls = document.querySelectorAll('.fade-up');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+      fadeEls.forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    }
 
     // Lightbox
     const lb     = document.getElementById('lightbox');

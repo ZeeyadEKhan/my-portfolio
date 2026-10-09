@@ -12,27 +12,76 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&family=Schibsted+Grotesk:wght@400..600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=9">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?v=8">
   <style>
-    /* ── 404: the shared intro, with two ways back ── */
-    .nf-main { min-height: calc(100vh - var(--topbar-h) - 220px); }
+    .page-body { padding-top: var(--topbar-h); }
+
+    .nf-wrap {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    .nf-main {
+      min-height: calc(100vh - var(--topbar-h) - 120px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 0 5rem;
+    }
+
+    .nf-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      margin-bottom: 1.5rem;
+    }
+
+    .nf-title {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+      color: var(--ink);
+      margin-bottom: 2rem;
+      max-width: 16ch;
+    }
+
+    .nf-line {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--ink-muted);
+      max-width: 50ch;
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+    }
 
     .nf-links {
-      grid-column: 2;
       display: flex;
+      gap: 2rem;
       flex-wrap: wrap;
-      gap: 0.5rem 1.75rem;
-      margin-top: 2rem;
-      font-family: var(--font-ui);
-      font-size: var(--size-small);
     }
 
-    @media (max-width: 860px) {
-      .nf-links { grid-column: 1; }
+    .nf-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nf-link:hover { text-decoration: underline; }
+
+    @media (max-width: 540px) {
+      .nf-wrap { padding: 0 1.5rem; }
     }
   </style>
-  <link rel="stylesheet" href="/assets/css/mobile.css?v=6">
+  <link rel="stylesheet" href="/assets/css/mobile.css?v=5">
   <script defer data-domain="zeeyadkhan.com" src="https://plausible.io/js/script.js"></script>
 </head>
 <body class="page-body">
@@ -51,17 +100,18 @@
     </nav>
   </header>
 
-  <main class="nf-main" id="main" tabindex="-1">
-    <div class="intro">
-      <p class="intro-margin">404</p>
-      <h1 class="intro-statement">This page moved on.</h1>
-      <p class="intro-lead">The work is still here, it just lives somewhere else now. The galleries below have everything current.</p>
-      <p class="nf-links"><a href="/#work" class="text-link">Selected work</a><a href="/explorations" class="text-link">Explorations</a></p>
-    </div>
-  </main>
+  <div class="nf-wrap">
+    <main class="nf-main" id="main" tabindex="-1">
+      <p class="nf-eyebrow">404</p>
+      <h1 class="nf-title">This page moved on.</h1>
+      <p class="nf-line">The work is still here, it just lives somewhere else now. The galleries below have everything current.</p>
+      <div class="nf-links">
+        <a href="/#work" class="nf-link">Selected Work <span>→</span></a>
+        <a href="/explorations" class="nf-link">Explorations <span>→</span></a>
+      </div>
+    </main>
 
-  <div class="home-footer">
-    <footer class="site-footer">
+    <footer class="site-footer" style="padding-left:0; padding-right:0;">
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="/#work">Work</a>
         <a href="/explorations">Explorations</a>

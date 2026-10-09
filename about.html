@@ -18,72 +18,169 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&family=Schibsted+Grotesk:wght@400..600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=9">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?v=8">
   <style>
-    /* ── ABOUT: portrait in the margin column, bio on the text column ── */
-    .about-body {
+    .page-body { padding-top: var(--topbar-h); }
+
+    .about-wrap {
       max-width: var(--page-max);
       margin: 0 auto;
-      padding: 0 var(--pad) 5rem;
-      display: grid;
-      grid-template-columns: var(--margin-w) minmax(0, 1fr);
-      column-gap: var(--col-gap);
+      padding: 0 2.5rem;
     }
 
-    /* the rule spans the content box, not the padding */
-    .about-body::before {
-      content: "";
-      grid-column: 1 / -1;
-      border-top: 1px solid var(--rule);
+    .about-hero {
+      padding: 7rem 0 5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-title {
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+      color: var(--ink);
+      margin-bottom: 2.5rem;
+    }
+
+    .about-body {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 6rem;
+      padding: 5rem 0;
+    }
+
+    .about-bio p {
+      font-size: 1.05rem;
+      line-height: 1.78;
+      color: var(--ink-muted);
+      max-width: 60ch;
+      margin-bottom: 1.4rem;
+    }
+
+    .about-bio p:last-child { margin-bottom: 0; }
+
+    .about-bio strong { font-weight: 600; color: var(--ink); }
+
+    /* Sidebar info */
+    .about-sidebar {}
+
+    .about-sidebar-section {
       margin-bottom: 3rem;
     }
 
-    .about-photo img { width: 100%; height: auto; }
-
-    .about-awards {
-      margin: 0.75rem 0 0;
-      font-family: var(--font-ui);
-      font-size: var(--size-meta);
-      line-height: 1.5;
-      color: var(--meta);
+    .about-sidebar-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .about-bio { min-width: 0; }
-    .about-bio p { max-width: 62ch; }
+    .about-skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
 
-    .about-lists {
-      margin-top: 3.5rem;
+    .about-skill-list li {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--ink-muted);
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--surface-mid);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .about-skill-list li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .about-tool-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 2.5rem 3rem;
-      max-width: 40rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
     }
 
-    .about-list-label {
-      font-family: var(--font-ui);
-      font-size: var(--size-meta);
-      font-weight: 600;
-      line-height: 1.5;
-      color: var(--ink);
-      padding-bottom: 0.5rem;
-      margin-bottom: 0.4rem;
-      border-bottom: 1px solid var(--rule);
+    .about-tool {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--ink-muted);
+      padding: 0.6rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-align: center;
     }
 
-    .about-list li {
-      font-size: var(--size-small);
-      line-height: 1.5;
-      padding: 0.25rem 0;
+    .about-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.18s;
     }
+
+    .about-link:hover { opacity: 0.7; }
+
+    /* Awards caption under the portrait */
+    .about-awards {
+      margin: -1.5rem 0 2.5rem;
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: var(--ink-subtle);
+      line-height: 1.7;
+    }
+
+    /* Photo */
+    .about-photo {
+      margin-bottom: 2.5rem;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    /* Footer wrapper */
+    .about-footer { border-top: 1px solid var(--border); }
 
     @media (max-width: 860px) {
-      .about-body { grid-template-columns: minmax(0, 1fr); }
-      .about-side { max-width: 220px; margin-bottom: 2.5rem; }
-      .about-lists { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+      .about-wrap { padding: 0 1.5rem; }
+      .about-body { grid-template-columns: 1fr; gap: 3rem; }
+      .about-hero { padding: 4.5rem 0 3rem; }
     }
   </style>
-  <link rel="stylesheet" href="/assets/css/mobile.css?v=6">
+  <link rel="stylesheet" href="/assets/css/mobile.css?v=5">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -118,21 +215,14 @@
     </nav>
   </header>
 
-  <main id="main" tabindex="-1">
+  <main class="about-wrap" id="main" tabindex="-1">
 
-    <div class="intro">
-      <p class="intro-margin">About</p>
-      <h1 class="intro-statement">Zeeyad Khan</h1>
+    <div class="about-hero">
+      <p class="about-eyebrow">AI Product Designer</p>
+      <h1 class="about-title">Designing things<br>worth using.</h1>
     </div>
 
     <div class="about-body">
-      <aside class="about-side" aria-label="Portrait">
-        <div class="about-photo">
-          <img src="/ZeeyadKhanaboutme.webp" alt="Zeeyad Khan, AI Product Designer" width="900" height="1013">
-        </div>
-        <p class="about-awards">21 international design awards (IDA and Indigo Design Award) and multiple Dean’s List honors at SCAD.</p>
-      </aside>
-
       <div class="about-bio">
         <p>I am an <strong>AI Product Designer and UX researcher</strong> based in San Francisco, with a BFA in User Experience Design from the Savannah College of Art and Design. My work sits where product thinking, visual craft, and human behavior meet.</p>
 
@@ -144,7 +234,8 @@
 
         <p>I am available for full time roles and select freelance collaborations. If you are building something that needs to be both rigorously designed and genuinely human, I would love to talk.</p>
 
-        <p><a href="/contact" class="about-link">Get in touch</a></p>
+        <br>
+        <a href="/contact" class="about-link">Get in touch →</a>
 
         <!-- WHAT COLLABORATORS SAY (dormant): to enable once real quotes exist,
              uncomment this slot AND the testimonial.js script tag at the bottom
@@ -152,68 +243,79 @@
              The full data shape is documented in /assets/js/testimonial.js.
         <div class="case-testimonial" data-project="about" style="margin-top: 3.5rem;"></div>
         -->
-
-        <div class="about-lists">
-          <section aria-labelledby="disciplines-label">
-            <h2 class="about-list-label" id="disciplines-label">Disciplines</h2>
-            <!-- Order reflects 2026 hiring demand mapped to shipped evidence:
-                 AI Product Design and Design Engineering lead because AI native,
-                 code capable designers are the strongest current hiring signal
-                 and the Explorations page is direct evidence. Design Systems is
-                 evidenced by the Park North system on the resume. Accessibility
-                 is evidenced by the resume WCAG line and DepositProof focus and
-                 keyboard testing. -->
-            <ul class="about-list">
-              <li>AI product design</li>
-              <li>Design engineering</li>
-              <li>UX and product design</li>
-              <li>User research and testing</li>
-              <li>Design systems</li>
-              <li>Interaction design</li>
-              <li>Accessibility (WCAG)</li>
-              <li>Visual and brand identity</li>
-            </ul>
-          </section>
-
-          <section aria-labelledby="tools-label">
-            <h2 class="about-list-label" id="tools-label">Tools</h2>
-            <!-- JavaScript and React added because Appeal Kit ships in React,
-                 Persona in Next.js, and DepositProof in vanilla JavaScript. -->
-            <ul class="about-list">
-              <li>Figma</li>
-              <li>Framer</li>
-              <li>Relume</li>
-              <li>Adobe Firefly</li>
-              <li>Claude Code</li>
-              <li>HTML and CSS</li>
-              <li>JavaScript</li>
-              <li>React</li>
-            </ul>
-          </section>
-
-          <section aria-labelledby="education-label">
-            <h2 class="about-list-label" id="education-label">Education</h2>
-            <ul class="about-list">
-              <li>BFA User Experience Design, SCAD</li>
-              <li>Minor, Graphic Design</li>
-            </ul>
-          </section>
-
-          <section aria-labelledby="connect-label">
-            <h2 class="about-list-label" id="connect-label">Connect</h2>
-            <ul class="about-list">
-              <li><a href="mailto:zeeyadenkhan@gmail.com" class="about-link">zeeyadenkhan@gmail.com</a></li>
-              <li><a href="https://www.linkedin.com/in/zeeyadkhan" target="_blank" rel="noopener" class="about-link">LinkedIn</a></li>
-            </ul>
-          </section>
-        </div>
       </div>
+
+      <aside class="about-sidebar" aria-label="Skills and tools">
+
+        <div class="about-photo">
+          <img src="/ZeeyadKhanaboutme.webp" alt="Zeeyad Khan, AI Product Designer" width="900" height="1013">
+        </div>
+        <p class="about-awards">21 international design awards (IDA and Indigo Design Award) and multiple Dean's List honors at SCAD.</p>
+
+        <div class="about-sidebar-section">
+          <p class="about-sidebar-label">Disciplines</p>
+          <!-- Order reflects 2026 hiring demand mapped to shipped evidence:
+               AI Product Design and Design Engineering lead because AI native,
+               code capable designers are the strongest current hiring signal
+               and the Explorations page is direct evidence. Design Systems is
+               evidenced by the Park North system on the resume. Accessibility
+               is evidenced by the resume WCAG line and DepositProof focus and
+               keyboard testing. -->
+          <ul class="about-skill-list">
+            <li>AI Product Design</li>
+            <li>Design Engineering</li>
+            <li>UX and Product Design</li>
+            <li>User Research and Testing</li>
+            <li>Design Systems</li>
+            <li>Interaction Design</li>
+            <li>Accessibility (WCAG)</li>
+            <li>Visual and Brand Identity</li>
+          </ul>
+        </div>
+
+        <div class="about-sidebar-section">
+          <p class="about-sidebar-label">Tools</p>
+          <!-- JavaScript and React added because Appeal Kit ships in React,
+               Persona in Next.js, and DepositProof in vanilla JavaScript. -->
+          <div class="about-tool-grid">
+            <span class="about-tool">Figma</span>
+            <span class="about-tool">Framer</span>
+            <span class="about-tool">Relume</span>
+            <span class="about-tool">Adobe Firefly</span>
+            <span class="about-tool">Claude Code</span>
+            <span class="about-tool">HTML and CSS</span>
+            <span class="about-tool">JavaScript</span>
+            <span class="about-tool">React</span>
+          </div>
+        </div>
+
+        <div class="about-sidebar-section">
+          <p class="about-sidebar-label">Education</p>
+          <ul class="about-skill-list">
+            <li>BFA User Experience Design, SCAD</li>
+            <li>Minor, Graphic Design</li>
+          </ul>
+        </div>
+
+        <div class="about-sidebar-section">
+          <p class="about-sidebar-label">Connect</p>
+          <ul class="about-skill-list" style="gap: 0.75rem;">
+            <li style="border: none; padding: 0;">
+              <a href="mailto:zeeyadenkhan@gmail.com" class="about-link" style="font-size:0.82rem;">zeeyadenkhan@gmail.com →</a>
+            </li>
+            <li style="border: none; padding: 0;">
+              <a href="https://www.linkedin.com/in/zeeyadkhan" target="_blank" rel="noopener" class="about-link" style="font-size:0.82rem;">LinkedIn →</a>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
     </div>
 
   </main>
 
-  <div class="home-footer">
-    <footer class="site-footer">
+  <div style="max-width: var(--page-max); margin: 0 auto; padding: 0 2.5rem;" class="about-footer">
+    <footer class="site-footer" style="padding-left:0; padding-right:0;">
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="/#work">Work</a>
         <a href="/explorations">Explorations</a>
