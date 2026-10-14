@@ -79,14 +79,19 @@
       border-radius: 50%;
       background: var(--accent);
     }
-    ol.content-list { counter-reset: item; }
+    /* list-style none: the green counter below is the only number */
+    ol.content-list { counter-reset: item; list-style: none; }
     ol.content-list li { counter-increment: item; padding-left: 1.6rem; }
     ol.content-list li::before {
       content: counter(item);
+      /* inline in the first line, pulled into the padding, so the number
+         sits on the same baseline as the text */
+      position: static;
+      display: inline-block;
+      width: 1.6rem;
+      margin-left: -1.6rem;
       background: none;
-      width: auto;
       height: auto;
-      top: 0;
       border-radius: 0;
       color: var(--accent);
       font-weight: 700;
